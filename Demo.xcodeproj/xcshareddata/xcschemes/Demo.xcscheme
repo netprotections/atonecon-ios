@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "990B5EC01F0395B500B142E7"
-               BuildableName = "Demo.app"
-               BlueprintName = "Demo"
-               ReferencedContainer = "container:Demo.xcodeproj">
+               BlueprintIdentifier = "990B5E9D1F03957000B142E7"
+               BuildableName = "AtoneCon.framework"
+               BlueprintName = "AtoneCon"
+               ReferencedContainer = "container:AtoneCon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "990B5E9D1F03957000B142E7"
-               BuildableName = "AtoneCon.framework"
-               BlueprintName = "AtoneCon"
-               ReferencedContainer = "container:AtoneCon.xcodeproj">
+               BlueprintIdentifier = "990B5EC01F0395B500B142E7"
+               BuildableName = "Demo.app"
+               BlueprintName = "Demo"
+               ReferencedContainer = "container:Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

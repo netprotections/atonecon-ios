@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
 		990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B5EAC1F03957000B142E7 /* AtoneConTests.swift */; };
-		990B5EAF1F03957000B142E7 /* AtoneCon.h in Headers */ = {isa = PBXBuildFile; fileRef = 990B5EA11F03957000B142E7 /* AtoneCon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99738D361F039C4E007057DF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99738D351F039C4E007057DF /* Test.swift */; };
+		99DA1CFB1F03A53800A40BB1 /* AtoneCon.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,12 +25,12 @@
 
 /* Begin PBXFileReference section */
 		990B5E9E1F03957000B142E7 /* AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		990B5EA11F03957000B142E7 /* AtoneCon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtoneCon.h; sourceTree = "<group>"; };
 		990B5EA21F03957000B142E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990B5EA71F03957000B142E7 /* AtoneConTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5EAC1F03957000B142E7 /* AtoneConTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtoneConTests.swift; sourceTree = "<group>"; };
 		990B5EAE1F03957000B142E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99738D351F039C4E007057DF /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AtoneCon.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +55,7 @@
 		990B5E941F03957000B142E7 = {
 			isa = PBXGroup;
 			children = (
+				99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */,
 				990B5EA01F03957000B142E7 /* AtoneCon */,
 				990B5EAB1F03957000B142E7 /* AtoneConTests */,
 				990B5E9F1F03957000B142E7 /* Products */,
@@ -73,7 +74,6 @@
 		990B5EA01F03957000B142E7 /* AtoneCon */ = {
 			isa = PBXGroup;
 			children = (
-				990B5EA11F03957000B142E7 /* AtoneCon.h */,
 				990B5EA21F03957000B142E7 /* Info.plist */,
 				99738D351F039C4E007057DF /* Test.swift */,
 			);
@@ -96,7 +96,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				990B5EAF1F03957000B142E7 /* AtoneCon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99DA1CFB1F03A53800A40BB1 /* AtoneCon.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

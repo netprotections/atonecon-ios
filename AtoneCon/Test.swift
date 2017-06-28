@@ -8,6 +8,10 @@
 
 import Foundation
 
-final class Test {
-    var id: Int = 0
+final public class Test {
+    public var id: Int = 0
+
+    public init() {
+        id = 10
+    }
 }

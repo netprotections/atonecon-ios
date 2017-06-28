@@ -1,12 +1,19 @@
 PODS:
+  - AtoneCon (0.0.1)
   - SwiftLint (0.16.1)
 
 DEPENDENCIES:
+  - AtoneCon (from `./`)
   - SwiftLint (~> 0.16.1)
 
+EXTERNAL SOURCES:
+  AtoneCon:
+    :path: "./"
+
 SPEC CHECKSUMS:
+  AtoneCon: e619224648c899e0485be6a8e0c21a955bd130a8
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
 
-PODFILE CHECKSUM: 8f859075598192b0f97cb13721dd9edf6b4a7b48
+PODFILE CHECKSUM: c98de6de3fdbaa38313d2b2686e22cad986a4480
 
 COCOAPODS: 1.2.1

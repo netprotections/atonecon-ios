@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		88C86576A00ED32D7BB2FEC3 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA232F78ABB497F9F72C9 /* Pods_Demo.framework */; };
-		99738D331F039AFC007057DF /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99738D321F039AFC007057DF /* AtoneCon.framework */; };
 		9994ECE71F0397DE00075EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9994ECDE1F0397DE00075EA5 /* Assets.xcassets */; };
 		9994ECE91F0397DE00075EA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9994ECE31F0397DE00075EA5 /* AppDelegate.swift */; };
 		9994ECEA1F0397DE00075EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9994ECE51F0397DE00075EA5 /* LaunchScreen.storyboard */; };
 		99C073041F03995F00CC951E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9994ECE01F0397DE00075EA5 /* Info.plist */; };
+		99DA1D031F03A92F00A40BB1 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +24,9 @@
 		9994ECE01F0397DE00075EA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9994ECE31F0397DE00075EA5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9994ECE51F0397DE00075EA5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		99DA1CFC1F03A6AC00A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "Pods/../build/Debug-iphoneos/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
+		99DA1CFE1F03A70800A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "Pods/../build/Debug-iphoneos/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
+		99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AtoneCon-gbjochkvjnsvmcepxcxstynyhmew/Build/Products/Debug-iphonesimulator/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
 		DCD59B40CBC66DB394B1904F /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -32,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99738D331F039AFC007057DF /* AtoneCon.framework in Frameworks */,
+				99DA1D031F03A92F00A40BB1 /* AtoneCon.framework in Frameworks */,
 				88C86576A00ED32D7BB2FEC3 /* Pods_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +46,9 @@
 		4A5C7A82F7AB987942B034BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */,
+				99DA1CFE1F03A70800A40BB1 /* AtoneCon.framework */,
+				99DA1CFC1F03A6AC00A40BB1 /* AtoneCon.framework */,
 				99738D321F039AFC007057DF /* AtoneCon.framework */,
 				2C8EA232F78ABB497F9F72C9 /* Pods_Demo.framework */,
 			);
@@ -407,6 +413,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AtoneCon",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -424,6 +431,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AtoneCon",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
