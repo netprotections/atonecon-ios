@@ -2,12 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:AtonePay.xcodeproj">
+      location = "container:AtoneCon.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Demo.xcodeproj">
+      location = "container:Demo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Demo.xcodeproj">
    </FileRef>
 </Workspace>

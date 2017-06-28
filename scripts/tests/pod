@@ -3,12 +3,12 @@
 if [[ "$CI" != 'true' ]]; then
     echo 'Exporting build environment variables...'
     export SDK='iphonesimulator10.3'
-    export WORKSPACE='AtonePay.xcworkspace'
+    export WORKSPACE='AtoneCon.xcworkspace'
     export DESTINATION='OS=10.3,name=iPhone 7'
     export CONFIGURATION='Debug'
 fi
 
-export SCHEME='AtonePay'
+export SCHEME='AtoneCon'
 
 xcodebuild build \
     -workspace "$WORKSPACE" \

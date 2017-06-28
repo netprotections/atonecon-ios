@@ -1,15 +1,15 @@
 //
-//  AtonePayTests.swift
-//  AtonePayTests
+//  AtoneConTests.swift
+//  AtoneConTests
 //
 //  Created by Mylo Ho on 6/28/17.
 //  Copyright © 2017 AsianTech Inc. All rights reserved.
 //
 
 import XCTest
-@testable import AtonePay
+@testable import AtoneCon
 
-class AtonePayTests: XCTestCase {
+class AtoneConTests: XCTestCase {
 
     override func setUp() {
         super.setUp()

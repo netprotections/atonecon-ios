@@ -4,7 +4,7 @@ inhibit_all_warnings!
 use_frameworks!
 install! 'cocoapods', :deterministic_uuids => false
 
-workspace 'AtonePay.xcworkspace'
+workspace 'AtoneCon.xcworkspace'
 
 target 'Demo' do
     project 'Demo'

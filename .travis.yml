@@ -13,7 +13,7 @@ env:
   global:
     - SDK="iphonesimulator10.3"
     - SCHEME='Demo'
-    - WORKSPACE='AtonePay.xcworkspace'
+    - WORKSPACE='AtoneCon.xcworkspace'
     - DESTINATION="OS=10.3,name=iPhone 7"
     - CONFIGURATION='Debug'
 install:
