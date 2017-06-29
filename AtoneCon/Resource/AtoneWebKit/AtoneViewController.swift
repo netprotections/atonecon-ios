@@ -15,11 +15,11 @@ public class AtoneViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        setUpWebView()
+        setupWebView()
         loadWebView()
     }
 
-    private func setUpWebView() {
+    private func setupWebView() {
         webView = WKWebView(frame: view.bounds)
         view.addSubview(webView)
     }
@@ -30,6 +30,4 @@ public class AtoneViewController: UIViewController {
         let urlRequest = URLRequest(url: url)
         webView.load(urlRequest)
     }
-
-    // MARK: - Action
 }
