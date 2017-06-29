@@ -26,8 +26,8 @@ public class AtoneViewController: UIViewController {
 
     private func loadWebView() {
         // TODO: Load the html file from local resource folder
-        let bundle = Bundle(identifier: "jp.atone.AtoneCon")
-        guard let url = bundle?.url(forResource: "pageSample", withExtension: "html") else { return }
+        let bundle = Bundle(for: AtoneViewController.self)
+        guard let url = bundle.url(forResource: "pageSample", withExtension: "html") else { return }
         print("load url")
         let urlRequest = URLRequest(url: url)
         webView.load(urlRequest)

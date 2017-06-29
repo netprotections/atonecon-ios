@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1617436F1F04B52600302417 /* pageSample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1617436E1F04B52600302417 /* pageSample.html */; };
+		1666A77D1F0505A500334B7E /* atone.js in Resources */ = {isa = PBXBuildFile; fileRef = 1666A77C1F0505A500334B7E /* atone.js */; };
 		1699BE091F03B169007F1C54 /* AtoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699BE071F03B169007F1C54 /* AtoneViewController.swift */; };
 		1699BE0A1F03B169007F1C54 /* AtoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1699BE081F03B169007F1C54 /* AtoneViewController.xib */; };
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		1617436E1F04B52600302417 /* pageSample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pageSample.html; sourceTree = "<group>"; };
+		1666A77C1F0505A500334B7E /* atone.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = atone.js; sourceTree = "<group>"; };
 		1699BE071F03B169007F1C54 /* AtoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtoneViewController.swift; sourceTree = "<group>"; };
 		1699BE081F03B169007F1C54 /* AtoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtoneViewController.xib; sourceTree = "<group>"; };
 		990B5E9E1F03957000B142E7 /* AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 		1617436D1F04B52600302417 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				1666A77C1F0505A500334B7E /* atone.js */,
 				1617436E1F04B52600302417 /* pageSample.html */,
 			);
 			path = Support;
@@ -217,6 +220,7 @@
 			files = (
 				1617436F1F04B52600302417 /* pageSample.html in Resources */,
 				1699BE0A1F03B169007F1C54 /* AtoneViewController.xib in Resources */,
+				1666A77D1F0505A500334B7E /* atone.js in Resources */,
 				99DA1CFB1F03A53800A40BB1 /* AtoneCon.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
