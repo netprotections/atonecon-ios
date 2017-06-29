@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
 
     // MARK: - Action
     @IBAction func didTapAtoneButton(_ sender: Any) {
-        let atoneWebKitVC = AtoneWebKitViewController()
-        present(atoneWebKitVC, animated: true, completion: nil)
+        let atoneController = AtoneViewController()
+        present(atoneController, animated: true, completion: nil)
     }
 }

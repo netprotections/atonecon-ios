@@ -9,26 +9,26 @@
 import UIKit
 import WebKit
 
-public class AtoneWebKitViewController: UIViewController {
+public class AtoneViewController: UIViewController {
 
-    private var wkWebView: WKWebView!
+    private var webView: WKWebView!
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        setUpWKWebView()
+        setUpWebView()
         loadWebView()
     }
 
-    private func setUpWKWebView() {
-        wkWebView = WKWebView(frame: view.bounds)
-        view.addSubview(wkWebView)
+    private func setUpWebView() {
+        webView = WKWebView(frame: view.bounds)
+        view.addSubview(webView)
     }
 
     private func loadWebView() {
         // TODO: Load the html file from local resource folder
         guard let url = URL(string: "https://www.google.com.vn/") else { return }
         let urlRequest = URLRequest(url: url)
-        wkWebView.load(urlRequest)
+        webView.load(urlRequest)
     }
 
     // MARK: - Action
