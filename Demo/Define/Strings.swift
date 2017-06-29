@@ -2,7 +2,7 @@
 //  Strings.swift
 //  Demo
 //
-//  Created by Pham Ngoc Hanh on 6/28/17.
+//  Created by Pham Ngoc Hanh on 6/29/17.
 //  Copyright © 2017 AsianTech Inc. All rights reserved.
 //
 
