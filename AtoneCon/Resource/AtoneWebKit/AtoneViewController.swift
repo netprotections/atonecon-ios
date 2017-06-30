@@ -15,20 +15,18 @@ public class AtoneViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        setUpWebView()
+        setupWebView()
         loadWebView()
     }
 
-    private func setUpWebView() {
+    private func setupWebView() {
         webView = WKWebView(frame: view.bounds)
         view.addSubview(webView)
     }
 
     private func loadWebView() {
-        // TODO: Load the html file from local resource folder
         let bundle = Bundle(for: AtoneViewController.self)
         guard let url = bundle.url(forResource: "pageSample", withExtension: "html") else { return }
-        print("load url")
         let urlRequest = URLRequest(url: url)
         webView.load(urlRequest)
     }
