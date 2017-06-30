@@ -11,7 +11,7 @@ import AtoneCon
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var atoneButton: UIButton!
+    @IBOutlet weak var payButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,15 @@ class HomeViewController: UIViewController {
 
     private func setupUI() {
         title = Strings.homeTitle
-        atoneButton.layer.cornerRadius = 10
+        payButton.layer.cornerRadius = 10
     }
 
     // MARK: - Action
-    @IBAction func atoneButtonTapped(_ sender: Any) {
-        let atoneController = AtoneViewController()
-        present(atoneController, animated: true, completion: nil)
+    @IBAction func payButtonTapped(_ sender: Any) {
+        var options = AtonePay.Options()
+        options.publicKey = "xx-yy-zz"
+        AtonePay.config(options)
+        let payment = Payment()
+        AtonePay.performPayment(payment)
     }
 }

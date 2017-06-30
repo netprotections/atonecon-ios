@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-public class AtoneViewController: UIViewController {
+public class PaymentViewController: UIViewController {
 
     private var webView: WKWebView!
 
