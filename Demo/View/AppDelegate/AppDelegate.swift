@@ -15,8 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let a = Test()
-        print(a.id)
+        let homeController = HomeViewController()
+        let navi = UINavigationController(rootViewController: homeController)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        if let window = window {
+            window.rootViewController = navi
+            window.backgroundColor = .white
+            window.makeKeyAndVisible()
+        }
         return true
     }
 }

@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
 		990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B5EAC1F03957000B142E7 /* AtoneConTests.swift */; };
-		99738D361F039C4E007057DF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99738D351F039C4E007057DF /* Test.swift */; };
+		9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0301F0A9EE4008C4F95 /* AtoneCon.swift */; };
+		9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0311F0A9EE4008C4F95 /* Options.swift */; };
+		9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0321F0A9EE4008C4F95 /* Payment.swift */; };
+		9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */; };
 		99DA1CFB1F03A53800A40BB1 /* AtoneCon.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +32,10 @@
 		990B5EA71F03957000B142E7 /* AtoneConTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5EAC1F03957000B142E7 /* AtoneConTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtoneConTests.swift; sourceTree = "<group>"; };
 		990B5EAE1F03957000B142E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99738D351F039C4E007057DF /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		9963B0301F0A9EE4008C4F95 /* AtoneCon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtoneCon.swift; sourceTree = "<group>"; };
+		9963B0311F0A9EE4008C4F95 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		9963B0321F0A9EE4008C4F95 /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AtoneCon.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,8 +80,8 @@
 		990B5EA01F03957000B142E7 /* AtoneCon */ = {
 			isa = PBXGroup;
 			children = (
+				9963B02F1F0A9EE4008C4F95 /* Sources */,
 				990B5EA21F03957000B142E7 /* Info.plist */,
-				99738D351F039C4E007057DF /* Test.swift */,
 			);
 			path = AtoneCon;
 			sourceTree = "<group>";
@@ -87,6 +93,17 @@
 				990B5EAE1F03957000B142E7 /* Info.plist */,
 			);
 			path = AtoneConTests;
+			sourceTree = "<group>";
+		};
+		9963B02F1F0A9EE4008C4F95 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9963B0301F0A9EE4008C4F95 /* AtoneCon.swift */,
+				9963B0311F0A9EE4008C4F95 /* Options.swift */,
+				9963B0321F0A9EE4008C4F95 /* Payment.swift */,
+				9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99738D361F039C4E007057DF /* Test.swift in Sources */,
+				9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */,
+				9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */,
+				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,
+				9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
