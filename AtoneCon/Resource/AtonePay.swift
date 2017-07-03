@@ -20,7 +20,7 @@ public final class AtonePay {
     }
 
     public struct Options {
-        public var publicKey: String = ""
+        public var publicKey = ""
 
         public init() {
         }

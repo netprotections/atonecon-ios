@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
         options.publicKey = "xx-yy-zz"
         AtonePay.config(options)
         let payment = AtonePay.Payment()
-        
         AtonePay.performPayment(payment)
     }
 }
