@@ -8,5 +8,5 @@
 
 import Foundation
 
-internal struct Define {
+struct Define {
 }

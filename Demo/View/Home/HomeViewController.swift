@@ -9,7 +9,7 @@
 import UIKit
 import AtoneCon
 
-final internal class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var payButton: UIButton!
 
@@ -28,8 +28,10 @@ final internal class HomeViewController: UIViewController {
         var options = AtoneCon.Options()
         // TODO: - dummy data
         options.publicKey = "xx-yy-zz"
-        AtoneCon.config(options)
+
+        let atoneCon = AtoneCon.shared
+        atoneCon.config(options)
         let payment = AtoneCon.Payment()
-        AtoneCon.performPayment(payment)
+        atoneCon.performPayment(payment)
     }
 }

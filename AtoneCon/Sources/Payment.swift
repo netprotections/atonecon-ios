@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct Payment {
-    public init() {
+extension AtoneCon {
+    public struct Payment {
+        public init() {}
     }
 }

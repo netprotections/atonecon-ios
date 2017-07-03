@@ -9,7 +9,7 @@
 import Foundation
 
 extension Define {
-    internal struct String {
+    struct String {
         static let homeTitle = "Atone"
     }
 }

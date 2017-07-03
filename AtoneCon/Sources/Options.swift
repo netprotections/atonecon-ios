@@ -8,9 +8,10 @@
 
 import Foundation
 
-public struct Options {
-    public var publicKey = ""
+extension AtoneCon {
+    public struct Options {
+        public var publicKey = ""
 
-    public init() {
+        public init() {}
     }
 }

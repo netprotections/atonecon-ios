@@ -13,11 +13,11 @@ final internal class PaymentViewController: UIViewController {
 
     private var webView: WKWebView!
 
-    override internal func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        // dummy data
-        load(html: "https://www.google.com.vn/")
+        // TODO: Dummy Data
+        load(path: "https://www.google.com.vn/")
     }
 
     private func setupWebView() {
@@ -25,9 +25,9 @@ final internal class PaymentViewController: UIViewController {
         view.addSubview(webView)
     }
 
-    private func load(html: String) {
+    private func load(path: String) {
         // TODO: Load the html file from local resource folder
-        guard let url = URL(string: html) else { return }
+        guard let url = URL(string: path) else { return }
         let urlRequest = URLRequest(url: url)
         webView.load(urlRequest)
     }
