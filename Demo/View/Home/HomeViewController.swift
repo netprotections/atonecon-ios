@@ -9,7 +9,7 @@
 import UIKit
 import AtoneCon
 
-class HomeViewController: UIViewController {
+final internal class HomeViewController: UIViewController {
 
     @IBOutlet private weak var payButton: UIButton!
 
@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     }
 
     private func setupUI() {
-        title = Strings.homeTitle
+        title = Define.String.homeTitle
         payButton.layer.cornerRadius = 10
     }
 
