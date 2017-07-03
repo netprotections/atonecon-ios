@@ -11,7 +11,7 @@ import AtoneCon
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var payButton: UIButton!
+    @IBOutlet private weak var payButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         options.publicKey = "xx-yy-zz"
         AtonePay.config(options)
         let payment = AtonePay.Payment()
+        
         AtonePay.performPayment(payment)
     }
 }
