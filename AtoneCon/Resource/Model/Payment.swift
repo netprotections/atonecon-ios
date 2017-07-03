@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension AtonePay {
+extension AtoneCon {
     public struct Payment {
         public init() {
         }

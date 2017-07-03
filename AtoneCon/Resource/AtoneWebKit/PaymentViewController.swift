@@ -9,11 +9,11 @@
 import UIKit
 import WebKit
 
-class PaymentViewController: UIViewController {
+internal class PaymentViewController: UIViewController {
 
     private var webView: WKWebView!
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
         loadWebView()

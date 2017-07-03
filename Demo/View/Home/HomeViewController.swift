@@ -25,11 +25,11 @@ class HomeViewController: UIViewController {
 
     // MARK: - Action
     @IBAction func payButtonTapped(_ sender: Any) {
-        var options = AtonePay.Options()
+        var options = AtoneCon.Options()
         // TODO: - dummy data
         options.publicKey = "xx-yy-zz"
-        AtonePay.config(options)
-        let payment = AtonePay.Payment()
-        AtonePay.performPayment(payment)
+        AtoneCon.config(options)
+        let payment = AtoneCon.Payment()
+        AtoneCon.performPayment(payment)
     }
 }

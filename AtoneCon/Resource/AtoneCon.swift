@@ -9,15 +9,7 @@
 import Foundation
 import UIKit
 
-public final class AtonePay {
-    public class func performPayment(_ payment: Payment) {
-        let paymenController = PaymentViewController()
-        let root = UIApplication.shared.delegate?.window??.rootViewController
-        root?.present(paymenController, animated: true, completion: nil)
-    }
-
-    public class func config(_ option: Options) {
-    }
+public final class AtoneCon {
 
     public struct Options {
         public var publicKey = ""
@@ -25,4 +17,15 @@ public final class AtonePay {
         public init() {
         }
     }
+
+    public class func performPayment(_ payment: Payment) {
+        let paymenController = PaymentViewController()
+        let root = UIApplication.shared.delegate?.window??.rootViewController
+        root?.present(paymenController, animated: true, completion: nil)
+    }
+
+    public class func config(_ option: Options) {
+
+    }
+
 }
