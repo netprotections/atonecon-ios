@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */; };
+		16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */; };
+		16946B011F0B498700CE6FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B001F0B498700CE6FF8 /* Item.swift */; };
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
 		990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B5EAC1F03957000B142E7 /* AtoneConTests.swift */; };
 		9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0301F0A9EE4008C4F95 /* AtoneCon.swift */; };
@@ -27,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomer.swift; sourceTree = "<group>"; };
+		16946B001F0B498700CE6FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		990B5E9E1F03957000B142E7 /* AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5EA21F03957000B142E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990B5EA71F03957000B142E7 /* AtoneConTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +108,9 @@
 				9963B0311F0A9EE4008C4F95 /* Options.swift */,
 				9963B0321F0A9EE4008C4F95 /* Payment.swift */,
 				9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */,
+				16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */,
+				16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */,
+				16946B001F0B498700CE6FF8 /* Item.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -218,7 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */,
+				16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */,
+				16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */,
 				9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */,
+				16946B011F0B498700CE6FF8 /* Item.swift in Sources */,
 				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,
 				9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */,
 			);
