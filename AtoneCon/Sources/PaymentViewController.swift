@@ -24,7 +24,9 @@ final internal class PaymentViewController: UIViewController {
     }
 
     private func setupWebView() {
-        webView = WKWebView(frame: view.bounds)
+        var frame = view.bounds
+        frame.origin.y += 20
+        webView = WKWebView(frame: frame)
         view.addSubview(webView)
         webView.loadHTMLString(htmlContent(), baseURL: nil)
         injectScripts()
@@ -32,11 +34,11 @@ final internal class PaymentViewController: UIViewController {
 
     private func setupCancelButton() {
         let cancelButton = UIButton()
-        let size = CGSize(width: 50, height: 50)
-        cancelButton.frame = CGRect(origin: .zero, size: size)
+        let origin = CGPoint(x: 0, y: 20)
+        cancelButton.frame.origin = origin
         cancelButton.setTitle(Define.String.cancel, for: .normal)
-        cancelButton.setTitleColor(.white, for: .normal)
-        cancelButton.backgroundColor = .blue
+        cancelButton.setTitleColor(.red, for: .normal)
+        cancelButton.sizeToFit()
         view.addSubview(cancelButton)
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }

@@ -1,5 +1,5 @@
 //
-//  Strings.swift
+//  String.swift
 //  AtoneCon
 //
 //  Created by Mylo Ho on 7/4/17.
