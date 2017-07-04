@@ -13,9 +13,10 @@
 		9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0311F0A9EE4008C4F95 /* Options.swift */; };
 		9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0321F0A9EE4008C4F95 /* Payment.swift */; };
 		9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */; };
-		99AC5C271F0B1DB300398E26 /* atone.html in Resources */ = {isa = PBXBuildFile; fileRef = 99AC5C261F0B1DB300398E26 /* atone.html */; };
-		99DA1CFB1F03A53800A40BB1 /* AtoneCon.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */; };
-		99ECEE371F0B25DB00A1D1B0 /* atone.js in Resources */ = {isa = PBXBuildFile; fileRef = 99ECEE361F0B25DB00A1D1B0 /* atone.js */; };
+		99ECEE411F0B83EC00A1D1B0 /* atone.html in Resources */ = {isa = PBXBuildFile; fileRef = 99ECEE3F1F0B83EC00A1D1B0 /* atone.html */; };
+		99ECEE421F0B83EC00A1D1B0 /* atone.js in Resources */ = {isa = PBXBuildFile; fileRef = 99ECEE401F0B83EC00A1D1B0 /* atone.js */; };
+		99ECEE471F0B897700A1D1B0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE461F0B897700A1D1B0 /* Define.swift */; };
+		99ECEE491F0B899B00A1D1B0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE481F0B899B00A1D1B0 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +39,11 @@
 		9963B0311F0A9EE4008C4F95 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		9963B0321F0A9EE4008C4F95 /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		99AC5C261F0B1DB300398E26 /* atone.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = atone.html; sourceTree = "<group>"; };
 		99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AtoneCon.podspec; sourceTree = "<group>"; };
-		99ECEE361F0B25DB00A1D1B0 /* atone.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = atone.js; sourceTree = "<group>"; };
+		99ECEE3F1F0B83EC00A1D1B0 /* atone.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = atone.html; sourceTree = "<group>"; };
+		99ECEE401F0B83EC00A1D1B0 /* atone.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = atone.js; sourceTree = "<group>"; };
+		99ECEE461F0B897700A1D1B0 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		99ECEE481F0B899B00A1D1B0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 		9963B02F1F0A9EE4008C4F95 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				99ECEE451F0B897700A1D1B0 /* Define */,
 				9963B0301F0A9EE4008C4F95 /* AtoneCon.swift */,
 				9963B0311F0A9EE4008C4F95 /* Options.swift */,
 				9963B0321F0A9EE4008C4F95 /* Payment.swift */,
@@ -114,10 +118,27 @@
 		99AC5C251F0B1DB300398E26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				99AC5C261F0B1DB300398E26 /* atone.html */,
-				99ECEE361F0B25DB00A1D1B0 /* atone.js */,
+				99ECEE3E1F0B83EC00A1D1B0 /* www */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		99ECEE3E1F0B83EC00A1D1B0 /* www */ = {
+			isa = PBXGroup;
+			children = (
+				99ECEE3F1F0B83EC00A1D1B0 /* atone.html */,
+				99ECEE401F0B83EC00A1D1B0 /* atone.js */,
+			);
+			path = www;
+			sourceTree = "<group>";
+		};
+		99ECEE451F0B897700A1D1B0 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				99ECEE461F0B897700A1D1B0 /* Define.swift */,
+				99ECEE481F0B899B00A1D1B0 /* String.swift */,
+			);
+			path = Define;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +234,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99AC5C271F0B1DB300398E26 /* atone.html in Resources */,
-				99DA1CFB1F03A53800A40BB1 /* AtoneCon.podspec in Resources */,
-				99ECEE371F0B25DB00A1D1B0 /* atone.js in Resources */,
+				99ECEE421F0B83EC00A1D1B0 /* atone.js in Resources */,
+				99ECEE411F0B83EC00A1D1B0 /* atone.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +256,8 @@
 				9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */,
 				9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */,
 				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,
+				99ECEE471F0B897700A1D1B0 /* Define.swift in Sources */,
+				99ECEE491F0B899B00A1D1B0 /* String.swift in Sources */,
 				9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
