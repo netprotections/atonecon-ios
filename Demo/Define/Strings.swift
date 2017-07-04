@@ -8,6 +8,8 @@
 
 import Foundation
 
-class Strings {
-    static let homeTitle = "Atone"
+extension Define {
+    struct String {
+        static let homeTitle = "Atone"
+    }
 }
