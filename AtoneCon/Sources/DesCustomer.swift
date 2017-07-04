@@ -19,7 +19,14 @@ extension AtoneCon {
         private var tel = ""
         private var email = ""
 
-        public init(name: String, nameKana: String, companyName: String, department: String, zipCode: String, address: String, tel: String, email: String) {
+        public init(name: String,
+                    nameKana: String,
+                    companyName: String,
+                    department: String,
+                    zipCode: String,
+                    address: String,
+                    tel: String,
+                    email: String) {
             self.name = name
             self.nameKana = nameKana
             self.companyName = companyName

@@ -22,7 +22,11 @@ extension AtoneCon {
         private var descriptionTrans = ""
         private var checksum = ""
 
-        public init(amount: Int, shopTransactionNo: String, salesSettled: Bool, descriptionTrans: String, checksum: String) {
+        public init(amount: Int,
+                    shopTransactionNo: String,
+                    salesSettled: Bool,
+                    descriptionTrans: String,
+                    checksum: String) {
             self.amount = amount
             self.shopTransactionNo = shopTransactionNo
             self.salesSettled = salesSettled

@@ -13,6 +13,8 @@ final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var payButton: UIButton!
 
+    private var viewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -33,62 +35,7 @@ final class HomeViewController: UIViewController {
         atoneCon.config(options)
 
         // TODO: - dummy data
-        var payment = AtoneCon.Payment(
-            amount: 123,
-            shopTransactionNo: "",
-            salesSettled: true,
-            descriptionTrans: "",
-            checksum: "Eba8b4JtD+inOc/zRON0D4RfODMfXwsz1hCdAmrq1CI="
-        )
-
-        payment.customer = AtoneCon.Customer(
-            name: "",
-            familyName: "",
-            givenName: "",
-            nameKana: "",
-            familyNameKana: "",
-            givenNameKana: "",
-            phoneNumber: "",
-            birthday: "",
-            sexDivision: "",
-            companyName: "",
-            department: "",
-            zipCode: "",
-            address: "",
-            tel: "",
-            email: "",
-            totalPurchaseCount: 0,
-            totalPurchaseAmount: 0
-        )
-
-        payment.desCustomers = [
-            AtoneCon.DesCustomer(
-                name: "",
-                nameKana: "",
-                companyName: "",
-                department: "",
-                zipCode: "",
-                address: "",
-                tel: "",
-                email: ""
-            )
-        ]
-
-        payment.items = [
-            AtoneCon.Item(
-                id: "1",
-                name: "",
-                price: 0,
-                count: 0,
-                url: ""),
-            AtoneCon.Item(
-                id: "2",
-                name: "",
-                price: 0,
-                count: 0,
-                url: "")
-        ]
-
+        let payment = viewModel.payment
         atoneCon.performPayment(payment)
     }
 }

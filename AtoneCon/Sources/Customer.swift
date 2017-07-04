@@ -28,8 +28,23 @@ extension AtoneCon {
         private var totalPurchaseCount = 0
         private var totalPurchaseAmount = 0
 
-        public init(name: String, familyName: String, givenName: String, nameKana: String, familyNameKana: String, givenNameKana: String, phoneNumber: String, birthday: String, sexDivision: String, companyName: String, department: String, zipCode: String, address: String, tel: String, email: String, totalPurchaseCount: Int, totalPurchaseAmount: Int) {
-
+        public init(name: String,
+                    familyName: String,
+                    givenName: String,
+                    nameKana: String,
+                    familyNameKana: String,
+                    givenNameKana: String,
+                    phoneNumber: String,
+                    birthday: String,
+                    sexDivision: String,
+                    companyName: String,
+                    department: String,
+                    zipCode: String,
+                    address: String,
+                    tel: String,
+                    email: String,
+                    totalPurchaseCount: Int,
+                    totalPurchaseAmount: Int) {
             self.name = name
             self.familyName = familyName
             self.givenName = givenName

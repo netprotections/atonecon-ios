@@ -16,7 +16,11 @@ extension AtoneCon {
         private var count = 0
         private var url = ""
 
-        public init(id: String, name: String, price: Int, count: Int, url: String) {
+        public init(id: String,
+                    name: String,
+                    price: Int,
+                    count: Int,
+                    url: String) {
             self.id = id
             self.name = name
             self.price = price
