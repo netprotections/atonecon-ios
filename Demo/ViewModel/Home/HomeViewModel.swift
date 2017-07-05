@@ -9,9 +9,9 @@
 import Foundation
 import AtoneCon
 
-class HomeViewModel {
+final internal class HomeViewModel {
 
-    internal var payment: AtoneCon.Payment {
+    private var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
             amount: 0,
@@ -20,9 +20,9 @@ class HomeViewModel {
             descriptionTrans: "",
             checksum: "")
 
-        payment.customer = self.customer
-        payment.desCustomers = self.desCustomers
-        payment.items = self.items
+        payment.customer = customer
+        payment.desCustomers = desCustomers
+        payment.items = items
         return payment
     }
 
@@ -79,5 +79,9 @@ class HomeViewModel {
                 count: 0,
                 url: "")
         ]
+    }
+
+    internal func getPayment() -> AtoneCon.Payment {
+        return payment
     }
 }

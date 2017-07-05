@@ -13,7 +13,7 @@ final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var payButton: UIButton!
 
-    private var viewModel = HomeViewModel()
+    var viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController {
         atoneCon.config(options)
 
         // TODO: - dummy data
-        let payment = viewModel.payment
+        let payment = viewModel.getPayment()
         atoneCon.performPayment(payment)
     }
 }
