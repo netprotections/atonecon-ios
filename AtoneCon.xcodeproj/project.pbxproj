@@ -14,6 +14,7 @@
 		9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0321F0A9EE4008C4F95 /* Payment.swift */; };
 		9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */; };
 		99ADC1791F0C7B1300AD04E7 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 99ADC1781F0C7B1300AD04E7 /* www */; };
+		99E7271A1F0CA867000F0B29 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E727191F0CA867000F0B29 /* Color.swift */; };
 		99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */; };
 		99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		99ADC1781F0C7B1300AD04E7 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AtoneCon.podspec; sourceTree = "<group>"; };
+		99E727191F0CA867000F0B29 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 			children = (
 				99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */,
 				99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */,
+				99E727191F0CA867000F0B29 /* Color.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */,
 				9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */,
+				99E7271A1F0CA867000F0B29 /* Color.swift in Sources */,
 				9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */,
 				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,
 				99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */,

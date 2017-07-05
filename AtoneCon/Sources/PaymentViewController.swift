@@ -13,35 +13,37 @@ final internal class PaymentViewController: UIViewController {
 
     // MARK: - Properties
     private var webView: WKWebView!
+    fileprivate var indicator: UIActivityIndicatorView!
 
     // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
+        setupIndicator()
     }
 
     // MARK: - Private Functions
     private func setupWebView() {
-        webView = WKWebView(frame: view.bounds)
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController.addUserScript(userScript())
+        webView = WKWebView(frame: view.bounds, configuration: configuration)
+        webView.backgroundColor = Define.Color.blackAlpha90
         view.addSubview(webView)
-        webView.loadHTMLString(htmlContent(), baseURL: nil)
+        let urlRequest = URLRequest(url: htmlURL())
+        webView.load(urlRequest)
         webView.navigationDelegate = self
-        injectScripts()
     }
 
-    private func injectScripts() {
-        let controller = webView.configuration.userContentController
-        controller.addUserScript(userScript())
+    private func setupIndicator() {
+        indicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
+        indicator.center = view.center
+        view.addSubview(indicator)
     }
 
-    private func htmlContent() -> String {
-        do {
-            let url = self.url(forResource: "atone", withExtension: "html")
-            let string = try String(contentsOf: url)
-            return string
-        } catch {
-            fatalError(error.localizedDescription)
-        }
+    private func htmlURL() -> URL {
+        return url(forResource: "atone", withExtension: "html")
     }
 
     private func userScript() -> WKUserScript {
@@ -78,9 +80,9 @@ final internal class PaymentViewController: UIViewController {
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        // Delay with 1.5 seconds always load Paymen popup success
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let this = self else { return }
+            this.indicator.stopAnimating()
             this.startAtone()
         }
     }
