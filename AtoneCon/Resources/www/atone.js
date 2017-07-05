@@ -19,7 +19,8 @@ var data = {
         "company_name": "ネットプロテクションズ",
         "department": "セールス",
         "zip_code": "123-4567",
-        "address": "東京都中央区銀座1-10ー6 銀座ファーストビル4階", "tel": "03-1234-1234",
+        "address": "東京都中央区銀座1-10ー6 銀座ファーストビル4階",
+        "tel": "03-1234-1234",
         "email": "no@netprotections.co.jp",
         "total_purchase_count": 8,
         "total_purchase_amount": 2160
@@ -55,31 +56,31 @@ var data = {
               "item_price": 580,
               "item_count": 2,
               "item_url": "https://atone.be/items/077/"
-              }
+            }
               ]
-}
+    }
 Atone.config({
              pre_token: "W2yAg_sHhOUbNdXTafe_f23B",
              pub_key: "bB2uNvcOP2o8fJzHpWUumA",
              payment: data,
              // 認証が完了したタイミングで呼び出し
              authenticated: function(authentication_token) {
-             window.webkit.messageHandlers.authenticated.postMessage(authentication_token);
+                window.webkit.messageHandlers.authenticated.postMessage(authentication_token);
              },
              // モーダルを閉じたタイミングで呼び出し
              cancelled: function() {
-             window.webkit.messageHandlers.cancelled.postMessage('ングで呼び出し');
+                window.webkit.messageHandlers.cancelled.postMessage('ングで呼び出し');
              },
              // 決済がNGとなった後、ボタンを押してフォームを閉じたタイミングで呼び出し
              failed: function(response) {
-             window.webkit.messageHandlers.failed.postMessage(response);
+                window.webkit.messageHandlers.failed.postMessage(response);
              },
              // 決済がOKとなり自動でフォームが閉じたタイミングで呼び出し
              succeeded: function(response) {
-             window.webkit.messageHandlers.succeeded.postMessage(response);
+                window.webkit.messageHandlers.succeeded.postMessage(response);
              }
-             });
-var button = document.getElementById("atone-button");
-button.addEventListener("click", function(e) {
-                        Atone.start(); // クリック時にモーダルを立ち上げる。
-                        }, false);
+});
+
+function startAtone() {
+    Atone.start();
+}

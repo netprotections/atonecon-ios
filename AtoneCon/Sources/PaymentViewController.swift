@@ -11,40 +11,22 @@ import WebKit
 
 final internal class PaymentViewController: UIViewController {
 
+    // MARK: - Properties
     private var webView: WKWebView!
 
+    // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-
-    private func setupUI() {
         setupWebView()
-        setupCancelButton()
     }
 
+    // MARK: - Private Functions
     private func setupWebView() {
-        var frame = view.bounds
-        frame.origin.y += 20
-        webView = WKWebView(frame: frame)
+        webView = WKWebView(frame: view.bounds)
         view.addSubview(webView)
         webView.loadHTMLString(htmlContent(), baseURL: nil)
+        webView.navigationDelegate = self
         injectScripts()
-    }
-
-    private func setupCancelButton() {
-        let cancelButton = UIButton()
-        let origin = CGPoint(x: 0, y: 20)
-        cancelButton.frame.origin = origin
-        cancelButton.setTitle(Define.String.cancel, for: .normal)
-        cancelButton.setTitleColor(.red, for: .normal)
-        cancelButton.sizeToFit()
-        view.addSubview(cancelButton)
-        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
-    }
-
-    @objc private func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
 
     private func injectScripts() {
@@ -75,9 +57,27 @@ final internal class PaymentViewController: UIViewController {
 
     private func url(forResource name: String?, withExtension ext: String?) -> URL {
         let bundle = Bundle(for: PaymentViewController.self)
-        guard let url = bundle.url(forResource: name, withExtension: ext) else {
+        guard let url = bundle.url(forResource: name, withExtension: ext, subdirectory: "www") else {
             fatalError("File Not Found")
         }
         return url
+    }
+
+    // MARK: - Fileprivate Functions
+    fileprivate func evaluateScript() {
+        // TODO: Implement completion Handler
+        webView.evaluateJavaScript("startAtone();") { [weak self](_, error) in
+            guard self != nil else { return }
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: - WKNavigationDelegate
+extension PaymentViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        evaluateScript()
     }
 }
