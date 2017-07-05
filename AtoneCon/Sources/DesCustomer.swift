@@ -10,14 +10,14 @@ import Foundation
 
 extension AtoneCon {
     public struct DesCustomer {
-        private var name = ""
-        private var nameKana = ""
-        private var companyName = ""
-        private var department = ""
-        private var zipCode = ""
-        private var address = ""
-        private var tel = ""
-        private var email = ""
+        public var name = ""
+        public var nameKana = ""
+        public var companyName = ""
+        public var department = ""
+        public var zipCode = ""
+        public var address = ""
+        public var tel = ""
+        public var email = ""
 
         public init(name: String,
                     nameKana: String,

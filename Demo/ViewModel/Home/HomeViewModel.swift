@@ -11,7 +11,7 @@ import AtoneCon
 
 final internal class HomeViewModel {
 
-    private var payment: AtoneCon.Payment {
+    var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
             amount: 0,
@@ -79,9 +79,5 @@ final internal class HomeViewModel {
                 count: 0,
                 url: "")
         ]
-    }
-
-    internal func getPayment() -> AtoneCon.Payment {
-        return payment
     }
 }

@@ -16,11 +16,11 @@ extension AtoneCon {
         public var desCustomers: [DesCustomer] = []
         public var items: [Item] = []
 
-        private var amount = 0
-        private var shopTransactionNo = ""
-        private var salesSettled = false
-        private var descriptionTrans = ""
-        private var checksum = ""
+        public var amount = 0
+        public var shopTransactionNo = ""
+        public var salesSettled = false
+        public var descriptionTrans = ""
+        public var checksum = ""
 
         public init(amount: Int,
                     shopTransactionNo: String,

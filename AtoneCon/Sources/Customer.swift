@@ -10,23 +10,23 @@ import Foundation
 
 extension AtoneCon {
     public struct Customer {
-        private var name =  ""
-        private var familyName = ""
-        private var givenName = ""
-        private var nameKana = ""
-        private var familyNameKana = ""
-        private var givenNameKana = ""
-        private var phoneNumber = ""
-        private var birthday = ""
-        private var sexDivision = ""
-        private var companyName = ""
-        private var department = ""
-        private var zipCode = ""
-        private var address = ""
-        private var tel = ""
-        private var email = ""
-        private var totalPurchaseCount = 0
-        private var totalPurchaseAmount = 0
+        public var name =  ""
+        public var familyName = ""
+        public var givenName = ""
+        public var nameKana = ""
+        public var familyNameKana = ""
+        public var givenNameKana = ""
+        public var phoneNumber = ""
+        public var birthday = ""
+        public var sexDivision = ""
+        public var companyName = ""
+        public var department = ""
+        public var zipCode = ""
+        public var address = ""
+        public var tel = ""
+        public var email = ""
+        public var totalPurchaseCount = 0
+        public var totalPurchaseAmount = 0
 
         public init(name: String,
                     familyName: String,

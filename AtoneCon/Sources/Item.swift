@@ -10,11 +10,11 @@ import Foundation
 
 extension AtoneCon {
     public struct Item {
-        private var id = ""
-        private var name = ""
-        private var price = 0
-        private var count = 0
-        private var url = ""
+        public var id = ""
+        public var name = ""
+        public var price = 0
+        public var count = 0
+        public var url = ""
 
         public init(id: String,
                     name: String,

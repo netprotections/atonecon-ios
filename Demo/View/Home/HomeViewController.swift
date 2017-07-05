@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController {
         atoneCon.config(options)
 
         // TODO: - dummy data
-        let payment = viewModel.getPayment()
+        let payment = viewModel.payment
         atoneCon.performPayment(payment)
     }
 }
