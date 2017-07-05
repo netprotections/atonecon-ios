@@ -64,9 +64,9 @@ final internal class PaymentViewController: UIViewController {
     }
 
     // MARK: - Fileprivate Functions
-    fileprivate func evaluateScript() {
+    fileprivate func startAtone() {
         // TODO: Implement completion Handler
-        webView.evaluateJavaScript("startAtone();") { [weak self](_, error) in
+        webView.evaluateJavaScript("startAtone()") { [weak self](_, error) in
             guard self != nil else { return }
             if let error = error {
                 print(error.localizedDescription)
@@ -78,6 +78,10 @@ final internal class PaymentViewController: UIViewController {
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        evaluateScript()
+        // Delay with 1.5 seconds always load Paymen popup success
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            guard let this = self else { return }
+            this.startAtone()
+        }
     }
 }
