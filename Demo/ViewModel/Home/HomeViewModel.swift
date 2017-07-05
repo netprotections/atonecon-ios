@@ -9,7 +9,7 @@
 import Foundation
 import AtoneCon
 
-final internal class HomeViewModel {
+final class HomeViewModel {
 
     var payment: AtoneCon.Payment {
         // TODO: dummy data
