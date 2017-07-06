@@ -9,11 +9,17 @@
 import UIKit
 import WebKit
 
+internal protocol PaymentViewControllerDelegate: class {
+    func paymentViewController(_ paymentViewController: PaymentViewController, needsPerformAction action: AtoneConScriptsHandler.Action)
+}
+
 final internal class PaymentViewController: UIViewController {
 
     // MARK: - Properties
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
+    var atoneConScriptHandle: AtoneConScriptsHandler!
+    weak var delegate: PaymentViewControllerDelegate?
 
     // MARK: - Cycle Life
     override func viewDidLoad() {
@@ -32,6 +38,9 @@ final internal class PaymentViewController: UIViewController {
         let urlRequest = URLRequest(url: htmlURL())
         webView.load(urlRequest)
         webView.navigationDelegate = self
+
+        atoneConScriptHandle = AtoneConScriptsHandler()
+        atoneConScriptHandle.delegate = self
     }
 
     private func setupIndicator() {
@@ -84,6 +93,17 @@ extension PaymentViewController: WKNavigationDelegate {
             guard let this = self else { return }
             this.indicator.stopAnimating()
             this.startAtone()
+        }
+    }
+}
+
+extension PaymentViewController: AtoneConScriptsHandlerDelegate {
+    func atoneScriptsHandler(_ atoneConScriptsHandler: AtoneConScriptsHandler, needsPerformAction action: AtoneConScriptsHandler.Action) {
+        switch action {
+        case .dismiss:
+            dismiss(animated: true, completion: nil)
+        default:
+            delegate?.paymentViewController(self, needsPerformAction: action)
         }
     }
 }

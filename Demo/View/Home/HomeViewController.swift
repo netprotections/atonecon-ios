@@ -39,3 +39,21 @@ final class HomeViewController: UIViewController {
         atoneCon.performPayment(payment)
     }
 }
+
+extension HomeViewController: AtoneConDelegate {
+    func atoneCon(atoneCon: AtoneCon, didCancelPayment payment: AtoneCon.Payment) {
+
+    }
+
+    func atoneCon(atoneCon: AtoneCon, didFinishPayment payment: AtoneCon.Payment, transactionToken: String) {
+
+    }
+
+    func atoneCon(atoneCon: AtoneCon, didFailureWithError error: NSError) {
+
+    }
+
+    func atoneCon(atoneCon: AtoneCon, willPerformPayment payment: AtoneCon.Payment) {
+
+    }
+}
