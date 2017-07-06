@@ -38,8 +38,8 @@ final internal class PaymentViewController: UIViewController {
         let urlRequest = URLRequest(url: htmlURL())
         webView.load(urlRequest)
         webView.navigationDelegate = self
-
-        atoneConScriptHandle = AtoneConScriptsHandler()
+        atoneConScriptHandle = AtoneConScriptsHandler(forWebView: webView)
+        atoneConScriptHandle.eventScript()
         atoneConScriptHandle.delegate = self
     }
 
@@ -88,12 +88,31 @@ final internal class PaymentViewController: UIViewController {
 
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
+    internal func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.allow)
+    }
+
+    internal func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        decisionHandler(.allow)
+    }
+
+    internal func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let this = self else { return }
             this.indicator.stopAnimating()
             this.startAtone()
         }
+    }
+
+    internal func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        webView.evaluateJavaScript("startAtone()", completionHandler: { [weak self](_, error) in
+            guard self != nil else { return }
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        })
+        completionHandler(.rejectProtectionSpace, nil)
     }
 }
 

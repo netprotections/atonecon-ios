@@ -23,9 +23,20 @@ private struct MessageName {
 
 internal final class AtoneConScriptsHandler: NSObject {
 
+    private var webView: WKWebView!
     internal weak var delegate: AtoneConScriptsHandlerDelegate?
     private let events: [String] = [MessageName.authenticated, MessageName.cancelled, MessageName.failed, MessageName.succeeded, MessageName.dismiss]
 
+    init(forWebView webView: WKWebView) {
+        self.webView = webView
+    }
+
+    internal func eventScript() {
+        let controller = webView.configuration.userContentController
+        for event in events {
+            controller.add(self, name: event)
+        }
+    }
 }
 
 extension AtoneConScriptsHandler {

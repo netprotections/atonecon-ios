@@ -35,6 +35,7 @@ final public class AtoneCon {
         delegate?.atoneCon(atoneCon: self, willPerformPayment: payment)
         self.payment = payment
         let paymenController = PaymentViewController()
+        paymenController.delegate = self
         let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.present(paymenController, animated: true, completion: nil)
     }

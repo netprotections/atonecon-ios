@@ -33,7 +33,7 @@ final class HomeViewController: UIViewController {
 
         let atoneCon = AtoneCon.shared
         atoneCon.config(options)
-
+        atoneCon.delegate = self
         // TODO: - dummy data
         let payment = viewModel.payment
         atoneCon.performPayment(payment)
@@ -42,18 +42,14 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didCancelPayment payment: AtoneCon.Payment) {
-
     }
 
     func atoneCon(atoneCon: AtoneCon, didFinishPayment payment: AtoneCon.Payment, transactionToken: String) {
-
     }
 
     func atoneCon(atoneCon: AtoneCon, didFailureWithError error: NSError) {
-
     }
 
     func atoneCon(atoneCon: AtoneCon, willPerformPayment payment: AtoneCon.Payment) {
-
     }
 }
