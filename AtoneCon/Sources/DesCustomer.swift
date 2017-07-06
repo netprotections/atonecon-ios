@@ -36,5 +36,20 @@ extension AtoneCon {
             self.tel = tel
             self.email = email
         }
+
+        func toScriptString() -> String {
+            let desCustomerScriptString =
+                "{" +
+                    "\"dest_customer_name\": \"" + name + "\", " +
+                    "\"dest_customer_name_kana\": \"" + nameKana + "\", " +
+                    "\"dest_company_name\": \"" + companyName + "\", " +
+                    "\"dest_department\": \"" + department + "\", " +
+                    "\"dest_zip_code\": \"" + zipCode + "\", " +
+                    "\"dest_address\": \"" + address + "\", " +
+                    "\"dest_tel\": \"" + tel + "\", " +
+                    "\"dest_email\": \"" + email + "\"" +
+                "}"
+            return desCustomerScriptString
+        }
     }
 }
