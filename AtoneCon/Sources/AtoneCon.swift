@@ -42,7 +42,7 @@ final public class AtoneCon {
 }
 
 extension AtoneCon: PaymentViewControllerDelegate {
-    func controller(_ paymentViewController: PaymentViewController, needsPerformAction action: ScriptsHandler.Action) {
+    func controller(_ controller: PaymentViewController, needsPerformAction action: ScriptsHandler.Action) {
         switch action {
             // TODO: save token
         case .authenticated(_):
@@ -59,8 +59,6 @@ extension AtoneCon: PaymentViewControllerDelegate {
             if let payment = payment {
                 delegate?.atoneCon(atoneCon: self, didFinishPayment: payment, transactionToken: "")
             }
-        default:
-            break
         }
     }
 }

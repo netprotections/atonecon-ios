@@ -44,7 +44,6 @@ extension ScriptsHandler {
         case canceled
         case succeeded(Any)
         case failed(Any)
-        case dismiss
     }
 }
 

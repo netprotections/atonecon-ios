@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 internal protocol PaymentViewControllerDelegate: class {
-    func controller(_ paymentViewController: PaymentViewController, needsPerformAction action: ScriptsHandler.Action)
+    func controller(_ controller: PaymentViewController, needsPerformAction action: ScriptsHandler.Action)
 }
 
 final internal class PaymentViewController: UIViewController {
@@ -89,14 +89,6 @@ final internal class PaymentViewController: UIViewController {
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
 
-    internal func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        decisionHandler(.allow)
-    }
-
-    internal func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        decisionHandler(.allow)
-    }
-
     internal func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let this = self else { return }
@@ -104,25 +96,10 @@ extension PaymentViewController: WKNavigationDelegate {
             this.startAtone()
         }
     }
-
-    internal func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        webView.evaluateJavaScript("startAtone()", completionHandler: { [weak self](_, error) in
-            guard self != nil else { return }
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        })
-        completionHandler(.rejectProtectionSpace, nil)
-    }
 }
 
 extension PaymentViewController: ScriptsHandlerDelegate {
     func scriptsHandler(_ scriptsHandler: ScriptsHandler, needsPerformAction action: ScriptsHandler.Action) {
-        switch action {
-        case .dismiss:
-            dismiss(animated: true, completion: nil)
-        default:
-            delegate?.controller(self, needsPerformAction: action)
-        }
+        delegate?.controller(self, needsPerformAction: action)
     }
 }
