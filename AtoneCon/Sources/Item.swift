@@ -10,10 +10,10 @@ import Foundation
 
 extension AtoneCon {
     public struct Item {
-        public var id = ""
-        public var name = ""
-        public var price = 0
-        public var count = 0
+        public var id: String
+        public var name: String
+        public var price: Int
+        public var count: Int
         public var url: String?
 
         public init(id: String,
@@ -28,15 +28,14 @@ extension AtoneCon {
             self.url = url
         }
 
-        func toScriptString() -> String {
-            let itemScriptString =
-                "{" +
-                    "\"shop_item_id\": \"" + id + "\", " +
-                    "\"item_name\": \"" + name + "\", " +
-                    "\"item_price\": \"" + "\(price)" + "\", " +
-                    "\"item_count\": \"" + "\(count)" + "\", " +
-                    "\"item_url\": \"" + url + "\"" +
-                "}"
+        internal func toScriptString() -> String {
+            let itemScriptString = "{" +
+                "\"shop_item_id\": " + "\"" + id + "\", " +
+                "\"item_name\": " + "\"" + name + "\", " +
+                "\"item_price\": " + "\(price)" + ", " +
+                "\"item_count\": " + "\(count)" + ", " +
+                "\"item_url\": " + "\"" + url.asStringOrNullText() + "\"" +
+            "}"
             return itemScriptString
         }
     }

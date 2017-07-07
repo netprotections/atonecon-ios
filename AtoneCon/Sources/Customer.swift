@@ -10,7 +10,7 @@ import Foundation
 
 extension AtoneCon {
     public struct Customer {
-        public var name =  ""
+        public var name: String
         public var familyName: String?
         public var givenName: String?
         public var nameKana: String?
@@ -65,26 +65,25 @@ extension AtoneCon {
         }
 
         func toScriptString() -> String {
-            let customerScriptString =
-                "{\"" +
-                    "customer_name\": \"" + name + "\", " +
-                    "\"customer_family_name\": \"" + familyName + "\", " +
-                    "\"customer_given_name\": \"" + givenName + "\", " +
-                    "\"customer_name_kana\": \"" + nameKana + "\", " +
-                    "\"customer_family_name_kana\": \"" + familyNameKana + "\", " +
-                    "\"customer_given_name_kana\": \"" + givenNameKana + "\", " +
-                    "\"phone_number\": \"" + phoneNumber + "\", " +
-                    "\"birthday\": \"" + birthday + "\", " +
-                    "\"sex_division\": \"" + sexDivision + "\", " +
-                    "\"company_name\": \"" + companyName + "\", " +
-                    "\"department\": \"" + department + "\", " +
-                    "\"zip_code\": \"" + zipCode + "\", " +
-                    "\"address\": \"" + address + "\", " +
-                    "\"tel\": \"" + tel + "\", " +
-                    "\"email\": \"" + email + "\", " +
-                    "\"total_purchase_count\": \"" + "\(totalPurchaseCount)" + "\", " +
-                    "\"total_purchase_amount\": \"" + "\(totalPurchaseAmount)" +
-                "\"}"
+            let customerScriptString = "{" +
+                "\"customer_name\": " + "\"" + name + "\", " +
+                "\"customer_family_name\": " + "\"" + familyName.asStringOrNullText() + "\", " +
+                "\"customer_given_name\": " + "\"" + givenName.asStringOrNullText() + "\", " +
+                "\"customer_name_kana\": " + "\"" + nameKana.asStringOrNullText() + "\", " +
+                "\"customer_family_name_kana\": " + "\"" + familyNameKana.asStringOrNullText() + "\", " +
+                "\"customer_given_name_kana\": " + "\"" + givenNameKana.asStringOrNullText() + "\", " +
+                "\"phone_number\": " + "\"" + phoneNumber.asStringOrNullText() + "\", " +
+                "\"birthday\": " + "\"" + birthday.asStringOrNullText() + "\", " +
+                "\"sex_division\": " + "\"" + sexDivision.asStringOrNullText() + "\", " +
+                "\"company_name\": " + "\"" + companyName.asStringOrNullText() + "\", " +
+                "\"department\": " + "\"" + department.asStringOrNullText() + "\", " +
+                "\"zip_code\": " + "\"" + zipCode.asStringOrNullText() + "\", " +
+                "\"address\": " + "\"" + address.asStringOrNullText() + "\", " +
+                "\"tel\": " + "\"" + tel.asStringOrNullText() + "\", " +
+                "\"email\": " + "\"" + email.asStringOrNullText() + "\", " +
+                "\"total_purchase_count\": " + totalPurchaseCount.asStringOrNullText() + ", " +
+                "\"total_purchase_amount\": " + totalPurchaseAmount.asStringOrNullText() +
+            "}"
             return customerScriptString
         }
     }

@@ -10,12 +10,12 @@ import Foundation
 
 extension AtoneCon {
     public struct DesCustomer {
-        public var name = ""
+        public var name: String
         public var nameKana: String?
         public var companyName: String?
         public var department: String?
-        public var zipCode = ""
-        public var address = ""
+        public var zipCode: String
+        public var address: String
         public var tel: String?
         public var email: String?
 
@@ -37,18 +37,17 @@ extension AtoneCon {
             self.email = email
         }
 
-        func toScriptString() -> String {
-            let desCustomerScriptString =
-                "{" +
-                    "\"dest_customer_name\": \"" + name + "\", " +
-                    "\"dest_customer_name_kana\": \"" + nameKana + "\", " +
-                    "\"dest_company_name\": \"" + companyName + "\", " +
-                    "\"dest_department\": \"" + department + "\", " +
-                    "\"dest_zip_code\": \"" + zipCode + "\", " +
-                    "\"dest_address\": \"" + address + "\", " +
-                    "\"dest_tel\": \"" + tel + "\", " +
-                    "\"dest_email\": \"" + email + "\"" +
-                "}"
+        internal func toScriptString() -> String {
+            let desCustomerScriptString = "{" +
+                "\"dest_customer_name\": " + "\"" + name + "\", " +
+                "\"dest_customer_name_kana\": " + "\"" + nameKana.asStringOrNullText() + "\", " +
+                "\"dest_company_name\": " + "\"" + companyName.asStringOrNullText() + "\", " +
+                "\"dest_department\": " + "\"" + department.asStringOrNullText() + "\", " +
+                "\"dest_zip_code\": " + "\"" + zipCode + "\", " +
+                "\"dest_address\": " + "\"" + address + "\", " +
+                "\"dest_tel\": " + "\"" + tel.asStringOrNullText() + "\", " +
+                "\"dest_email\": " + email.asStringOrNullText() +
+            "}"
             return desCustomerScriptString
         }
     }

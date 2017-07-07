@@ -16,11 +16,11 @@ extension AtoneCon {
         public var desCustomers: [DesCustomer]?
         public var items: [Item] = []
 
-        public var amount = 0
-        public var shopTransactionNo = ""
+        public var amount: Int
+        public var shopTransactionNo: String
         public var salesSettled: Bool?
         public var descriptionTrans: String?
-        public var checksum = ""
+        public var checksum: String
 
         public init(amount: Int,
                     shopTransactionNo: String,
@@ -34,41 +34,43 @@ extension AtoneCon {
             self.checksum = checksum
         }
 
-        func toScriptString() -> String {
-            var desCustomerScriptString = "["
-            for index in 0..<desCustomers.count {
-                if index != desCustomers.count - 1 {
-                    desCustomerScriptString += desCustomers[index].toScriptString() + ","
-                } else {
-                    desCustomerScriptString += desCustomers[index].toScriptString() + "]"
+        internal func toScriptString() -> String {
+            let customerScriptString = customer.toScriptString()
+
+            var desCustomersScriptString = ""
+            if let desCustomers = desCustomers {
+                desCustomersScriptString = "["
+                for index in 0..<desCustomers.count {
+                    if index == desCustomers.count - 1 {
+                        desCustomersScriptString += desCustomers[index].toScriptString() + "]"
+                    } else {
+                        desCustomersScriptString += desCustomers[index].toScriptString() + ", "
+                    }
                 }
+            } else {
+                desCustomersScriptString = "null"
             }
 
             var itemsScriptString = "["
             for index in 0..<items.count {
-                if index != items.count - 1 {
-                    itemsScriptString += items[index].toScriptString() + ","
-                } else {
+                if index == items.count - 1 {
                     itemsScriptString += items[index].toScriptString() + "]"
+                } else {
+                    itemsScriptString += items[index].toScriptString() + ", "
                 }
             }
 
-            var customerScriptString = ""
-            if let script = customer?.toScriptString() {
-                customerScriptString = script
-            }
-
-            let paymentScripString =
-                "var data = {" +
+            let paymentScriptString = "var data = {" +
                 "\"amount\": " + "\(amount)" + ", " +
-                "\"shop_transaction_no\": " + "\"" + "\(shopTransactionNo)" + "\", " +
-                "\"sales_settled\": " + "\(salesSettled)" + ", " +
-                "\"description_trans\": " + "\"" + "\(descriptionTrans)" + "\", " +
-                "\"checksum\": " + "\"" + "\(checksum)" + "\", " +
+                "\"shop_transaction_no\": " + "\"" + shopTransactionNo + "\", " +
+                "\"sales_settled\": " + salesSettled.asStringOrNullText() + ", " +
+                "\"description_trans\": " + "\"" + descriptionTrans.asStringOrNullText() + "\", " +
+                "\"checksum\": " + "\"" + checksum + "\", " +
                 "\"customer\": " + customerScriptString + ", " +
-                "\"dest_customers\": " + customerScriptString + ", " +
-                "\"items\": " + itemsScriptString + "}"
-            return paymentScripString
+                "\"dest_customers\": " + desCustomersScriptString + ", " +
+                "\"items\": " + itemsScriptString +
+            "}"
+            return paymentScriptString
         }
     }
 }
