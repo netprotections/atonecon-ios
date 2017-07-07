@@ -27,5 +27,17 @@ extension AtoneCon {
             self.count = count
             self.url = url
         }
+
+        func toScriptString() -> String {
+            let itemScriptString =
+                "{" +
+                    "\"shop_item_id\": \"" + id + "\", " +
+                    "\"item_name\": \"" + name + "\", " +
+                    "\"item_price\": \"" + "\(price)" + "\", " +
+                    "\"item_count\": \"" + "\(count)" + "\", " +
+                    "\"item_url\": \"" + url + "\"" +
+                "}"
+            return itemScriptString
+        }
     }
 }

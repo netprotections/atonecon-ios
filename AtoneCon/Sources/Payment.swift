@@ -33,5 +33,42 @@ extension AtoneCon {
             self.descriptionTrans = descriptionTrans
             self.checksum = checksum
         }
+
+        func toScriptString() -> String {
+            var desCustomerScriptString = "["
+            for index in 0..<desCustomers.count {
+                if index != desCustomers.count - 1 {
+                    desCustomerScriptString += desCustomers[index].toScriptString() + ","
+                } else {
+                    desCustomerScriptString += desCustomers[index].toScriptString() + "]"
+                }
+            }
+
+            var itemsScriptString = "["
+            for index in 0..<items.count {
+                if index != items.count - 1 {
+                    itemsScriptString += items[index].toScriptString() + ","
+                } else {
+                    itemsScriptString += items[index].toScriptString() + "]"
+                }
+            }
+
+            var customerScriptString = ""
+            if let script = customer?.toScriptString() {
+                customerScriptString = script
+            }
+
+            let paymentScripString =
+                "var data = {" +
+                "\"amount\": " + "\(amount)" + ", " +
+                "\"shop_transaction_no\": " + "\"" + "\(shopTransactionNo)" + "\", " +
+                "\"sales_settled\": " + "\(salesSettled)" + ", " +
+                "\"description_trans\": " + "\"" + "\(descriptionTrans)" + "\", " +
+                "\"checksum\": " + "\"" + "\(checksum)" + "\", " +
+                "\"customer\": " + customerScriptString + ", " +
+                "\"dest_customers\": " + customerScriptString + ", " +
+                "\"items\": " + itemsScriptString + "}"
+            return paymentScripString
+        }
     }
 }
