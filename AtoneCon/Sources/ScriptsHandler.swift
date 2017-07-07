@@ -1,5 +1,5 @@
 //
-//  AtonneConScriptHandler.swift
+//  ScriptHandler.swift
 //  AtoneCon
 //
 //  Created by Pham Ngoc Hanh on 7/6/17.
@@ -9,8 +9,8 @@
 import Foundation
 import WebKit
 
-internal protocol AtoneConScriptsHandlerDelegate: class {
-    func atoneScriptsHandler(_ atoneConScriptsHandler: AtoneConScriptsHandler, needsPerformAction action: AtoneConScriptsHandler.Action)
+internal protocol ScriptsHandlerDelegate: class {
+    func scriptsHandler(_ scriptsHandler: ScriptsHandler, needsPerformAction action: ScriptsHandler.Action)
 }
 
 private struct MessageName {
@@ -18,14 +18,13 @@ private struct MessageName {
     static let cancelled = "cancelled"
     static let failed = "failed"
     static let succeeded = "succeeded"
-    static let dismiss = "dismiss"
 }
 
-internal final class AtoneConScriptsHandler: NSObject {
+internal final class ScriptsHandler: NSObject {
 
     private var webView: WKWebView!
-    internal weak var delegate: AtoneConScriptsHandlerDelegate?
-    private let events: [String] = [MessageName.authenticated, MessageName.cancelled, MessageName.failed, MessageName.succeeded, MessageName.dismiss]
+    internal weak var delegate: ScriptsHandlerDelegate?
+    private let events: [String] = [MessageName.authenticated, MessageName.cancelled, MessageName.failed, MessageName.succeeded]
 
     init(forWebView webView: WKWebView) {
         self.webView = webView
@@ -39,7 +38,7 @@ internal final class AtoneConScriptsHandler: NSObject {
     }
 }
 
-extension AtoneConScriptsHandler {
+extension ScriptsHandler {
     internal enum Action {
         case authenticated(String?)
         case canceled
@@ -49,23 +48,24 @@ extension AtoneConScriptsHandler {
     }
 }
 
-extension AtoneConScriptsHandler: WKScriptMessageHandler {
+extension ScriptsHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         var action: Action!
         switch message.name {
         case MessageName.authenticated:
+            print(message.body)
             action = Action.authenticated(message.body as? String)
         case MessageName.cancelled:
+            print(message.body)
             action = Action.canceled
         case MessageName.failed:
+            print(message.body)
             action = Action.failed(message.body)
         case MessageName.succeeded:
+            print(message.body)
             action = Action.succeeded(message.body)
-        case MessageName.dismiss:
-            action = Action.dismiss
-        default:
-            return
+        default: return
         }
-        delegate?.atoneScriptsHandler(self, needsPerformAction: action)
+        delegate?.scriptsHandler(self, needsPerformAction: action)
     }
 }

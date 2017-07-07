@@ -17,13 +17,13 @@ public protocol AtoneConDelegate: class {
 
 final public class AtoneCon {
 
-    public weak var delegate: AtoneConDelegate?
-    fileprivate var payment: Payment?
     // MARK: - Singleton
     public static let shared = AtoneCon()
 
     // MARK: - Properties
     private var option = Options()
+    public weak var delegate: AtoneConDelegate?
+    fileprivate var payment: Payment?
 
     // MARK: - Public Functions
     public func config(_ option: Options) {
@@ -42,18 +42,20 @@ final public class AtoneCon {
 }
 
 extension AtoneCon: PaymentViewControllerDelegate {
-    func paymentViewController(_ paymentViewController: PaymentViewController, needsPerformAction action: AtoneConScriptsHandler.Action) {
+    func controller(_ paymentViewController: PaymentViewController, needsPerformAction action: ScriptsHandler.Action) {
         switch action {
             // TODO: save token
         case .authenticated(_):
             break
         case .failed(_):
+            // TODO: Handle message error
             delegate?.atoneCon(atoneCon: self, didFailureWithError: NSError())
         case .canceled:
             if let payment = payment {
                 delegate?.atoneCon(atoneCon: self, didCancelPayment: payment)
             }
         case .succeeded(_):
+            // TODO: Return respone from webView
             if let payment = payment {
                 delegate?.atoneCon(atoneCon: self, didFinishPayment: payment, transactionToken: "")
             }

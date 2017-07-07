@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 internal protocol PaymentViewControllerDelegate: class {
-    func paymentViewController(_ paymentViewController: PaymentViewController, needsPerformAction action: AtoneConScriptsHandler.Action)
+    func controller(_ paymentViewController: PaymentViewController, needsPerformAction action: ScriptsHandler.Action)
 }
 
 final internal class PaymentViewController: UIViewController {
@@ -18,7 +18,7 @@ final internal class PaymentViewController: UIViewController {
     // MARK: - Properties
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
-    var atoneConScriptHandle: AtoneConScriptsHandler!
+    var scriptHandle: ScriptsHandler!
     weak var delegate: PaymentViewControllerDelegate?
 
     // MARK: - Cycle Life
@@ -38,9 +38,9 @@ final internal class PaymentViewController: UIViewController {
         let urlRequest = URLRequest(url: htmlURL())
         webView.load(urlRequest)
         webView.navigationDelegate = self
-        atoneConScriptHandle = AtoneConScriptsHandler(forWebView: webView)
-        atoneConScriptHandle.eventScript()
-        atoneConScriptHandle.delegate = self
+        scriptHandle = ScriptsHandler(forWebView: webView)
+        scriptHandle.eventScript()
+        scriptHandle.delegate = self
     }
 
     private func setupIndicator() {
@@ -116,13 +116,13 @@ extension PaymentViewController: WKNavigationDelegate {
     }
 }
 
-extension PaymentViewController: AtoneConScriptsHandlerDelegate {
-    func atoneScriptsHandler(_ atoneConScriptsHandler: AtoneConScriptsHandler, needsPerformAction action: AtoneConScriptsHandler.Action) {
+extension PaymentViewController: ScriptsHandlerDelegate {
+    func scriptsHandler(_ scriptsHandler: ScriptsHandler, needsPerformAction action: ScriptsHandler.Action) {
         switch action {
         case .dismiss:
             dismiss(animated: true, completion: nil)
         default:
-            delegate?.paymentViewController(self, needsPerformAction: action)
+            delegate?.controller(self, needsPerformAction: action)
         }
     }
 }
