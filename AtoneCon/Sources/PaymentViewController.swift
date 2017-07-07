@@ -18,7 +18,7 @@ final internal class PaymentViewController: UIViewController {
     // MARK: - Properties
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
-    var scriptHandle: ScriptsHandler!
+    private var scriptHandle: ScriptsHandler!
     weak var delegate: PaymentViewControllerDelegate?
 
     // MARK: - Cycle Life
@@ -39,7 +39,7 @@ final internal class PaymentViewController: UIViewController {
         webView.load(urlRequest)
         webView.navigationDelegate = self
         scriptHandle = ScriptsHandler(forWebView: webView)
-        scriptHandle.eventScript()
+        scriptHandle.addEvents()
         scriptHandle.delegate = self
     }
 

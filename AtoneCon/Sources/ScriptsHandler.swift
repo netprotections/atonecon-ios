@@ -26,11 +26,11 @@ internal final class ScriptsHandler: NSObject {
     internal weak var delegate: ScriptsHandlerDelegate?
     private let events: [String] = [MessageName.authenticated, MessageName.cancelled, MessageName.failed, MessageName.succeeded]
 
-    init(forWebView webView: WKWebView) {
+    internal init(forWebView webView: WKWebView) {
         self.webView = webView
     }
 
-    internal func eventScript() {
+    internal func addEvents() {
         let controller = webView.configuration.userContentController
         for event in events {
             controller.add(self, name: event)
