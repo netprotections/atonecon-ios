@@ -11,22 +11,22 @@ import Foundation
 extension AtoneCon {
     public struct DesCustomer {
         public var name = ""
-        public var nameKana = ""
-        public var companyName = ""
-        public var department = ""
+        public var nameKana: String?
+        public var companyName: String?
+        public var department: String?
         public var zipCode = ""
         public var address = ""
-        public var tel = ""
-        public var email = ""
+        public var tel: String?
+        public var email: String?
 
         public init(name: String,
-                    nameKana: String,
-                    companyName: String,
-                    department: String,
+                    nameKana: String?,
+                    companyName: String?,
+                    department: String?,
                     zipCode: String,
                     address: String,
-                    tel: String,
-                    email: String) {
+                    tel: String?,
+                    email: String?) {
             self.name = name
             self.nameKana = nameKana
             self.companyName = companyName

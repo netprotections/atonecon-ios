@@ -12,20 +12,20 @@ extension AtoneCon {
 
     public struct Payment {
 
-        public var customer: Customer?
-        public var desCustomers: [DesCustomer] = []
+        public var customer: Customer!
+        public var desCustomers: [DesCustomer]?
         public var items: [Item] = []
 
         public var amount = 0
         public var shopTransactionNo = ""
-        public var salesSettled = false
-        public var descriptionTrans = ""
+        public var salesSettled: Bool?
+        public var descriptionTrans: String?
         public var checksum = ""
 
         public init(amount: Int,
                     shopTransactionNo: String,
-                    salesSettled: Bool,
-                    descriptionTrans: String,
+                    salesSettled: Bool?,
+                    descriptionTrans: String?,
                     checksum: String) {
             self.amount = amount
             self.shopTransactionNo = shopTransactionNo

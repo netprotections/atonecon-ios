@@ -14,13 +14,13 @@ extension AtoneCon {
         public var name = ""
         public var price = 0
         public var count = 0
-        public var url = ""
+        public var url: String?
 
         public init(id: String,
                     name: String,
                     price: Int,
                     count: Int,
-                    url: String) {
+                    url: String?) {
             self.id = id
             self.name = name
             self.price = price
