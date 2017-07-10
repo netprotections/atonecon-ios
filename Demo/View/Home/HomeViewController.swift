@@ -14,7 +14,6 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var payButton: UIButton!
 
     var viewModel = HomeViewModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -41,15 +40,18 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: AtoneConDelegate {
-    func atoneCon(atoneCon: AtoneCon, didCancelPayment payment: AtoneCon.Payment) {
-    }
 
-    func atoneCon(atoneCon: AtoneCon, didFinishPayment payment: AtoneCon.Payment, transactionToken: String) {
-    }
-
-    func atoneCon(atoneCon: AtoneCon, didFailureWithError error: NSError) {
-    }
-
-    func atoneCon(atoneCon: AtoneCon, willPerformPayment payment: AtoneCon.Payment) {
+    func atoneCon(atoneCon: AtoneCon, didPerformAction action: Action) {
+        switch action {
+        case .payment(let payment):
+            print(payment)
+        case .failed(let error):
+            print(error)
+        case .canceled(let payment):
+            print(payment)
+        case .finished(let payment, let transactionId):
+            print(payment)
+            print(transactionId)
+        }
     }
 }

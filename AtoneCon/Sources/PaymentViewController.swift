@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 internal protocol PaymentViewControllerDelegate: class {
-    func controller(_ controller: PaymentViewController, needsPerformAction action: ScriptsHandler.Action)
+    func controller(_ controller: PaymentViewController, didReceiveEvent event: ScriptsHandler.Event)
 }
 
 final internal class PaymentViewController: UIViewController {
@@ -99,7 +99,7 @@ extension PaymentViewController: WKNavigationDelegate {
 }
 
 extension PaymentViewController: ScriptsHandlerDelegate {
-    func scriptsHandler(_ scriptsHandler: ScriptsHandler, needsPerformAction action: ScriptsHandler.Action) {
-        delegate?.controller(self, needsPerformAction: action)
+    func scriptsHandler(_ scriptsHandler: ScriptsHandler, didReceiveEvent event: ScriptsHandler.Event) {
+        delegate?.controller(self, didReceiveEvent: event)
     }
 }

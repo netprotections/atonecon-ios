@@ -10,10 +10,10 @@ import Foundation
 import WebKit
 
 internal protocol ScriptsHandlerDelegate: class {
-    func scriptsHandler(_ scriptsHandler: ScriptsHandler, needsPerformAction action: ScriptsHandler.Action)
+    func scriptsHandler(_ scriptsHandler: ScriptsHandler, didReceiveEvent event: ScriptsHandler.Event)
 }
 
-private struct MessageName {
+private enum MessageName {
     static let authenticated = "authenticated"
     static let cancelled = "cancelled"
     static let failed = "failed"
@@ -39,7 +39,7 @@ internal final class ScriptsHandler: NSObject {
 }
 
 extension ScriptsHandler {
-    internal enum Action {
+    internal enum Event {
         case authenticated(String?)
         case canceled
         case succeeded(Any)
@@ -49,22 +49,22 @@ extension ScriptsHandler {
 
 extension ScriptsHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        var action: Action!
+        var event: Event!
         switch message.name {
         case MessageName.authenticated:
             print(message.body)
-            action = Action.authenticated(message.body as? String)
+            event = Event.authenticated(message.body as? String)
         case MessageName.cancelled:
             print(message.body)
-            action = Action.canceled
+            event = Event.canceled
         case MessageName.failed:
             print(message.body)
-            action = Action.failed(message.body)
+            event = Event.failed(message.body)
         case MessageName.succeeded:
             print(message.body)
-            action = Action.succeeded(message.body)
+            event = Event.succeeded(message.body)
         default: return
         }
-        delegate?.scriptsHandler(self, needsPerformAction: action)
+        delegate?.scriptsHandler(self, didReceiveEvent: event)
     }
 }

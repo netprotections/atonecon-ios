@@ -9,10 +9,7 @@
 import UIKit
 
 public protocol AtoneConDelegate: class {
-    func atoneCon(atoneCon: AtoneCon, willPerformPayment payment: AtoneCon.Payment)
-    func atoneCon(atoneCon: AtoneCon, didCancelPayment payment: AtoneCon.Payment)
-    func atoneCon(atoneCon: AtoneCon, didFailureWithError error: NSError)
-    func atoneCon(atoneCon: AtoneCon, didFinishPayment payment: AtoneCon.Payment, transactionToken: String)
+    func atoneCon(atoneCon: AtoneCon, didPerformAction action: Action)
 }
 
 final public class AtoneCon {
@@ -32,7 +29,7 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
-        delegate?.atoneCon(atoneCon: self, willPerformPayment: payment)
+        delegate?.atoneCon(atoneCon: self, didPerformAction: Action.payment(payment))
         self.payment = payment
         let paymenController = PaymentViewController()
         paymenController.delegate = self
@@ -42,23 +39,30 @@ final public class AtoneCon {
 }
 
 extension AtoneCon: PaymentViewControllerDelegate {
-    func controller(_ controller: PaymentViewController, needsPerformAction action: ScriptsHandler.Action) {
-        switch action {
+    func controller(_ controller: PaymentViewController, didReceiveEvent event: ScriptsHandler.Event) {
+        switch event {
             // TODO: save token
         case .authenticated(_):
             break
         case .failed(_):
             // TODO: Handle message error
-            delegate?.atoneCon(atoneCon: self, didFailureWithError: NSError())
+            delegate?.atoneCon(atoneCon: self, didPerformAction: Action.failed(NSError()))
         case .canceled:
             if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, didCancelPayment: payment)
+                delegate?.atoneCon(atoneCon: self, didPerformAction: Action.canceled(payment))
             }
         case .succeeded(_):
             // TODO: Return respone from webView
             if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, didFinishPayment: payment, transactionToken: "")
+                delegate?.atoneCon(atoneCon: self, didPerformAction: Action.finished(payment, " "))
             }
         }
     }
+}
+
+public enum Action {
+    case payment(AtoneCon.Payment)
+    case canceled(AtoneCon.Payment)
+    case finished(AtoneCon.Payment, String)
+    case failed(NSError)
 }
