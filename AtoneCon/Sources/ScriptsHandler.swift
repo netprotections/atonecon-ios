@@ -52,16 +52,12 @@ extension ScriptsHandler: WKScriptMessageHandler {
         var event: Event!
         switch message.name {
         case MessageName.authenticated.rawValue:
-            print(message.body)
             event = Event.authenticated(message.body as? String)
         case MessageName.cancelled.rawValue:
-            print(message.body)
             event = Event.canceled
         case MessageName.failed.rawValue:
-            print(message.body)
             event = Event.failed(message.body)
         case MessageName.succeeded.rawValue:
-            print(message.body)
             event = Event.succeeded(message.body)
         default: return
         }
