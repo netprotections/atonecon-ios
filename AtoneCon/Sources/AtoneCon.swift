@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol AtoneConDelegate: class {
-    func atoneCon(atoneCon: AtoneCon, didPerformAction action: Action)
+    func atoneCon(atoneCon: AtoneCon, needsPerformAction action: AtoneCon.Action)
 }
 
 final public class AtoneCon {
@@ -29,7 +29,7 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
-        delegate?.atoneCon(atoneCon: self, didPerformAction: Action.payment(payment))
+        delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.willPayment(payment))
         self.payment = payment
         let paymenController = PaymentViewController()
         paymenController.delegate = self
@@ -46,23 +46,25 @@ extension AtoneCon: PaymentViewControllerDelegate {
             break
         case .failed(_):
             // TODO: Handle message error
-            delegate?.atoneCon(atoneCon: self, didPerformAction: Action.failed(NSError()))
+            delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.failed(NSError()))
         case .canceled:
             if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, didPerformAction: Action.canceled(payment))
+                delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.canceled(payment))
             }
         case .succeeded(_):
             // TODO: Return respone from webView
             if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, didPerformAction: Action.finished(payment, " "))
+                delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.finished(payment, " "))
             }
         }
     }
 }
 
-public enum Action {
-    case payment(AtoneCon.Payment)
-    case canceled(AtoneCon.Payment)
-    case finished(AtoneCon.Payment, String)
-    case failed(NSError)
+extension AtoneCon {
+    public enum Action {
+        case willPayment(AtoneCon.Payment)
+        case canceled(AtoneCon.Payment)
+        case finished(AtoneCon.Payment, String)
+        case failed(NSError)
+    }
 }

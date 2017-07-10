@@ -41,9 +41,9 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: AtoneConDelegate {
 
-    func atoneCon(atoneCon: AtoneCon, didPerformAction action: Action) {
+    func atoneCon(atoneCon: AtoneCon, needsPerformAction action: AtoneCon.Action) {
         switch action {
-        case .payment(let payment):
+        case .willPayment(let payment):
             print(payment)
         case .failed(let error):
             print(error)

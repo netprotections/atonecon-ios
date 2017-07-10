@@ -13,18 +13,18 @@ internal protocol ScriptsHandlerDelegate: class {
     func scriptsHandler(_ scriptsHandler: ScriptsHandler, didReceiveEvent event: ScriptsHandler.Event)
 }
 
-private enum MessageName {
-    static let authenticated = "authenticated"
-    static let cancelled = "cancelled"
-    static let failed = "failed"
-    static let succeeded = "succeeded"
+private enum MessageName: String {
+    case authenticated
+    case cancelled
+    case failed
+    case succeeded
 }
 
 internal final class ScriptsHandler: NSObject {
 
     private var webView: WKWebView!
     internal weak var delegate: ScriptsHandlerDelegate?
-    private let events: [String] = [MessageName.authenticated, MessageName.cancelled, MessageName.failed, MessageName.succeeded]
+    private let events: [String] = [MessageName.authenticated.rawValue, MessageName.cancelled.rawValue, MessageName.failed.rawValue, MessageName.succeeded.rawValue]
 
     internal init(forWebView webView: WKWebView) {
         self.webView = webView
@@ -51,16 +51,16 @@ extension ScriptsHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         var event: Event!
         switch message.name {
-        case MessageName.authenticated:
+        case MessageName.authenticated.rawValue:
             print(message.body)
             event = Event.authenticated(message.body as? String)
-        case MessageName.cancelled:
+        case MessageName.cancelled.rawValue:
             print(message.body)
             event = Event.canceled
-        case MessageName.failed:
+        case MessageName.failed.rawValue:
             print(message.body)
             event = Event.failed(message.body)
-        case MessageName.succeeded:
+        case MessageName.succeeded.rawValue:
             print(message.body)
             event = Event.succeeded(message.body)
         default: return
