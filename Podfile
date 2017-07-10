@@ -7,7 +7,7 @@ install! 'cocoapods', :deterministic_uuids => false
 workspace 'AtoneCon.xcworkspace'
 
 def shared_pods
-    pod 'SwiftyJSON', '~> 3.1'
+    pod 'ObjectMapper', '~> 2.2'
 end
 
 target 'AtoneCon' do

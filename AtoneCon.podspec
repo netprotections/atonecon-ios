@@ -30,5 +30,5 @@ s.requires_arc = true
 
 # Dependency
 s.ios.frameworks = 'Foundation', 'UIKit', 'WebKit'
-s.dependency 'SwiftyJSON', '~> 3.1'
+s.dependency 'ObjectMapper', '~> 2.2'
 end
