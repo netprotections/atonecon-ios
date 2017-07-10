@@ -1,19 +1,23 @@
 PODS:
-  - AtoneCon (0.0.1)
+  - AtoneCon (0.0.1):
+    - SwiftyJSON (~> 3.1)
   - SwiftLint (0.16.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - AtoneCon (from `./`)
   - SwiftLint (~> 0.16.1)
+  - SwiftyJSON (~> 3.1)
 
 EXTERNAL SOURCES:
   AtoneCon:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AtoneCon: 86e5fa20b589dbf51d1ccc6b3be6f34cc7556eb7
+  AtoneCon: 5b7352f0b2101f80a556b52f12c4b0afe21d66c0
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: c98de6de3fdbaa38313d2b2686e22cad986a4480
+PODFILE CHECKSUM: 3d4f45f51876e51beb919df7bc776b99820e38de
 
 COCOAPODS: 1.2.1

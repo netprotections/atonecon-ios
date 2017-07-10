@@ -27,4 +27,8 @@ s.source_files = "AtoneCon/Sources/*.swift", "AtoneCon/Sources/**/*.swift"
 
 # Project Settings
 s.requires_arc = true
+
+# Dependency
+s.ios.frameworks = 'Foundation', 'UIKit', 'WebKit'
+s.dependency 'SwiftyJSON', '~> 3.1'
 end

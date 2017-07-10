@@ -6,6 +6,20 @@ install! 'cocoapods', :deterministic_uuids => false
 
 workspace 'AtoneCon.xcworkspace'
 
+def shared_pods
+    pod 'SwiftyJSON', '~> 3.1'
+end
+
+target 'AtoneCon' do
+    project 'AtoneCon'
+    shared_pods
+    target 'AtoneConTests' do
+        inherit! :search_paths
+        shared_pods
+    end
+end
+
+
 target 'Demo' do
     project 'Demo'
     pod 'SwiftLint', '~> 0.16.1'
