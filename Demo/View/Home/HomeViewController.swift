@@ -47,11 +47,14 @@ extension HomeViewController: AtoneConDelegate {
         case .willPayment(let payment):
             break
         case .failed(let error):
-            break
+            // TODO: get respone
+            atoneCon.dismissWebview()
         case .canceled(let payment):
-            break
+            // TODO: get respone
+            atoneCon.dismissWebview()
         case .finished(let payment, let transactionId):
-            break
+            // TODO: get respone
+            atoneCon.dismissWebview()
         }
     }
 }

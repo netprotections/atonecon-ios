@@ -50,16 +50,20 @@ extension ScriptsHandler {
 extension ScriptsHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         var event: Event!
-        switch message.name {
-        case MessageName.authenticated.rawValue:
+        guard let nameMessage = MessageName(rawValue: message.name) else { return }
+        switch nameMessage {
+        case .authenticated :
+            // TODO: save authentoken
             event = Event.authenticated(message.body as? String)
-        case MessageName.cancelled.rawValue:
+        case .cancelled:
+            // TODO: get respone
             event = Event.canceled
-        case MessageName.failed.rawValue:
+        case .failed:
+            // TODO: get respone
             event = Event.failed(message.body)
-        case MessageName.succeeded.rawValue:
+        case .succeeded:
+            // TODO: get respone
             event = Event.succeeded(message.body)
-        default: return
         }
         delegate?.scriptsHandler(self, didReceiveEvent: event)
     }

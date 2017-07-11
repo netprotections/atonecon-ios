@@ -36,6 +36,11 @@ final public class AtoneCon {
         let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.present(paymenController, animated: true, completion: nil)
     }
+
+    public func dismissWebview() {
+        let root = UIApplication.shared.delegate?.window??.rootViewController
+        root?.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension AtoneCon: PaymentViewControllerDelegate {
