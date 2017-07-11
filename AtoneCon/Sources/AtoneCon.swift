@@ -57,7 +57,7 @@ extension AtoneCon: PaymentViewControllerDelegate {
                 delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.canceled(payment))
             }
         case .succeeded(_):
-            // TODO: Return respone from webView
+            // TODO: Handle succeeded
             if let payment = payment {
                 delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.finished(payment, " "))
             }

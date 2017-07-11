@@ -44,16 +44,16 @@ extension HomeViewController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, needsPerformAction action: AtoneCon.Action) {
         // TODO: Handle Callback
         switch action {
-        case .willPayment(let payment):
+        case .willPayment(_):
             break
-        case .failed(let error):
-            // TODO: get respone
+        case .failed(_):
+            // TODO: handle failed
             atoneCon.dismissWebview()
-        case .canceled(let payment):
-            // TODO: get respone
+        case .canceled(_):
+            // TODO: handle canceled
             atoneCon.dismissWebview()
-        case .finished(let payment, let transactionId):
-            // TODO: get respone
+        case .finished(_, _):
+            // TODO: handle finished
             atoneCon.dismissWebview()
         }
     }
