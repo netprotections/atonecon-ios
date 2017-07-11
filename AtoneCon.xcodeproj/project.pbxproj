@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */; };
 		16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */; };
 		16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */; };
 		16946B011F0B498700CE6FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B001F0B498700CE6FF8 /* Item.swift */; };
 		16DC2C381F0F98C900872D56 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC2C371F0F98C900872D56 /* Optional.swift */; };
+		2FEA55B42C6DC4E68E0FFB55 /* Pods_AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */; };
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
 		990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B5EAC1F03957000B142E7 /* AtoneConTests.swift */; };
 		9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0301F0A9EE4008C4F95 /* AtoneCon.swift */; };
@@ -38,6 +40,10 @@
 		16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomer.swift; sourceTree = "<group>"; };
 		16946B001F0B498700CE6FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		16DC2C371F0F98C900872D56 /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3484A57CBB53AADC50EE82F4 /* Pods-AtoneConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.release.xcconfig"; sourceTree = "<group>"; };
+		3F786EC53FE4B40F9974C540 /* Pods-AtoneConTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.debug.xcconfig"; sourceTree = "<group>"; };
+		62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneConTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5E9E1F03957000B142E7 /* AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5EA21F03957000B142E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990B5EA71F03957000B142E7 /* AtoneConTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +58,8 @@
 		99E727191F0CA867000F0B29 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A705169DCBB73F78AE6A01BD /* Pods-AtoneCon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.debug.xcconfig"; sourceTree = "<group>"; };
+		C81DDB72AEDA081AC343EAE8 /* Pods-AtoneCon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEA55B42C6DC4E68E0FFB55 /* Pods_AtoneCon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */,
+				15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +98,8 @@
 				990B5EA01F03957000B142E7 /* AtoneCon */,
 				990B5EAB1F03957000B142E7 /* AtoneConTests */,
 				990B5E9F1F03957000B142E7 /* Products */,
+				E2E0B57898C684D2CA490C72 /* Pods */,
+				F67E27CED7B025ACA9795BDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +165,26 @@
 			path = Define;
 			sourceTree = "<group>";
 		};
+		E2E0B57898C684D2CA490C72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A705169DCBB73F78AE6A01BD /* Pods-AtoneCon.debug.xcconfig */,
+				C81DDB72AEDA081AC343EAE8 /* Pods-AtoneCon.release.xcconfig */,
+				3F786EC53FE4B40F9974C540 /* Pods-AtoneConTests.debug.xcconfig */,
+				3484A57CBB53AADC50EE82F4 /* Pods-AtoneConTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F67E27CED7B025ACA9795BDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */,
+				62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -170,10 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 990B5EB21F03957000B142E7 /* Build configuration list for PBXNativeTarget "AtoneCon" */;
 			buildPhases = (
+				0753208539A89A40FEE6D046 /* [CP] Check Pods Manifest.lock */,
 				990B5E991F03957000B142E7 /* Sources */,
 				990B5E9A1F03957000B142E7 /* Frameworks */,
 				990B5E9B1F03957000B142E7 /* Headers */,
 				990B5E9C1F03957000B142E7 /* Resources */,
+				67B78EF6C01B2052DA0F15FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 990B5EB51F03957000B142E7 /* Build configuration list for PBXNativeTarget "AtoneConTests" */;
 			buildPhases = (
+				603D7A398912CF85D842ED71 /* [CP] Check Pods Manifest.lock */,
 				990B5EA31F03957000B142E7 /* Sources */,
 				990B5EA41F03957000B142E7 /* Frameworks */,
 				990B5EA51F03957000B142E7 /* Resources */,
+				ABBFE681F74E1FE84D31A575 /* [CP] Embed Pods Frameworks */,
+				1C6AECA0D61053771D8EB8DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,6 +295,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0753208539A89A40FEE6D046 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1C6AECA0D61053771D8EB8DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		603D7A398912CF85D842ED71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		67B78EF6C01B2052DA0F15FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABBFE681F74E1FE84D31A575 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		990B5E991F03957000B142E7 /* Sources */ = {
@@ -400,6 +515,7 @@
 		};
 		990B5EB31F03957000B142E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A705169DCBB73F78AE6A01BD /* Pods-AtoneCon.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -420,6 +536,7 @@
 		};
 		990B5EB41F03957000B142E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C81DDB72AEDA081AC343EAE8 /* Pods-AtoneCon.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -439,6 +556,7 @@
 		};
 		990B5EB61F03957000B142E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F786EC53FE4B40F9974C540 /* Pods-AtoneConTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AtoneConTests/Info.plist;
@@ -451,6 +569,7 @@
 		};
 		990B5EB71F03957000B142E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3484A57CBB53AADC50EE82F4 /* Pods-AtoneConTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AtoneConTests/Info.plist;
