@@ -31,8 +31,8 @@ final class HomeViewModel {
         return AtoneCon.Customer(
             name: "",
             familyName: "",
-            givenName: "",
-            nameKana: "",
+            givenName: nil,
+            nameKana: nil,
             familyNameKana: "",
             givenNameKana: "",
             phoneNumber: "",

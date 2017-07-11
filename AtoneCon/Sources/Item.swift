@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import ObjectMapper
 
 extension AtoneCon {
     public struct Item {
-        public var id: String
-        public var name: String
-        public var price: Int
-        public var count: Int
+        public var id: String!
+        public var name: String!
+        public var price: Int!
+        public var count: Int!
         public var url: String?
 
         public init(id: String,
@@ -27,16 +28,17 @@ extension AtoneCon {
             self.count = count
             self.url = url
         }
+    }
+}
+extension AtoneCon.Item: Mappable {
+    public init?(map: Map) {
+    }
 
-        internal func toScriptString() -> String {
-            let itemScriptString = "{" +
-                "\"shop_item_id\": " + "\"" + id + "\", " +
-                "\"item_name\": " + "\"" + name + "\", " +
-                "\"item_price\": " + "\(price)" + ", " +
-                "\"item_count\": " + "\(count)" + ", " +
-                "\"item_url\": " + "\"" + url.asStringOrNullText() + "\"" +
-            "}"
-            return itemScriptString
-        }
+    public mutating func mapping(map: Map) {
+        id <- map["shop_item_id"]
+        name <- map["item_name"]
+        price <- map["item_price"]
+        count <- map["item_count"]
+        url <- map["item_url"]
     }
 }

@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import ObjectMapper
 
 extension AtoneCon {
     public struct DesCustomer {
-        public var name: String
+        public var name: String!
         public var nameKana: String?
         public var companyName: String?
         public var department: String?
-        public var zipCode: String
-        public var address: String
+        public var zipCode: String!
+        public var address: String!
         public var tel: String?
         public var email: String?
 
@@ -36,19 +37,22 @@ extension AtoneCon {
             self.tel = tel
             self.email = email
         }
+    }
+}
 
-        internal func toScriptString() -> String {
-            let desCustomerScriptString = "{" +
-                "\"dest_customer_name\": " + "\"" + name + "\", " +
-                "\"dest_customer_name_kana\": " + "\"" + nameKana.asStringOrNullText() + "\", " +
-                "\"dest_company_name\": " + "\"" + companyName.asStringOrNullText() + "\", " +
-                "\"dest_department\": " + "\"" + department.asStringOrNullText() + "\", " +
-                "\"dest_zip_code\": " + "\"" + zipCode + "\", " +
-                "\"dest_address\": " + "\"" + address + "\", " +
-                "\"dest_tel\": " + "\"" + tel.asStringOrNullText() + "\", " +
-                "\"dest_email\": " + email.asStringOrNullText() +
-            "}"
-            return desCustomerScriptString
-        }
+extension AtoneCon.DesCustomer: Mappable {
+    public init?(map: Map) {
+
+    }
+
+    public mutating func mapping(map: Map) {
+        name <- map["dest_customer_name"]
+        nameKana <- map["dest_customer_name_kana"]
+        companyName <- map["dest_company_name"]
+        department <- map["dest_department"]
+        zipCode <- map["dest_zip_code"]
+        address <- map["dest_address"]
+        tel <- map["dest_tel"]
+        email <- map["dest_email"]
     }
 }

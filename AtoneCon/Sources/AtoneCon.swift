@@ -5,8 +5,8 @@
 //  Created by Pham Ngoc Hanh on 6/30/17.
 //  Copyright © 2017 AsianTech Inc. All rights reserved.
 //
-
-import UIKit
+import Foundation
+import ObjectMapper
 
 final public class AtoneCon {
     // MARK: - Singleton

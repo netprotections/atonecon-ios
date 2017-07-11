@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import ObjectMapper
 
 extension AtoneCon {
     public struct Customer {
-        public var name: String
+        public var name: String!
         public var familyName: String?
         public var givenName: String?
         public var nameKana: String?
@@ -63,28 +64,30 @@ extension AtoneCon {
             self.totalPurchaseCount = totalPurchaseCount
             self.totalPurchaseAmount = totalPurchaseAmount
         }
+    }
+}
 
-        func toScriptString() -> String {
-            let customerScriptString = "{" +
-                "\"customer_name\": " + "\"" + name + "\", " +
-                "\"customer_family_name\": " + "\"" + familyName.asStringOrNullText() + "\", " +
-                "\"customer_given_name\": " + "\"" + givenName.asStringOrNullText() + "\", " +
-                "\"customer_name_kana\": " + "\"" + nameKana.asStringOrNullText() + "\", " +
-                "\"customer_family_name_kana\": " + "\"" + familyNameKana.asStringOrNullText() + "\", " +
-                "\"customer_given_name_kana\": " + "\"" + givenNameKana.asStringOrNullText() + "\", " +
-                "\"phone_number\": " + "\"" + phoneNumber.asStringOrNullText() + "\", " +
-                "\"birthday\": " + "\"" + birthday.asStringOrNullText() + "\", " +
-                "\"sex_division\": " + "\"" + sexDivision.asStringOrNullText() + "\", " +
-                "\"company_name\": " + "\"" + companyName.asStringOrNullText() + "\", " +
-                "\"department\": " + "\"" + department.asStringOrNullText() + "\", " +
-                "\"zip_code\": " + "\"" + zipCode.asStringOrNullText() + "\", " +
-                "\"address\": " + "\"" + address.asStringOrNullText() + "\", " +
-                "\"tel\": " + "\"" + tel.asStringOrNullText() + "\", " +
-                "\"email\": " + "\"" + email.asStringOrNullText() + "\", " +
-                "\"total_purchase_count\": " + totalPurchaseCount.asStringOrNullText() + ", " +
-                "\"total_purchase_amount\": " + totalPurchaseAmount.asStringOrNullText() +
-            "}"
-            return customerScriptString
-        }
+extension AtoneCon.Customer: Mappable {
+    public init?(map: Map) {
+    }
+
+    public mutating func mapping(map: Map) {
+        name <- map["customer_name"]
+        familyName <- map["customer_family_name"]
+        givenName <- map["customer_given_name"]
+        nameKana <- map["customer_name_kana"]
+        familyNameKana <- map["customer_family_name_kana"]
+        givenNameKana <- map["customer_given_name_kana"]
+        phoneNumber <- map["phone_number"]
+        birthday <- map["birthday"]
+        sexDivision <- map["sex_division"]
+        companyName <- map["company_name"]
+        department <- map["department"]
+        zipCode <- map["zip_code"]
+        address <- map["address"]
+        tel <- map["tel"]
+        email <- map["email"]
+        totalPurchaseCount <- map["total_purchase_count"]
+        totalPurchaseAmount <- map["total_purchase_amount"]
     }
 }
