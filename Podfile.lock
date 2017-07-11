@@ -1,9 +1,12 @@
 PODS:
-  - AtoneCon (0.0.1)
+  - AtoneCon (0.0.1):
+    - ObjectMapper (~> 2.2)
+  - ObjectMapper (2.2.6)
   - SwiftLint (0.16.1)
 
 DEPENDENCIES:
   - AtoneCon (from `./`)
+  - ObjectMapper (~> 2.2)
   - SwiftLint (~> 0.16.1)
 
 EXTERNAL SOURCES:
@@ -11,9 +14,10 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AtoneCon: 86e5fa20b589dbf51d1ccc6b3be6f34cc7556eb7
+  AtoneCon: 25f70ace69e880c91fd9f45fde86126be9881cfc
+  ObjectMapper: '042708195cc46c20871cbcbec0453826398273fd'
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
 
-PODFILE CHECKSUM: c98de6de3fdbaa38313d2b2686e22cad986a4480
+PODFILE CHECKSUM: b78eea59b762d4745084674ec21e170f6b041cfa
 
 COCOAPODS: 1.2.1
