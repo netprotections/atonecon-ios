@@ -34,8 +34,8 @@ var data = {
               "item_url": "https://atone.be/items/1"
               }],
     "checksum": "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=",
-//    "subtract_point": 0,
-//    "track_token": "bBSUYW68VNXzipvZtFZNJoBR"
+    "subtract_point": 0,
+    "track_token": "bBSUYW68VNXzipvZtFZNJoBR"
 }
 Atone.config({
              pre_token: "tk_Fj2pd6CMEiFp04zcmTOiBLfm",
