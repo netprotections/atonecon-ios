@@ -57,7 +57,7 @@ final internal class PaymentViewController: UIViewController {
             let url = self.url(forResource: "atone", withExtension: "js")
             let handleScript = try String(contentsOf: url, encoding: .utf8)
             guard let jsonString = payment?.toJSONString(prettyPrint: true) else {
-                return WKUserScript(source: "", injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+                fatalError("don't receive information of payment")
             }
             let paymentScriptString = "var data = " + jsonString
             let userScript = WKUserScript(source: paymentScriptString + handleScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
