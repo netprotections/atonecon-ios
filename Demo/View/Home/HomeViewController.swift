@@ -14,7 +14,6 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var payButton: UIButton!
 
     var viewModel = HomeViewModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -33,9 +32,28 @@ final class HomeViewController: UIViewController {
 
         let atoneCon = AtoneCon.shared
         atoneCon.config(options)
-
+        atoneCon.delegate = self
         // TODO: - dummy data
         let payment = viewModel.payment
         atoneCon.performPayment(payment)
+    }
+}
+
+extension HomeViewController: AtoneConDelegate {
+
+    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
+        switch event {
+        case .willPayment(_):
+            break
+        case .failed(_):
+            // TODO: handle failed
+            atoneCon.dismissWebview()
+        case .canceled(_):
+            // TODO: handle canceled
+            atoneCon.dismissWebview()
+        case .finished(_, _):
+            // TODO: handle finished
+            atoneCon.dismissWebview()
+        }
     }
 }
