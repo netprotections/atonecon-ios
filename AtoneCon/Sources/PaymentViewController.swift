@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 internal protocol PaymentViewControllerDelegate: class {
-    func controller(_ controller: PaymentViewController, didReceiveEvent event: ScriptsHandler.Event)
+    func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent)
 }
 
 final internal class PaymentViewController: UIViewController {
@@ -18,7 +18,7 @@ final internal class PaymentViewController: UIViewController {
     // MARK: - Properties
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
-    private var scriptHandle: ScriptsHandler!
+    private var scriptHandler: ScriptHandler!
     weak var delegate: PaymentViewControllerDelegate?
 
     // MARK: - Cycle Life
@@ -38,9 +38,9 @@ final internal class PaymentViewController: UIViewController {
         let urlRequest = URLRequest(url: htmlURL())
         webView.load(urlRequest)
         webView.navigationDelegate = self
-        scriptHandle = ScriptsHandler(forWebView: webView)
-        scriptHandle.addEvents()
-        scriptHandle.delegate = self
+        scriptHandler = ScriptHandler(forWebView: webView)
+        scriptHandler.addEvents()
+        scriptHandler.delegate = self
     }
 
     private func setupIndicator() {
@@ -98,8 +98,8 @@ extension PaymentViewController: WKNavigationDelegate {
     }
 }
 
-extension PaymentViewController: ScriptsHandlerDelegate {
-    func scriptsHandler(_ scriptsHandler: ScriptsHandler, didReceiveEvent event: ScriptsHandler.Event) {
-        delegate?.controller(self, didReceiveEvent: event)
+extension PaymentViewController: ScriptHandlerDelegate {
+    func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent) {
+        delegate?.controller(self, didReceiveScriptEvent: event)
     }
 }

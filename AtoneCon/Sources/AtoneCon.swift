@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol AtoneConDelegate: class {
-    func atoneCon(atoneCon: AtoneCon, needsPerformAction action: AtoneCon.Action)
+    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent)
 }
 
 final public class AtoneCon {
@@ -29,7 +29,7 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
-        delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.willPayment(payment))
+        delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.willPayment)
         self.payment = payment
         let paymenController = PaymentViewController()
         paymenController.delegate = self
@@ -44,30 +44,30 @@ final public class AtoneCon {
 }
 
 extension AtoneCon: PaymentViewControllerDelegate {
-    func controller(_ controller: PaymentViewController, didReceiveEvent event: ScriptsHandler.Event) {
+    func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent) {
         switch event {
             // TODO: save token
         case .authenticated(_):
             break
         case .failed(_):
             // TODO: Handle message error
-            delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.failed(NSError()))
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.failed(NSError()))
         case .canceled:
             if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.canceled(payment))
+                delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.canceled(payment))
             }
         case .succeeded(_):
             // TODO: Handle succeeded
             if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, needsPerformAction: Action.finished(payment, " "))
+                delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.finished(payment, " "))
             }
         }
     }
 }
 
 extension AtoneCon {
-    public enum Action {
-        case willPayment(AtoneCon.Payment)
+    public enum PaymentEvent {
+        case willPayment
         case canceled(AtoneCon.Payment)
         case finished(AtoneCon.Payment, String)
         case failed(NSError)

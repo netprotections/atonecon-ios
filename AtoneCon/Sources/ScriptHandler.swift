@@ -9,8 +9,8 @@
 import Foundation
 import WebKit
 
-internal protocol ScriptsHandlerDelegate: class {
-    func scriptsHandler(_ scriptsHandler: ScriptsHandler, didReceiveEvent event: ScriptsHandler.Event)
+internal protocol ScriptHandlerDelegate: class {
+    func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent)
 }
 
 private enum MessageName: String {
@@ -20,10 +20,17 @@ private enum MessageName: String {
     case succeeded
 }
 
-internal final class ScriptsHandler: NSObject {
+internal enum ScriptEvent {
+    case authenticated(String?)
+    case canceled
+    case succeeded(Any)
+    case failed(Any)
+}
+
+internal final class ScriptHandler: NSObject {
 
     private var webView: WKWebView!
-    internal weak var delegate: ScriptsHandlerDelegate?
+    internal weak var delegate: ScriptHandlerDelegate?
     private let events: [String] = [MessageName.authenticated.rawValue, MessageName.cancelled.rawValue, MessageName.failed.rawValue, MessageName.succeeded.rawValue]
 
     internal init(forWebView webView: WKWebView) {
@@ -38,33 +45,24 @@ internal final class ScriptsHandler: NSObject {
     }
 }
 
-extension ScriptsHandler {
-    internal enum Event {
-        case authenticated(String?)
-        case canceled
-        case succeeded(Any)
-        case failed(Any)
-    }
-}
-
-extension ScriptsHandler: WKScriptMessageHandler {
+extension ScriptHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        var event: Event!
-        guard let nameMessage = MessageName(rawValue: message.name) else { return }
-        switch nameMessage {
+        var event: ScriptEvent!
+        guard let scriptEvent = MessageName(rawValue: message.name) else { return }
+        switch scriptEvent {
         case .authenticated :
             // TODO: save authentoken
-            event = Event.authenticated(message.body as? String)
+            event = ScriptEvent.authenticated(message.body as? String)
         case .cancelled:
             // TODO: get respone
-            event = Event.canceled
+            event = ScriptEvent.canceled
         case .failed:
             // TODO: get respone
-            event = Event.failed(message.body)
+            event = ScriptEvent.failed(message.body)
         case .succeeded:
             // TODO: get respone
-            event = Event.succeeded(message.body)
+            event = ScriptEvent.succeeded(message.body)
         }
-        delegate?.scriptsHandler(self, didReceiveEvent: event)
+        delegate?.scriptHandler(self, didReceiveScriptEvent: event)
     }
 }
