@@ -12,8 +12,14 @@ import WebKit
 final internal class PaymentViewController: UIViewController {
 
     // MARK: - Properties
+    private var payment: AtoneCon.Payment?
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
+
+    convenience init(payment: AtoneCon.Payment) {
+        self.init(nibName: nil, bundle: nil)
+        self.payment = payment
+    }
 
     // MARK: - Cycle Life
     override func viewDidLoad() {
@@ -49,8 +55,12 @@ final internal class PaymentViewController: UIViewController {
     private func userScript() -> WKUserScript {
         do {
             let url = self.url(forResource: "atone", withExtension: "js")
-            let source = try String(contentsOf: url, encoding: .utf8)
-            let userScript = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+            let handleScript = try String(contentsOf: url, encoding: .utf8)
+            guard let jsonString = payment?.toJSONString(prettyPrint: true) else {
+                return WKUserScript(source: "", injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+            }
+            let paymentScriptString = "var data = " + jsonString
+            let userScript = WKUserScript(source: paymentScriptString + handleScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
             return userScript
         } catch {
             fatalError(error.localizedDescription)

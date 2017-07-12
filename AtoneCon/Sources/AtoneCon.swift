@@ -23,7 +23,7 @@ final public class AtoneCon {
 
     public func performPayment(_ payment: Payment) {
         // TODO: Need Implement Data To JS
-        let paymenController = PaymentViewController()
+        let paymenController = PaymentViewController(payment: payment)
         let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.present(paymenController, animated: true, completion: nil)
     }
