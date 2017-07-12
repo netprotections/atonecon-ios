@@ -66,7 +66,7 @@ extension ScriptHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let event: ScriptEvent
         guard let messageName = Message(rawValue: message.name) else {
-            fatalError("")
+            fatalError("no handle for event \(message.name)")
         }
         switch messageName {
         case .authenticated :
