@@ -13,25 +13,42 @@ internal protocol ScriptHandlerDelegate: class {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent)
 }
 
-private enum MessageName: String {
+private enum Message: String {
     case authenticated
-    case cancelled
-    case failed
+    case canceled
     case succeeded
+    case failed
+
+    var name: String {
+        return rawValue
+    }
 }
 
 internal enum ScriptEvent {
     case authenticated(String?)
     case canceled
-    case succeeded(Any)
-    case failed(Any)
+    case succeeded(Any?)
+    case failed(Any?)
+
+    fileprivate var messageName: Message {
+        switch self {
+        case .authenticated(_):
+            return .authenticated
+        case .canceled:
+            return .canceled
+        case .failed(_):
+            return .failed
+        case .succeeded(_):
+            return .succeeded
+        }
+    }
 }
 
 internal final class ScriptHandler: NSObject {
 
     private var webView: WKWebView!
     internal weak var delegate: ScriptHandlerDelegate?
-    private let events: [String] = [MessageName.authenticated.rawValue, MessageName.cancelled.rawValue, MessageName.failed.rawValue, MessageName.succeeded.rawValue]
+    private let messages: [Message] = [.authenticated, .canceled, .failed, .succeeded]
 
     internal init(forWebView webView: WKWebView) {
         self.webView = webView
@@ -39,21 +56,23 @@ internal final class ScriptHandler: NSObject {
 
     internal func addEvents() {
         let controller = webView.configuration.userContentController
-        for event in events {
-            controller.add(self, name: event)
+        for message in messages {
+            controller.add(self, name: message.name)
         }
     }
 }
 
 extension ScriptHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        var event: ScriptEvent!
-        guard let scriptEvent = MessageName(rawValue: message.name) else { return }
-        switch scriptEvent {
+        let event: ScriptEvent
+        guard let messageName = Message(rawValue: message.name) else {
+            fatalError("")
+        }
+        switch messageName {
         case .authenticated :
             // TODO: save authentoken
             event = ScriptEvent.authenticated(message.body as? String)
-        case .cancelled:
+        case .canceled:
             // TODO: get respone
             event = ScriptEvent.canceled
         case .failed:
