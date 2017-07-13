@@ -74,12 +74,12 @@ extension HomeViewController: AtoneConDelegate {
 
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
-        case .willPayment(let authentoken):
+        case .willPayment(_):
             break
         case .failed(_):
             // TODO: handle failed
             atoneCon.dismissWebview()
-        case .canceled(_):
+        case .cancelled():
             // TODO: handle canceled
             atoneCon.dismissWebview()
         case .finished(_, _):

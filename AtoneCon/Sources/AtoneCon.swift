@@ -52,10 +52,8 @@ extension AtoneCon: PaymentViewControllerDelegate {
         case .failed(_):
             // TODO: Handle message error
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.failed(NSError()))
-        case .canceled:
-            if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.canceled(payment))
-            }
+        case .cancelled:
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.cancelled)
         case .succeeded(_):
             // TODO: Handle succeeded
             if let payment = payment {
@@ -68,7 +66,7 @@ extension AtoneCon: PaymentViewControllerDelegate {
 extension AtoneCon {
     public enum PaymentEvent {
         case willPayment
-        case canceled(AtoneCon.Payment)
+        case cancelled
         case finished(AtoneCon.Payment, String)
         case failed(NSError)
     }
