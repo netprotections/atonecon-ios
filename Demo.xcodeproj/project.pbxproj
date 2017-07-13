@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		161743531F04AA9900302417 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161743521F04AA9900302417 /* Strings.swift */; };
+		161743531F04AA9900302417 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161743521F04AA9900302417 /* String.swift */; };
 		16946B051F0B836800CE6FF8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B041F0B836800CE6FF8 /* HomeViewModel.swift */; };
 		1699BE0E1F03B701007F1C54 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699BE0C1F03B701007F1C54 /* HomeViewController.swift */; };
 		1699BE0F1F03B701007F1C54 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1699BE0D1F03B701007F1C54 /* HomeViewController.xib */; };
 		16E43CB51F0A317200148E19 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E43CB41F0A317200148E19 /* Define.swift */; };
+		16FB7B121F17251F00618292 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB7B111F17251F00618292 /* Color.swift */; };
 		88C86576A00ED32D7BB2FEC3 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA232F78ABB497F9F72C9 /* Pods_Demo.framework */; };
 		99891ADB1F0CF64C00BA5317 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99891ADA1F0CF64C00BA5317 /* DemoTests.swift */; };
 		9994ECE71F0397DE00075EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9994ECDE1F0397DE00075EA5 /* Assets.xcassets */; };
@@ -31,11 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		161743521F04AA9900302417 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		161743521F04AA9900302417 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		16946B041F0B836800CE6FF8 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1699BE0C1F03B701007F1C54 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1699BE0D1F03B701007F1C54 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		16E43CB41F0A317200148E19 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		16FB7B111F17251F00618292 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2C8EA232F78ABB497F9F72C9 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		911783D7DD56A3CFB7403BAB /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		990B5EC11F0395B500B142E7 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,8 +158,9 @@
 		9994ECDA1F0397DE00075EA5 /* Define */ = {
 			isa = PBXGroup;
 			children = (
-				161743521F04AA9900302417 /* Strings.swift */,
+				161743521F04AA9900302417 /* String.swift */,
 				16E43CB41F0A317200148E19 /* Define.swift */,
+				16FB7B111F17251F00618292 /* Color.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -397,10 +400,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9994ECE91F0397DE00075EA5 /* AppDelegate.swift in Sources */,
-				161743531F04AA9900302417 /* Strings.swift in Sources */,
+				161743531F04AA9900302417 /* String.swift in Sources */,
 				16E43CB51F0A317200148E19 /* Define.swift in Sources */,
 				16946B051F0B836800CE6FF8 /* HomeViewModel.swift in Sources */,
 				1699BE0E1F03B701007F1C54 /* HomeViewController.swift in Sources */,
+				16FB7B121F17251F00618292 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +606,7 @@
 				99891AE01F0CF64C00BA5317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
