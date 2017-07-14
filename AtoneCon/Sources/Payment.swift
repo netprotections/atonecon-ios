@@ -12,12 +12,12 @@ import ObjectMapper
 extension AtoneCon {
 
     public struct Payment {
-        public var amount: Int!
-        public var shopTransactionNo: String!
+        public var amount = 0
+        public var shopTransactionNo = ""
         public var salesSettled: Bool?
         public var descriptionTrans: String?
-        public var checksum: String!
-        public var customer: Customer!
+        public var checksum = ""
+        public var customer: Customer?
         public var desCustomers: [DesCustomer]?
         public var items: [Item] = []
 

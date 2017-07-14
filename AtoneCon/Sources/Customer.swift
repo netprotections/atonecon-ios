@@ -11,7 +11,7 @@ import ObjectMapper
 
 extension AtoneCon {
     public struct Customer {
-        public var name: String!
+        public var name = ""
         public var familyName: String?
         public var givenName: String?
         public var nameKana: String?

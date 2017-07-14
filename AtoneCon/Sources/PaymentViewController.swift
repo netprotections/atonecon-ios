@@ -23,7 +23,7 @@ final internal class PaymentViewController: UIViewController {
     weak var delegate: PaymentViewControllerDelegate?
 
     convenience init(payment: AtoneCon.Payment) {
-        self.init(nibName: nil, bundle: nil)
+        self.init()
         self.payment = payment
     }
 

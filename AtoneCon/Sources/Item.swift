@@ -11,10 +11,10 @@ import ObjectMapper
 
 extension AtoneCon {
     public struct Item {
-        public var id: String!
-        public var name: String!
-        public var price: Int!
-        public var count: Int!
+        public var id = ""
+        public var name = ""
+        public var price = 0
+        public var count = 0
         public var url: String?
 
         public init(id: String,

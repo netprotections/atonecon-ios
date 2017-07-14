@@ -11,12 +11,12 @@ import ObjectMapper
 
 extension AtoneCon {
     public struct DesCustomer {
-        public var name: String!
+        public var name = ""
         public var nameKana: String?
         public var companyName: String?
         public var department: String?
-        public var zipCode: String!
-        public var address: String!
+        public var zipCode = ""
+        public var address = ""
         public var tel: String?
         public var email: String?
 
