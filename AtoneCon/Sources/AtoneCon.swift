@@ -5,8 +5,8 @@
 //  Created by Pham Ngoc Hanh on 6/30/17.
 //  Copyright © 2017 AsianTech Inc. All rights reserved.
 //
-
-import UIKit
+import Foundation
+import ObjectMapper
 
 public protocol AtoneConDelegate: class {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent)
@@ -29,9 +29,10 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
+        // TODO: Need Implement Data To JS
         delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.willPayment)
         self.payment = payment
-        let paymenController = PaymentViewController()
+        let paymenController = PaymentViewController(payment: payment)
         paymenController.delegate = self
         let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.present(paymenController, animated: true, completion: nil)

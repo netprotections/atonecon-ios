@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 extension AtoneCon {
     public struct Item {
@@ -14,18 +15,28 @@ extension AtoneCon {
         public var name = ""
         public var price = 0
         public var count = 0
-        public var url = ""
+        public var url: String?
 
         public init(id: String,
                     name: String,
                     price: Int,
-                    count: Int,
-                    url: String) {
+                    count: Int) {
             self.id = id
             self.name = name
             self.price = price
             self.count = count
-            self.url = url
         }
+    }
+}
+extension AtoneCon.Item: Mappable {
+    public init?(map: Map) {
+    }
+
+    public mutating func mapping(map: Map) {
+        id <- map["shop_item_id"]
+        name <- map["item_name"]
+        price <- map["item_price"]
+        count <- map["item_count"]
+        url <- map["item_url"]
     }
 }

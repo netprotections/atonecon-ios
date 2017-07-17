@@ -14,11 +14,11 @@ final class HomeViewModel {
     var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
-            amount: 0,
-            shopTransactionNo: "",
-            salesSettled: true,
-            descriptionTrans: "",
-            checksum: "")
+            amount: 10,
+            shopTransactionNo: "shop-tran-no-1499756055",
+            checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
+        payment.salesSettled = false
+        payment.descriptionTrans = "備考です。"
 
         payment.customer = customer
         payment.desCustomers = desCustomers
@@ -28,56 +28,19 @@ final class HomeViewModel {
 
     // TODO: dummy data
     private var customer: AtoneCon.Customer {
-        return AtoneCon.Customer(
-            name: "",
-            familyName: "",
-            givenName: "",
-            nameKana: "",
-            familyNameKana: "",
-            givenNameKana: "",
-            phoneNumber: "",
-            birthday: "",
-            sexDivision: "",
-            companyName: "",
-            department: "",
-            zipCode: "",
-            address: "",
-            tel: "",
-            email: "",
-            totalPurchaseCount: 0,
-            totalPurchaseAmount: 0)
+        let customer = AtoneCon.Customer(name: "接続テスト")
+        return customer
     }
 
     // TODO: dummy data
     private var desCustomers: [AtoneCon.DesCustomer] {
-        return [
-            AtoneCon.DesCustomer(
-                name: "",
-                nameKana: "",
-                companyName: "",
-                department: "",
-                zipCode: "",
-                address: "",
-                tel: "",
-                email: "")
-        ]
+        let descustomer = AtoneCon.DesCustomer(name: "銀座太郎", zipCode: "123-1234", address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階")
+        return [descustomer]
     }
 
     // TODO: dummy data
     private var items: [AtoneCon.Item] {
-        return [
-            AtoneCon.Item(
-                id: "1",
-                name: "",
-                price: 0,
-                count: 0,
-                url: ""),
-            AtoneCon.Item(
-                id: "2",
-                name: "",
-                price: 0,
-                count: 0,
-                url: "")
-        ]
+        let item = AtoneCon.Item(id: "1", name: "１０円チョコ", price: 10, count: 1)
+        return [item]
     }
 }
