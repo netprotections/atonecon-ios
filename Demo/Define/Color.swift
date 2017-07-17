@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
+import SwiftUtils
 
 extension Define.Color {
-    static let lightBlue = UIColor(red: 67/255, green: 169/255, blue: 230/255, alpha: 1.0)
+    static let lightBlue = UIColor.RGB(67, 169, 230, 1.0)
 }
