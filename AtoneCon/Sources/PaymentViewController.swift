@@ -69,6 +69,7 @@ final internal class PaymentViewController: UIViewController {
                 fatalError("don't receive information of payment")
             }
             let paymentScriptString = "var data = " + jsonString
+            print(paymentScriptString)
             let userScript = WKUserScript(source: paymentScriptString + handleScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
             return userScript
         } catch {

@@ -29,40 +29,8 @@ extension AtoneCon {
         public var totalPurchaseCount: Int?
         public var totalPurchaseAmount: Int?
 
-        public init(name: String,
-                    familyName: String?,
-                    givenName: String?,
-                    nameKana: String?,
-                    familyNameKana: String?,
-                    givenNameKana: String?,
-                    phoneNumber: String?,
-                    birthday: String?,
-                    sexDivision: String?,
-                    companyName: String?,
-                    department: String?,
-                    zipCode: String?,
-                    address: String?,
-                    tel: String?,
-                    email: String?,
-                    totalPurchaseCount: Int?,
-                    totalPurchaseAmount: Int?) {
+        public init(name: String) {
             self.name = name
-            self.familyName = familyName
-            self.givenName = givenName
-            self.nameKana = nameKana
-            self.familyNameKana = familyNameKana
-            self.givenNameKana = givenNameKana
-            self.phoneNumber = phoneNumber
-            self.birthday = birthday
-            self.sexDivision = sexDivision
-            self.companyName = companyName
-            self.department = department
-            self.zipCode = zipCode
-            self.address = address
-            self.tel = tel
-            self.email = email
-            self.totalPurchaseCount = totalPurchaseCount
-            self.totalPurchaseAmount = totalPurchaseAmount
         }
     }
 }

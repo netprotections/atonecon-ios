@@ -23,13 +23,9 @@ extension AtoneCon {
 
         public init(amount: Int,
                     shopTransactionNo: String,
-                    salesSettled: Bool?,
-                    descriptionTrans: String?,
                     checksum: String) {
             self.amount = amount
             self.shopTransactionNo = shopTransactionNo
-            self.salesSettled = salesSettled
-            self.descriptionTrans = descriptionTrans
             self.checksum = checksum
         }
     }

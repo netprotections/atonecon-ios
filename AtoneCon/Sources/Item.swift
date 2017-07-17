@@ -20,13 +20,11 @@ extension AtoneCon {
         public init(id: String,
                     name: String,
                     price: Int,
-                    count: Int,
-                    url: String?) {
+                    count: Int) {
             self.id = id
             self.name = name
             self.price = price
             self.count = count
-            self.url = url
         }
     }
 }
