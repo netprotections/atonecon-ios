@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Demo" customModuleProvider="target">
             <connections>
-                <outlet property="authentokenTitleLabel" destination="dpc-FO-gGI" id="jgg-BM-sCx"/>
-                <outlet property="authentokenValueLabel" destination="SBc-Vu-cTT" id="pvH-Gq-j7B"/>
-                <outlet property="authentokenView" destination="FbX-tU-nAZ" id="HUS-uw-B0d"/>
-                <outlet property="payButton" destination="9SR-BQ-yup" id="91D-21-LHI"/>
-                <outlet property="resetTokenButton" destination="UvL-FV-RHp" id="r2a-Li-ntA"/>
+                <outlet property="authenTokenTitleLabel" destination="dpc-FO-gGI" id="azp-wT-A3h"/>
+                <outlet property="authenTokenValueLabel" destination="SBc-Vu-cTT" id="Eov-4E-2IN"/>
+                <outlet property="authenTokenView" destination="FbX-tU-nAZ" id="SBG-XM-gVU"/>
+                <outlet property="payButton" destination="9SR-BQ-yup" id="ZuF-t7-jYq"/>
+                <outlet property="resetTokenButton" destination="UvL-FV-RHp" id="qeD-Xw-aeX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -96,7 +96,7 @@
                 <constraint firstItem="9SR-BQ-yup" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="2:3" id="wEH-P7-o24"/>
                 <constraint firstItem="9SR-BQ-yup" firstAttribute="top" secondItem="Vve-qT-ywd" secondAttribute="bottom" constant="20" id="yGa-ir-HoL"/>
             </constraints>
-            <point key="canvasLocation" x="-331.5" y="41.5"/>
+            <point key="canvasLocation" x="-474" y="29"/>
         </view>
     </objects>
 </document>

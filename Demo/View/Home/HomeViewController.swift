@@ -12,9 +12,9 @@ import AtoneCon
 final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var payButton: UIButton!
-    @IBOutlet private weak var authentokenTitleLabel: UILabel!
-    @IBOutlet private weak var authentokenValueLabel: UILabel!
-    @IBOutlet private weak var authentokenView: UIView!
+    @IBOutlet private weak var authenTokenTitleLabel: UILabel!
+    @IBOutlet private weak var authenTokenValueLabel: UILabel!
+    @IBOutlet private weak var authenTokenView: UIView!
     @IBOutlet private weak var resetTokenButton: UIButton!
 
     var viewModel = HomeViewModel()
@@ -38,23 +38,26 @@ final class HomeViewController: UIViewController {
     }
 
     private func setupNavigationController() {
-        navigationController?.navigationBar.barTintColor = Define.Color.lightBlue
-        navigationController?.navigationBar.tintColor = UIColor.white
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        navigationController?.navigationBar.tintColor = UIColor.white
+        guard let navigationBar = navigationController?.navigationBar else {
+            fatalError("Don't found navigationBar")
+        }
+        navigationBar.barTintColor = Define.Color.lightBlue
+        navigationBar.tintColor = UIColor.white
+        navigationBar.isTranslucent = false
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationBar.tintColor = UIColor.white
     }
 
     private func setupAuthenTokenView() {
-        authentokenView.layer.borderWidth = 2
-        authentokenView.layer.borderColor = Define.Color.lightBlue.cgColor
-        authentokenView.layer.cornerRadius = 5
+        authenTokenView.layer.borderWidth = 2
+        authenTokenView.layer.borderColor = Define.Color.lightBlue.cgColor
+        authenTokenView.layer.cornerRadius = 5
     }
 
     private func setupAuthenTokenLabel() {
-        authentokenTitleLabel.backgroundColor = .white
-        authentokenTitleLabel.text = Define.String.authenTokenTitle
-        authentokenTitleLabel.textColor = Define.Color.lightBlue
+        authenTokenTitleLabel.backgroundColor = .white
+        authenTokenTitleLabel.text = Define.String.authenTokenTitle
+        authenTokenTitleLabel.textColor = Define.Color.lightBlue
     }
 
     private func setupResetTokenButton() {
