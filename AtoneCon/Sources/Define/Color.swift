@@ -2,7 +2,7 @@
 //  Color.swift
 //  AtoneCon
 //
-//  Created by Mylo Ho on 7/5/17.
+//  Created by Pham Ngoc Hanh on 7/5/17.
 //  Copyright © 2017 AsianTech Inc. All rights reserved.
 //
 

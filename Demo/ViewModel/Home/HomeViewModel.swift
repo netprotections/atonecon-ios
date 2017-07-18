@@ -15,7 +15,7 @@ final class HomeViewModel {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
             amount: 10,
-            shopTransactionNo: "shop-tran-no-1499756055",
+            shopTransactionNo: "shop-tran-no-1500347802",
             checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
         payment.salesSettled = false
         payment.descriptionTrans = "備考です。"
@@ -28,19 +28,33 @@ final class HomeViewModel {
 
     // TODO: dummy data
     private var customer: AtoneCon.Customer {
-        let customer = AtoneCon.Customer(name: "接続テスト")
+        var customer = AtoneCon.Customer(name: "接続テスト")
+        customer.nameKana = "セツゾクテスト"
+        customer.companyName = "（株）ネットプロテクションズ"
+        customer.department = "セールスグループ"
+        customer.zipCode = "1234567"
+        customer.address = "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
+        customer.tel = "080-1234-1234"
+        customer.email = "np@netprotections.co.jp"
+        customer.totalPurchaseAmount = 20000
+        customer.totalPurchaseCount = 2
         return customer
     }
 
     // TODO: dummy data
     private var desCustomers: [AtoneCon.DesCustomer] {
-        let descustomer = AtoneCon.DesCustomer(name: "銀座太郎", zipCode: "123-1234", address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階")
-        return [descustomer]
+        var desCustomer = AtoneCon.DesCustomer(name: "銀座太郎", zipCode: "123-1234", address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階")
+        desCustomer.nameKana = "ぎんざたろう"
+        desCustomer.companyName = "株式会社ネットプロテクションズ"
+        desCustomer.department = "システム部門"
+        desCustomer.tel = "0312341234"
+        return [desCustomer]
     }
 
     // TODO: dummy data
     private var items: [AtoneCon.Item] {
-        let item = AtoneCon.Item(id: "1", name: "１０円チョコ", price: 10, count: 1)
+        var item = AtoneCon.Item(id: "1", name: "１０円チョコ", price: 10, count: 1)
+        item.url = "https://atone.be/items/1"
         return [item]
     }
 }

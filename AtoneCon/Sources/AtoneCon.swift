@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 public protocol AtoneConDelegate: class {
-    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent)
+    func atoneCon(atoneCon: AtoneCon, didReceiveScriptEvent event: ScriptEvent)
 }
 
 final public class AtoneCon {
@@ -29,8 +29,6 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
-        // TODO: Need Implement Data To JS
-        delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.willPayment)
         self.payment = payment
         let paymenController = PaymentViewController(payment: payment)
         paymenController.delegate = self
@@ -46,29 +44,6 @@ final public class AtoneCon {
 
 extension AtoneCon: PaymentViewControllerDelegate {
     func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent) {
-        switch event {
-            // TODO: save token
-        case .authenticated(_):
-            break
-        case .failed(_):
-            // TODO: Handle message error
-            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.failed(NSError()))
-        case .cancelled:
-            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.cancelled)
-        case .succeeded(_):
-            // TODO: Handle succeeded
-            if let payment = payment {
-                delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: PaymentEvent.finished(payment, " "))
-            }
-        }
-    }
-}
-
-extension AtoneCon {
-    public enum PaymentEvent {
-        case willPayment
-        case cancelled
-        case finished(AtoneCon.Payment, String)
-        case failed(NSError)
+        delegate?.atoneCon(atoneCon: self, didReceiveScriptEvent: event)
     }
 }

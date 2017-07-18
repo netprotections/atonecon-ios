@@ -24,7 +24,7 @@ private enum Message: String {
     }
 }
 
-internal enum ScriptEvent {
+public enum ScriptEvent {
     case authenticated(String?)
     case cancelled
     case succeeded(Any?)
@@ -70,16 +70,12 @@ extension ScriptHandler: WKScriptMessageHandler {
         }
         switch messageName {
         case .authenticated :
-            // TODO: save authentoken
             event = ScriptEvent.authenticated(message.body as? String)
         case .cancelled:
-            // TODO: get respone
             event = ScriptEvent.cancelled
         case .failed:
-            // TODO: get respone
             event = ScriptEvent.failed(message.body)
         case .succeeded:
-            // TODO: get respone
             event = ScriptEvent.succeeded(message.body)
         }
         delegate?.scriptHandler(self, didReceiveScriptEvent: event)

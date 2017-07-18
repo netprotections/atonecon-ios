@@ -1,6 +1,6 @@
 
 Atone.config({
-             pre_token: "tk_Fj2pd6CMEiFp04zcmTOiBLfm",
+             pre_token: "",
              pub_key: "bB2uNvcOP2o8fJzHpWUumA",
              payment: data,
              // 認証が完了したタイミングで呼び出し

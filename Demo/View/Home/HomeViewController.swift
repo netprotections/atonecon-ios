@@ -74,7 +74,7 @@ final class HomeViewController: UIViewController {
     @IBAction func payButtonTapped(_ sender: Any) {
         var options = AtoneCon.Options()
         // TODO: - dummy data
-        options.publicKey = "xx-yy-zz"
+        options.publicKey = "bB2uNvcOP2o8fJzHpWUumA"
 
         let atoneCon = AtoneCon.shared
         atoneCon.config(options)
@@ -91,18 +91,26 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: AtoneConDelegate {
 
-    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
+    func atoneCon(atoneCon: AtoneCon, didReceiveScriptEvent event: ScriptEvent) {
         switch event {
-        case .willPayment(_):
-            break
-        case .failed(_):
-            // TODO: handle failed
+        case .authenticated(let authenToken):
+            guard let authenToken = authenToken else {
+                fatalError("Don't received authenToken")
+            }
+            print(authenToken)
+        case .failed(let response):
+            guard let response = response else {
+                fatalError("Don't received response")
+            }
+            print(response)
             atoneCon.dismissWebview()
         case .cancelled():
-            // TODO: handle canceled
             atoneCon.dismissWebview()
-        case .finished(_, _):
-            // TODO: handle finished
+        case .succeeded(let response):
+            guard let response = response else {
+                fatalError("Don't received response")
+            }
+            print(response)
             atoneCon.dismissWebview()
         }
     }
