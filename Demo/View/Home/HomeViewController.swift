@@ -35,6 +35,7 @@ final class HomeViewController: UIViewController {
     private func setupPayButton() {
         payButton.layer.cornerRadius = 5
         payButton.backgroundColor = Define.Color.lightBlue
+        payButton.setTitle(Define.String.atoneButtonTitle, for: .normal)
     }
 
     private func setupNavigationController() {

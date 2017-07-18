@@ -12,5 +12,5 @@ extension Define.String {
     static let homeTitle = "Atone"
     static let resetAuthen = "認証情報をリセット"
     static let authenTokenTitle = " 認証トークン "
-    static let atonButtonTitle = "atoneを使う"
+    static let atoneButtonTitle = "atoneを使う"
 }
