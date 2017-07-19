@@ -18,9 +18,15 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var resetTokenButton: UIButton!
 
     var viewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        authenTokenValueLabel.text = viewModel.getAuthenToken()
     }
 
     private func setupUI() {
@@ -39,14 +45,13 @@ final class HomeViewController: UIViewController {
     }
 
     private func setupNavigationController() {
-        guard let navigationBar = navigationController?.navigationBar else {
-            fatalError("Don't found navigationBar")
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barTintColor = Define.Color.lightBlue
+            navigationBar.tintColor = UIColor.white
+            navigationBar.isTranslucent = false
+            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+            navigationBar.tintColor = UIColor.white
         }
-        navigationBar.barTintColor = Define.Color.lightBlue
-        navigationBar.tintColor = UIColor.white
-        navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        navigationBar.tintColor = UIColor.white
     }
 
     private func setupAuthenTokenView() {
@@ -77,27 +82,33 @@ final class HomeViewController: UIViewController {
         options.publicKey = "bB2uNvcOP2o8fJzHpWUumA"
 
         let atoneCon = AtoneCon.shared
-        atoneCon.config(options)
         atoneCon.delegate = self
+        atoneCon.config(options)
         // TODO: - dummy data
         let payment = viewModel.payment
         atoneCon.performPayment(payment)
     }
 
     @IBAction func resetTokenButtonTapped(_ sender: Any) {
-        // TODO: reset authenToken
+        viewModel.resetAuthenToken()
+        updateView()
+    }
+
+    private func updateView() {
+        if isViewLoaded {
+            authenTokenValueLabel.text = viewModel.getAuthenToken()
+        }
     }
 }
 
 extension HomeViewController: AtoneConDelegate {
-
     func atoneCon(atoneCon: AtoneCon, didReceiveScriptEvent event: ScriptEvent) {
         switch event {
         case .authenticated(let authenToken):
             guard let authenToken = authenToken else {
                 fatalError("Don't received authenToken")
             }
-            print(authenToken)
+            viewModel.saveAuthenToken(token: authenToken)
         case .failed(let response):
             guard let response = response else {
                 fatalError("Don't received response")

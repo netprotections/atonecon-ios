@@ -70,7 +70,9 @@ extension ScriptHandler: WKScriptMessageHandler {
         }
         switch messageName {
         case .authenticated :
-            event = ScriptEvent.authenticated(message.body as? String)
+            let token = message.body as? String
+            UserDefaults.standard.set(token, forKey: Define.String.tokenKey)
+            event = ScriptEvent.authenticated(token)
         case .cancelled:
             event = ScriptEvent.cancelled
         case .failed:

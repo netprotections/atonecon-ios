@@ -62,19 +62,40 @@ final internal class PaymentViewController: UIViewController {
     }
 
     private func userScript() -> WKUserScript {
-        do {
-            let url = self.url(forResource: "atone", withExtension: "js")
-            let handleScript = try String(contentsOf: url, encoding: .utf8)
-            guard let jsonString = payment?.toJSONString(prettyPrint: true) else {
-                fatalError("don't receive information of payment")
-            }
-            let paymentScriptString = "var data = " + jsonString
-            print(paymentScriptString)
-            let userScript = WKUserScript(source: paymentScriptString + handleScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-            return userScript
-        } catch {
-            fatalError(error.localizedDescription)
+        guard let jsonString = payment?.toJSONString(prettyPrint: true) else {
+            fatalError("don't receive information of payment")
         }
+        let handlerScriptString = getHandlerScriptString()
+        let paymentScriptString = "var data = " + jsonString
+        let userScript = WKUserScript(source: paymentScriptString + handlerScriptString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        return userScript
+    }
+
+    private func getHandlerScriptString() -> String {
+        let publicKey = AtoneCon.Options.key
+        var preToken = ""
+        if let token = UserDefaults.standard.string(forKey: Define.String.tokenKey) {
+            preToken = token
+        }
+        let handlerScriptString = "\nAtone.config({\n" +
+            "pre_token: \"" + preToken + "\",\n" +
+            "pub_key: \"" + publicKey + "\",\n" +
+            "payment: data,\n" +
+            "authenticated: function(authentication_token) {\n" +
+                "window.webkit.messageHandlers.authenticated.postMessage(authentication_token);\n" +
+            "},\n" +
+            "cancelled: function() {\n" +
+                "window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');\n" +
+            "},\n" +
+            "failed: function(response) {\n" +
+                "window.webkit.messageHandlers.failed.postMessage(response);\n" +
+            "},\n" +
+            "succeeded: function(response) {\n" +
+                "window.webkit.messageHandlers.succeeded.postMessage(response);\n" +
+            "}\n" +
+            "});\n" +
+            "function startAtone() {Atone.start();}\n"
+        return handlerScriptString
     }
 
     private func url(forResource name: String?, withExtension ext: String?) -> URL {

@@ -57,4 +57,17 @@ final class HomeViewModel {
         item.url = "https://atone.be/items/1"
         return [item]
     }
+
+    func saveAuthenToken(token: String?) {
+        UserDefaults.standard.set(token, forKey: Define.String.tokenKey)
+    }
+
+    func getAuthenToken() -> String? {
+        return UserDefaults.standard.string(forKey: Define.String.tokenKey)
+    }
+
+    func resetAuthenToken() {
+        AtoneCon.shared.resetAuthenToken()
+        UserDefaults.standard.removeObject(forKey: Define.String.tokenKey)
+    }
 }

@@ -40,6 +40,10 @@ final public class AtoneCon {
         let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.dismiss(animated: true, completion: nil)
     }
+
+    public func resetAuthenToken() {
+        UserDefaults.standard.removeObject(forKey: Define.String.tokenKey)
+    }
 }
 
 extension AtoneCon: PaymentViewControllerDelegate {
