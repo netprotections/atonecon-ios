@@ -18,7 +18,7 @@ final public class AtoneCon {
     public static let shared = AtoneCon()
 
     // MARK: - Properties
-    private var option = Options()
+    var option = Options()
     public weak var delegate: AtoneConDelegate?
     fileprivate var payment: Payment?
 
@@ -30,7 +30,6 @@ final public class AtoneCon {
     public func performPayment(_ payment: Payment) {
         self.payment = payment
         let paymenController = PaymentViewController(payment: payment)
-        paymenController.option = option
         paymenController.delegate = self
         let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.present(paymenController, animated: true, completion: nil)
@@ -42,7 +41,7 @@ final public class AtoneCon {
     }
 
     public func resetAuthenToken() {
-        UserDefaults.standard.removeObject(forKey: Define.String.tokenKey)
+        userDefault.removeObject(forKey: Define.String.tokenKey)
     }
 }
 
@@ -50,8 +49,8 @@ extension AtoneCon {
     public enum PaymentEvent {
         case authenticated(String?)
         case cancelled
-        case finished(Any?)
-        case failed(Any?)
+        case finished(JSObject?)
+        case failed(JSObject?)
     }
 }
 

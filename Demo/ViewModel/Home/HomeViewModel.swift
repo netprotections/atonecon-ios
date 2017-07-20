@@ -9,8 +9,9 @@
 import Foundation
 import AtoneCon
 
-final class HomeViewModel {
+let userDefault = UserDefaults.standard
 
+final class HomeViewModel {
     var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
@@ -59,15 +60,15 @@ final class HomeViewModel {
     }
 
     func saveAuthenToken(token: String?) {
-        UserDefaults.standard.set(token, forKey: Define.String.tokenKey)
+        userDefault.set(token, forKey: Define.String.tokenKey)
     }
 
     func getAuthenToken() -> String? {
-        return UserDefaults.standard.string(forKey: Define.String.tokenKey)
+        return userDefault.string(forKey: Define.String.tokenKey)
     }
 
     func resetAuthenToken() {
         AtoneCon.shared.resetAuthenToken()
-        UserDefaults.standard.removeObject(forKey: Define.String.tokenKey)
+        userDefault.removeObject(forKey: Define.String.tokenKey)
     }
 }

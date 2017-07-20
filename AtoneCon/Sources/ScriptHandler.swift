@@ -9,6 +9,8 @@
 import Foundation
 import WebKit
 
+public typealias JSObject = [String: Any]
+
 internal protocol ScriptHandlerDelegate: class {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent)
 }
@@ -24,11 +26,11 @@ private enum Message: String {
     }
 }
 
-public enum ScriptEvent {
+internal enum ScriptEvent {
     case authenticated(String?)
     case cancelled
-    case succeeded(Any?)
-    case failed(Any?)
+    case succeeded(JSObject?)
+    case failed(JSObject?)
 
     fileprivate var messageName: Message {
         switch self {
@@ -76,9 +78,9 @@ extension ScriptHandler: WKScriptMessageHandler {
         case .cancelled:
             event = ScriptEvent.cancelled
         case .failed:
-            event = ScriptEvent.failed(message.body)
+            event = ScriptEvent.failed(message.body as? JSObject)
         case .succeeded:
-            event = ScriptEvent.succeeded(message.body)
+            event = ScriptEvent.succeeded(message.body as? JSObject)
         }
         delegate?.scriptHandler(self, didReceiveScriptEvent: event)
     }

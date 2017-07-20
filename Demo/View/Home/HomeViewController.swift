@@ -109,16 +109,18 @@ extension HomeViewController: AtoneConDelegate {
         case .cancelled:
             atoneCon.dismissWebview()
         case .failed(let response):
-            guard let response = response else {
-                fatalError("Don't received response")
+            if let response = response {
+                print(response)
+            } else {
+                print("Don't receive data")
             }
-            print(response)
             atoneCon.dismissWebview()
         case .finished(let response):
-            guard let response = response else {
-                fatalError("Don't received response")
+            if let response = response {
+                print(response)
+            } else {
+                print("Don't receive data")
             }
-            print(response)
             atoneCon.dismissWebview()
         }
     }
