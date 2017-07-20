@@ -16,6 +16,7 @@ internal protocol PaymentViewControllerDelegate: class {
 final internal class PaymentViewController: UIViewController {
 
     // MARK: - Properties
+    internal var option: AtoneCon.Options?
     private var payment: AtoneCon.Payment?
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
@@ -72,7 +73,10 @@ final internal class PaymentViewController: UIViewController {
     }
 
     private func getHandlerScriptString() -> String {
-        let publicKey = AtoneCon.Options.key
+        var publicKey = ""
+        if let option = option {
+            publicKey = option.publicKey
+        }
         var preToken = ""
         if let token = UserDefaults.standard.string(forKey: Define.String.tokenKey) {
             preToken = token

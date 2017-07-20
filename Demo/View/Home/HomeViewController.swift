@@ -102,22 +102,19 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: AtoneConDelegate {
-    func atoneCon(atoneCon: AtoneCon, didReceiveScriptEvent event: ScriptEvent) {
+    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
-            guard let authenToken = authenToken else {
-                fatalError("Don't received authenToken")
-            }
             viewModel.saveAuthenToken(token: authenToken)
+        case .cancelled:
+            atoneCon.dismissWebview()
         case .failed(let response):
             guard let response = response else {
                 fatalError("Don't received response")
             }
             print(response)
             atoneCon.dismissWebview()
-        case .cancelled():
-            atoneCon.dismissWebview()
-        case .succeeded(let response):
+        case .finished(let response):
             guard let response = response else {
                 fatalError("Don't received response")
             }

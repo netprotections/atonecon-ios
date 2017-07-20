@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 public protocol AtoneConDelegate: class {
-    func atoneCon(atoneCon: AtoneCon, didReceiveScriptEvent event: ScriptEvent)
+    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent)
 }
 
 final public class AtoneCon {
@@ -24,13 +24,13 @@ final public class AtoneCon {
 
     // MARK: - Public Functions
     public func config(_ option: Options) {
-        // TODO: Config public key
         self.option = option
     }
 
     public func performPayment(_ payment: Payment) {
         self.payment = payment
         let paymenController = PaymentViewController(payment: payment)
+        paymenController.option = option
         paymenController.delegate = self
         let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.present(paymenController, animated: true, completion: nil)
@@ -46,8 +46,26 @@ final public class AtoneCon {
     }
 }
 
+extension AtoneCon {
+    public enum PaymentEvent {
+        case authenticated(String?)
+        case cancelled
+        case finished(Any?)
+        case failed(Any?)
+    }
+}
+
 extension AtoneCon: PaymentViewControllerDelegate {
     func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent) {
-        delegate?.atoneCon(atoneCon: self, didReceiveScriptEvent: event)
+        switch event {
+        case .authenticated(let authenToken):
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .authenticated(authenToken))
+        case .failed(let response):
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .failed(response))
+        case .cancelled:
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .cancelled)
+        case .succeeded(let response):
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .finished(response))
+        }
     }
 }

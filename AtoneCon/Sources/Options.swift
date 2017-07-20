@@ -10,12 +10,7 @@ import Foundation
 
 extension AtoneCon {
     public struct Options {
-        public var publicKey = "" {
-            didSet {
-                AtoneCon.Options.key = publicKey
-            }
-        }
-        internal static var key = ""
+        public var publicKey = ""
         public init() {}
     }
 }
