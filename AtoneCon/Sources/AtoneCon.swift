@@ -49,8 +49,8 @@ extension AtoneCon {
     public enum PaymentEvent {
         case authenticated(String?)
         case cancelled
-        case finished(JSObject?)
-        case failed(JSObject?)
+        case finished([String: Any]?)
+        case failed([String: Any]?)
     }
 }
 
