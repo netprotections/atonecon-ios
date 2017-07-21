@@ -9,7 +9,7 @@
 import UIKit
 
 extension Define {
-    struct Color {
+    internal struct Color {
         static let blackAlpha90 = UIColor.black.withAlphaComponent(0.9)
     }
 }

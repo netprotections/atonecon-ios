@@ -18,7 +18,6 @@ final class HomeViewModel {
             checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
         payment.salesSettled = false
         payment.descriptionTrans = "備考です。"
-
         payment.customer = customer
         payment.desCustomers = desCustomers
         payment.items = items

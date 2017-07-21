@@ -9,7 +9,7 @@
 import Foundation
 
 extension Define {
-    struct Script {
+    internal struct Script {
         static let handler = "\nAtone.config({ pre_token: \"%@\", pub_key: \"%@\", payment: data, " +
             "authenticated: function(authentication_token) { window.webkit.messageHandlers.authenticated.postMessage(authentication_token);}, " +
             "cancelled: function() { window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');}, " +
