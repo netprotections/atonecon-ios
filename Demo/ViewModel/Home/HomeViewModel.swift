@@ -9,8 +9,6 @@
 import Foundation
 import AtoneCon
 
-let userDefault = UserDefaults.standard
-
 final class HomeViewModel {
     var payment: AtoneCon.Payment {
         // TODO: dummy data

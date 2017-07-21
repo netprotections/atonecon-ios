@@ -10,6 +10,7 @@ import Foundation
 import WebKit
 
 public typealias JSObject = [String: Any]
+internal let userDefault = UserDefaults.standard
 
 internal protocol ScriptHandlerDelegate: class {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent)
@@ -73,7 +74,7 @@ extension ScriptHandler: WKScriptMessageHandler {
         switch messageName {
         case .authenticated :
             let token = message.body as? String
-            UserDefaults.standard.set(token, forKey: Define.String.tokenKey)
+            userDefault.set(token, forKey: Define.String.tokenKey)
             event = ScriptEvent.authenticated(token)
         case .cancelled:
             event = ScriptEvent.cancelled

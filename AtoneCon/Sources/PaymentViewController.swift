@@ -9,20 +9,29 @@
 import UIKit
 import WebKit
 
-internal let userDefault = UserDefaults.standard
-
 internal protocol PaymentViewControllerDelegate: class {
     func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent)
 }
 
 final internal class PaymentViewController: UIViewController {
 
+    // MARK: - Delegate
+    weak var delegate: PaymentViewControllerDelegate?
+
     // MARK: - Properties
     private var payment: AtoneCon.Payment?
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
     private var scriptHandler: ScriptHandler!
-    weak var delegate: PaymentViewControllerDelegate?
+    private var handlerScript: String {
+        let publicKey = AtoneCon.shared.option.publicKey
+        var preToken = ""
+        if let token = userDefault.string(forKey: Define.String.tokenKey) {
+            preToken = token
+        }
+        let handlerScript = String(format: Define.Script.handler, preToken, publicKey)
+        return handlerScript
+    }
 
     convenience init(payment: AtoneCon.Payment) {
         self.init()
@@ -67,26 +76,9 @@ final internal class PaymentViewController: UIViewController {
         guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
             fatalError("don't receive information of payment")
         }
-        let handlerScript = getHandlerScript()
         let paymentScript = "var data = " + paymentJSON
         let userScript = WKUserScript(source: paymentScript + handlerScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         return userScript
-    }
-
-    private func getHandlerScript() -> String {
-        let publicKey = AtoneCon.shared.option.publicKey
-        var preToken = ""
-        if let token = userDefault.string(forKey: Define.String.tokenKey) {
-            preToken = token
-        }
-        let handlerString = "\nAtone.config({ pre_token: \"%@\", pub_key: \"%@\", payment: data, " +
-            "authenticated: function(authentication_token) { window.webkit.messageHandlers.authenticated.postMessage(authentication_token);}, " +
-            "cancelled: function() { window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');}, " +
-            "failed: function(response) { window.webkit.messageHandlers.failed.postMessage(response);}, " +
-            "succeeded: function(response) { window.webkit.messageHandlers.succeeded.postMessage(response);}});" +
-            "function startAtone() {Atone.start();}\n"
-        let handlerScript = String(format: handlerString, preToken, publicKey)
-        return handlerScript
     }
 
     private func url(forResource name: String?, withExtension ext: String?) -> URL {
