@@ -12,5 +12,6 @@ extension Define {
     internal struct String {
         static let cancel = "Cancel"
         static let tokenKey = "userToken"
+        static let serviceName = "AtoneConWebView"
     }
 }

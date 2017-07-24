@@ -8,6 +8,7 @@ workspace 'AtoneCon.xcworkspace'
 
 def shared_pods
     pod 'ObjectMapper', '~> 2.2'
+    pod 'SAMKeychain', '~> 1.5'
 end
 
 target 'AtoneCon' do

@@ -8,6 +8,7 @@
 
 import Foundation
 import WebKit
+import SAMKeychain
 
 internal let userDefault = UserDefaults.standard
 
@@ -72,8 +73,11 @@ extension ScriptHandler: WKScriptMessageHandler {
         }
         switch messageName {
         case .authenticated :
-            let token = message.body as? String
-            userDefault.set(token, forKey: Define.String.tokenKey)
+            guard let token = message.body as? String else {
+                event = ScriptEvent.authenticated("")
+                return
+            }
+            SAMKeychain.setPassword(token, forService: Define.String.serviceName, account: Define.String.tokenKey)
             event = ScriptEvent.authenticated(token)
         case .cancelled:
             event = ScriptEvent.cancelled

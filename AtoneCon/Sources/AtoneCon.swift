@@ -7,6 +7,7 @@
 //
 import Foundation
 import ObjectMapper
+import SAMKeychain
 
 public protocol AtoneConDelegate: class {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent)
@@ -41,7 +42,7 @@ final public class AtoneCon {
     }
 
     public func resetAuthenToken() {
-        userDefault.removeObject(forKey: Define.String.tokenKey)
+        SAMKeychain.deletePassword(forService: Define.String.serviceName, account: Define.String.tokenKey)
     }
 }
 

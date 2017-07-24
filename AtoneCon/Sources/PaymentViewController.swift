@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SAMKeychain
 
 internal protocol PaymentViewControllerDelegate: class {
     func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent)
@@ -26,7 +27,7 @@ final internal class PaymentViewController: UIViewController {
     private var handlerScript: String {
         let publicKey = AtoneCon.shared.option.publicKey
         var preToken = ""
-        if let token = userDefault.string(forKey: Define.String.tokenKey) {
+        if let token = SAMKeychain.password(forService: Define.String.serviceName, account: Define.String.tokenKey) {
             preToken = token
         }
         let handlerScript = String(format: Define.Script.handler, preToken, publicKey)

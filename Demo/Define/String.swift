@@ -14,4 +14,5 @@ extension Define.String {
     static let authenTokenTitle = " 認証トークン "
     static let atoneButtonTitle = "atoneを使う"
     static let tokenKey = "userToken"
+    static let serviceName = "AtoneConWebView"
 }

@@ -1,13 +1,16 @@
 PODS:
   - AtoneCon (0.0.1):
     - ObjectMapper (~> 2.2)
+    - SAMKeychain (~> 1.5)
   - ObjectMapper (2.2.6)
+  - SAMKeychain (1.5.2)
   - SwiftLint (0.16.1)
   - SwiftUtils (2.1.1)
 
 DEPENDENCIES:
   - AtoneCon (from `./`)
   - ObjectMapper (~> 2.2)
+  - SAMKeychain (~> 1.5)
   - SwiftLint (~> 0.16.1)
   - SwiftUtils (~> 2.1)
 
@@ -16,11 +19,12 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AtoneCon: 25f70ace69e880c91fd9f45fde86126be9881cfc
+  AtoneCon: 4e3fb12c5ac583c04049b5c74087f94291545012
   ObjectMapper: '042708195cc46c20871cbcbec0453826398273fd'
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   SwiftUtils: 3f79be4fec34ac8b7c95d2ec15c9feebe81f1fc1
 
-PODFILE CHECKSUM: bacaf222c56f4b3c1edad6835f8ee3c6fdf529d6
+PODFILE CHECKSUM: ac53664ef55855763801001b80100760d652883d
 
 COCOAPODS: 1.2.1

@@ -16,6 +16,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var authenTokenValueLabel: UILabel!
     @IBOutlet private weak var authenTokenView: UIView!
     @IBOutlet private weak var resetTokenButton: UIButton!
+    @IBOutlet private weak var transactionNoTextFeild: UITextField!
 
     var viewModel = HomeViewModel()
 
@@ -85,10 +86,13 @@ final class HomeViewController: UIViewController {
         atoneCon.delegate = self
         atoneCon.config(options)
         // TODO: - dummy data
-        let payment = viewModel.payment
+        var payment = viewModel.payment
+        // TODO: - dummy data to easy QC test
+        if let transactionNo = transactionNoTextFeild.text {
+            payment.shopTransactionNo = "shop-tran-no-" + transactionNo
+        }
         atoneCon.performPayment(payment)
     }
-
     @IBAction func resetTokenButtonTapped(_ sender: Any) {
         viewModel.resetAuthenToken()
         updateView()

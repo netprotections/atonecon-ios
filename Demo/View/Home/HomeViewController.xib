@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,6 +17,7 @@
                 <outlet property="authenTokenView" destination="FbX-tU-nAZ" id="SBG-XM-gVU"/>
                 <outlet property="payButton" destination="9SR-BQ-yup" id="ZuF-t7-jYq"/>
                 <outlet property="resetTokenButton" destination="UvL-FV-RHp" id="qeD-Xw-aeX"/>
+                <outlet property="transactionNoTextFeild" destination="RwP-Pg-Uqn" id="TtN-gI-HQW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -87,10 +88,19 @@
                         <action selector="resetTokenButtonTapped:" destination="-1" eventType="touchUpInside" id="Tpl-xz-5gK"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-Pg-Uqn">
+                    <rect key="frame" x="62.5" y="577" width="250" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UvL-FV-RHp" firstAttribute="top" secondItem="9SR-BQ-yup" secondAttribute="bottom" constant="30" id="5Zs-H4-Q48"/>
+                <constraint firstItem="RwP-Pg-Uqn" firstAttribute="width" secondItem="9SR-BQ-yup" secondAttribute="width" id="E2v-qV-lqJ"/>
+                <constraint firstAttribute="bottom" secondItem="RwP-Pg-Uqn" secondAttribute="bottom" constant="60" id="Fuf-Bq-rn7"/>
+                <constraint firstItem="RwP-Pg-Uqn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GIm-vy-2nV"/>
                 <constraint firstItem="Vve-qT-ywd" firstAttribute="leading" secondItem="9SR-BQ-yup" secondAttribute="leading" id="b9B-00-B5S"/>
                 <constraint firstItem="Vve-qT-ywd" firstAttribute="trailing" secondItem="9SR-BQ-yup" secondAttribute="trailing" id="qHu-fx-yKl"/>
                 <constraint firstItem="9SR-BQ-yup" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="raX-jM-Vzy"/>

@@ -8,13 +8,14 @@
 
 import Foundation
 import AtoneCon
+import SAMKeychain
 
 final class HomeViewModel {
     var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
             amount: 10,
-            shopTransactionNo: "shop-tran-no-1500347802",
+            shopTransactionNo: "shop-tran-no-0",
             checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
         payment.salesSettled = false
         payment.descriptionTrans = "備考です。"
@@ -57,15 +58,15 @@ final class HomeViewModel {
     }
 
     func saveAuthenToken(token: String?) {
-        userDefault.set(token, forKey: Define.String.tokenKey)
+        SAMKeychain.setPassword(token ?? "", forService: Define.String.serviceName, account: Define.String.tokenKey)
     }
 
     func getAuthenToken() -> String? {
-        return userDefault.string(forKey: Define.String.tokenKey)
+        return SAMKeychain.password(forService: Define.String.serviceName, account: Define.String.tokenKey)
     }
 
     func resetAuthenToken() {
         AtoneCon.shared.resetAuthenToken()
-        userDefault.removeObject(forKey: Define.String.tokenKey)
+        SAMKeychain.deletePassword(forService: Define.String.serviceName, account: Define.String.tokenKey)
     }
 }
