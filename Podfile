@@ -20,8 +20,8 @@ target 'AtoneCon' do
 end
 
 
-target 'Demo' do
-    project 'Demo'
+target 'AtoneConDemo' do
+    project 'AtoneConDemo'
     pod 'SwiftLint', '~> 0.16.1'
     pod 'SwiftUtils', '~> 2.1'
     pod 'AtoneCon', :path => './'

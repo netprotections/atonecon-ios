@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8EA685E84D177243E1C081A1 /* Pods_AtoneConDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */; };
+		9965C1351F25AF39004C81C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1231F25AF39004C81C6 /* Color.swift */; };
+		9965C1361F25AF39004C81C6 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1241F25AF39004C81C6 /* Define.swift */; };
+		9965C1371F25AF39004C81C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1251F25AF39004C81C6 /* String.swift */; };
+		9965C1381F25AF39004C81C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9965C1271F25AF39004C81C6 /* Assets.xcassets */; };
+		9965C13A1F25AF39004C81C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C12C1F25AF39004C81C6 /* AppDelegate.swift */; };
+		9965C13B1F25AF39004C81C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C12E1F25AF39004C81C6 /* HomeViewController.swift */; };
+		9965C13C1F25AF39004C81C6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9965C12F1F25AF39004C81C6 /* HomeViewController.xib */; };
+		9965C13D1F25AF39004C81C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9965C1311F25AF39004C81C6 /* LaunchScreen.storyboard */; };
+		9965C13E1F25AF39004C81C6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1341F25AF39004C81C6 /* HomeViewModel.swift */; };
+		99DA1D031F03A92F00A40BB1 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneConDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		990B5EC11F0395B500B142E7 /* AtoneConDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtoneConDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9965C1231F25AF39004C81C6 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9965C1241F25AF39004C81C6 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		9965C1251F25AF39004C81C6 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9965C1271F25AF39004C81C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9965C1291F25AF39004C81C6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9965C12C1F25AF39004C81C6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9965C12E1F25AF39004C81C6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9965C12F1F25AF39004C81C6 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		9965C1311F25AF39004C81C6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9965C1341F25AF39004C81C6 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		99738D321F039AFC007057DF /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "build/Debug-iphoneos/AtoneCon.framework"; sourceTree = "<group>"; };
+		99DA1CFC1F03A6AC00A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "Pods/../build/Debug-iphoneos/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
+		99DA1CFE1F03A70800A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "Pods/../build/Debug-iphoneos/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
+		99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AtoneCon-gbjochkvjnsvmcepxcxstynyhmew/Build/Products/Debug-iphonesimulator/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
+		BF777E51B95F50C82BFE9E0B /* Pods-AtoneConDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo.release.xcconfig"; sourceTree = "<group>"; };
+		ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		990B5EBE1F0395B500B142E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99DA1D031F03A92F00A40BB1 /* AtoneCon.framework in Frameworks */,
+				8EA685E84D177243E1C081A1 /* Pods_AtoneConDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A5C7A82F7AB987942B034BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */,
+				99DA1CFE1F03A70800A40BB1 /* AtoneCon.framework */,
+				99DA1CFC1F03A6AC00A40BB1 /* AtoneCon.framework */,
+				99738D321F039AFC007057DF /* AtoneCon.framework */,
+				620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		990B5EB81F0395B500B142E7 = {
+			isa = PBXGroup;
+			children = (
+				9965C1211F25AF39004C81C6 /* AtoneConDemo */,
+				990B5EC21F0395B500B142E7 /* Products */,
+				ADE52F2C7136CA3CD755B6CC /* Pods */,
+				4A5C7A82F7AB987942B034BD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		990B5EC21F0395B500B142E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				990B5EC11F0395B500B142E7 /* AtoneConDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9965C1211F25AF39004C81C6 /* AtoneConDemo */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1221F25AF39004C81C6 /* Define */,
+				9965C1261F25AF39004C81C6 /* Resources */,
+				9965C1281F25AF39004C81C6 /* Supports */,
+				9965C12A1F25AF39004C81C6 /* View */,
+				9965C1321F25AF39004C81C6 /* ViewModel */,
+			);
+			path = AtoneConDemo;
+			sourceTree = "<group>";
+		};
+		9965C1221F25AF39004C81C6 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1231F25AF39004C81C6 /* Color.swift */,
+				9965C1241F25AF39004C81C6 /* Define.swift */,
+				9965C1251F25AF39004C81C6 /* String.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		9965C1261F25AF39004C81C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1271F25AF39004C81C6 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9965C1281F25AF39004C81C6 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1291F25AF39004C81C6 /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		9965C12A1F25AF39004C81C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9965C12B1F25AF39004C81C6 /* AppDelegate */,
+				9965C12D1F25AF39004C81C6 /* Home */,
+				9965C1301F25AF39004C81C6 /* LaunchScreen */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9965C12B1F25AF39004C81C6 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				9965C12C1F25AF39004C81C6 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		9965C12D1F25AF39004C81C6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9965C12E1F25AF39004C81C6 /* HomeViewController.swift */,
+				9965C12F1F25AF39004C81C6 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9965C1301F25AF39004C81C6 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1311F25AF39004C81C6 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		9965C1321F25AF39004C81C6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1331F25AF39004C81C6 /* Home */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9965C1331F25AF39004C81C6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1341F25AF39004C81C6 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ADE52F2C7136CA3CD755B6CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */,
+				BF777E51B95F50C82BFE9E0B /* Pods-AtoneConDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		990B5EC01F0395B500B142E7 /* AtoneConDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 990B5ED31F0395B500B142E7 /* Build configuration list for PBXNativeTarget "AtoneConDemo" */;
+			buildPhases = (
+				BD5C29733A6249B7D8B9D129 /* [CP] Check Pods Manifest.lock */,
+				990B5EBD1F0395B500B142E7 /* Sources */,
+				990B5EBE1F0395B500B142E7 /* Frameworks */,
+				990B5EBF1F0395B500B142E7 /* Resources */,
+				C7ADF84884FED005FBB663D6 /* [CP] Embed Pods Frameworks */,
+				496C00E1745E0932A4FF4ABD /* [CP] Copy Pods Resources */,
+				99738D341F039B30007057DF /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AtoneConDemo;
+			productName = Demo;
+			productReference = 990B5EC11F0395B500B142E7 /* AtoneConDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		990B5EB91F0395B500B142E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "AsianTech Inc.";
+				TargetAttributes = {
+					990B5EC01F0395B500B142E7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 990B5EBC1F0395B500B142E7 /* Build configuration list for PBXProject "AtoneConDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 990B5EB81F0395B500B142E7;
+			productRefGroup = 990B5EC21F0395B500B142E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				990B5EC01F0395B500B142E7 /* AtoneConDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		990B5EBF1F0395B500B142E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9965C13D1F25AF39004C81C6 /* LaunchScreen.storyboard in Resources */,
+				9965C1381F25AF39004C81C6 /* Assets.xcassets in Resources */,
+				9965C13C1F25AF39004C81C6 /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		496C00E1745E0932A4FF4ABD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99738D341F039B30007057DF /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$CI\" == 'true' ]]; then\nexit 0\nfi\n\nif [[ -s \"${PODS_ROOT}/SwiftLint/swiftlint\" ]]; then\necho 'Linting...'\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\necho 'error: SwiftLint not installed, please read README first.'\nexit 1\nfi\n";
+		};
+		BD5C29733A6249B7D8B9D129 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7ADF84884FED005FBB663D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		990B5EBD1F0395B500B142E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9965C13B1F25AF39004C81C6 /* HomeViewController.swift in Sources */,
+				9965C13E1F25AF39004C81C6 /* HomeViewModel.swift in Sources */,
+				9965C13A1F25AF39004C81C6 /* AppDelegate.swift in Sources */,
+				9965C1371F25AF39004C81C6 /* String.swift in Sources */,
+				9965C1361F25AF39004C81C6 /* Define.swift in Sources */,
+				9965C1351F25AF39004C81C6 /* Color.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		990B5ED11F0395B500B142E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		990B5ED21F0395B500B142E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		990B5ED41F0395B500B142E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/AtoneConDemo/Supports/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		990B5ED51F0395B500B142E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF777E51B95F50C82BFE9E0B /* Pods-AtoneConDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/AtoneConDemo/Supports/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		990B5EBC1F0395B500B142E7 /* Build configuration list for PBXProject "AtoneConDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				990B5ED11F0395B500B142E7 /* Debug */,
+				990B5ED21F0395B500B142E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		990B5ED31F0395B500B142E7 /* Build configuration list for PBXNativeTarget "AtoneConDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				990B5ED41F0395B500B142E7 /* Debug */,
+				990B5ED51F0395B500B142E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 990B5EB91F0395B500B142E7 /* Project object */;
+}

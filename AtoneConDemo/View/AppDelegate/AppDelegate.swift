@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Demo
+//  AtoneConDemo
 //
 //  Created by Mylo Ho on 6/28/17.
 //  Copyright © 2017 AsianTech Inc. All rights reserved.
