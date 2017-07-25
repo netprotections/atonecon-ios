@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8EA685E84D177243E1C081A1 /* Pods_AtoneConDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */; };
+		996404371F26DC67005C221F /* AtoneConDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996404361F26DC67005C221F /* AtoneConDemoTests.swift */; };
 		9965C1351F25AF39004C81C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1231F25AF39004C81C6 /* Color.swift */; };
 		9965C1361F25AF39004C81C6 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1241F25AF39004C81C6 /* Define.swift */; };
 		9965C1371F25AF39004C81C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1251F25AF39004C81C6 /* String.swift */; };
@@ -20,9 +21,22 @@
 		99DA1D031F03A92F00A40BB1 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		996404391F26DC67005C221F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 990B5EB91F0395B500B142E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 990B5EC01F0395B500B142E7;
+			remoteInfo = AtoneConDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneConDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5EC11F0395B500B142E7 /* AtoneConDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtoneConDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		996404341F26DC67005C221F /* AtoneConDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		996404361F26DC67005C221F /* AtoneConDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtoneConDemoTests.swift; sourceTree = "<group>"; };
+		996404381F26DC67005C221F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9965C1231F25AF39004C81C6 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9965C1241F25AF39004C81C6 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		9965C1251F25AF39004C81C6 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -51,6 +65,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		996404311F26DC67005C221F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				9965C1211F25AF39004C81C6 /* AtoneConDemo */,
+				996404351F26DC67005C221F /* AtoneConDemoTests */,
 				990B5EC21F0395B500B142E7 /* Products */,
 				ADE52F2C7136CA3CD755B6CC /* Pods */,
 				4A5C7A82F7AB987942B034BD /* Frameworks */,
@@ -80,8 +102,18 @@
 			isa = PBXGroup;
 			children = (
 				990B5EC11F0395B500B142E7 /* AtoneConDemo.app */,
+				996404341F26DC67005C221F /* AtoneConDemoTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		996404351F26DC67005C221F /* AtoneConDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				996404361F26DC67005C221F /* AtoneConDemoTests.swift */,
+				996404381F26DC67005C221F /* Info.plist */,
+			);
+			path = AtoneConDemoTests;
 			sourceTree = "<group>";
 		};
 		9965C1211F25AF39004C81C6 /* AtoneConDemo */ = {
@@ -206,6 +238,24 @@
 			productReference = 990B5EC11F0395B500B142E7 /* AtoneConDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		996404331F26DC67005C221F /* AtoneConDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9964043D1F26DC67005C221F /* Build configuration list for PBXNativeTarget "AtoneConDemoTests" */;
+			buildPhases = (
+				996404301F26DC67005C221F /* Sources */,
+				996404311F26DC67005C221F /* Frameworks */,
+				996404321F26DC67005C221F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9964043A1F26DC67005C221F /* PBXTargetDependency */,
+			);
+			name = AtoneConDemoTests;
+			productName = AtoneConDemoTests;
+			productReference = 996404341F26DC67005C221F /* AtoneConDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,6 +269,11 @@
 					990B5EC01F0395B500B142E7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
+					};
+					996404331F26DC67005C221F = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 990B5EC01F0395B500B142E7;
 					};
 				};
 			};
@@ -236,6 +291,7 @@
 			projectRoot = "";
 			targets = (
 				990B5EC01F0395B500B142E7 /* AtoneConDemo */,
+				996404331F26DC67005C221F /* AtoneConDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -248,6 +304,13 @@
 				9965C13D1F25AF39004C81C6 /* LaunchScreen.storyboard in Resources */,
 				9965C1381F25AF39004C81C6 /* Assets.xcassets in Resources */,
 				9965C13C1F25AF39004C81C6 /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		996404321F26DC67005C221F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +392,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		996404301F26DC67005C221F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				996404371F26DC67005C221F /* AtoneConDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9964043A1F26DC67005C221F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 990B5EC01F0395B500B142E7 /* AtoneConDemo */;
+			targetProxy = 996404391F26DC67005C221F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		990B5ED11F0395B500B142E7 /* Debug */ = {
@@ -457,6 +536,36 @@
 			};
 			name = Release;
 		};
+		9964043B1F26DC67005C221F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AtoneConDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo.AtoneConDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtoneConDemo.app/AtoneConDemo";
+			};
+			name = Debug;
+		};
+		9964043C1F26DC67005C221F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AtoneConDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo.AtoneConDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtoneConDemo.app/AtoneConDemo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -477,6 +586,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9964043D1F26DC67005C221F /* Build configuration list for PBXNativeTarget "AtoneConDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9964043B1F26DC67005C221F /* Debug */,
+				9964043C1F26DC67005C221F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
