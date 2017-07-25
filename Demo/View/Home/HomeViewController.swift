@@ -30,6 +30,12 @@ final class HomeViewController: UIViewController {
         authenTokenValueLabel.text = viewModel.getAuthenToken()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+
+    // MARK: - Setup UI
     private func setupUI() {
         title = Define.String.homeTitle
         setupPayButton()
@@ -37,6 +43,7 @@ final class HomeViewController: UIViewController {
         setupAuthenTokenLabel()
         setupResetTokenButton()
         setupNavigationController()
+        setupTexiField()
     }
 
     private func setupPayButton() {
@@ -76,6 +83,11 @@ final class HomeViewController: UIViewController {
         resetTokenButton.setAttributedTitle(attributedString, for: .normal)
     }
 
+    private func setupTexiField() {
+        transactionNoTextFeild.placeholder = Define.String.textFielfPlaceHolder
+        transactionNoTextFeild.delegate = self
+    }
+
     // MARK: - Action
     @IBAction func payButtonTapped(_ sender: Any) {
         var options = AtoneCon.Options()
@@ -105,6 +117,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - AtoneConDelegate
 extension HomeViewController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
@@ -127,5 +140,13 @@ extension HomeViewController: AtoneConDelegate {
             }
             atoneCon.dismissWebview()
         }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
     }
 }

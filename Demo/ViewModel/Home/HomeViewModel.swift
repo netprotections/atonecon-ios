@@ -15,7 +15,7 @@ final class HomeViewModel {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
             amount: 10,
-            shopTransactionNo: "shop-tran-no-0",
+            shopTransactionNo: "",
             checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
         payment.salesSettled = false
         payment.descriptionTrans = "備考です。"
@@ -58,15 +58,17 @@ final class HomeViewModel {
     }
 
     func saveAuthenToken(token: String?) {
-        SAMKeychain.setPassword(token ?? "", forService: Define.String.serviceName, account: Define.String.tokenKey)
+        if let token = token {
+            Session.shared.credential = Session.Credential(value: token)
+        }
     }
 
     func getAuthenToken() -> String? {
-        return SAMKeychain.password(forService: Define.String.serviceName, account: Define.String.tokenKey)
+        return Session.shared.credential.value
     }
 
     func resetAuthenToken() {
         AtoneCon.shared.resetAuthenToken()
-        SAMKeychain.deletePassword(forService: Define.String.serviceName, account: Define.String.tokenKey)
+        Session.shared.clearCredential()
     }
 }

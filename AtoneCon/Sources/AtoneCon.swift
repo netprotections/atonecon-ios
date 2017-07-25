@@ -42,7 +42,7 @@ final public class AtoneCon {
     }
 
     public func resetAuthenToken() {
-        SAMKeychain.deletePassword(forService: Define.String.serviceName, account: Define.String.tokenKey)
+        Session.shared.clearCredential()
     }
 }
 

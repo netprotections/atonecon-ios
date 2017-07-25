@@ -26,10 +26,7 @@ final internal class PaymentViewController: UIViewController {
     private var scriptHandler: ScriptHandler!
     private var handlerScript: String {
         let publicKey = AtoneCon.shared.option.publicKey
-        var preToken = ""
-        if let token = SAMKeychain.password(forService: Define.String.serviceName, account: Define.String.tokenKey) {
-            preToken = token
-        }
+        let preToken = Session.shared.credential.value
         let handlerScript = String(format: Define.Script.handler, preToken, publicKey)
         return handlerScript
     }

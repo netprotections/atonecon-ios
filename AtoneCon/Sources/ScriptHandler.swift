@@ -77,7 +77,7 @@ extension ScriptHandler: WKScriptMessageHandler {
                 event = ScriptEvent.authenticated("")
                 return
             }
-            SAMKeychain.setPassword(token, forService: Define.String.serviceName, account: Define.String.tokenKey)
+            Session.shared.credential = Session.Credential(value: token)
             event = ScriptEvent.authenticated(token)
         case .cancelled:
             event = ScriptEvent.cancelled
