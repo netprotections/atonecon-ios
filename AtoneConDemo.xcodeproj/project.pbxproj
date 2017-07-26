@@ -7,54 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		161743531F04AA9900302417 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161743521F04AA9900302417 /* String.swift */; };
-		16946B051F0B836800CE6FF8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B041F0B836800CE6FF8 /* HomeViewModel.swift */; };
-		1699BE0E1F03B701007F1C54 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699BE0C1F03B701007F1C54 /* HomeViewController.swift */; };
-		1699BE0F1F03B701007F1C54 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1699BE0D1F03B701007F1C54 /* HomeViewController.xib */; };
-		16E43CB51F0A317200148E19 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E43CB41F0A317200148E19 /* Define.swift */; };
-		16F77BFA1F26F2D500D9262D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F77BF91F26F2D500D9262D /* Session.swift */; };
-		16FB7B121F17251F00618292 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB7B111F17251F00618292 /* Color.swift */; };
-		88C86576A00ED32D7BB2FEC3 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8EA232F78ABB497F9F72C9 /* Pods_Demo.framework */; };
-		99891ADB1F0CF64C00BA5317 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99891ADA1F0CF64C00BA5317 /* DemoTests.swift */; };
-		9994ECE71F0397DE00075EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9994ECDE1F0397DE00075EA5 /* Assets.xcassets */; };
-		9994ECE91F0397DE00075EA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9994ECE31F0397DE00075EA5 /* AppDelegate.swift */; };
-		9994ECEA1F0397DE00075EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9994ECE51F0397DE00075EA5 /* LaunchScreen.storyboard */; };
+		164A39481F2854540067A42B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A39471F2854540067A42B /* Session.swift */; };
+		8EA685E84D177243E1C081A1 /* Pods_AtoneConDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */; };
+		996404371F26DC67005C221F /* AtoneConDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996404361F26DC67005C221F /* AtoneConDemoTests.swift */; };
+		9965C1351F25AF39004C81C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1231F25AF39004C81C6 /* Color.swift */; };
+		9965C1361F25AF39004C81C6 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1241F25AF39004C81C6 /* Define.swift */; };
+		9965C1371F25AF39004C81C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1251F25AF39004C81C6 /* String.swift */; };
+		9965C1381F25AF39004C81C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9965C1271F25AF39004C81C6 /* Assets.xcassets */; };
+		9965C13A1F25AF39004C81C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C12C1F25AF39004C81C6 /* AppDelegate.swift */; };
+		9965C13B1F25AF39004C81C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C12E1F25AF39004C81C6 /* HomeViewController.swift */; };
+		9965C13C1F25AF39004C81C6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9965C12F1F25AF39004C81C6 /* HomeViewController.xib */; };
+		9965C13D1F25AF39004C81C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9965C1311F25AF39004C81C6 /* LaunchScreen.storyboard */; };
+		9965C13E1F25AF39004C81C6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1341F25AF39004C81C6 /* HomeViewModel.swift */; };
 		99DA1D031F03A92F00A40BB1 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		99891ADD1F0CF64C00BA5317 /* PBXContainerItemProxy */ = {
+		996404391F26DC67005C221F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 990B5EB91F0395B500B142E7 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 990B5EC01F0395B500B142E7;
-			remoteInfo = Demo;
+			remoteInfo = AtoneConDemo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		161743521F04AA9900302417 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		16946B041F0B836800CE6FF8 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		1699BE0C1F03B701007F1C54 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		1699BE0D1F03B701007F1C54 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		16E43CB41F0A317200148E19 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
-		16F77BF91F26F2D500D9262D /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		16FB7B111F17251F00618292 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		2C8EA232F78ABB497F9F72C9 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		911783D7DD56A3CFB7403BAB /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		990B5EC11F0395B500B142E7 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		164A39471F2854540067A42B /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneConDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		990B5EC11F0395B500B142E7 /* AtoneConDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtoneConDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		996404341F26DC67005C221F /* AtoneConDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		996404361F26DC67005C221F /* AtoneConDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtoneConDemoTests.swift; sourceTree = "<group>"; };
+		996404381F26DC67005C221F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9965C1231F25AF39004C81C6 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9965C1241F25AF39004C81C6 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		9965C1251F25AF39004C81C6 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9965C1271F25AF39004C81C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9965C1291F25AF39004C81C6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9965C12C1F25AF39004C81C6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9965C12E1F25AF39004C81C6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9965C12F1F25AF39004C81C6 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		9965C1311F25AF39004C81C6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9965C1341F25AF39004C81C6 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		99738D321F039AFC007057DF /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "build/Debug-iphoneos/AtoneCon.framework"; sourceTree = "<group>"; };
-		99891AD81F0CF64C00BA5317 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		99891ADA1F0CF64C00BA5317 /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
-		99891ADC1F0CF64C00BA5317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9994ECDE1F0397DE00075EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9994ECE01F0397DE00075EA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9994ECE31F0397DE00075EA5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9994ECE51F0397DE00075EA5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99DA1CFC1F03A6AC00A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "Pods/../build/Debug-iphoneos/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
 		99DA1CFE1F03A70800A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "Pods/../build/Debug-iphoneos/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
 		99DA1D011F03A91E00A40BB1 /* AtoneCon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoneCon.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AtoneCon-gbjochkvjnsvmcepxcxstynyhmew/Build/Products/Debug-iphonesimulator/AtoneCon/AtoneCon.framework"; sourceTree = "<group>"; };
-		DCD59B40CBC66DB394B1904F /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		BF777E51B95F50C82BFE9E0B /* Pods-AtoneConDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo.release.xcconfig"; sourceTree = "<group>"; };
+		ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +63,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				99DA1D031F03A92F00A40BB1 /* AtoneCon.framework in Frameworks */,
-				88C86576A00ED32D7BB2FEC3 /* Pods_Demo.framework in Frameworks */,
+				8EA685E84D177243E1C081A1 /* Pods_AtoneConDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99891AD51F0CF64C00BA5317 /* Frameworks */ = {
+		996404311F26DC67005C221F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,43 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16946B021F0B835900CE6FF8 /* ViewModel */ = {
+		164A39451F28543F0067A42B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				16946B031F0B835900CE6FF8 /* Home */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		16946B031F0B835900CE6FF8 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				16946B041F0B836800CE6FF8 /* HomeViewModel.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		1699BE0B1F03B6F3007F1C54 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				1699BE0C1F03B701007F1C54 /* HomeViewController.swift */,
-				1699BE0D1F03B701007F1C54 /* HomeViewController.xib */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		16F77BF71F26F2C900D9262D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				16F77BF81F26F2C900D9262D /* Core */,
+				164A39461F28543F0067A42B /* Core */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		16F77BF81F26F2C900D9262D /* Core */ = {
+		164A39461F28543F0067A42B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				16F77BF91F26F2D500D9262D /* Session.swift */,
+				164A39471F2854540067A42B /* Session.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -125,7 +100,7 @@
 				99DA1CFE1F03A70800A40BB1 /* AtoneCon.framework */,
 				99DA1CFC1F03A6AC00A40BB1 /* AtoneCon.framework */,
 				99738D321F039AFC007057DF /* AtoneCon.framework */,
-				2C8EA232F78ABB497F9F72C9 /* Pods_Demo.framework */,
+				620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,8 +108,8 @@
 		990B5EB81F0395B500B142E7 = {
 			isa = PBXGroup;
 			children = (
-				990B5EC31F0395B500B142E7 /* Demo */,
-				99891AD91F0CF64C00BA5317 /* DemoTests */,
+				9965C1211F25AF39004C81C6 /* AtoneConDemo */,
+				996404351F26DC67005C221F /* AtoneConDemoTests */,
 				990B5EC21F0395B500B142E7 /* Products */,
 				ADE52F2C7136CA3CD755B6CC /* Pods */,
 				4A5C7A82F7AB987942B034BD /* Frameworks */,
@@ -144,99 +119,116 @@
 		990B5EC21F0395B500B142E7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				990B5EC11F0395B500B142E7 /* Demo.app */,
-				99891AD81F0CF64C00BA5317 /* DemoTests.xctest */,
+				990B5EC11F0395B500B142E7 /* AtoneConDemo.app */,
+				996404341F26DC67005C221F /* AtoneConDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		990B5EC31F0395B500B142E7 /* Demo */ = {
+		996404351F26DC67005C221F /* AtoneConDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				16F77BF71F26F2C900D9262D /* Model */,
-				16946B021F0B835900CE6FF8 /* ViewModel */,
-				9994ECDA1F0397DE00075EA5 /* Define */,
-				9994ECDB1F0397DE00075EA5 /* Library */,
-				9994ECDD1F0397DE00075EA5 /* Resources */,
-				9994ECDF1F0397DE00075EA5 /* Supports */,
-				9994ECE11F0397DE00075EA5 /* View */,
+				996404361F26DC67005C221F /* AtoneConDemoTests.swift */,
+				996404381F26DC67005C221F /* Info.plist */,
 			);
-			path = Demo;
+			path = AtoneConDemoTests;
 			sourceTree = "<group>";
 		};
-		99891AD91F0CF64C00BA5317 /* DemoTests */ = {
+		9965C1211F25AF39004C81C6 /* AtoneConDemo */ = {
 			isa = PBXGroup;
 			children = (
-				99891ADA1F0CF64C00BA5317 /* DemoTests.swift */,
-				99891ADC1F0CF64C00BA5317 /* Info.plist */,
+				164A39451F28543F0067A42B /* Model */,
+				9965C1221F25AF39004C81C6 /* Define */,
+				9965C1261F25AF39004C81C6 /* Resources */,
+				9965C1281F25AF39004C81C6 /* Supports */,
+				9965C12A1F25AF39004C81C6 /* View */,
+				9965C1321F25AF39004C81C6 /* ViewModel */,
 			);
-			path = DemoTests;
+			path = AtoneConDemo;
 			sourceTree = "<group>";
 		};
-		9994ECDA1F0397DE00075EA5 /* Define */ = {
+		9965C1221F25AF39004C81C6 /* Define */ = {
 			isa = PBXGroup;
 			children = (
-				161743521F04AA9900302417 /* String.swift */,
-				16E43CB41F0A317200148E19 /* Define.swift */,
-				16FB7B111F17251F00618292 /* Color.swift */,
+				9965C1231F25AF39004C81C6 /* Color.swift */,
+				9965C1241F25AF39004C81C6 /* Define.swift */,
+				9965C1251F25AF39004C81C6 /* String.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
 		};
-		9994ECDB1F0397DE00075EA5 /* Library */ = {
+		9965C1261F25AF39004C81C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		9994ECDD1F0397DE00075EA5 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				9994ECDE1F0397DE00075EA5 /* Assets.xcassets */,
+				9965C1271F25AF39004C81C6 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9994ECDF1F0397DE00075EA5 /* Supports */ = {
+		9965C1281F25AF39004C81C6 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				9994ECE01F0397DE00075EA5 /* Info.plist */,
+				9965C1291F25AF39004C81C6 /* Info.plist */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
 		};
-		9994ECE11F0397DE00075EA5 /* View */ = {
+		9965C12A1F25AF39004C81C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9994ECE21F0397DE00075EA5 /* AppDelegate */,
-				1699BE0B1F03B6F3007F1C54 /* Home */,
-				9994ECE41F0397DE00075EA5 /* LaunchScreen */,
+				9965C12B1F25AF39004C81C6 /* AppDelegate */,
+				9965C12D1F25AF39004C81C6 /* Home */,
+				9965C1301F25AF39004C81C6 /* LaunchScreen */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		9994ECE21F0397DE00075EA5 /* AppDelegate */ = {
+		9965C12B1F25AF39004C81C6 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				9994ECE31F0397DE00075EA5 /* AppDelegate.swift */,
+				9965C12C1F25AF39004C81C6 /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		9994ECE41F0397DE00075EA5 /* LaunchScreen */ = {
+		9965C12D1F25AF39004C81C6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9994ECE51F0397DE00075EA5 /* LaunchScreen.storyboard */,
+				9965C12E1F25AF39004C81C6 /* HomeViewController.swift */,
+				9965C12F1F25AF39004C81C6 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9965C1301F25AF39004C81C6 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1311F25AF39004C81C6 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		9965C1321F25AF39004C81C6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1331F25AF39004C81C6 /* Home */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9965C1331F25AF39004C81C6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9965C1341F25AF39004C81C6 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		ADE52F2C7136CA3CD755B6CC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DCD59B40CBC66DB394B1904F /* Pods-Demo.debug.xcconfig */,
-				911783D7DD56A3CFB7403BAB /* Pods-Demo.release.xcconfig */,
+				ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */,
+				BF777E51B95F50C82BFE9E0B /* Pods-AtoneConDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -244,9 +236,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		990B5EC01F0395B500B142E7 /* Demo */ = {
+		990B5EC01F0395B500B142E7 /* AtoneConDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 990B5ED31F0395B500B142E7 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildConfigurationList = 990B5ED31F0395B500B142E7 /* Build configuration list for PBXNativeTarget "AtoneConDemo" */;
 			buildPhases = (
 				BD5C29733A6249B7D8B9D129 /* [CP] Check Pods Manifest.lock */,
 				990B5EBD1F0395B500B142E7 /* Sources */,
@@ -260,27 +252,27 @@
 			);
 			dependencies = (
 			);
-			name = Demo;
+			name = AtoneConDemo;
 			productName = Demo;
-			productReference = 990B5EC11F0395B500B142E7 /* Demo.app */;
+			productReference = 990B5EC11F0395B500B142E7 /* AtoneConDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		99891AD71F0CF64C00BA5317 /* DemoTests */ = {
+		996404331F26DC67005C221F /* AtoneConDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99891AE11F0CF64C00BA5317 /* Build configuration list for PBXNativeTarget "DemoTests" */;
+			buildConfigurationList = 9964043D1F26DC67005C221F /* Build configuration list for PBXNativeTarget "AtoneConDemoTests" */;
 			buildPhases = (
-				99891AD41F0CF64C00BA5317 /* Sources */,
-				99891AD51F0CF64C00BA5317 /* Frameworks */,
-				99891AD61F0CF64C00BA5317 /* Resources */,
+				996404301F26DC67005C221F /* Sources */,
+				996404311F26DC67005C221F /* Frameworks */,
+				996404321F26DC67005C221F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				99891ADE1F0CF64C00BA5317 /* PBXTargetDependency */,
+				9964043A1F26DC67005C221F /* PBXTargetDependency */,
 			);
-			name = DemoTests;
-			productName = DemoTests;
-			productReference = 99891AD81F0CF64C00BA5317 /* DemoTests.xctest */;
+			name = AtoneConDemoTests;
+			productName = AtoneConDemoTests;
+			productReference = 996404341F26DC67005C221F /* AtoneConDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -297,14 +289,14 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
-					99891AD71F0CF64C00BA5317 = {
+					996404331F26DC67005C221F = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 990B5EC01F0395B500B142E7;
 					};
 				};
 			};
-			buildConfigurationList = 990B5EBC1F0395B500B142E7 /* Build configuration list for PBXProject "Demo" */;
+			buildConfigurationList = 990B5EBC1F0395B500B142E7 /* Build configuration list for PBXProject "AtoneConDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -317,8 +309,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				990B5EC01F0395B500B142E7 /* Demo */,
-				99891AD71F0CF64C00BA5317 /* DemoTests */,
+				990B5EC01F0395B500B142E7 /* AtoneConDemo */,
+				996404331F26DC67005C221F /* AtoneConDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -328,13 +320,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9994ECEA1F0397DE00075EA5 /* LaunchScreen.storyboard in Resources */,
-				9994ECE71F0397DE00075EA5 /* Assets.xcassets in Resources */,
-				1699BE0F1F03B701007F1C54 /* HomeViewController.xib in Resources */,
+				9965C13D1F25AF39004C81C6 /* LaunchScreen.storyboard in Resources */,
+				9965C1381F25AF39004C81C6 /* Assets.xcassets in Resources */,
+				9965C13C1F25AF39004C81C6 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99891AD61F0CF64C00BA5317 /* Resources */ = {
+		996404321F26DC67005C221F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -356,7 +348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		99738D341F039B30007057DF /* Swiftlint */ = {
@@ -400,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConDemo/Pods-AtoneConDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -410,31 +402,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16F77BFA1F26F2D500D9262D /* Session.swift in Sources */,
-				9994ECE91F0397DE00075EA5 /* AppDelegate.swift in Sources */,
-				161743531F04AA9900302417 /* String.swift in Sources */,
-				16E43CB51F0A317200148E19 /* Define.swift in Sources */,
-				16946B051F0B836800CE6FF8 /* HomeViewModel.swift in Sources */,
-				1699BE0E1F03B701007F1C54 /* HomeViewController.swift in Sources */,
-				16FB7B121F17251F00618292 /* Color.swift in Sources */,
+				164A39481F2854540067A42B /* Session.swift in Sources */,
+				9965C13B1F25AF39004C81C6 /* HomeViewController.swift in Sources */,
+				9965C13E1F25AF39004C81C6 /* HomeViewModel.swift in Sources */,
+				9965C13A1F25AF39004C81C6 /* AppDelegate.swift in Sources */,
+				9965C1371F25AF39004C81C6 /* String.swift in Sources */,
+				9965C1361F25AF39004C81C6 /* Define.swift in Sources */,
+				9965C1351F25AF39004C81C6 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99891AD41F0CF64C00BA5317 /* Sources */ = {
+		996404301F26DC67005C221F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99891ADB1F0CF64C00BA5317 /* DemoTests.swift in Sources */,
+				996404371F26DC67005C221F /* AtoneConDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		99891ADE1F0CF64C00BA5317 /* PBXTargetDependency */ = {
+		9964043A1F26DC67005C221F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 990B5EC01F0395B500B142E7 /* Demo */;
-			targetProxy = 99891ADD1F0CF64C00BA5317 /* PBXContainerItemProxy */;
+			target = 990B5EC01F0395B500B142E7 /* AtoneConDemo */;
+			targetProxy = 996404391F26DC67005C221F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -536,12 +528,12 @@
 		};
 		990B5ED41F0395B500B142E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCD59B40CBC66DB394B1904F /* Pods-Demo.debug.xcconfig */;
+			baseConfigurationReference = ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supports/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AtoneConDemo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -551,12 +543,12 @@
 		};
 		990B5ED51F0395B500B142E7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 911783D7DD56A3CFB7403BAB /* Pods-Demo.release.xcconfig */;
+			baseConfigurationReference = BF777E51B95F50C82BFE9E0B /* Pods-AtoneConDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supports/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AtoneConDemo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -564,38 +556,40 @@
 			};
 			name = Release;
 		};
-		99891ADF1F0CF64C00BA5317 /* Debug */ = {
+		9964043B1F26DC67005C221F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = DemoTests/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AtoneConDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.DemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo.AtoneConDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtoneConDemo.app/AtoneConDemo";
 			};
 			name = Debug;
 		};
-		99891AE01F0CF64C00BA5317 /* Release */ = {
+		9964043C1F26DC67005C221F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = DemoTests/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AtoneConDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.DemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo.AtoneConDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtoneConDemo.app/AtoneConDemo";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		990B5EBC1F0395B500B142E7 /* Build configuration list for PBXProject "Demo" */ = {
+		990B5EBC1F0395B500B142E7 /* Build configuration list for PBXProject "AtoneConDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				990B5ED11F0395B500B142E7 /* Debug */,
@@ -604,7 +598,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		990B5ED31F0395B500B142E7 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+		990B5ED31F0395B500B142E7 /* Build configuration list for PBXNativeTarget "AtoneConDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				990B5ED41F0395B500B142E7 /* Debug */,
@@ -613,11 +607,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99891AE11F0CF64C00BA5317 /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
+		9964043D1F26DC67005C221F /* Build configuration list for PBXNativeTarget "AtoneConDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				99891ADF1F0CF64C00BA5317 /* Debug */,
-				99891AE01F0CF64C00BA5317 /* Release */,
+				9964043B1F26DC67005C221F /* Debug */,
+				9964043C1F26DC67005C221F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "990B5E9D1F03957000B142E7"
-               BuildableName = "AtoneCon.framework"
-               BlueprintName = "AtoneCon"
-               ReferencedContainer = "container:AtoneCon.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "990B5EC01F0395B500B142E7"
-               BuildableName = "Demo.app"
-               BlueprintName = "Demo"
-               ReferencedContainer = "container:Demo.xcodeproj">
+               BuildableName = "AtoneConDemo.app"
+               BlueprintName = "AtoneConDemo"
+               ReferencedContainer = "container:AtoneConDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "99891AD71F0CF64C00BA5317"
-               BuildableName = "DemoTests.xctest"
-               BlueprintName = "DemoTests"
-               ReferencedContainer = "container:Demo.xcodeproj">
+               BlueprintIdentifier = "996404331F26DC67005C221F"
+               BuildableName = "AtoneConDemoTests.xctest"
+               BlueprintName = "AtoneConDemoTests"
+               ReferencedContainer = "container:AtoneConDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "990B5EC01F0395B500B142E7"
-            BuildableName = "Demo.app"
-            BlueprintName = "Demo"
-            ReferencedContainer = "container:Demo.xcodeproj">
+            BuildableName = "AtoneConDemo.app"
+            BlueprintName = "AtoneConDemo"
+            ReferencedContainer = "container:AtoneConDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "990B5EC01F0395B500B142E7"
-            BuildableName = "Demo.app"
-            BlueprintName = "Demo"
-            ReferencedContainer = "container:Demo.xcodeproj">
+            BuildableName = "AtoneConDemo.app"
+            BlueprintName = "AtoneConDemo"
+            ReferencedContainer = "container:AtoneConDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "990B5EC01F0395B500B142E7"
-            BuildableName = "Demo.app"
-            BlueprintName = "Demo"
-            ReferencedContainer = "container:Demo.xcodeproj">
+            BuildableName = "AtoneConDemo.app"
+            BlueprintName = "AtoneConDemo"
+            ReferencedContainer = "container:AtoneConDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
