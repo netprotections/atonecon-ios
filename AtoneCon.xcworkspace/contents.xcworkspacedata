@@ -5,7 +5,7 @@
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Demo.xcodeproj">
+      location = "group:AtoneConDemo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:AtoneCon.xcodeproj">
