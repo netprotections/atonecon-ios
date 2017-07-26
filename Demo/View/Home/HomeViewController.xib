@@ -17,7 +17,7 @@
                 <outlet property="authenTokenView" destination="FbX-tU-nAZ" id="SBG-XM-gVU"/>
                 <outlet property="payButton" destination="9SR-BQ-yup" id="ZuF-t7-jYq"/>
                 <outlet property="resetTokenButton" destination="UvL-FV-RHp" id="qeD-Xw-aeX"/>
-                <outlet property="transactionNoTextFeild" destination="RwP-Pg-Uqn" id="TtN-gI-HQW"/>
+                <outlet property="transactionTextField" destination="RwP-Pg-Uqn" id="9aG-YM-1z3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -89,7 +89,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-Pg-Uqn">
-                    <rect key="frame" x="63" y="100" width="250" height="30"/>
+                    <rect key="frame" x="63" y="60" width="250" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -98,7 +98,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UvL-FV-RHp" firstAttribute="top" secondItem="9SR-BQ-yup" secondAttribute="bottom" constant="30" id="5Zs-H4-Q48"/>
-                <constraint firstItem="RwP-Pg-Uqn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="7Fv-YK-bRV"/>
+                <constraint firstItem="RwP-Pg-Uqn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="7Fv-YK-bRV"/>
                 <constraint firstItem="RwP-Pg-Uqn" firstAttribute="width" secondItem="9SR-BQ-yup" secondAttribute="width" id="E2v-qV-lqJ"/>
                 <constraint firstItem="RwP-Pg-Uqn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GIm-vy-2nV"/>
                 <constraint firstItem="Vve-qT-ywd" firstAttribute="leading" secondItem="9SR-BQ-yup" secondAttribute="leading" id="b9B-00-B5S"/>
@@ -109,7 +109,7 @@
                 <constraint firstItem="9SR-BQ-yup" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="2:3" id="wEH-P7-o24"/>
                 <constraint firstItem="9SR-BQ-yup" firstAttribute="top" secondItem="Vve-qT-ywd" secondAttribute="bottom" constant="20" id="yGa-ir-HoL"/>
             </constraints>
-            <point key="canvasLocation" x="-474" y="29"/>
+            <point key="canvasLocation" x="-820" y="-39"/>
         </view>
     </objects>
 </document>

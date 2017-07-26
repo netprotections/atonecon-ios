@@ -16,7 +16,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var authenTokenValueLabel: UILabel!
     @IBOutlet private weak var authenTokenView: UIView!
     @IBOutlet private weak var resetTokenButton: UIButton!
-    @IBOutlet private weak var transactionNoTextFeild: UITextField!
+    @IBOutlet private weak var transactionTextField: UITextField!
 
     var viewModel = HomeViewModel()
 
@@ -43,7 +43,7 @@ final class HomeViewController: UIViewController {
         setupAuthenTokenLabel()
         setupResetTokenButton()
         setupNavigationController()
-        setupTexiField()
+        setupTextField()
     }
 
     private func setupPayButton() {
@@ -83,9 +83,9 @@ final class HomeViewController: UIViewController {
         resetTokenButton.setAttributedTitle(attributedString, for: .normal)
     }
 
-    private func setupTexiField() {
-        transactionNoTextFeild.placeholder = Define.String.textFielfPlaceHolder
-        transactionNoTextFeild.delegate = self
+    private func setupTextField() {
+        transactionTextField.placeholder = Define.String.textFielfPlaceHolder
+        transactionTextField.delegate = self
     }
 
     // MARK: - Action
@@ -100,7 +100,7 @@ final class HomeViewController: UIViewController {
         // TODO: - dummy data
         var payment = viewModel.payment
         // TODO: - dummy data to easy QC test
-        if let transactionNo = transactionNoTextFeild.text {
+        if let transactionNo = transactionTextField.text {
             payment.shopTransactionNo = "shop-tran-no-" + transactionNo
         }
         atoneCon.performPayment(payment)

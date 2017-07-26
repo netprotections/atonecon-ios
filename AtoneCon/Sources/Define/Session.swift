@@ -9,20 +9,21 @@
 import Foundation
 import SAMKeychain
 
-final class Session {
+internal final class Session {
 
-    public static let shared = Session()
+    internal static let shared = Session()
 
-    struct Credential {
+    internal struct Credential {
         fileprivate let key = "accessToken"
-        fileprivate(set) var value: String
+        fileprivate(set) var value: String?
 
         var isValid: Bool {
+            guard let value = value else { return false }
             return !value.isEmpty
         }
     }
 
-    var credential = Credential(value: "") {
+    internal var credential = Credential(value: "") {
         didSet {
             saveCredential()
         }
@@ -31,15 +32,16 @@ final class Session {
     private func saveCredential() {
         guard credential.isValid else { return }
         removeCredential()
-        SAMKeychain.setPassword(credential.value, forService: Define.String.serviceName, account: credential.key)
+        guard let value = credential.value else { return }
+        SAMKeychain.setPassword(value, forService: Define.String.serviceName, account: credential.key)
     }
 
-    func loadCredential() {
+    internal func loadCredential() {
         guard let value = SAMKeychain.password(forService: Define.String.serviceName, account: credential.key) else { return }
         credential.value = value
     }
 
-    func clearCredential() {
+    internal func clearCredential() {
         credential.value = ""
         removeCredential()
     }

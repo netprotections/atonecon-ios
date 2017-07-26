@@ -10,8 +10,6 @@ import Foundation
 import WebKit
 import SAMKeychain
 
-internal let userDefault = UserDefaults.standard
-
 internal protocol ScriptHandlerDelegate: class {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent)
 }

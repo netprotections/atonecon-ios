@@ -43,7 +43,7 @@
 		16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomer.swift; sourceTree = "<group>"; };
 		16946B001F0B498700CE6FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1699CB391F0DED04003A4F1A /* ScriptHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptHandler.swift; sourceTree = "<group>"; };
-		16F77BF51F26E3EC00D9262D /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Define/Session.swift; sourceTree = "<group>"; };
+		16F77BF51F26E3EC00D9262D /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3484A57CBB53AADC50EE82F4 /* Pods-AtoneConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F786EC53FE4B40F9974C540 /* Pods-AtoneConTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 				16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */,
 				16946B001F0B498700CE6FF8 /* Item.swift */,
 				1699CB391F0DED04003A4F1A /* ScriptHandler.swift */,
-				16F77BF51F26E3EC00D9262D /* Session.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -155,6 +154,7 @@
 		99ECEE4C1F0B8E3A00A1D1B0 /* Define */ = {
 			isa = PBXGroup;
 			children = (
+				16F77BF51F26E3EC00D9262D /* Session.swift */,
 				99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */,
 				99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */,
 				99E727191F0CA867000F0B29 /* Color.swift */,

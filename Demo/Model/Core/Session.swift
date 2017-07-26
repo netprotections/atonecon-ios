@@ -9,9 +9,9 @@
 import Foundation
 import SAMKeychain
 
-final internal class Session {
+final class Session {
 
-    public static let shared = Session()
+    static let shared = Session()
 
     struct Credential {
         fileprivate let key = "accessToken"
