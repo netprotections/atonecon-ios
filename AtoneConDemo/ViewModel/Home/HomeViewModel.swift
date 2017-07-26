@@ -11,7 +11,7 @@ import AtoneCon
 import SAMKeychain
 
 final class HomeViewModel {
-    var payment: AtoneCon.Payment {
+    private var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
             amount: 10,
@@ -70,5 +70,13 @@ final class HomeViewModel {
     func resetAuthenToken() {
         AtoneCon.shared.resetAuthenToken()
         Session.shared.clearCredential()
+    }
+
+    func createPaymentWithShopTransactionNo(shopTransactionNo: String?) -> AtoneCon.Payment {
+        var payment = self.payment
+        if let shopTransactionNo = shopTransactionNo {
+            payment.shopTransactionNo = shopTransactionNo
+        }
+        return payment
     }
 }

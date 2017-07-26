@@ -28,6 +28,7 @@ final class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         authenTokenValueLabel.text = viewModel.getAuthenToken()
+        transactionTextField.text = ""
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,16 +94,11 @@ final class HomeViewController: UIViewController {
         var options = AtoneCon.Options()
         // TODO: - dummy data
         options.publicKey = "bB2uNvcOP2o8fJzHpWUumA"
-
         let atoneCon = AtoneCon.shared
         atoneCon.delegate = self
         atoneCon.config(options)
         // TODO: - dummy data
-        var payment = viewModel.payment
-        // TODO: - dummy data to easy QC test
-        if let transactionNo = transactionTextField.text {
-            payment.shopTransactionNo = "shop-tran-no-" + transactionNo
-        }
+        let payment = viewModel.createPaymentWithShopTransactionNo(shopTransactionNo: transactionTextField.text)
         atoneCon.performPayment(payment)
     }
     @IBAction func resetTokenButtonTapped(_ sender: Any) {
