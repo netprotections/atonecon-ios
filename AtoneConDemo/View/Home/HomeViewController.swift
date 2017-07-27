@@ -85,7 +85,7 @@ final class HomeViewController: UIViewController {
     }
 
     private func setupTextField() {
-        transactionTextField.placeholder = Define.String.textFielfPlaceHolder
+        transactionTextField.placeholder = Define.String.textFieldPlaceHolder
         transactionTextField.delegate = self
     }
 
@@ -98,7 +98,7 @@ final class HomeViewController: UIViewController {
         atoneCon.delegate = self
         atoneCon.config(options)
         // TODO: - dummy data
-        let payment = viewModel.createPaymentWithShopTransactionNo(shopTransactionNo: transactionTextField.text)
+        let payment = viewModel.payment(withTransaction: transactionTextField.text)
         atoneCon.performPayment(payment)
     }
     @IBAction func resetTokenButtonTapped(_ sender: Any) {

@@ -72,9 +72,9 @@ final class HomeViewModel {
         Session.shared.clearCredential()
     }
 
-    func createPaymentWithShopTransactionNo(shopTransactionNo: String?) -> AtoneCon.Payment {
+    func payment(withTransaction transaction: String?) -> AtoneCon.Payment {
         var payment = self.payment
-        if let shopTransactionNo = shopTransactionNo {
+        if let shopTransactionNo = transaction {
             payment.shopTransactionNo = shopTransactionNo
         }
         return payment

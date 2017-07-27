@@ -15,5 +15,5 @@ extension Define.String {
     static let atoneButtonTitle = "atoneを使う"
     static let tokenKey = "userToken"
     static let serviceName = "AtoneConWebView"
-    static let textFielfPlaceHolder = "Input TransactionNo"
+    static let textFieldPlaceHolder = "Input TransactionNo"
 }
