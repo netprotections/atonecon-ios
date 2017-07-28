@@ -30,7 +30,7 @@ final internal class PaymentViewController: UIViewController {
         if let accessToken = Session.shared.credential.value {
             preToken = accessToken
         }
-        let handlerScript = String(format: Define.Script.handler, preToken, publicKey)
+        let handlerScript = String(format: Define.Script.callbackScriptString, preToken, publicKey)
         return handlerScript
     }
 
