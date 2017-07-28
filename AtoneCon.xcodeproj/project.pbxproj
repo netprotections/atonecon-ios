@@ -109,7 +109,6 @@
 		990B5EA01F03957000B142E7 /* AtoneCon */ = {
 			isa = PBXGroup;
 			children = (
-				99ADC1771F0C7B0500AD04E7 /* Resources */,
 				9963B02F1F0A9EE4008C4F95 /* Sources */,
 				990B5EA21F03957000B142E7 /* Info.plist */,
 			);
@@ -140,13 +139,6 @@
 				16A693B21F2AD004000B9FAB /* Session.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		99ADC1771F0C7B0500AD04E7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		99ECEE4C1F0B8E3A00A1D1B0 /* Define */ = {

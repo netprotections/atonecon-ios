@@ -9,6 +9,8 @@
 import UIKit
 import AtoneCon
 
+let userDefault = UserDefaults.standard
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

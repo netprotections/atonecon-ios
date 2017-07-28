@@ -8,7 +8,6 @@
 
 import Foundation
 import AtoneCon
-import SAMKeychain
 
 final class HomeViewModel {
     private var payment: AtoneCon.Payment {
@@ -58,18 +57,16 @@ final class HomeViewModel {
     }
 
     func saveAuthenToken(token: String?) {
-        if let token = token {
-            Session.shared.credential = Session.Credential(value: token)
-        }
+        userDefault.setValue(token, forKey: Define.String.tokenKey)
     }
 
     func getAuthenToken() -> String? {
-        return Session.shared.credential.value
+        return userDefault.string(forKey: Define.String.tokenKey)
     }
 
     func resetAuthenToken() {
         AtoneCon.shared.resetAuthenToken()
-        Session.shared.clearCredential()
+        userDefault.removeObject(forKey: Define.String.tokenKey)
     }
 
     func payment(withTransaction transaction: String?) -> AtoneCon.Payment {
