@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		164A39481F2854540067A42B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A39471F2854540067A42B /* Session.swift */; };
 		8EA685E84D177243E1C081A1 /* Pods_AtoneConDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */; };
 		996404371F26DC67005C221F /* AtoneConDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996404361F26DC67005C221F /* AtoneConDemoTests.swift */; };
 		9965C1351F25AF39004C81C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1231F25AF39004C81C6 /* Color.swift */; };
@@ -33,7 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		164A39471F2854540067A42B /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneConDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5EC11F0395B500B142E7 /* AtoneConDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtoneConDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		996404341F26DC67005C221F /* AtoneConDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,22 +75,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		164A39451F28543F0067A42B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				164A39461F28543F0067A42B /* Core */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		164A39461F28543F0067A42B /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				164A39471F2854540067A42B /* Session.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		4A5C7A82F7AB987942B034BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +119,6 @@
 		9965C1211F25AF39004C81C6 /* AtoneConDemo */ = {
 			isa = PBXGroup;
 			children = (
-				164A39451F28543F0067A42B /* Model */,
 				9965C1221F25AF39004C81C6 /* Define */,
 				9965C1261F25AF39004C81C6 /* Resources */,
 				9965C1281F25AF39004C81C6 /* Supports */,
@@ -403,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				164A39481F2854540067A42B /* Session.swift in Sources */,
 				9965C13B1F25AF39004C81C6 /* HomeViewController.swift in Sources */,
 				9965C13E1F25AF39004C81C6 /* HomeViewModel.swift in Sources */,
 				9965C13A1F25AF39004C81C6 /* AppDelegate.swift in Sources */,
