@@ -11,12 +11,12 @@ import AtoneCon
 
 final class HomeViewController: UIViewController {
 
-    @IBOutlet private weak var payButton: UIButton!
-    @IBOutlet private weak var authenTokenTitleLabel: UILabel!
-    @IBOutlet private weak var authenTokenValueLabel: UILabel!
-    @IBOutlet private weak var authenTokenView: UIView!
-    @IBOutlet private weak var resetTokenButton: UIButton!
-    @IBOutlet private weak var transactionTextField: UITextField!
+    @IBOutlet fileprivate weak var payButton: UIButton!
+    @IBOutlet fileprivate weak var authenTokenTitleLabel: UILabel!
+    @IBOutlet fileprivate weak var authenTokenValueLabel: UILabel!
+    @IBOutlet fileprivate weak var authenTokenView: UIView!
+    @IBOutlet fileprivate weak var resetTokenButton: UIButton!
+    @IBOutlet fileprivate weak var transactionTextField: UITextField!
 
     var viewModel = HomeViewModel()
 
@@ -47,48 +47,6 @@ final class HomeViewController: UIViewController {
         setupTextField()
     }
 
-    private func setupPayButton() {
-        payButton.layer.cornerRadius = 5
-        payButton.backgroundColor = Define.Color.lightBlue
-        payButton.setTitle(Define.String.atoneButtonTitle, for: .normal)
-    }
-
-    private func setupNavigationController() {
-        if let navigationBar = navigationController?.navigationBar {
-            navigationBar.barTintColor = Define.Color.lightBlue
-            navigationBar.tintColor = UIColor.white
-            navigationBar.isTranslucent = false
-            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-            navigationBar.tintColor = UIColor.white
-        }
-    }
-
-    private func setupAuthenTokenView() {
-        authenTokenView.layer.borderWidth = 2
-        authenTokenView.layer.borderColor = Define.Color.lightBlue.cgColor
-        authenTokenView.layer.cornerRadius = 5
-    }
-
-    private func setupAuthenTokenLabel() {
-        authenTokenTitleLabel.backgroundColor = .white
-        authenTokenTitleLabel.text = Define.String.authenTokenTitle
-        authenTokenTitleLabel.textColor = Define.Color.lightBlue
-    }
-
-    private func setupResetTokenButton() {
-        let attributes: [String:Any] = [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 17),
-            NSForegroundColorAttributeName: UIColor.black,
-            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
-        let attributedString: NSAttributedString = NSAttributedString(string: Define.String.resetAuthen, attributes: attributes)
-        resetTokenButton.setAttributedTitle(attributedString, for: .normal)
-    }
-
-    private func setupTextField() {
-        transactionTextField.placeholder = Define.String.textFieldPlaceHolder
-        transactionTextField.delegate = self
-    }
-
     // MARK: - Action
     @IBAction func payButtonTapped(_ sender: Any) {
         var options = AtoneCon.Options()
@@ -104,12 +62,6 @@ final class HomeViewController: UIViewController {
     @IBAction func resetTokenButtonTapped(_ sender: Any) {
         viewModel.resetAuthenToken()
         updateView()
-    }
-
-    private func updateView() {
-        if isViewLoaded {
-            authenTokenValueLabel.text = viewModel.getAuthenToken()
-        }
     }
 }
 
@@ -144,5 +96,55 @@ extension HomeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return true
+    }
+}
+
+extension HomeViewController {
+    fileprivate func setupPayButton() {
+        payButton.layer.cornerRadius = 5
+        payButton.backgroundColor = Define.Color.lightBlue
+        payButton.setTitle(Define.String.atoneButtonTitle, for: .normal)
+    }
+
+    fileprivate func setupNavigationController() {
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barTintColor = Define.Color.lightBlue
+            navigationBar.tintColor = UIColor.white
+            navigationBar.isTranslucent = false
+            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+            navigationBar.tintColor = UIColor.white
+        }
+    }
+
+    fileprivate func setupAuthenTokenView() {
+        authenTokenView.layer.borderWidth = 2
+        authenTokenView.layer.borderColor = Define.Color.lightBlue.cgColor
+        authenTokenView.layer.cornerRadius = 5
+    }
+
+    fileprivate func setupAuthenTokenLabel() {
+        authenTokenTitleLabel.backgroundColor = .white
+        authenTokenTitleLabel.text = Define.String.authenTokenTitle
+        authenTokenTitleLabel.textColor = Define.Color.lightBlue
+    }
+
+    fileprivate func setupResetTokenButton() {
+        let attributes: [String:Any] = [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 17),
+            NSForegroundColorAttributeName: UIColor.black,
+            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
+        let attributedString: NSAttributedString = NSAttributedString(string: Define.String.resetAuthen, attributes: attributes)
+        resetTokenButton.setAttributedTitle(attributedString, for: .normal)
+    }
+
+    fileprivate func setupTextField() {
+        transactionTextField.placeholder = Define.String.textFieldPlaceHolder
+        transactionTextField.delegate = self
+    }
+
+    fileprivate func updateView() {
+        if isViewLoaded {
+            authenTokenValueLabel.text = viewModel.getAuthenToken()
+        }
     }
 }
