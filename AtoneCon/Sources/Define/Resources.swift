@@ -10,7 +10,7 @@ import Foundation
 
 extension Define {
     internal struct Resources {
-        static let callbackScriptString =
+        static let atoneJS =
             "\nAtone.config({" +
                 "pre_token: \"%@\"," +
                 "pub_key: \"%@\"," +
@@ -30,7 +30,7 @@ extension Define {
             "});" +
             "function startAtone() { Atone.start();}\n"
 
-        static let atoneHtmlString =
+        static let atoneHTML =
             "<!DOCTYPE html>" +
             "<html lang=\"ja\">" +
                 "<head>" +

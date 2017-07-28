@@ -30,7 +30,7 @@ final internal class PaymentViewController: UIViewController {
         if let accessToken = Session.shared.credential.value {
             preToken = accessToken
         }
-        let handlerScript = String(format: Define.Resources.callbackScriptString, preToken, publicKey)
+        let handlerScript = String(format: Define.Resources.atoneJS, preToken, publicKey)
         return handlerScript
     }
 
@@ -53,9 +53,7 @@ final internal class PaymentViewController: UIViewController {
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
         view.addSubview(webView)
-//        let urlRequest = URLRequest(url: htmlURL())
-//        webView.load(urlRequest)
-        webView.loadHTMLString(Define.Resources.atoneHtmlString, baseURL: nil)
+        webView.loadHTMLString(Define.Resources.atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
         scriptHandler.addEvents()
@@ -70,10 +68,6 @@ final internal class PaymentViewController: UIViewController {
         view.addSubview(indicator)
     }
 
-    private func htmlURL() -> URL {
-        return url(forResource: "atone", withExtension: "html")
-    }
-
     private func userScript() -> WKUserScript {
         guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
             fatalError("don't receive information of payment")
@@ -81,14 +75,6 @@ final internal class PaymentViewController: UIViewController {
         let paymentScript = "var data = " + paymentJSON
         let userScript = WKUserScript(source: paymentScript + handlerScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         return userScript
-    }
-
-    private func url(forResource name: String?, withExtension ext: String?) -> URL {
-        let bundle = Bundle(for: PaymentViewController.self)
-        guard let url = bundle.url(forResource: name, withExtension: ext, subdirectory: "www") else {
-            fatalError("File Not Found")
-        }
-        return url
     }
 
     // MARK: - Fileprivate Functions
