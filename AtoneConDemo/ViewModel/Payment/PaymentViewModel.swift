@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  PaymentViewModel.swift
 //  AtoneConDemo
 //
 //  Created by Pham Ngoc Hanh on 7/4/17.
@@ -9,7 +9,7 @@
 import Foundation
 import AtoneCon
 
-final class HomeViewModel {
+final class PaymentViewModel {
     private var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
