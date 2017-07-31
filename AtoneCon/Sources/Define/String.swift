@@ -12,6 +12,9 @@ extension Define {
     internal struct String {
         static let cancel = "Cancel"
         static let serviceName = "AtoneConWebView"
-        static let errorMessageNetwork = "Please connect network"
+        static let messageNetworkError = "Please connect network"
+        static let titleNetworkError = "Network"
+        static let okActionTitle = "OK"
+        static let titleCloseButton = "Close"
     }
 }
