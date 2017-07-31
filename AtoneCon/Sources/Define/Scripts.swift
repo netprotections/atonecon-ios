@@ -9,7 +9,7 @@
 import Foundation
 
 extension Define {
-    internal struct Resources {
+    internal struct Scripts {
         static let atoneJS =
             "\nAtone.config({" +
                 "pre_token: \"%@\"," +

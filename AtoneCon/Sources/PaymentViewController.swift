@@ -30,7 +30,7 @@ final internal class PaymentViewController: UIViewController {
         if let accessToken = Session.shared.credential.value {
             preToken = accessToken
         }
-        let handlerScript = String(format: Define.Resources.atoneJS, preToken, publicKey)
+        let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
         return handlerScript
     }
 
@@ -53,7 +53,7 @@ final internal class PaymentViewController: UIViewController {
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
         view.addSubview(webView)
-        webView.loadHTMLString(Define.Resources.atoneHTML, baseURL: nil)
+        webView.loadHTMLString(Define.Scripts.atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
         scriptHandler.addEvents()
