@@ -44,6 +44,7 @@ final internal class PaymentViewController: UIViewController {
         super.viewDidLoad()
         setupWebView()
         setupIndicator()
+        setupNavi()
     }
 
     // MARK: - Private Functions
@@ -101,8 +102,25 @@ extension PaymentViewController: WKNavigationDelegate {
     }
 }
 
+// MARK: - ScriptHandlerDelegate
 extension PaymentViewController: ScriptHandlerDelegate {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent) {
         delegate?.controller(self, didReceiveScriptEvent: event)
+    }
+}
+
+// MARK: - Setup Navigation 
+extension PaymentViewController {
+    fileprivate func setupNavi() {
+        createCloseButton()
+    }
+
+    private func createCloseButton() {
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeWebView))
+        navigationItem.rightBarButtonItem = closeButton
+    }
+
+    @objc private func closeWebView() {
+        AtoneCon.shared.dismissWebview()
     }
 }
