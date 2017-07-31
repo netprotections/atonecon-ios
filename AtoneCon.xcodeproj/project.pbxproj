@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */; };
-		16294C551F2F0A0C001F5EA2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16294C541F2F0A0C001F5EA2 /* Network.swift */; };
+		16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */; };
 		166374AB1F21A796002C8821 /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166374AA1F21A796002C8821 /* Scripts.swift */; };
 		16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */; };
 		16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */; };
@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16294C541F2F0A0C001F5EA2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		166374AA1F21A796002C8821 /* Scripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
 		16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomer.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				16946B001F0B498700CE6FF8 /* Item.swift */,
 				1699CB391F0DED04003A4F1A /* ScriptHandler.swift */,
 				16A693B21F2AD004000B9FAB /* Session.swift */,
-				16294C541F2F0A0C001F5EA2 /* Network.swift */,
+				16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -378,9 +378,9 @@
 				16A693B31F2AD004000B9FAB /* Session.swift in Sources */,
 				16946B011F0B498700CE6FF8 /* Item.swift in Sources */,
 				1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */,
+				16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */,
 				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,
 				99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */,
-				16294C551F2F0A0C001F5EA2 /* Network.swift in Sources */,
 				9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

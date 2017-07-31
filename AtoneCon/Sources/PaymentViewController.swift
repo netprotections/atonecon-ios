@@ -112,10 +112,6 @@ extension PaymentViewController: ScriptHandlerDelegate {
 // MARK: - Setup Navigation 
 extension PaymentViewController {
     fileprivate func setupNavigation() {
-        createCloseButton()
-    }
-
-    private func createCloseButton() {
         let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeWebView))
         navigationItem.rightBarButtonItem = closeButton
     }
