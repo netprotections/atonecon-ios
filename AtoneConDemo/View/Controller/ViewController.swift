@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  ViewController.swift
 //  AtoneConDemo
 //
 //  Created by Pham Ngoc Hanh on 6/28/17.
@@ -9,7 +9,7 @@
 import UIKit
 import AtoneCon
 
-final class HomeViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet fileprivate weak var payButton: UIButton!
     @IBOutlet fileprivate weak var authenTokenTitleLabel: UILabel!
@@ -18,7 +18,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet fileprivate weak var resetTokenButton: UIButton!
     @IBOutlet fileprivate weak var transactionTextField: UITextField!
 
-    var viewModel = HomeViewModel()
+    var viewModel = PaymentViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ final class HomeViewController: UIViewController {
 }
 
 // MARK: - AtoneConDelegate
-extension HomeViewController: AtoneConDelegate {
+extension ViewController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
@@ -92,14 +92,15 @@ extension HomeViewController: AtoneConDelegate {
 }
 
 // MARK: - UITextFieldDelegate
-extension HomeViewController: UITextFieldDelegate {
+extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return true
     }
 }
 
-extension HomeViewController {
+// MARK: - setup UI
+extension ViewController {
     fileprivate func setupPayButton() {
         payButton.layer.cornerRadius = 5
         payButton.backgroundColor = Define.Color.lightBlue
