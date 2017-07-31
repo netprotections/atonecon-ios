@@ -44,7 +44,7 @@ final internal class PaymentViewController: UIViewController {
         super.viewDidLoad()
         setupWebView()
         setupIndicator()
-        setupNavi()
+        setupNavigation()
     }
 
     // MARK: - Private Functions
@@ -111,7 +111,7 @@ extension PaymentViewController: ScriptHandlerDelegate {
 
 // MARK: - Setup Navigation 
 extension PaymentViewController {
-    fileprivate func setupNavi() {
+    fileprivate func setupNavigation() {
         createCloseButton()
     }
 

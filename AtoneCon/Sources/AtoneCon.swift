@@ -41,8 +41,9 @@ final public class AtoneCon {
         }
         self.payment = payment
         let paymenController = PaymentViewController(payment: payment)
+        let paymentNavigation = UINavigationController(rootViewController: paymenController)
         paymenController.delegate = self
-        root?.present(paymenController, animated: true, completion: nil)
+        root?.present(paymentNavigation, animated: true, completion: nil)
     }
 
     public func dismissWebview() {
