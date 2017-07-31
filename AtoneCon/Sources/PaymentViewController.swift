@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SAMKeychain
 
 internal protocol PaymentViewControllerDelegate: class {
     func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent)
@@ -15,12 +16,23 @@ internal protocol PaymentViewControllerDelegate: class {
 
 final internal class PaymentViewController: UIViewController {
 
+    // MARK: - Delegate
+    weak var delegate: PaymentViewControllerDelegate?
+
     // MARK: - Properties
     private var payment: AtoneCon.Payment?
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
     private var scriptHandler: ScriptHandler!
-    weak var delegate: PaymentViewControllerDelegate?
+    private var handlerScript: String {
+        let publicKey = AtoneCon.shared.option.publicKey
+        var preToken = ""
+        if let accessToken = Session.shared.credential.value {
+            preToken = accessToken
+        }
+        let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
+        return handlerScript
+    }
 
     convenience init(payment: AtoneCon.Payment) {
         self.init()
@@ -41,8 +53,7 @@ final internal class PaymentViewController: UIViewController {
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
         view.addSubview(webView)
-        let urlRequest = URLRequest(url: htmlURL())
-        webView.load(urlRequest)
+        webView.loadHTMLString(Define.Scripts.atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
         scriptHandler.addEvents()
@@ -57,32 +68,13 @@ final internal class PaymentViewController: UIViewController {
         view.addSubview(indicator)
     }
 
-    private func htmlURL() -> URL {
-        return url(forResource: "atone", withExtension: "html")
-    }
-
     private func userScript() -> WKUserScript {
-        do {
-            let url = self.url(forResource: "atone", withExtension: "js")
-            let handleScript = try String(contentsOf: url, encoding: .utf8)
-            guard let jsonString = payment?.toJSONString(prettyPrint: true) else {
-                fatalError("don't receive information of payment")
-            }
-            let paymentScriptString = "var data = " + jsonString
-            print(paymentScriptString)
-            let userScript = WKUserScript(source: paymentScriptString + handleScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-            return userScript
-        } catch {
-            fatalError(error.localizedDescription)
+        guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
+            fatalError("don't receive information of payment")
         }
-    }
-
-    private func url(forResource name: String?, withExtension ext: String?) -> URL {
-        let bundle = Bundle(for: PaymentViewController.self)
-        guard let url = bundle.url(forResource: name, withExtension: ext, subdirectory: "www") else {
-            fatalError("File Not Found")
-        }
-        return url
+        let paymentScript = "var data = " + paymentJSON
+        let userScript = WKUserScript(source: paymentScript + handlerScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        return userScript
     }
 
     // MARK: - Fileprivate Functions

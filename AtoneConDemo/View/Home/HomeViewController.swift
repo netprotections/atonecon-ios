@@ -11,18 +11,32 @@ import AtoneCon
 
 final class HomeViewController: UIViewController {
 
-    @IBOutlet private weak var payButton: UIButton!
-    @IBOutlet private weak var authenTokenTitleLabel: UILabel!
-    @IBOutlet private weak var authenTokenValueLabel: UILabel!
-    @IBOutlet private weak var authenTokenView: UIView!
-    @IBOutlet private weak var resetTokenButton: UIButton!
+    @IBOutlet fileprivate weak var payButton: UIButton!
+    @IBOutlet fileprivate weak var authenTokenTitleLabel: UILabel!
+    @IBOutlet fileprivate weak var authenTokenValueLabel: UILabel!
+    @IBOutlet fileprivate weak var authenTokenView: UIView!
+    @IBOutlet fileprivate weak var resetTokenButton: UIButton!
+    @IBOutlet fileprivate weak var transactionTextField: UITextField!
 
     var viewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        authenTokenValueLabel.text = viewModel.getAuthenToken()
+        transactionTextField.text = ""
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+
+    // MARK: - Setup UI
     private func setupUI() {
         title = Define.String.homeTitle
         setupPayButton()
@@ -30,38 +44,91 @@ final class HomeViewController: UIViewController {
         setupAuthenTokenLabel()
         setupResetTokenButton()
         setupNavigationController()
+        setupTextField()
     }
 
-    private func setupPayButton() {
+    // MARK: - Action
+    @IBAction func payButtonTapped(_ sender: Any) {
+        var options = AtoneCon.Options()
+        // TODO: - dummy data
+        options.publicKey = "bB2uNvcOP2o8fJzHpWUumA"
+        let atoneCon = AtoneCon.shared
+        atoneCon.delegate = self
+        atoneCon.config(options)
+        // TODO: - dummy data
+        let payment = viewModel.payment(withTransaction: transactionTextField.text)
+        atoneCon.performPayment(payment)
+    }
+    @IBAction func resetTokenButtonTapped(_ sender: Any) {
+        viewModel.resetAuthenToken()
+        updateView()
+    }
+}
+
+// MARK: - AtoneConDelegate
+extension HomeViewController: AtoneConDelegate {
+    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
+        switch event {
+        case .authenticated(let authenToken):
+            viewModel.saveAuthenToken(token: authenToken)
+        case .cancelled:
+            atoneCon.dismissWebview()
+        case .failed(let response):
+            if let response = response {
+                print(response)
+            } else {
+                print("Don't receive data")
+            }
+            atoneCon.dismissWebview()
+        case .finished(let response):
+            if let response = response {
+                print(response)
+            } else {
+                print("Don't receive data")
+            }
+            atoneCon.dismissWebview()
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+}
+
+extension HomeViewController {
+    fileprivate func setupPayButton() {
         payButton.layer.cornerRadius = 5
         payButton.backgroundColor = Define.Color.lightBlue
         payButton.setTitle(Define.String.atoneButtonTitle, for: .normal)
     }
 
-    private func setupNavigationController() {
-        guard let navigationBar = navigationController?.navigationBar else {
-            fatalError("Don't found navigationBar")
+    fileprivate func setupNavigationController() {
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barTintColor = Define.Color.lightBlue
+            navigationBar.tintColor = UIColor.white
+            navigationBar.isTranslucent = false
+            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+            navigationBar.tintColor = UIColor.white
         }
-        navigationBar.barTintColor = Define.Color.lightBlue
-        navigationBar.tintColor = UIColor.white
-        navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        navigationBar.tintColor = UIColor.white
     }
 
-    private func setupAuthenTokenView() {
+    fileprivate func setupAuthenTokenView() {
         authenTokenView.layer.borderWidth = 2
         authenTokenView.layer.borderColor = Define.Color.lightBlue.cgColor
         authenTokenView.layer.cornerRadius = 5
     }
 
-    private func setupAuthenTokenLabel() {
+    fileprivate func setupAuthenTokenLabel() {
         authenTokenTitleLabel.backgroundColor = .white
         authenTokenTitleLabel.text = Define.String.authenTokenTitle
         authenTokenTitleLabel.textColor = Define.Color.lightBlue
     }
 
-    private func setupResetTokenButton() {
+    fileprivate func setupResetTokenButton() {
         let attributes: [String:Any] = [
             NSFontAttributeName: UIFont.systemFont(ofSize: 17),
             NSForegroundColorAttributeName: UIColor.black,
@@ -70,40 +137,14 @@ final class HomeViewController: UIViewController {
         resetTokenButton.setAttributedTitle(attributedString, for: .normal)
     }
 
-    // MARK: - Action
-    @IBAction func payButtonTapped(_ sender: Any) {
-        var options = AtoneCon.Options()
-        // TODO: - dummy data
-        options.publicKey = "xx-yy-zz"
-
-        let atoneCon = AtoneCon.shared
-        atoneCon.config(options)
-        atoneCon.delegate = self
-        // TODO: - dummy data
-        let payment = viewModel.payment
-        atoneCon.performPayment(payment)
+    fileprivate func setupTextField() {
+        transactionTextField.placeholder = Define.String.textFieldPlaceHolder
+        transactionTextField.delegate = self
     }
 
-    @IBAction func resetTokenButtonTapped(_ sender: Any) {
-        // TODO: reset authenToken
-    }
-}
-
-extension HomeViewController: AtoneConDelegate {
-
-    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
-        switch event {
-        case .willPayment(_):
-            break
-        case .failed(_):
-            // TODO: handle failed
-            atoneCon.dismissWebview()
-        case .cancelled():
-            // TODO: handle canceled
-            atoneCon.dismissWebview()
-        case .finished(_, _):
-            // TODO: handle finished
-            atoneCon.dismissWebview()
+    fileprivate func updateView() {
+        if isViewLoaded {
+            authenTokenValueLabel.text = viewModel.getAuthenToken()
         }
     }
 }

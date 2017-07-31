@@ -2,12 +2,14 @@
 //  AppDelegate.swift
 //  AtoneConDemo
 //
-//  Created by Mylo Ho on 6/28/17.
+//  Created by Pham Ngoc Hanh on 6/28/17.
 //  Copyright © 2017 AsianTech Inc. All rights reserved.
 //
 
 import UIKit
 import AtoneCon
+
+let userDefault = UserDefaults.standard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

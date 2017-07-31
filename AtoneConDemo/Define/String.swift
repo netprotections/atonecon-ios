@@ -13,4 +13,7 @@ extension Define.String {
     static let resetAuthen = "認証情報をリセット"
     static let authenTokenTitle = " 認証トークン "
     static let atoneButtonTitle = "atoneを使う"
+    static let tokenKey = "userToken"
+    static let serviceName = "AtoneConWebView"
+    static let textFieldPlaceHolder = "Input TransactionNo"
 }

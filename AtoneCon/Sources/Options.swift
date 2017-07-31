@@ -11,7 +11,6 @@ import Foundation
 extension AtoneCon {
     public struct Options {
         public var publicKey = ""
-
         public init() {}
     }
 }

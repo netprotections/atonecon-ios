@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */; };
+		166374AB1F21A796002C8821 /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166374AA1F21A796002C8821 /* Scripts.swift */; };
 		16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */; };
 		16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */; };
 		16946B011F0B498700CE6FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B001F0B498700CE6FF8 /* Item.swift */; };
 		1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699CB391F0DED04003A4F1A /* ScriptHandler.swift */; };
+		16A693B31F2AD004000B9FAB /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A693B21F2AD004000B9FAB /* Session.swift */; };
 		2FEA55B42C6DC4E68E0FFB55 /* Pods_AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */; };
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
 		990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B5EAC1F03957000B142E7 /* AtoneConTests.swift */; };
@@ -19,7 +21,6 @@
 		9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0311F0A9EE4008C4F95 /* Options.swift */; };
 		9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0321F0A9EE4008C4F95 /* Payment.swift */; };
 		9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */; };
-		99ADC1791F0C7B1300AD04E7 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 99ADC1781F0C7B1300AD04E7 /* www */; };
 		99E7271A1F0CA867000F0B29 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E727191F0CA867000F0B29 /* Color.swift */; };
 		99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */; };
 		99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */; };
@@ -36,10 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		166374AA1F21A796002C8821 /* Scripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
 		16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomer.swift; sourceTree = "<group>"; };
 		16946B001F0B498700CE6FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1699CB391F0DED04003A4F1A /* ScriptHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptHandler.swift; sourceTree = "<group>"; };
+		16A693B21F2AD004000B9FAB /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3484A57CBB53AADC50EE82F4 /* Pods-AtoneConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F786EC53FE4B40F9974C540 /* Pods-AtoneConTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -53,7 +56,6 @@
 		9963B0311F0A9EE4008C4F95 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		9963B0321F0A9EE4008C4F95 /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		99ADC1781F0C7B1300AD04E7 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AtoneCon.podspec; sourceTree = "<group>"; };
 		99E727191F0CA867000F0B29 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
@@ -107,7 +109,6 @@
 		990B5EA01F03957000B142E7 /* AtoneCon */ = {
 			isa = PBXGroup;
 			children = (
-				99ADC1771F0C7B0500AD04E7 /* Resources */,
 				9963B02F1F0A9EE4008C4F95 /* Sources */,
 				990B5EA21F03957000B142E7 /* Info.plist */,
 			);
@@ -135,16 +136,9 @@
 				16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */,
 				16946B001F0B498700CE6FF8 /* Item.swift */,
 				1699CB391F0DED04003A4F1A /* ScriptHandler.swift */,
+				16A693B21F2AD004000B9FAB /* Session.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		99ADC1771F0C7B0500AD04E7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				99ADC1781F0C7B1300AD04E7 /* www */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		99ECEE4C1F0B8E3A00A1D1B0 /* Define */ = {
@@ -153,6 +147,7 @@
 				99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */,
 				99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */,
 				99E727191F0CA867000F0B29 /* Color.swift */,
+				166374AA1F21A796002C8821 /* Scripts.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -275,7 +270,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99ADC1791F0C7B1300AD04E7 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,8 +369,10 @@
 				9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */,
 				16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */,
 				16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */,
+				166374AB1F21A796002C8821 /* Scripts.swift in Sources */,
 				99E7271A1F0CA867000F0B29 /* Color.swift in Sources */,
 				9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */,
+				16A693B31F2AD004000B9FAB /* Session.swift in Sources */,
 				16946B011F0B498700CE6FF8 /* Item.swift in Sources */,
 				1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */,
 				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import WebKit
+import SAMKeychain
 
 internal protocol ScriptHandlerDelegate: class {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent)
@@ -27,8 +28,8 @@ private enum Message: String {
 internal enum ScriptEvent {
     case authenticated(String?)
     case cancelled
-    case succeeded(Any?)
-    case failed(Any?)
+    case succeeded([String: Any]?)
+    case failed([String: Any]?)
 
     fileprivate var messageName: Message {
         switch self {
@@ -70,17 +71,15 @@ extension ScriptHandler: WKScriptMessageHandler {
         }
         switch messageName {
         case .authenticated :
-            // TODO: save authentoken
-            event = ScriptEvent.authenticated(message.body as? String)
+            let token = message.body as? String
+            Session.shared.credential = Session.Credential(value: token)
+            event = ScriptEvent.authenticated(token)
         case .cancelled:
-            // TODO: get respone
             event = ScriptEvent.cancelled
         case .failed:
-            // TODO: get respone
-            event = ScriptEvent.failed(message.body)
+            event = ScriptEvent.failed(message.body as? [String: Any])
         case .succeeded:
-            // TODO: get respone
-            event = ScriptEvent.succeeded(message.body)
+            event = ScriptEvent.succeeded(message.body as? [String: Any])
         }
         delegate?.scriptHandler(self, didReceiveScriptEvent: event)
     }
