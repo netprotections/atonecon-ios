@@ -34,11 +34,11 @@ internal final class Session {
         guard credential.isValid else { return }
         removeCredential()
         guard let value = credential.value else { return }
-        SAMKeychain.setPassword(value, forService: serviceName, account: credential.key)
+        SAMKeychain.setPassword(value, forService: service, account: credential.key)
     }
 
     internal func loadCredential() {
-        guard let value = SAMKeychain.password(forService: serviceName, account: credential.key) else { return }
+        guard let value = SAMKeychain.password(forService: service, account: credential.key) else { return }
         credential.value = value
     }
 
@@ -48,6 +48,6 @@ internal final class Session {
     }
 
     private func removeCredential() {
-        SAMKeychain.deletePassword(forService: serviceName, account: credential.key)
+        SAMKeychain.deletePassword(forService: service, account: credential.key)
     }
 }
