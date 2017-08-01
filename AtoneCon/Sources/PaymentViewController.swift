@@ -24,6 +24,7 @@ final internal class PaymentViewController: UIViewController {
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
     private var scriptHandler: ScriptHandler!
+
     private var handlerScript: String {
         let publicKey = AtoneCon.shared.option.publicKey
         var preToken = ""
@@ -32,6 +33,13 @@ final internal class PaymentViewController: UIViewController {
         }
         let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
         return handlerScript
+    }
+
+    private var atoneHTML: String {
+        let ratio = UIScreen.main.bounds.width / CGFloat(375)
+        print(ratio)
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(ratio)")
+        return atoneHTML
     }
 
     convenience init(payment: AtoneCon.Payment) {
@@ -54,7 +62,7 @@ final internal class PaymentViewController: UIViewController {
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
         view.addSubview(webView)
-        webView.loadHTMLString(Define.Scripts.atoneHTML, baseURL: nil)
+        webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
         scriptHandler.addEvents()
