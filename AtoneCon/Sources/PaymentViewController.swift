@@ -36,9 +36,8 @@ final internal class PaymentViewController: UIViewController {
     }
 
     private var atoneHTML: String {
-        let ratio = UIScreen.main.bounds.width / CGFloat(375)
-        print(ratio)
-        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(ratio)")
+        let initialScale = Define.Helper.Ratio.horizontal
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(initialScale)")
         return atoneHTML
     }
 

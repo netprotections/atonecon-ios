@@ -10,8 +10,6 @@ import Foundation
 
 extension Define {
     internal struct Strings {
-        static let cancel = "Cancel"
-        static let serviceName = "AtoneConWebView"
         static let network = "Network"
         static let okay = "OK"
         static let close = "Close"
@@ -20,6 +18,6 @@ extension Define {
 
 extension Define.Strings {
     internal struct Error {
-        static let network = "Please connect network"
+        static let network = "No Network! You need connect network before perform payment"
     }
 }
