@@ -14,29 +14,26 @@ extension Define {
 }
 
 extension Define.Helper {
-    internal struct IPhoneSize {
-        static let IP6PlusScreenHeight = 736.0
-        static let IP6ScreenHeight = 667.0
-        static let IP5ScreenHeight = 568.0
-        static let IP4ScreenHeight = 480.0
+    internal enum DeviceType {
+        case iPhone4
+        case iPhone5
+        case iPhone6
+        case iPhone6p
+        case iPad
 
-        static let IP6PlusScreenWidth = 410.0
-        static let IP6ScreenWidth = 375.0
-        static let IP5ScreenWidth = 320.0
-        static let IP4ScreenWidth = 320.0
+        public var size: CGSize {
+            switch self {
+            case .iPhone4: return CGSize(width: 320, height: 480)
+            case .iPhone5: return CGSize(width: 320, height: 568)
+            case .iPhone6: return CGSize(width: 375, height: 667)
+            case .iPhone6p: return CGSize(width: 414, height: 736)
+            case .iPad: return CGSize(width: 768, height: 1024)
+            }
+        }
     }
-}
 
-extension Define.Helper {
-    internal struct ScreenSize {
-        static let screenWidth = UIScreen.main.bounds.width
-        static let screenHeight = UIScreen.main.bounds.height
-    }
-}
-
-extension Define.Helper {
     internal struct Ratio {
-        static let vertical = ScreenSize.screenHeight / CGFloat(IPhoneSize.IP6ScreenHeight)
-        static let horizontal = ScreenSize.screenWidth / CGFloat(IPhoneSize.IP6ScreenWidth)
+        static let vertical = UIScreen.main.bounds.height / CGFloat(DeviceType.iPhone6.size.height)
+        static let horizontal = UIScreen.main.bounds.width / CGFloat(DeviceType.iPhone6.size.width)
     }
 }

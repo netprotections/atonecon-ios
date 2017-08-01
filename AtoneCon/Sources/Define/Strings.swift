@@ -18,6 +18,6 @@ extension Define {
 
 extension Define.Strings {
     internal struct Error {
-        static let network = "No Network! You need connect network before perform payment"
+        static let network = "Your request cannot be completed because you are not connected to the internet"
     }
 }
