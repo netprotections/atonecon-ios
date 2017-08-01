@@ -31,8 +31,8 @@ final public class AtoneCon {
     public func performPayment(_ payment: Payment) {
         let root = UIApplication.shared.delegate?.window??.rootViewController
         guard NetworkReachabilityManager()?.isReachable == true else {
-            let errorAlert = UIAlertController(title: Define.String.titleNetworkError, message: Define.String.messageNetworkError, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: Define.String.okActionTitle, style: .default, handler: { _ in
+            let errorAlert = UIAlertController(title: Define.Strings.network, message: Define.Strings.Error.network, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: Define.Strings.okay, style: .default, handler: { _ in
                 root?.dismiss(animated: true, completion: nil)
             })
             errorAlert.addAction(okAction)
