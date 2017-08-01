@@ -12,7 +12,7 @@ import SAMKeychain
 internal final class Session {
 
     internal static let shared = Session()
-    private let serviceName = "AtoneConWebView"
+    private let service = "AtoneCon"
 
     internal struct Credential {
         fileprivate let key = "accessToken"
