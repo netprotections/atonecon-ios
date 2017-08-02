@@ -36,8 +36,8 @@ final internal class PaymentViewController: UIViewController {
     }
 
     private var atoneHTML: String {
-        let deveiceScale = Define.Helper.Ratio.horizontal
-        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deveiceScale)")
+        let deviceScale = Define.Helper.Ratio.horizontal
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)")
         return atoneHTML
     }
 
