@@ -24,6 +24,7 @@ final internal class PaymentViewController: UIViewController {
     private var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
     private var scriptHandler: ScriptHandler!
+
     private var handlerScript: String {
         let publicKey = AtoneCon.shared.option.publicKey
         var preToken = ""
@@ -32,6 +33,12 @@ final internal class PaymentViewController: UIViewController {
         }
         let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
         return handlerScript
+    }
+
+    private var atoneHTML: String {
+        let deviceScale = Define.Helper.Ratio.horizontal
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)")
+        return atoneHTML
     }
 
     convenience init(payment: AtoneCon.Payment) {
@@ -44,6 +51,7 @@ final internal class PaymentViewController: UIViewController {
         super.viewDidLoad()
         setupWebView()
         setupIndicator()
+        setupNavigation()
     }
 
     // MARK: - Private Functions
@@ -53,7 +61,7 @@ final internal class PaymentViewController: UIViewController {
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
         view.addSubview(webView)
-        webView.loadHTMLString(Define.Scripts.atoneHTML, baseURL: nil)
+        webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
         scriptHandler.addEvents()
@@ -101,8 +109,21 @@ extension PaymentViewController: WKNavigationDelegate {
     }
 }
 
+// MARK: - ScriptHandlerDelegate
 extension PaymentViewController: ScriptHandlerDelegate {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent) {
         delegate?.controller(self, didReceiveScriptEvent: event)
+    }
+}
+
+// MARK: - Setup Navigation 
+extension PaymentViewController {
+    fileprivate func setupNavigation() {
+        let closeButton = UIBarButtonItem(title: Define.Strings.close, style: .plain, target: self, action: #selector(closeWebView))
+        navigationItem.rightBarButtonItem = closeButton
+    }
+
+    @objc private func closeWebView() {
+        AtoneCon.shared.dismissWebview()
     }
 }
