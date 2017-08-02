@@ -52,6 +52,7 @@ final class ViewController: UIViewController {
         var options = AtoneCon.Options()
         // TODO: - dummy data
         options.publicKey = "bB2uNvcOP2o8fJzHpWUumA"
+        options.environment = .development
         let atoneCon = AtoneCon.shared
         atoneCon.delegate = self
         atoneCon.config(options)
