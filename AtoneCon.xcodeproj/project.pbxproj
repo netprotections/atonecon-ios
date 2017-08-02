@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */; };
+		16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */; };
 		166374AB1F21A796002C8821 /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166374AA1F21A796002C8821 /* Scripts.swift */; };
+		169110101F30319000E3B6D4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1691100F1F30319000E3B6D4 /* Helper.swift */; };
 		16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */; };
 		16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */; };
 		16946B011F0B498700CE6FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B001F0B498700CE6FF8 /* Item.swift */; };
@@ -23,7 +25,7 @@
 		9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */; };
 		99E7271A1F0CA867000F0B29 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E727191F0CA867000F0B29 /* Color.swift */; };
 		99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */; };
-		99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */; };
+		99ECEE501F0B8E5E00A1D1B0 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4F1F0B8E5E00A1D1B0 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		166374AA1F21A796002C8821 /* Scripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
+		1691100F1F30319000E3B6D4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomer.swift; sourceTree = "<group>"; };
 		16946B001F0B498700CE6FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AtoneCon.podspec; sourceTree = "<group>"; };
 		99E727191F0CA867000F0B29 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
-		99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		99ECEE4F1F0B8E5E00A1D1B0 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A705169DCBB73F78AE6A01BD /* Pods-AtoneCon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.debug.xcconfig"; sourceTree = "<group>"; };
 		C81DDB72AEDA081AC343EAE8 /* Pods-AtoneCon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +141,7 @@
 				16946B001F0B498700CE6FF8 /* Item.swift */,
 				1699CB391F0DED04003A4F1A /* ScriptHandler.swift */,
 				16A693B21F2AD004000B9FAB /* Session.swift */,
+				16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -145,9 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */,
-				99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */,
+				99ECEE4F1F0B8E5E00A1D1B0 /* Strings.swift */,
 				99E727191F0CA867000F0B29 /* Color.swift */,
 				166374AA1F21A796002C8821 /* Scripts.swift */,
+				1691100F1F30319000E3B6D4 /* Helper.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -365,8 +371,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */,
+				99ECEE501F0B8E5E00A1D1B0 /* Strings.swift in Sources */,
 				9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */,
+				169110101F30319000E3B6D4 /* Helper.swift in Sources */,
 				16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */,
 				16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */,
 				166374AB1F21A796002C8821 /* Scripts.swift in Sources */,
@@ -375,6 +382,7 @@
 				16A693B31F2AD004000B9FAB /* Session.swift in Sources */,
 				16946B011F0B498700CE6FF8 /* Item.swift in Sources */,
 				1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */,
+				16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */,
 				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,
 				99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */,
 				9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */,

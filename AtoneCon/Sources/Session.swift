@@ -12,6 +12,7 @@ import SAMKeychain
 internal final class Session {
 
     internal static let shared = Session()
+    private let service = "AtoneCon"
 
     internal struct Credential {
         fileprivate let key = "accessToken"
@@ -33,11 +34,11 @@ internal final class Session {
         guard credential.isValid else { return }
         removeCredential()
         guard let value = credential.value else { return }
-        SAMKeychain.setPassword(value, forService: Define.String.serviceName, account: credential.key)
+        SAMKeychain.setPassword(value, forService: service, account: credential.key)
     }
 
     internal func loadCredential() {
-        guard let value = SAMKeychain.password(forService: Define.String.serviceName, account: credential.key) else { return }
+        guard let value = SAMKeychain.password(forService: service, account: credential.key) else { return }
         credential.value = value
     }
 
@@ -47,6 +48,6 @@ internal final class Session {
     }
 
     private func removeCredential() {
-        SAMKeychain.deletePassword(forService: Define.String.serviceName, account: credential.key)
+        SAMKeychain.deletePassword(forService: service, account: credential.key)
     }
 }

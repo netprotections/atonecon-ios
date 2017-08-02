@@ -29,11 +29,21 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
+        let root = UIApplication.shared.delegate?.window??.rootViewController
+        guard NetworkReachabilityManager()?.isReachable == true else {
+            let errorAlert = UIAlertController(title: Define.Strings.network, message: Define.Strings.Error.network, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: Define.Strings.okay, style: .default, handler: { _ in
+                root?.dismiss(animated: true, completion: nil)
+            })
+            errorAlert.addAction(okAction)
+            root?.present(errorAlert, animated: true, completion: nil)
+            return
+        }
         self.payment = payment
         let paymenController = PaymentViewController(payment: payment)
+        let paymentNavigation = UINavigationController(rootViewController: paymenController)
         paymenController.delegate = self
-        let root = UIApplication.shared.delegate?.window??.rootViewController
-        root?.present(paymenController, animated: true, completion: nil)
+        root?.present(paymentNavigation, animated: true, completion: nil)
     }
 
     public func dismissWebview() {
