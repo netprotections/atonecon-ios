@@ -11,6 +11,7 @@ import WebKit
 import SAMKeychain
 
 internal protocol PaymentViewControllerDelegate: class {
+
     func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent)
 }
 
