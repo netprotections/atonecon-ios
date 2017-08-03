@@ -11,6 +11,15 @@ import Foundation
 extension AtoneCon {
     public struct Options {
         public var publicKey = ""
+        public var environment: Environment = .development
         public init() {}
+    }
+}
+
+extension AtoneCon {
+    public enum Environment {
+        case development
+        case production
+        case staging
     }
 }
