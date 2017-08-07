@@ -27,7 +27,7 @@ extension Define.Helper {
             case .iPhone5: return CGSize(width: 320, height: 568)
             case .iPhone6: return CGSize(width: 375, height: 667)
             case .iPhone6p: return CGSize(width: 414, height: 736)
-            case .iPad: return CGSize(width: 768, height: 1024)
+            case .iPad: return CGSize(width: 768, height: 1_024)
             }
         }
     }

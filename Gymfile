@@ -1,0 +1,6 @@
+scheme "AtoneConDemo"
+clean true
+include_bitcode true
+export_options(
+  method: "enterprise"  
+)
