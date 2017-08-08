@@ -31,12 +31,11 @@ final public class AtoneCon {
     public func performPayment(_ payment: Payment) {
         let root = UIApplication.shared.delegate?.window??.rootViewController
         guard NetworkReachabilityManager()?.isReachable == true else {
-            let errorAlert = UIAlertController(title: Define.Strings.network, message: Define.Strings.Error.network, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: Define.Strings.okay, style: .default, handler: { _ in
-                root?.dismiss(animated: true, completion: nil)
-            })
-            errorAlert.addAction(okAction)
-            root?.present(errorAlert, animated: true, completion: nil)
+            let error = AtoneConError()
+            error.name = Define.Strings.network
+            error.message = Define.Strings.Error.network
+            let event = AtoneCon.PaymentEvent.error(error)
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: event)
             return
         }
         self.payment = payment
@@ -62,6 +61,7 @@ extension AtoneCon {
         case cancelled
         case finished([String: Any]?)
         case failed([String: Any]?)
+        case error(AtoneConError)
     }
 }
 
@@ -76,6 +76,8 @@ extension AtoneCon: PaymentViewControllerDelegate {
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .cancelled)
         case .succeeded(let response):
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .finished(response))
+        case .error(let error):
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .error(error))
         }
     }
 }

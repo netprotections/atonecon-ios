@@ -88,7 +88,43 @@ extension ViewController: AtoneConDelegate {
                 print("Don't receive data")
             }
             atoneCon.dismissWebview()
+        case .error(let error):
+            atoneCon.dismissWebview()
+            showError(error: error)
         }
+    }
+}
+
+// MARK: - Show Allert Error
+extension ViewController {
+    func showError(error: AtoneConError) {
+        var alertMessage = ""
+        if let message = error.message {
+            alertMessage = message + "\n"
+        }
+
+        if let errors = error.errors {
+            alertMessage += "--------" + "\n"
+            for error in errors {
+                if let errorMessages = error["messages"] as? [String] {
+                    for message in errorMessages {
+                        alertMessage += "\(message)" + "\n"
+                    }
+                }
+
+                if let params = error["params"] as? [String] {
+                    alertMessage += "param:"
+                    for param in params {
+                        alertMessage += "param:   " + param + "\n"
+                    }
+                }
+                alertMessage += "--------" + "\n"
+            }
+        }
+        let alert = UIAlertController(title: error.name, message: alertMessage, preferredStyle: .alert)
+        let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

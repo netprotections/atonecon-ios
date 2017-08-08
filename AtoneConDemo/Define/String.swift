@@ -17,4 +17,5 @@ extension Define.String {
     static let serviceName = "AtoneConWebView"
     static let textFieldPlaceHolder = "Input TransactionNo"
     static let baseTransaction = "shop-tran-no-"
+    static let okay = "OK"
 }

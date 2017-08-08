@@ -12,7 +12,9 @@ extension Define {
     internal struct Strings {
         static let network = "Network"
         static let okay = "OK"
+        static let cancel = "キャンセル"
         static let close = "Close"
+        static let quitPayment = "決済が終了します。よろしいでしょうか？"
     }
 }
 
