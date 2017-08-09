@@ -115,7 +115,7 @@ extension ViewController {
                 if let params = error["params"] as? [String] {
                     alertMessage += "param:"
                     for param in params {
-                        alertMessage += "param:   " + param + "\n"
+                        alertMessage += param + "\n"
                     }
                 }
                 alertMessage += "--------" + "\n"
