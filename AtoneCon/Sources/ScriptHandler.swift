@@ -31,7 +31,7 @@ internal enum ScriptEvent {
     case cancelled
     case succeeded([String: Any]?)
     case failed([String: Any]?)
-    case error(AtoneConError)
+    case error(AtoneCon.Error)
 
     fileprivate var messageName: Message {
         switch self {
@@ -85,7 +85,7 @@ extension ScriptHandler: WKScriptMessageHandler {
         case .succeeded:
             event = ScriptEvent.succeeded(message.body as? [String: Any])
         case .error:
-            let error = AtoneConError()
+            var error = AtoneCon.Error()
             if let response = message.body as? [String:Any] {
                 error.name = response["name"] as? String
                 error.message = response["message"] as? String

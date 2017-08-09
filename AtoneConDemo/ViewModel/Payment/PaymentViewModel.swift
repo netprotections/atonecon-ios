@@ -8,7 +8,6 @@
 
 import Foundation
 import AtoneCon
-import UIKit
 
 final class PaymentViewModel {
     private var payment: AtoneCon.Payment {

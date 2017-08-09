@@ -31,7 +31,7 @@ final public class AtoneCon {
     public func performPayment(_ payment: Payment) {
         let root = UIApplication.shared.delegate?.window??.rootViewController
         guard NetworkReachabilityManager()?.isReachable == true else {
-            let error = AtoneConError()
+            var error = AtoneCon.Error()
             error.name = Define.Strings.network
             error.message = Define.Strings.Error.network
             let event = AtoneCon.PaymentEvent.error(error)
@@ -61,7 +61,7 @@ extension AtoneCon {
         case cancelled
         case finished([String: Any]?)
         case failed([String: Any]?)
-        case error(AtoneConError)
+        case error(AtoneCon.Error)
     }
 }
 
@@ -79,5 +79,13 @@ extension AtoneCon: PaymentViewControllerDelegate {
         case .error(let error):
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .error(error))
         }
+    }
+}
+
+extension AtoneCon {
+    public struct Error {
+        public var name: String?
+        public var message: String?
+        public var errors: [[String:Any]]?
     }
 }

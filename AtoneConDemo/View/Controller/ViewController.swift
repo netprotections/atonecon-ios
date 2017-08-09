@@ -75,57 +75,42 @@ extension ViewController: AtoneConDelegate {
         case .cancelled:
             atoneCon.dismissWebview()
         case .failed(let response):
-            var message = ""
-            if let response = response {
-                for (key, value) in response {
-                    message += "\(key): \(value)" + "\n"
-                }
-            }
             atoneCon.dismissWebview()
-            showNotification(title: Define.String.failed, message: message)
+            if let response = response {
+                let message = response.reduce("", { $0 + "\($1.0): \($1.1) \n" })
+                presentError(title: Define.String.failed, message: message)
+            }
         case .finished(let response):
-            var message = ""
-            if let response = response {
-                for (key, value) in response {
-                    message += "\(key): \(value)" + "\n"
-                }
-            }
             atoneCon.dismissWebview()
-            showNotification(title: Define.String.finished, message: message)
+            if let response = response {
+                let message = response.reduce("", { $0 + "\($1.0): \($1.1) \n" })
+                presentError(title: Define.String.finished, message: message)
+            }
         case .error(let error):
             atoneCon.dismissWebview()
-            showErrorNotification(error: error)
-        }
-    }
-}
-
-// MARK: - Show Notification.
-extension ViewController {
-    func showErrorNotification(error: AtoneConError) {
-        var alertMessage = ""
-        if let message = error.message {
-            alertMessage = message + "\n"
-        }
-
-        if let errors = error.errors {
-            alertMessage += "--------" + "\n"
-            for error in errors {
-                if let errorMessages = error["messages"] as? [String] {
-                    for message in errorMessages {
-                        alertMessage += "\(message)" + "\n"
-                    }
-                }
-
-                if let params = error["params"] as? [String] {
-                    alertMessage += "param:"
-                    for param in params {
-                        alertMessage += param + "\n"
-                    }
-                }
-                alertMessage += "--------" + "\n"
+            var alertMessage = ""
+            if let message = error.message {
+                alertMessage = message + "\n" + "--------" + "\n"
             }
+
+            if let errors = error.errors {
+                for error in errors {
+
+                    if let errorCode = error["code"] as? String {
+                        alertMessage += errorCode + "\n"
+                    }
+
+                    if let errorMessages = error["messages"] as? [String] {
+                        alertMessage = errorMessages.reduce(alertMessage, { $0 + "\($1) \n" })
+                    }
+
+                    if let params = error["params"] as? [String] {
+                        alertMessage = params.reduce(alertMessage, { $0 + "param: \($1) \n" + "----------" + "\n" })
+                    }
+                }
+            }
+            presentError(title: error.name, message: alertMessage)
         }
-        showNotification(title: error.name, message: alertMessage)
     }
 }
 
@@ -139,7 +124,7 @@ extension ViewController: UITextFieldDelegate {
 
 // MARK: - setup UI
 extension ViewController {
-    fileprivate func showNotification(title: String?, message: String?) {
+    fileprivate func presentError(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
         alert.addAction(ok)
