@@ -33,7 +33,7 @@ final class PaymentViewModel {
         customer.department = "セールスグループ"
         customer.zipCode = "1234567"
         customer.address = "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
-        customer.tel = "0-1234-1234"
+        customer.tel = "080-1234-1234"
         customer.email = "np@netprotections.co.jp"
         customer.totalPurchaseAmount = 20_000
         customer.totalPurchaseCount = 2

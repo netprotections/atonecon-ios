@@ -75,29 +75,33 @@ extension ViewController: AtoneConDelegate {
         case .cancelled:
             atoneCon.dismissWebview()
         case .failed(let response):
+            var message = ""
             if let response = response {
-                print(response)
-            } else {
-                print("Don't receive data")
+                for (key, value) in response {
+                    message += "\(key): \(value)" + "\n"
+                }
             }
             atoneCon.dismissWebview()
+            showNotification(title: Define.String.failed, message: message)
         case .finished(let response):
+            var message = ""
             if let response = response {
-                print(response)
-            } else {
-                print("Don't receive data")
+                for (key, value) in response {
+                    message += "\(key): \(value)" + "\n"
+                }
             }
             atoneCon.dismissWebview()
+            showNotification(title: Define.String.finished, message: message)
         case .error(let error):
             atoneCon.dismissWebview()
-            showError(error: error)
+            showErrorNotification(error: error)
         }
     }
 }
 
-// MARK: - Show Allert Error
+// MARK: - Show Notification.
 extension ViewController {
-    func showError(error: AtoneConError) {
+    func showErrorNotification(error: AtoneConError) {
         var alertMessage = ""
         if let message = error.message {
             alertMessage = message + "\n"
@@ -121,10 +125,7 @@ extension ViewController {
                 alertMessage += "--------" + "\n"
             }
         }
-        let alert = UIAlertController(title: error.name, message: alertMessage, preferredStyle: .alert)
-        let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
-        alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
+        showNotification(title: error.name, message: alertMessage)
     }
 }
 
@@ -138,6 +139,13 @@ extension ViewController: UITextFieldDelegate {
 
 // MARK: - setup UI
 extension ViewController {
+    fileprivate func showNotification(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     fileprivate func setupPayButton() {
         payButton.layer.cornerRadius = 5
         payButton.backgroundColor = Define.Color.lightBlue

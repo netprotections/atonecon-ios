@@ -18,4 +18,6 @@ extension Define.String {
     static let textFieldPlaceHolder = "Input TransactionNo"
     static let baseTransaction = "shop-tran-no-"
     static let okay = "OK"
+    static let finished = "Finished"
+    static let failed = "Failed"
 }
