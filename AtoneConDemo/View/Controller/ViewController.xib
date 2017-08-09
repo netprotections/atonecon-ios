@@ -92,7 +92,7 @@
                     <rect key="frame" x="63" y="60" width="250" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -109,7 +109,7 @@
                 <constraint firstItem="9SR-BQ-yup" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="2:3" id="wEH-P7-o24"/>
                 <constraint firstItem="9SR-BQ-yup" firstAttribute="top" secondItem="Vve-qT-ywd" secondAttribute="bottom" constant="20" id="yGa-ir-HoL"/>
             </constraints>
-            <point key="canvasLocation" x="-950" y="-255"/>
+            <point key="canvasLocation" x="-1103" y="-347"/>
         </view>
     </objects>
 </document>

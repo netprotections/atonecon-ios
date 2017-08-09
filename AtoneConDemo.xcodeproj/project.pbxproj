@@ -268,8 +268,8 @@
 				TargetAttributes = {
 					990B5EC01F0395B500B142E7 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = KR374AT3KU;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = G72ZCJZ827;
+						ProvisioningStyle = Manual;
 					};
 					996404331F26DC67005C221F = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -512,12 +512,16 @@
 			baseConfigurationReference = ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KR374AT3KU;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dao NV (9T9V5F43Y3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dao NV (9T9V5F43Y3)";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/AtoneConDemo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.atonecondemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1e26733c-1078-4c66-adcd-0f60801cc691";
+				PROVISIONING_PROFILE_SPECIFIER = AtoneCon_Demo_Dev_20170802;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -527,12 +531,16 @@
 			baseConfigurationReference = BF777E51B95F50C82BFE9E0B /* Pods-AtoneConDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KR374AT3KU;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ASIAN TECH COMPANY LIMITED";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ASIAN TECH COMPANY LIMITED";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/AtoneConDemo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.atonecondemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "df2b9dcc-5380-47e6-a3e9-a44a26449d2f";
+				PROVISIONING_PROFILE_SPECIFIER = AtoneCon_Demo_InHouse_20170802;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
