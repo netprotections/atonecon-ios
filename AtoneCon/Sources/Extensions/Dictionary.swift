@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  Extension+Dictionary.swift
 //  AtoneCon
 //
 //  Created by Pham Ngoc Hanh on 8/10/17.

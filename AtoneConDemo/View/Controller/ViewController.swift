@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     @IBOutlet fileprivate weak var authenTokenView: UIView!
     @IBOutlet fileprivate weak var resetTokenButton: UIButton!
     @IBOutlet fileprivate weak var transactionTextField: UITextField!
+    let a = 9 
 
     var viewModel = PaymentViewModel()
 
@@ -133,6 +134,8 @@ extension ViewController {
 
     fileprivate func setupAuthenTokenLabel() {
         authenTokenTitleLabel.backgroundColor = .white
+        let o = "aksdhakjshd"
+        print(o)
         authenTokenTitleLabel.text = Define.String.authenTokenTitle
         authenTokenTitleLabel.textColor = Define.Color.lightBlue
     }
