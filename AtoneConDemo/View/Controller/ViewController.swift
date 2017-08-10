@@ -76,46 +76,18 @@ extension ViewController: AtoneConDelegate {
             atoneCon.dismissWebview()
         case .failed(let response):
             atoneCon.dismissWebview()
+            var message = ""
             if let response = response {
-                let message = response.reduce("", { (message, result) -> String in
-                    return message + "\(result.key): \(result.value)"
-                })
-                showAlert(title: Define.String.failed, message: message)
+                message = response.description
             }
+            showAlert(title: Define.String.failed, message: message)
         case .finished(let response):
             atoneCon.dismissWebview()
+            var message = ""
             if let response = response {
-                let message = response.reduce("", { (message, result) -> String in
-                    return message + "\(result.key): \(result.value)"
-                })
-                showAlert(title: Define.String.finished, message: message)
+                message = response.description
             }
-        case .error(let response):
-            atoneCon.dismissWebview()
-            var alertMessage = ""
-            if let message = response.message {
-                alertMessage = message
-            }
-
-            if let errors = response.errors {
-                alertMessage = errors.reduce(alertMessage, {(_, error) -> String in
-                    var message: [String] = []
-                    if let errorCode = error["code"] as? String {
-                        message.append("\n" + errorCode)
-                    }
-                    if let errorMessages = error["messages"] as? [String] {
-                        message.append(errorMessages.joined(separator: "\n"))
-                    }
-                    if let params = error["params"] as? [String] {
-                        message.append(params.joined(separator: "\n"))
-                    }
-                    alertMessage += message.map({(result) -> String in
-                        return "\n" + result
-                    }).joined()
-                    return alertMessage
-                })
-            }
-            showAlert(title: response.name, message: alertMessage)
+            showAlert(title: Define.String.finished, message: message)
         }
     }
 }

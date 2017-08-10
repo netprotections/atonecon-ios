@@ -28,8 +28,8 @@ extension Define {
                     "window.webkit.messageHandlers.succeeded.postMessage(response);" +
                 "}," +
                 "error: function(name, message, errors) { " +
-                    "var error = {name: name, message: message, errors: errors};" +
-                    "window.webkit.messageHandlers.error.postMessage(error);" +
+                    "var response = {name: name, message: message, errors: errors};" +
+                    "window.webkit.messageHandlers.failed.postMessage(response);" +
                 "}" +
             "});" +
             "function startAtone() { Atone.start();}\n"

@@ -19,7 +19,6 @@ private enum Message: String {
     case cancelled
     case succeeded
     case failed
-    case error
 
     var name: String {
         return rawValue
@@ -31,7 +30,6 @@ internal enum ScriptEvent {
     case cancelled
     case succeeded([String: Any]?)
     case failed([String: Any]?)
-    case error(AtoneCon.Error)
 
     fileprivate var messageName: Message {
         switch self {
@@ -43,8 +41,6 @@ internal enum ScriptEvent {
             return .failed
         case .succeeded(_):
             return .succeeded
-        case .error(_):
-            return .error
         }
     }
 }
@@ -53,7 +49,7 @@ internal final class ScriptHandler: NSObject {
 
     private var webView: WKWebView!
     internal weak var delegate: ScriptHandlerDelegate?
-    private let messages: [Message] = [.authenticated, .cancelled, .failed, .succeeded, .error]
+    private let messages: [Message] = [.authenticated, .cancelled, .failed, .succeeded]
 
     internal init(forWebView webView: WKWebView) {
         self.webView = webView
@@ -84,14 +80,6 @@ extension ScriptHandler: WKScriptMessageHandler {
             event = ScriptEvent.failed(message.body as? [String: Any])
         case .succeeded:
             event = ScriptEvent.succeeded(message.body as? [String: Any])
-        case .error:
-            var error = AtoneCon.Error()
-            if let response = message.body as? [String:Any] {
-                error.name = response["name"] as? String
-                error.message = response["message"] as? String
-                error.errors = response["errors"] as? [[String:Any]]
-            }
-            event = ScriptEvent.error(error)
         }
         delegate?.scriptHandler(self, didReceiveScriptEvent: event)
     }
