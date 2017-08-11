@@ -84,7 +84,7 @@ extension ViewController: AtoneConDelegate {
             showAlert(title: Define.String.finished, message: message)
         case .error(let response):
             let message: String? = response?.description
-            atoneCon.showError(title: Define.String.error, message: message)
+            showAlert(title: Define.String.error, message: message)
         }
     }
 }
@@ -103,7 +103,13 @@ extension ViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
         alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
+        guard let titleAlert = title, titleAlert == Define.String.error else {
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        let root = UIApplication.getTopViewController()
+        root?.present(alert, animated: true, completion: nil)
+
     }
 
     fileprivate func setupPayButton() {
@@ -152,5 +158,21 @@ extension ViewController {
         if isViewLoaded {
             authenTokenValueLabel.text = viewModel.getAuthenToken()
         }
+    }
+}
+
+extension UIApplication {
+    static func getTopViewController(base: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return getTopViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
+            return getTopViewController(base: selected)
+        }
+        if let presented = base?.presentedViewController {
+            return getTopViewController(base: presented)
+        }
+
+        return base
     }
 }

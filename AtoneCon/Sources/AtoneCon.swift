@@ -22,7 +22,6 @@ final public class AtoneCon {
     internal var option = Options()
     public weak var delegate: AtoneConDelegate?
     fileprivate var payment: Payment?
-    var paymenController: PaymentViewController!
 
     // MARK: - Public Functions
     public func config(_ option: Options) {
@@ -30,7 +29,6 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
-        let root = UIApplication.shared.delegate?.window??.rootViewController
         guard NetworkReachabilityManager()?.isReachable == true else {
             let error: [String: Any] = ["name": Define.Strings.network,
                                         "title": Define.Strings.Error.network]
@@ -39,9 +37,10 @@ final public class AtoneCon {
             return
         }
         self.payment = payment
-        paymenController = PaymentViewController(payment: payment)
-        let paymentNavigation = UINavigationController(rootViewController: paymenController)
-        paymenController.delegate = self
+        let paymentController = PaymentViewController(payment: payment)
+        let paymentNavigation = UINavigationController(rootViewController: paymentController)
+        paymentController.delegate = self
+        let root = UIApplication.shared.delegate?.window??.rootViewController
         root?.present(paymentNavigation, animated: true, completion: nil)
     }
 
@@ -52,10 +51,6 @@ final public class AtoneCon {
 
     public func resetAuthenToken() {
         Session.shared.clearCredential()
-    }
-
-    public func showError(title: String?, message: String?) {
-        paymenController.showError(title: title, message: message)
     }
 }
 

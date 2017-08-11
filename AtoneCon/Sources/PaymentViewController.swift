@@ -144,12 +144,3 @@ extension PaymentViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
-extension PaymentViewController {
-    internal func showError(title: String?, message: String?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: Define.Strings.okay, style: .cancel, handler: nil)
-        alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
-    }
-}
