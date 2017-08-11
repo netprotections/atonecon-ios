@@ -20,4 +20,5 @@ extension Define.String {
     static let okay = "OK"
     static let finished = "Finished"
     static let failed = "Failed"
+    static let error = "Error"
 }

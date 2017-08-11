@@ -82,6 +82,9 @@ extension ViewController: AtoneConDelegate {
             atoneCon.dismissWebview()
             let message: String? = response?.description
             showAlert(title: Define.String.finished, message: message)
+        case .error(let response):
+            let message: String? = response?.description
+            atoneCon.showError(title: Define.String.error, message: message)
         }
     }
 }

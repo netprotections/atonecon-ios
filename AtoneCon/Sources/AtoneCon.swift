@@ -22,6 +22,7 @@ final public class AtoneCon {
     internal var option = Options()
     public weak var delegate: AtoneConDelegate?
     fileprivate var payment: Payment?
+    var paymenController: PaymentViewController!
 
     // MARK: - Public Functions
     public func config(_ option: Options) {
@@ -38,7 +39,7 @@ final public class AtoneCon {
             return
         }
         self.payment = payment
-        let paymenController = PaymentViewController(payment: payment)
+        paymenController = PaymentViewController(payment: payment)
         let paymentNavigation = UINavigationController(rootViewController: paymenController)
         paymenController.delegate = self
         root?.present(paymentNavigation, animated: true, completion: nil)
@@ -52,6 +53,10 @@ final public class AtoneCon {
     public func resetAuthenToken() {
         Session.shared.clearCredential()
     }
+
+    public func showError(title: String?, message: String?) {
+        paymenController.showError(title: title, message: message)
+    }
 }
 
 extension AtoneCon {
@@ -60,6 +65,7 @@ extension AtoneCon {
         case cancelled
         case finished([String: Any]?)
         case failed([String: Any]?)
+        case error([String: Any]?)
     }
 }
 
@@ -74,6 +80,8 @@ extension AtoneCon: PaymentViewControllerDelegate {
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .cancelled)
         case .succeeded(let response):
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .finished(response))
+        case .error(let response):
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .error(response))
         }
     }
 }

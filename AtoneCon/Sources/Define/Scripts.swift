@@ -29,7 +29,7 @@ extension Define {
                 "}," +
                 "error: function(name, message, errors) { " +
                     "var response = {name: name, message: message, errors: errors};" +
-                    "window.webkit.messageHandlers.failed.postMessage(response);" +
+                    "window.webkit.messageHandlers.error.postMessage(response);" +
                 "}" +
             "});" +
             "function startAtone() { Atone.start();}\n"
