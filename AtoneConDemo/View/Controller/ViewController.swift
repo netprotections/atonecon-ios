@@ -73,15 +73,19 @@ extension ViewController: AtoneConDelegate {
         case .authenticated(let authenToken):
             viewModel.saveAuthenToken(token: authenToken)
         case .cancelled:
-            atoneCon.dismissWebview()
+            atoneCon.dismiss()
         case .failed(let response):
-            atoneCon.dismissWebview()
-            let message: String? = response?.description
-            showAlert(title: Define.String.failed, message: message)
+            atoneCon.dismiss { [weak self] in
+                guard let this = self else { return }
+                let message: String? = response?.description
+                this.showAlert(title: Define.String.failed, message: message)
+            }
         case .finished(let response):
-            atoneCon.dismissWebview()
-            let message: String? = response?.description
-            showAlert(title: Define.String.finished, message: message)
+            atoneCon.dismiss { [weak self] in
+                guard let this = self else { return }
+                let message: String? = response?.description
+                this.showAlert(title: Define.String.finished, message: message)
+            }
         case .error(let response):
             let message: String? = response?.description
             showAlert(title: Define.String.error, message: message)
@@ -103,13 +107,8 @@ extension ViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
         alert.addAction(ok)
-        guard let titleAlert = title, titleAlert == Define.String.error else {
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-        let root = UIApplication.getTopViewController()
+        let root = UIApplication.topViewController()
         root?.present(alert, animated: true, completion: nil)
-
     }
 
     fileprivate func setupPayButton() {
@@ -161,18 +160,18 @@ extension ViewController {
     }
 }
 
+// MARK: - extension UIApplication
 extension UIApplication {
-    static func getTopViewController(base: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
-        if let nav = base as? UINavigationController {
-            return getTopViewController(base: nav.visibleViewController)
+    static func topViewController(controller: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
         }
-        if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
-            return getTopViewController(base: selected)
+        if let tabbarController = controller as? UITabBarController, let selectedController = tabbarController.selectedViewController {
+            return topViewController(controller: selectedController)
         }
-        if let presented = base?.presentedViewController {
-            return getTopViewController(base: presented)
+        if let presentedController = controller?.presentedViewController {
+            return topViewController(controller: presentedController)
         }
-
-        return base
+        return controller
     }
 }

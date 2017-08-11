@@ -44,9 +44,9 @@ final public class AtoneCon {
         root?.present(paymentNavigation, animated: true, completion: nil)
     }
 
-    public func dismissWebview() {
+    public func dismiss(completion: (() -> Void)? = nil) {
         let root = UIApplication.shared.delegate?.window??.rootViewController
-        root?.dismiss(animated: true, completion: nil)
+        root?.dismiss(animated: true, completion: completion)
     }
 
     public func resetAuthenToken() {

@@ -137,7 +137,7 @@ extension PaymentViewController {
         let alert = UIAlertController(title: Define.Strings.quitPayment, message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: Define.Strings.cancel, style: .cancel, handler: nil)
         let ok = UIAlertAction(title: Define.Strings.okay, style: .default, handler: { _ in
-            AtoneCon.shared.dismissWebview()
+            AtoneCon.shared.dismiss()
         })
         alert.addAction(ok)
         alert.addAction(cancel)
