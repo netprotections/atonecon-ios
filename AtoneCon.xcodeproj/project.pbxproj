@@ -10,7 +10,6 @@
 		15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */; };
 		16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */; };
 		166374AB1F21A796002C8821 /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166374AA1F21A796002C8821 /* Scripts.swift */; };
-		16772C8C1F3C6236000DA3F3 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16772C8B1F3C6236000DA3F3 /* Dictionary.swift */; };
 		169110101F30319000E3B6D4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1691100F1F30319000E3B6D4 /* Helper.swift */; };
 		16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */; };
 		16946AFF1F0B46D800CE6FF8 /* DesCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		166374AA1F21A796002C8821 /* Scripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
-		16772C8B1F3C6236000DA3F3 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		1691100F1F30319000E3B6D4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		16946AFE1F0B46D800CE6FF8 /* DesCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomer.swift; sourceTree = "<group>"; };
@@ -91,15 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16772C8A1F3C6236000DA3F3 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				16772C8B1F3C6236000DA3F3 /* Dictionary.swift */,
-			);
-			name = Extensions;
-			path = Sources/Extensions;
-			sourceTree = "<group>";
-		};
 		990B5E941F03957000B142E7 = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +113,6 @@
 		990B5EA01F03957000B142E7 /* AtoneCon */ = {
 			isa = PBXGroup;
 			children = (
-				16772C8A1F3C6236000DA3F3 /* Extensions */,
 				9963B02F1F0A9EE4008C4F95 /* Sources */,
 				990B5EA21F03957000B142E7 /* Info.plist */,
 			);
@@ -391,7 +379,6 @@
 				166374AB1F21A796002C8821 /* Scripts.swift in Sources */,
 				99E7271A1F0CA867000F0B29 /* Color.swift in Sources */,
 				9963B0371F0A9EE4008C4F95 /* Payment.swift in Sources */,
-				16772C8C1F3C6236000DA3F3 /* Dictionary.swift in Sources */,
 				16A693B31F2AD004000B9FAB /* Session.swift in Sources */,
 				16946B011F0B498700CE6FF8 /* Item.swift in Sources */,
 				1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */,

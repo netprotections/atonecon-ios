@@ -17,7 +17,6 @@ final class ViewController: UIViewController {
     @IBOutlet fileprivate weak var authenTokenView: UIView!
     @IBOutlet fileprivate weak var resetTokenButton: UIButton!
     @IBOutlet fileprivate weak var transactionTextField: UITextField!
-    let a = 9 
 
     var viewModel = PaymentViewModel()
 
@@ -77,17 +76,11 @@ extension ViewController: AtoneConDelegate {
             atoneCon.dismissWebview()
         case .failed(let response):
             atoneCon.dismissWebview()
-            var message = ""
-            if let response = response {
-                message = response.description
-            }
+            let message: String? = response?.description
             showAlert(title: Define.String.failed, message: message)
         case .finished(let response):
             atoneCon.dismissWebview()
-            var message = ""
-            if let response = response {
-                message = response.description
-            }
+            let message: String? = response?.description
             showAlert(title: Define.String.finished, message: message)
         }
     }
@@ -134,8 +127,6 @@ extension ViewController {
 
     fileprivate func setupAuthenTokenLabel() {
         authenTokenTitleLabel.backgroundColor = .white
-        let o = "aksdhakjshd"
-        print(o)
         authenTokenTitleLabel.text = Define.String.authenTokenTitle
         authenTokenTitleLabel.textColor = Define.Color.lightBlue
     }
