@@ -68,6 +68,11 @@ final class ViewController: UIViewController {
 
 // MARK: - AtoneConDelegate
 extension ViewController: AtoneConDelegate {
+    func atoneCon(atoneCon: AtoneCon, didFailureWithError error: [String : Any]) {
+        let message: String? = error.description
+        showAlert(title: Define.String.error, message: message)
+    }
+
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
@@ -107,7 +112,7 @@ extension ViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
         alert.addAction(ok)
-        let root = UIApplication.topViewController()
+        let root = UIWindow.topViewController()
         root?.present(alert, animated: true, completion: nil)
     }
 
@@ -160,8 +165,7 @@ extension ViewController {
     }
 }
 
-// MARK: - extension UIApplication
-extension UIApplication {
+extension UIWindow {
     static func topViewController(controller: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)
