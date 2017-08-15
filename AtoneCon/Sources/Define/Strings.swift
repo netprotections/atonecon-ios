@@ -10,17 +10,17 @@ import Foundation
 
 extension Define {
     internal class Strings {
-        static let network = "Network"
-        static let okay = "OK"
-        static let cancel = "Cancel".localized()
-        static let close = "Close".localized()
-        static let quitPayment = "QuitPayment".localized()
+        static let network = "network".localized()
+        static let okay = "okay".localized()
+        static let cancel = "cancel".localized()
+        static let close = "close".localized()
+        static let quitPayment = "quitPayment".localized()
     }
 }
 
 extension Define.Strings {
     internal struct Error {
-        static let network = "Network".localized()
+        static let network = "networkError".localized()
     }
 }
 

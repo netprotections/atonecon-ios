@@ -6,7 +6,9 @@
   Copyright © 2017 AsianTech Inc. All rights reserved.
 */
 
-"Cancel" = "キャンセル";
-"QuitPayment" = "決済が終了します。よろしいでしょうか？";
-"Network" = "ネットワークが圏外です";
-"Close" = "閉じる";
+"cancel" = "キャンセル";
+"quitPayment" = "決済が終了します。よろしいでしょうか？";
+"networkError" = "ネットワークが圏外です";
+"close" = "閉じる";
+"network" = "ネットワーク";
+"okay" = "OK";
