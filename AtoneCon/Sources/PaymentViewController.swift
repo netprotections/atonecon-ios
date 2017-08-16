@@ -135,7 +135,3 @@ extension PaymentViewController {
         AtoneCon.shared.dismissWebview()
     }
 }
-
-// MARK: Add constraint into webView
-extension PaymentViewController {
-}
