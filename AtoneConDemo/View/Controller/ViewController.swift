@@ -73,22 +73,18 @@ extension ViewController: AtoneConDelegate {
         case .authenticated(let authenToken):
             viewModel.saveAuthenToken(token: authenToken)
         case .cancelled:
-            atoneCon.dismiss()
+            showAlert(title: Define.String.cancel, message: nil)
         case .failed(let response):
-            atoneCon.dismiss { [weak self] in
-                guard let this = self else { return }
-                let message: String? = response?.description
-                this.showAlert(title: Define.String.failed, message: message)
+            let message: String? = response?.description
+            showAlert(title: Define.String.failed, message: message) { _ in
+                atoneCon.dismiss()
             }
         case .finished(let response):
+            let message = response?.description
             atoneCon.dismiss { [weak self] in
                 guard let this = self else { return }
-                let message: String? = response?.description
                 this.showAlert(title: Define.String.finished, message: message)
             }
-        case .error(let response):
-            let message: String? = response?.description
-            showAlert(title: Define.String.error, message: message)
         }
     }
 }
@@ -103,9 +99,9 @@ extension ViewController: UITextFieldDelegate {
 
 // MARK: - setup UI
 extension ViewController {
-    fileprivate func showAlert(title: String?, message: String?) {
+    fileprivate func showAlert(title: String?, message: String?, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
+        let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: handler)
         alert.addAction(ok)
         let root = AppDelegate.shared.window?.topViewController()
         root?.present(alert, animated: true, completion: nil)

@@ -60,7 +60,6 @@ extension AtoneCon {
         case cancelled
         case finished([String: Any]?)
         case failed([String: Any]?)
-        case error([String: Any]?)
     }
 }
 
@@ -75,8 +74,6 @@ extension AtoneCon: PaymentViewControllerDelegate {
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .cancelled)
         case .succeeded(let response):
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .finished(response))
-        case .error(let response):
-            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .error(response))
         }
     }
 }

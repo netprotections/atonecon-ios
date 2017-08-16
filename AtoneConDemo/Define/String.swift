@@ -20,7 +20,7 @@ extension Define.String {
     static let okay = "okay".localized()
     static let finished = "finished".localized()
     static let failed = "failed".localized()
-    static let error = "error".localized()
+    static let cancel = "cancel".localized()
 }
 
 extension String {
