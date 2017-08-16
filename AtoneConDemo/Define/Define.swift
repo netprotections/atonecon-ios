@@ -9,7 +9,7 @@
 import Foundation
 
 struct Define {
-    struct String {
+    struct Strings {
     }
 
     struct Color {

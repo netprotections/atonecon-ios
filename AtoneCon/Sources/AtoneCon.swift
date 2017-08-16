@@ -11,7 +11,6 @@ import SAMKeychain
 
 public protocol AtoneConDelegate: class {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent)
-    func atoneCon(atoneCon: AtoneCon, didFailureWithError error: [String: Any])
 }
 
 final public class AtoneCon {
@@ -30,18 +29,19 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
+        guard let root = UIApplication.shared.delegate?.window??.rootViewController else { return }
         guard NetworkReachabilityManager()?.isReachable == true else {
             let error: [String:Any] = ["title": Define.Strings.network,
                                        "message": Define.Strings.Error.network]
-            delegate?.atoneCon(atoneCon: self, didFailureWithError: error)
+            let event = PaymentEvent.failed(error)
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: event)
             return
         }
         self.payment = payment
         let paymentController = PaymentViewController(payment: payment)
         let paymentNavigation = UINavigationController(rootViewController: paymentController)
         paymentController.delegate = self
-        let root = UIApplication.shared.delegate?.window??.rootViewController
-        root?.present(paymentNavigation, animated: true, completion: nil)
+        root.present(paymentNavigation, animated: true, completion: nil)
     }
 
     public func dismiss(completion: (() -> Void)? = nil) {

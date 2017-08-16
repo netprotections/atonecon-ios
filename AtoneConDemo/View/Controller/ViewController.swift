@@ -38,7 +38,7 @@ final class ViewController: UIViewController {
 
     // MARK: - Setup UI
     private func setupUI() {
-        title = Define.String.homeTitle
+        title = Define.Strings.homeTitle
         setupPayButton()
         setupAuthenTokenView()
         setupAuthenTokenLabel()
@@ -68,11 +68,6 @@ final class ViewController: UIViewController {
 
 // MARK: - AtoneConDelegate
 extension ViewController: AtoneConDelegate {
-    func atoneCon(atoneCon: AtoneCon, didFailureWithError error: [String : Any]) {
-        let message: String? = error.description
-        showAlert(title: Define.String.error, message: message)
-    }
-
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
@@ -83,17 +78,17 @@ extension ViewController: AtoneConDelegate {
             atoneCon.dismiss { [weak self] in
                 guard let this = self else { return }
                 let message: String? = response?.description
-                this.showAlert(title: Define.String.failed, message: message)
+                this.showAlert(title: Define.Strings.failed, message: message)
             }
         case .finished(let response):
             atoneCon.dismiss { [weak self] in
                 guard let this = self else { return }
                 let message: String? = response?.description
-                this.showAlert(title: Define.String.finished, message: message)
+                this.showAlert(title: Define.Strings.finished, message: message)
             }
         case .error(let response):
             let message: String? = response?.description
-            showAlert(title: Define.String.error, message: message)
+            showAlert(title: Define.Strings.error, message: message)
         }
     }
 }
@@ -110,16 +105,16 @@ extension ViewController: UITextFieldDelegate {
 extension ViewController {
     fileprivate func showAlert(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: nil)
+        let ok = UIAlertAction(title: Define.Strings.okay, style: .cancel, handler: nil)
         alert.addAction(ok)
-        let root = UIWindow.topViewController()
+        let root = AppDelegate.shared.window?.topViewController()
         root?.present(alert, animated: true, completion: nil)
     }
 
     fileprivate func setupPayButton() {
         payButton.layer.cornerRadius = 5
         payButton.backgroundColor = Define.Color.lightBlue
-        payButton.setTitle(Define.String.atoneButtonTitle, for: .normal)
+        payButton.setTitle(Define.Strings.atoneButtonTitle, for: .normal)
     }
 
     fileprivate func setupNavigationController() {
@@ -140,7 +135,7 @@ extension ViewController {
 
     fileprivate func setupAuthenTokenLabel() {
         authenTokenTitleLabel.backgroundColor = .white
-        authenTokenTitleLabel.text = Define.String.authenTokenTitle
+        authenTokenTitleLabel.text = Define.Strings.authenTokenTitle
         authenTokenTitleLabel.textColor = Define.Color.lightBlue
     }
 
@@ -149,12 +144,12 @@ extension ViewController {
             NSFontAttributeName: UIFont.systemFont(ofSize: 17),
             NSForegroundColorAttributeName: UIColor.black,
             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
-        let attributedString: NSAttributedString = NSAttributedString(string: Define.String.resetAuthen, attributes: attributes)
+        let attributedString: NSAttributedString = NSAttributedString(string: Define.Strings.resetAuthen, attributes: attributes)
         resetTokenButton.setAttributedTitle(attributedString, for: .normal)
     }
 
     fileprivate func setupTextField() {
-        transactionTextField.placeholder = Define.String.textFieldPlaceHolder
+        transactionTextField.placeholder = Define.Strings.textFieldPlaceHolder
         transactionTextField.delegate = self
     }
 
@@ -166,7 +161,7 @@ extension ViewController {
 }
 
 extension UIWindow {
-    static func topViewController(controller: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
+    func topViewController(controller: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)
         }

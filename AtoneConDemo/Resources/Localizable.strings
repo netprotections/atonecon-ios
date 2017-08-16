@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  AtoneConDemo
+
+  Created by Pham Ngoc Hanh on 8/16/17.
+  Copyright © 2017 AsianTech Inc. All rights reserved.
+*/
+
+"homeTitle" = "Atone";
+"resetAuthen" = "認証情報をリセット";
+"authenTokenTitle" = " 認証トークン ";
+"atoneButtonTitle" = "atoneを使う";
+"textFieldPlaceHolder" = "Input TransactionNo";
+"okay" = "OK";
+"finished" = "Finished";
+"failed" = "Failed";
+"error" = "Error";

@@ -57,22 +57,22 @@ final class PaymentViewModel {
     }
 
     func saveAuthenToken(token: String?) {
-        userDefault.setValue(token, forKey: Define.String.tokenKey)
+        userDefault.setValue(token, forKey: Define.Strings.tokenKey)
     }
 
     func getAuthenToken() -> String? {
-        return userDefault.string(forKey: Define.String.tokenKey)
+        return userDefault.string(forKey: Define.Strings.tokenKey)
     }
 
     func resetAuthenToken() {
         AtoneCon.shared.resetAuthenToken()
-        userDefault.removeObject(forKey: Define.String.tokenKey)
+        userDefault.removeObject(forKey: Define.Strings.tokenKey)
     }
 
     func payment(withTransaction transaction: String?) -> AtoneCon.Payment {
         var payment = self.payment
         if let transaction = transaction {
-            payment.shopTransactionNo = Define.String.baseTransaction + transaction
+            payment.shopTransactionNo = Define.Strings.baseTransaction + transaction
         }
         return payment
     }
