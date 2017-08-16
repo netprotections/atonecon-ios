@@ -73,7 +73,10 @@ extension ViewController: AtoneConDelegate {
         case .authenticated(let authenToken):
             viewModel.saveAuthenToken(token: authenToken)
         case .cancelled:
-            showAlert(title: Define.String.cancel, message: nil)
+            atoneCon.dismiss { [weak self] in
+                guard let this = self else { return }
+                this.showAlert(title: Define.String.cancel, message: nil)
+            }
         case .failed(let response):
             let message: String? = response?.description
             showAlert(title: Define.String.failed, message: message) { _ in
