@@ -9,7 +9,7 @@
 import Foundation
 
 extension Define {
-    internal class Strings {
+    internal class String {
         static let network = "network".localized()
         static let okay = "okay".localized()
         static let cancel = "cancel".localized()
@@ -18,7 +18,7 @@ extension Define {
     }
 }
 
-extension Define.Strings {
+extension Define.String {
     internal struct Error {
         static let network = "networkError".localized()
     }
@@ -26,7 +26,7 @@ extension Define.Strings {
 
 extension String {
     internal func localized(_ comment: String = "") -> String {
-        let bundle = Bundle(for: Define.Strings.self)
+        let bundle = Bundle(for: Define.String.self)
         return NSLocalizedString(self, bundle: bundle, comment: comment)
     }
 }

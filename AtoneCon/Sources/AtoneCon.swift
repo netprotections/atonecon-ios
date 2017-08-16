@@ -31,8 +31,8 @@ final public class AtoneCon {
     public func performPayment(_ payment: Payment) {
         guard let root = UIApplication.shared.delegate?.window??.rootViewController else { return }
         guard NetworkReachabilityManager()?.isReachable == true else {
-            let error: [String:Any] = ["title": Define.Strings.network,
-                                       "message": Define.Strings.Error.network]
+            let error: [String:Any] = ["title": Define.String.network,
+                                       "message": Define.String.Error.network]
             let event = PaymentEvent.failed(error)
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: event)
             return

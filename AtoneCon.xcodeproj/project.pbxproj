@@ -26,7 +26,7 @@
 		9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963B0331F0A9EE4008C4F95 /* PaymentViewController.swift */; };
 		99E7271A1F0CA867000F0B29 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E727191F0CA867000F0B29 /* Color.swift */; };
 		99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */; };
-		99ECEE501F0B8E5E00A1D1B0 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4F1F0B8E5E00A1D1B0 /* Strings.swift */; };
+		99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,7 @@
 		99DA1CFA1F03A53800A40BB1 /* AtoneCon.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AtoneCon.podspec; sourceTree = "<group>"; };
 		99E727191F0CA867000F0B29 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
-		99ECEE4F1F0B8E5E00A1D1B0 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A705169DCBB73F78AE6A01BD /* Pods-AtoneCon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.debug.xcconfig"; sourceTree = "<group>"; };
 		C81DDB72AEDA081AC343EAE8 /* Pods-AtoneCon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,7 +153,7 @@
 			children = (
 				160FFC001F42A5F8001FBD01 /* Localizable.strings */,
 				99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */,
-				99ECEE4F1F0B8E5E00A1D1B0 /* Strings.swift */,
+				99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */,
 				99E727191F0CA867000F0B29 /* Color.swift */,
 				166374AA1F21A796002C8821 /* Scripts.swift */,
 				1691100F1F30319000E3B6D4 /* Helper.swift */,
@@ -376,7 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99ECEE501F0B8E5E00A1D1B0 /* Strings.swift in Sources */,
+				99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */,
 				9963B0361F0A9EE4008C4F95 /* Options.swift in Sources */,
 				169110101F30319000E3B6D4 /* Helper.swift in Sources */,
 				16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */,

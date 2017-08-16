@@ -129,14 +129,14 @@ extension PaymentViewController: ScriptHandlerDelegate {
 // MARK: - Setup Navigation 
 extension PaymentViewController {
     fileprivate func setupNavigation() {
-        let closeButton = UIBarButtonItem(title: Define.Strings.close, style: .plain, target: self, action: #selector(closeWebView))
+        let closeButton = UIBarButtonItem(title: Define.String.close, style: .plain, target: self, action: #selector(closeWebView))
         navigationItem.rightBarButtonItem = closeButton
     }
 
     @objc private func closeWebView() {
-        let alert = UIAlertController(title: Define.Strings.quitPayment, message: nil, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: Define.Strings.cancel, style: .cancel, handler: nil)
-        let ok = UIAlertAction(title: Define.Strings.okay, style: .default, handler: { _ in
+        let alert = UIAlertController(title: Define.String.quitPayment, message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: Define.String.cancel, style: .cancel, handler: nil)
+        let ok = UIAlertAction(title: Define.String.okay, style: .default, handler: { _ in
             AtoneCon.shared.dismiss()
         })
         alert.addAction(ok)
