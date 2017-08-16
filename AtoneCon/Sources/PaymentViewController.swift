@@ -21,8 +21,8 @@ final internal class PaymentViewController: UIViewController {
 
     // MARK: - Properties
     private var payment: AtoneCon.Payment?
-    fileprivate var webView: WKWebView!
-    fileprivate var indicator: UIActivityIndicatorView!
+    private var webView: WKWebView!
+    private var indicator: UIActivityIndicatorView!
     private var scriptHandler: ScriptHandler!
 
     private var handlerScript: String {
