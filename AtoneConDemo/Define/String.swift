@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Define.Strings {
+extension Define.String {
     static let homeTitle = "Atone".localized()
     static let resetAuthen = "resetAuthen".localized()
     static let authenTokenTitle = "authenTokenTitle".localized()

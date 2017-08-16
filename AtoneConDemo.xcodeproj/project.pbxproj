@@ -12,7 +12,7 @@
 		996404371F26DC67005C221F /* AtoneConDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996404361F26DC67005C221F /* AtoneConDemoTests.swift */; };
 		9965C1351F25AF39004C81C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1231F25AF39004C81C6 /* Color.swift */; };
 		9965C1361F25AF39004C81C6 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1241F25AF39004C81C6 /* Define.swift */; };
-		9965C1371F25AF39004C81C6 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1251F25AF39004C81C6 /* Strings.swift */; };
+		9965C1371F25AF39004C81C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1251F25AF39004C81C6 /* String.swift */; };
 		9965C1381F25AF39004C81C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9965C1271F25AF39004C81C6 /* Assets.xcassets */; };
 		9965C13A1F25AF39004C81C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C12C1F25AF39004C81C6 /* AppDelegate.swift */; };
 		9965C13B1F25AF39004C81C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C12E1F25AF39004C81C6 /* ViewController.swift */; };
@@ -41,7 +41,7 @@
 		996404381F26DC67005C221F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9965C1231F25AF39004C81C6 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9965C1241F25AF39004C81C6 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
-		9965C1251F25AF39004C81C6 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		9965C1251F25AF39004C81C6 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9965C1271F25AF39004C81C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9965C1291F25AF39004C81C6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9965C12C1F25AF39004C81C6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				9965C1231F25AF39004C81C6 /* Color.swift */,
 				9965C1241F25AF39004C81C6 /* Define.swift */,
-				9965C1251F25AF39004C81C6 /* Strings.swift */,
+				9965C1251F25AF39004C81C6 /* String.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 				9965C13B1F25AF39004C81C6 /* ViewController.swift in Sources */,
 				9965C13E1F25AF39004C81C6 /* PaymentViewModel.swift in Sources */,
 				9965C13A1F25AF39004C81C6 /* AppDelegate.swift in Sources */,
-				9965C1371F25AF39004C81C6 /* Strings.swift in Sources */,
+				9965C1371F25AF39004C81C6 /* String.swift in Sources */,
 				9965C1361F25AF39004C81C6 /* Define.swift in Sources */,
 				9965C1351F25AF39004C81C6 /* Color.swift in Sources */,
 			);
