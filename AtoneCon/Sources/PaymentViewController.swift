@@ -70,6 +70,7 @@ final internal class PaymentViewController: UIViewController {
         view.addSubview(webView)
         webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
         scriptHandler.addEvents()
         scriptHandler.delegate = self
@@ -113,6 +114,15 @@ extension PaymentViewController: WKNavigationDelegate {
             this.indicator.stopAnimating()
             this.startAtone()
         }
+    }
+}
+
+extension PaymentViewController: WKUIDelegate {
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if let url = navigationAction.request.url {
+            UIApplication.shared.openURL(url)
+        }
+        return nil
     }
 }
 
