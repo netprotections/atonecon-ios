@@ -21,7 +21,7 @@ final internal class PaymentViewController: UIViewController {
 
     // MARK: - Properties
     private var payment: AtoneCon.Payment?
-    private var webView: WKWebView!
+    fileprivate var webView: WKWebView!
     fileprivate var indicator: UIActivityIndicatorView!
     private var scriptHandler: ScriptHandler!
 
@@ -54,13 +54,21 @@ final internal class PaymentViewController: UIViewController {
         setupNavigation()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = view.bounds
+    }
+
     // MARK: - Private Functions
     private func setupWebView() {
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.addUserScript(userScript())
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
+        webView.contentMode = .scaleToFill
+        webView.autoresizingMask = .flexibleWidth
         view.addSubview(webView)
+        setAutolayoutWebView()
         webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
@@ -126,4 +134,8 @@ extension PaymentViewController {
     @objc private func closeWebView() {
         AtoneCon.shared.dismissWebview()
     }
+}
+
+// MARK: Add constraint into webView
+extension PaymentViewController {
 }
