@@ -68,7 +68,6 @@ final internal class PaymentViewController: UIViewController {
         webView.contentMode = .scaleToFill
         webView.autoresizingMask = .flexibleWidth
         view.addSubview(webView)
-        setAutolayoutWebView()
         webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         scriptHandler = ScriptHandler(forWebView: webView)
