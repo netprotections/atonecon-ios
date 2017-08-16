@@ -54,12 +54,19 @@ final internal class PaymentViewController: UIViewController {
         setupNavigation()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = view.bounds
+    }
+
     // MARK: - Private Functions
     private func setupWebView() {
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.addUserScript(userScript())
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
+        webView.contentMode = .scaleToFill
+        webView.autoresizingMask = .flexibleWidth
         view.addSubview(webView)
         webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
