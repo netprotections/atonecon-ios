@@ -26,6 +26,10 @@ extension Define {
                 "}," +
                 "succeeded: function(response) { " +
                     "window.webkit.messageHandlers.succeeded.postMessage(response);" +
+                "}," +
+                "error: function(name, message, errors) { " +
+                    "var response = {name: name, message: message, errors: errors};" +
+                    "window.webkit.messageHandlers.failed.postMessage(response);" +
                 "}" +
             "});" +
             "function startAtone() { Atone.start();}\n"
