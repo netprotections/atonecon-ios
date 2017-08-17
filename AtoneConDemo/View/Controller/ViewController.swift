@@ -104,7 +104,7 @@ extension ViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: handler)
         alert.addAction(ok)
-        let root = AppDelegate.shared?.window?.topViewController
+        let root = AppDelegate.shared.window?.topViewController
         root?.present(alert, animated: true, completion: nil)
     }
 
@@ -159,19 +159,21 @@ extension ViewController {
 
 extension UIWindow {
     var topViewController: UIViewController? {
-        return UIWindow.visibleViewController(from: rootViewController)
+        return rootViewController?.visibleController
     }
+}
 
-    private static func visibleViewController(from viewController: UIViewController?) -> UIViewController? {
-        switch viewController {
-        case let navigationController as UINavigationController:
-            return UIWindow.visibleViewController(from: navigationController.visibleViewController)
-        case let tabBarController as UITabBarController:
-            return UIWindow.visibleViewController(from: tabBarController.selectedViewController)
-        case let presentingViewController where viewController?.presentedViewController != nil:
-            return UIWindow.visibleViewController(from: presentingViewController?.presentedViewController)
+extension UIViewController {
+    var visibleController: UIViewController? {
+        switch self {
+        case let navi as UINavigationController:
+            return navi.visibleViewController?.visibleController
+        case let tabBar as UITabBarController:
+            return tabBar.selectedViewController?.visibleController
+        case let controller where self.presentedViewController != nil:
+            return controller.presentedViewController?.visibleController
         default:
-            return viewController
+            return self
         }
     }
 }
