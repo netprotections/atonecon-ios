@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  AtoneCon
+
+  Created by Pham Ngoc Hanh on 8/14/17.
+  Copyright © 2017 AsianTech Inc. All rights reserved.
+*/
+
+"cancel" = "キャンセル";
+"quitPayment" = "決済が終了します。よろしいでしょうか？";
+"networkError" = "ネットワークが圏外です";
+"close" = "閉じる";
+"network" = "ネットワーク";
+"okay" = "OK";

@@ -71,21 +71,19 @@ extension ViewController: AtoneConDelegate {
         case .authenticated(let authenToken):
             viewModel.saveAuthenToken(token: authenToken)
         case .cancelled:
-            atoneCon.dismissWebview()
+            atoneCon.dismiss { [weak self] in
+                guard let this = self else { return }
+                this.showAlert(title: Define.String.cancel, message: nil)
+            }
         case .failed(let response):
-            if let response = response {
-                print(response)
-            } else {
-                print("Don't receive data")
-            }
-            atoneCon.dismissWebview()
+            let message: String? = response?.description
+            showAlert(title: Define.String.failed, message: message)
         case .finished(let response):
-            if let response = response {
-                print(response)
-            } else {
-                print("Don't receive data")
+            let message = response?.description
+            atoneCon.dismiss { [weak self] in
+                guard let this = self else { return }
+                this.showAlert(title: Define.String.finished, message: message)
             }
-            atoneCon.dismissWebview()
         }
     }
 }
@@ -100,6 +98,14 @@ extension ViewController: UITextFieldDelegate {
 
 // MARK: - setup UI
 extension ViewController {
+    fileprivate func showAlert(title: String?, message: String?, handler: ((UIAlertAction) -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: handler)
+        alert.addAction(ok)
+        let root = AppDelegate.shared.window?.topViewController
+        root?.present(alert, animated: true, completion: nil)
+    }
+
     fileprivate func setupPayButton() {
         payButton.layer.cornerRadius = 5
         payButton.backgroundColor = Define.Color.lightBlue
@@ -145,6 +151,27 @@ extension ViewController {
     fileprivate func updateView() {
         if isViewLoaded {
             authenTokenValueLabel.text = viewModel.getAuthenToken()
+        }
+    }
+}
+
+extension UIWindow {
+    var topViewController: UIViewController? {
+        return rootViewController?.visibleController
+    }
+}
+
+extension UIViewController {
+    var visibleController: UIViewController? {
+        switch self {
+        case let navi as UINavigationController:
+            return navi.visibleViewController?.visibleController
+        case let tabBar as UITabBarController:
+            return tabBar.selectedViewController?.visibleController
+        case let controller where self.presentedViewController != nil:
+            return controller.presentedViewController?.visibleController
+        default:
+            return self
         }
     }
 }

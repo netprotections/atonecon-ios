@@ -59,12 +59,19 @@ final internal class PaymentViewController: UIViewController {
         setupNavigation()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = view.bounds
+    }
+
     // MARK: - Private Functions
     private func setupWebView() {
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.addUserScript(userScript())
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
+        webView.contentMode = .scaleToFill
+        webView.autoresizingMask = .flexibleWidth
         view.addSubview(webView)
         webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
@@ -134,11 +141,18 @@ extension PaymentViewController: ScriptHandlerDelegate {
 // MARK: - Setup Navigation 
 extension PaymentViewController {
     fileprivate func setupNavigation() {
-        let closeButton = UIBarButtonItem(title: Define.Strings.close, style: .plain, target: self, action: #selector(closeWebView))
+        let closeButton = UIBarButtonItem(title: Define.String.close, style: .plain, target: self, action: #selector(closeWebView))
         navigationItem.rightBarButtonItem = closeButton
     }
 
     @objc private func closeWebView() {
-        AtoneCon.shared.dismissWebview()
+        let alert = UIAlertController(title: Define.String.quitPayment, message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: Define.String.cancel, style: .cancel, handler: nil)
+        let ok = UIAlertAction(title: Define.String.okay, style: .default, handler: { _ in
+            AtoneCon.shared.dismiss()
+        })
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
     }
 }

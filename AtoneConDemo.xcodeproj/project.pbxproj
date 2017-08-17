@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160FFC111F43E0A9001FBD01 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 160FFC101F43E0A9001FBD01 /* Localizable.strings */; };
 		8EA685E84D177243E1C081A1 /* Pods_AtoneConDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */; };
 		996404371F26DC67005C221F /* AtoneConDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996404361F26DC67005C221F /* AtoneConDemoTests.swift */; };
 		9965C1351F25AF39004C81C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C1231F25AF39004C81C6 /* Color.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160FFC101F43E0A9001FBD01 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		620B95CCDB84909C5FA48130 /* Pods_AtoneConDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneConDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990B5EC11F0395B500B142E7 /* AtoneConDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtoneConDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		996404341F26DC67005C221F /* AtoneConDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoneConDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				9965C1271F25AF39004C81C6 /* Assets.xcassets */,
+				160FFC101F43E0A9001FBD01 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9965C13D1F25AF39004C81C6 /* LaunchScreen.storyboard in Resources */,
+				160FFC111F43E0A9001FBD01 /* Localizable.strings in Resources */,
 				9965C1381F25AF39004C81C6 /* Assets.xcassets in Resources */,
 				9965C13C1F25AF39004C81C6 /* ViewController.xib in Resources */,
 			);

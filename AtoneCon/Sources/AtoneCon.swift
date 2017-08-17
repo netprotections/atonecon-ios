@@ -29,26 +29,24 @@ final public class AtoneCon {
     }
 
     public func performPayment(_ payment: Payment) {
-        let root = UIApplication.shared.delegate?.window??.rootViewController
+        guard let root = UIApplication.shared.delegate?.window??.rootViewController else { return }
         guard NetworkReachabilityManager()?.isReachable == true else {
-            let errorAlert = UIAlertController(title: Define.Strings.network, message: Define.Strings.Error.network, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: Define.Strings.okay, style: .default, handler: { _ in
-                root?.dismiss(animated: true, completion: nil)
-            })
-            errorAlert.addAction(okAction)
-            root?.present(errorAlert, animated: true, completion: nil)
+            let error: [String:Any] = ["title": Define.String.network,
+                                       "message": Define.String.Error.network]
+            let event = PaymentEvent.failed(error)
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: event)
             return
         }
         self.payment = payment
-        let paymenController = PaymentViewController(payment: payment)
-        let paymentNavigation = UINavigationController(rootViewController: paymenController)
-        paymenController.delegate = self
-        root?.present(paymentNavigation, animated: true, completion: nil)
+        let paymentController = PaymentViewController(payment: payment)
+        let paymentNavigation = UINavigationController(rootViewController: paymentController)
+        paymentController.delegate = self
+        root.present(paymentNavigation, animated: true, completion: nil)
     }
 
-    public func dismissWebview() {
+    public func dismiss(completion: (() -> Void)? = nil) {
         let root = UIApplication.shared.delegate?.window??.rootViewController
-        root?.dismiss(animated: true, completion: nil)
+        root?.dismiss(animated: true, completion: completion)
     }
 
     public func resetAuthenToken() {
