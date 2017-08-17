@@ -104,7 +104,7 @@ extension ViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: handler)
         alert.addAction(ok)
-        let root = AppDelegate.shared.window?.topViewController()
+        let root = AppDelegate.shared?.window?.topViewController
         root?.present(alert, animated: true, completion: nil)
     }
 
@@ -158,16 +158,20 @@ extension ViewController {
 }
 
 extension UIWindow {
-    func topViewController(controller: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
-        if let navigationController = controller as? UINavigationController {
-            return topViewController(controller: navigationController.visibleViewController)
+    var topViewController: UIViewController? {
+        return UIWindow.visibleViewController(from: rootViewController)
+    }
+
+    private static func visibleViewController(from viewController: UIViewController?) -> UIViewController? {
+        switch viewController {
+        case let navigationController as UINavigationController:
+            return UIWindow.visibleViewController(from: navigationController.visibleViewController)
+        case let tabBarController as UITabBarController:
+            return UIWindow.visibleViewController(from: tabBarController.selectedViewController)
+        case let presentingViewController where viewController?.presentedViewController != nil:
+            return UIWindow.visibleViewController(from: presentingViewController?.presentedViewController)
+        default:
+            return viewController
         }
-        if let tabbarController = controller as? UITabBarController, let selectedController = tabbarController.selectedViewController {
-            return topViewController(controller: selectedController)
-        }
-        if let presentedController = controller?.presentedViewController {
-            return topViewController(controller: presentedController)
-        }
-        return controller
     }
 }

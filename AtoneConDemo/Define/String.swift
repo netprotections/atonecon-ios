@@ -25,8 +25,6 @@ extension Define.String {
 
 extension String {
     internal func localized(_ comment: String = "") -> String {
-        guard let identifier = Bundle.main.bundleIdentifier else { return self }
-        guard let bundle = Bundle(identifier: identifier) else { return self }
-        return NSLocalizedString(self, bundle: bundle, comment: comment)
+        return NSLocalizedString(self, bundle: Bundle.main, comment: comment)
     }
 }

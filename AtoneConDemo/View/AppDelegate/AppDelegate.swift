@@ -16,12 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    class var shared: AppDelegate {
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("App Delegate Error")
-        }
-        return delegate
-    }
+    static var shared: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let controller = ViewController()
