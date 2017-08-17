@@ -26,11 +26,16 @@ final internal class PaymentViewController: UIViewController {
     private var scriptHandler: ScriptHandler!
 
     private var handlerScript: String {
-        let publicKey = AtoneCon.shared.option.publicKey
+        var publicKey = ""
+        if let key = AtoneCon.shared.option?.publicKey {
+            publicKey = key
+        }
+
         var preToken = ""
         if let accessToken = Session.shared.credential.value {
             preToken = accessToken
         }
+
         let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
         return handlerScript
     }

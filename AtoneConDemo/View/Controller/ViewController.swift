@@ -49,9 +49,7 @@ final class ViewController: UIViewController {
 
     // MARK: - Action
     @IBAction func payButtonTapped(_ sender: Any) {
-        var options = AtoneCon.Options()
-        // TODO: - dummy data
-        options.publicKey = "bB2uNvcOP2o8fJzHpWUumA"
+        var options = AtoneCon.Options(publicKey: "bB2uNvcOP2o8fJzHpWUumA")
         options.environment = .development
         let atoneCon = AtoneCon.shared
         atoneCon.delegate = self

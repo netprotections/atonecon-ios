@@ -1,12 +1,12 @@
 # RELEASE ATONECON
 
-We will use `CocoaPods` to publish AtoneCon library
+We will use `CocoaPods` to publish AtoneCon library.
 
 ## Content
 
-- Configuration
-- Publish
-- Update
+- [Configuration](#configuration)
+- [Publish](#publish)
+- [Update](#update)
 
 ### Configuration
 
@@ -14,13 +14,13 @@ Once you have a release ready you will need to make the corresponding tag. First
 
 #### The release workflow is similar to the following
 
-- Step 1: Open terminal, access to folder Library
+- Step 1: Open Terminal, access to folder Library
 
 ```bash
-cd .../Mylib
+cd ~/code/Pods/NAME
 ```
 
-- Step 2: Check podspec version is right or not
+- Step 2: Check `podspec` version is correct or no
 
 Open `MyLib.podspec` in project folder. Check properties and edit podspec if you want
 
@@ -32,14 +32,14 @@ git tag *version*
 git push --tags
 ```
 
-- Step 4: Linting The Project
+- Step 4: Linting the project
 
 CocoaPods needs to verify that nothing is wrong with a project. This spans from limitations and requirements to errors and even suspicious code. CocoaPods requires you to lint your project.
 
 Linting a project is extremely easy, but could be incredibly annoying! To lint your project run the following in your project directory:
 
 ```bash
-[bundle exec] pod lib lint [MyLib.podspec]
+[bundle exec] pod lib lint [NAME.podspec]
 ```
 
 ### Publish
@@ -59,7 +59,7 @@ pod trunk register examplemail@gmail.com 'Example' --description='example descri
 Once your tags are pushed you can use the command:
 
 ```bash
-[bundle exec] pod trunk push [Mylib.podspec]
+[bundle exec] pod trunk push [NAME.podspec]
 ```
 
 to send your library to the Specs repo.
@@ -69,7 +69,7 @@ to send your library to the Specs repo.
 Once your tags are pushed you can use the command:
 
 ```bash
-[bundle exec] pod repo push [Mylib.podspec]
+[bundle exec] pod repo push [NAME.podspec]
 ```
 
 to send your library to the named private specs repo.
@@ -88,14 +88,14 @@ git tag *version*
 git push --tags
 ```
 
-- Step 4: Linting The Project
+- Step 4: Linting the project
 
 ```bash
-[bundle exec] pod lib lint [MyLib.podspec]
+[bundle exec] pod lib lint [NAME.podspec]
 ```
 
 - Step 5: Push your new Pod version using trunk:
 
 ```bash
-[bundle exec] pod trunk push [Mylib.podspec]
+[bundle exec] pod trunk push [NAME.podspec]
 ```

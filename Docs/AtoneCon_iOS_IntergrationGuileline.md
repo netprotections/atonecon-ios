@@ -9,20 +9,46 @@ The AtoneCon iOS SDK make it easy to perform an Atone payment inside your iOS ap
  
 ## B. Installation
 
-### 1. Use CocoaPods
- > Embedded frameworks require a minimum deployment target of iOS 8
+### 1. Use CocoaPods (recommended)
+ > Embedded frameworks require a minimum deployment target of iOS 8.
 
-### CocoaPods (recommended)
+### CocoaPods
 
+#### Install CocoaPod
+There are two ways to do this
+##### Way 1: Use Ruby gem
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```bash
 $ gem install cocoapods
 ```
+##### Way 2: Use Bundler
+- Step 1: Open a `terminal` window and run this command:
 
+```bash
+gem install bundler
+```
+- Step 2: Specify your dependencies in a Gemfile in your project's root:
+
+```bash
+source 'https://rubygems.org'
+gem 'cocoapods', '~> 1.2.0'
+```
+- Step 3: Install all of the required gems from your specified sources:
+
+
+```bash
+bundle install
+```
+- Step 4: Install the dependencies specified in your Gemfile (optional).
+
+	Please see details [here](http://bundler.io/v1.5/man/bundle-install.1.html)
+
+
+#### Config Podfile
 > CocoaPods 1.2+ is required to build AtoneCon 1.0+ 
 
-To integrate AtoneCon into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate AtoneCon framework into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -32,14 +58,15 @@ use_frameworks! # swift project
 pod 'AtoneCon', '~> 1.0'
 ```
 
+#### Install AtoneCon
 Then, run the following command:
 
 ```bash
-$ pod install
+$ [bundle exec] pod install
 ```
 
 ### 2. Manual
-- Open up Terminal, cd into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+- Open up Terminal, access to your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
 
 ```
 $ git init
@@ -50,31 +77,30 @@ $ git init
 ```
 $ git submodule add git@github.com:AsianTechInc/AtoneCon-iOS.git
 ```
-- Open the new AtoneCon folder, and drag the AtoneCon.xcodeproj into the Project Navigator of your application's Xcode project.
+- Open the new AtoneCon folder, and drag the `AtoneCon.xcodeproj` into the `Project Navigator` of your application's Xcode project.
 > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
 
-- Select the AtoneCon.xcodeproj in the Project Navigator and verify the deployment target matches that of your application target.
+- Select the `AtoneCon.xcodeproj` in the `Project Navigator` and verify the deployment target matches that of your application target.
 
-- Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the "Targets" heading in the sidebar.
+- Next, select your application project in the `Project Navigator` (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
 
-- In the tab bar at the top of that window, open the "General" panel.
+- In the tab bar at the top of that window, open the `General` panel.
 
-- Click on the + button under the "Embedded Binaries" section.
+- Click on the + button under the `Embedded Binaries` section.
 
-- You will see two different AtoneCon.xcodeproj folders each with two different versions of the AtoneCon.framework nested inside a Products folder.
+- You will see two different `AtoneCon.xcodeproj` folders each with two different versions of the `AtoneCon.framework` nested inside a Products folder.
 >It does not matter which Products folder you choose from, but it does matter whether you choose the top or bottom AtoneCon.framework.
 
-- Select the top AtoneCon.framework for iOS
+- Select the top `AtoneCon.framework` for iOS.
 
-- The AtoneCon.framework is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device. 
+- The `AtoneCon.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device. 
 
 ## C. Usage
 
 ### 1. Configuration
 
 ```swift
-var options = AtoneCon.Options()
-options.publicKey = "bB2uNvcOP2o8fJzHpWUumA"
+var options = AtoneCon.Options(publicKey: "bB2uNvcOP2o8fJzHpWUumA")
 let atoneCon = AtoneCon.shared
 atoneCon.config(options)
 atoneCon.delegate = self // AtoneConDelegate
@@ -85,7 +111,7 @@ atoneCon.delegate = self // AtoneConDelegate
 #### Create new payment
 
 ```swift
-// These are required properties
+// These are required properties.
 
 var payment = AtoneCon.Payment(
 	amount: 10,
@@ -96,7 +122,7 @@ var payment = AtoneCon.Payment(
 /**
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
-If the property has no value, then set nil or not is mentioned.
+If it hasn't value, it wouldn't be mentioned or would be set nil.
 */
 
 payment.salesSettled = false // Bool?
@@ -108,13 +134,13 @@ payment.descriptionTrans = "備考です。" // String?
 ###### Create new customer
 
 ```swift
-// These are required properties
+// These are required properties.
 var customer = AtoneCon.Customer(name: "接続テスト")
 
 /** 
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
-If the property has no value, then set nil or not is mentioned.
+If it hasn't value, it wouldn't be mentioned or would be set nil.
 */
 
 customer.nameKana = "セツゾクテスト" // String?
@@ -132,7 +158,7 @@ payment.customer = customer
 
 ###### Create destination custumer
 ```swift
-// These are required properties
+// These are required properties.
 var desCustomer = AtoneCon.DesCustomer(
 	name: "銀座太郎", 
 	zipCode: "123-1234", 
@@ -142,7 +168,7 @@ var desCustomer = AtoneCon.DesCustomer(
 /**						
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
-If the property has no value, then set nil or not is mentioned.
+If it hasn't value, it wouldn't be mentioned or would be set nil.
 */
 
 desCustomer.nameKana = "ぎんざたろう" // String?
@@ -160,7 +186,7 @@ payment.desCustomers = [desCustomer]
 
 ###### Create items
 ```swift
-// These are required properties
+// These are required properties.
 var item = AtoneCon.Item(
 	id: "1", 
 	name: "１０円チョコ", 
@@ -170,8 +196,8 @@ var item = AtoneCon.Item(
 			
 /**
 The following attributes are not required.
-If the attribute has a value, it must be passed to the object.
-If the property has no value, then nil or not is mentioned.
+If the attribute has value, it must be passed to the object.
+If it hasn't value, it wouldn't be mentioned or would be set nil.
 */
 
 item.url = "https://atone.be/items/1"
@@ -179,7 +205,7 @@ item.url = "https://atone.be/items/1"
 ###### Configure shop items
 
 ```swift
-payment.desCustomers = [item]
+payment.items = [item]
 ```
 
 ### Perform a payment
@@ -204,8 +230,6 @@ extension Controller: AtoneConDelegate {
       	case .finished(let response):
       		// payment did finised
          	// response type [String:Any]
-      	case .error(let error):
-      		// payment did occur error 	
      	}
     }
 }
