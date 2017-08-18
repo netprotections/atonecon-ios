@@ -68,11 +68,6 @@ $ [bundle exec] pod install
 ```bash
 cd <path-to-AtoneConDemo-project-dir>
 ```
-- If your project is not initialized as a git repository, Let's initialize git:
-
-```
-$ git init
-```
 
 - Add AtoneCon as a git submodule by running the following command:
 
