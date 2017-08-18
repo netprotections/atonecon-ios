@@ -19,7 +19,7 @@ final public class AtoneCon {
     public static let shared = AtoneCon()
 
     // MARK: - Properties
-    internal var option = Options()
+    internal var option: Options?
     public weak var delegate: AtoneConDelegate?
     fileprivate var payment: Payment?
 
