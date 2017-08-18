@@ -1,6 +1,6 @@
 # RELEASE ATONECON
 
-We will use `CocoaPods` to publish AtoneCon library.
+We will use `CocoaPods` to publish `AtoneCon` library.
 
 ## Content
 
@@ -17,12 +17,12 @@ Once you have a release ready you will need to make the corresponding tag. First
 - Step 1: Open Terminal, access to folder Library
 
 ```bash
-cd ~/code/Pods/NAME
+cd <path-to-AtoneCon-project-dir>
 ```
 
 - Step 2: Check `podspec` version is correct or no
 
-Open `MyLib.podspec` in project folder. Check properties and edit podspec if you want
+Open `AtoneCon.podspec` in project folder. Check properties and edit podspec if you want
 
 - Step 3: Create a tag for your new Pod version and push it
 
@@ -39,7 +39,7 @@ CocoaPods needs to verify that nothing is wrong with a project. This spans from 
 Linting a project is extremely easy, but could be incredibly annoying! To lint your project run the following in your project directory:
 
 ```bash
-[bundle exec] pod lib lint [NAME.podspec]
+[bundle exec] pod lib lint [AtoneCon.podspec]
 ```
 
 ### Publish
@@ -59,7 +59,7 @@ pod trunk register examplemail@gmail.com 'Example' --description='example descri
 Once your tags are pushed you can use the command:
 
 ```bash
-[bundle exec] pod trunk push [NAME.podspec]
+[bundle exec] pod trunk push [AtoneCon.podspec]
 ```
 
 to send your library to the Specs repo.
@@ -69,7 +69,7 @@ to send your library to the Specs repo.
 Once your tags are pushed you can use the command:
 
 ```bash
-[bundle exec] pod repo push [NAME.podspec]
+[bundle exec] pod repo push [AtoneCon.podspec]
 ```
 
 to send your library to the named private specs repo.
@@ -91,11 +91,11 @@ git push --tags
 - Step 4: Linting the project
 
 ```bash
-[bundle exec] pod lib lint [NAME.podspec]
+[bundle exec] pod lib lint [AtoneCon.podspec]
 ```
 
 - Step 5: Push your new Pod version using trunk:
 
 ```bash
-[bundle exec] pod trunk push [NAME.podspec]
+[bundle exec] pod trunk push [AtoneCon.podspec]
 ```

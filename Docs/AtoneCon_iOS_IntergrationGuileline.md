@@ -40,9 +40,6 @@ gem 'cocoapods', '~> 1.2.0'
 ```bash
 bundle install
 ```
-- Step 4: Install the dependencies specified in your Gemfile (optional).
-
-	Please see details [here](http://bundler.io/v1.5/man/bundle-install.1.html)
 
 
 #### Config Podfile
@@ -66,7 +63,12 @@ $ [bundle exec] pod install
 ```
 
 ### 2. Manual
-- Open up Terminal, access to your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+- Open up Terminal, access to your top-level project directory
+
+```bash
+cd <path-to-AtoneConDemo-project-dir>
+```
+- If your project is not initialized as a git repository, Let's initialize git:
 
 ```
 $ git init
@@ -122,7 +124,7 @@ var payment = AtoneCon.Payment(
 /**
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set nil.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 payment.salesSettled = false // Bool?
@@ -140,7 +142,7 @@ var customer = AtoneCon.Customer(name: "接続テスト")
 /** 
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set nil.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 customer.nameKana = "セツゾクテスト" // String?
@@ -168,7 +170,7 @@ var desCustomer = AtoneCon.DesCustomer(
 /**						
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set nil.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 desCustomer.nameKana = "ぎんざたろう" // String?
@@ -197,7 +199,7 @@ var item = AtoneCon.Item(
 /**
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set nil.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 item.url = "https://atone.be/items/1"
