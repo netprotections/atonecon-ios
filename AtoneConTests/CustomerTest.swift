@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import ObjectMapper
 @testable import AtoneCon
 
 class CustomerTest: XCTestCase {
@@ -53,4 +54,6 @@ class CustomerTest: XCTestCase {
         XCTAssertEqual(customer.totalPurchaseAmount, 20_000)
         XCTAssertEqual(customer.totalPurchaseCount, 2)
     }
+
+    
 }

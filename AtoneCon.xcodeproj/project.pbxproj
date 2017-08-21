@@ -15,6 +15,8 @@
 		160B68FA1F468B6C0087471F /* OptionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68F91F468B6C0087471F /* OptionsTest.swift */; };
 		160B68FC1F468BDB0087471F /* PaymentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68FB1F468BDB0087471F /* PaymentTest.swift */; };
 		160B68FE1F468C7A0087471F /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68FD1F468C7A0087471F /* SessionTest.swift */; };
+		160B693E1F46D3410087471F /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B693D1F46D3410087471F /* StringTest.swift */; };
+		160B69401F46F9D00087471F /* HelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B693F1F46F9D00087471F /* HelperTest.swift */; };
 		160FFC011F42A5F8001FBD01 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 160FFC001F42A5F8001FBD01 /* Localizable.strings */; };
 		16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */; };
 		166374AB1F21A796002C8821 /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166374AA1F21A796002C8821 /* Scripts.swift */; };
@@ -54,6 +56,8 @@
 		160B68F91F468B6C0087471F /* OptionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTest.swift; sourceTree = "<group>"; };
 		160B68FB1F468BDB0087471F /* PaymentTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTest.swift; sourceTree = "<group>"; };
 		160B68FD1F468C7A0087471F /* SessionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTest.swift; sourceTree = "<group>"; };
+		160B693D1F46D3410087471F /* StringTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
+		160B693F1F46F9D00087471F /* HelperTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTest.swift; sourceTree = "<group>"; };
 		160FFC001F42A5F8001FBD01 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		166374AA1F21A796002C8821 /* Scripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				160B68F91F468B6C0087471F /* OptionsTest.swift */,
 				160B68FB1F468BDB0087471F /* PaymentTest.swift */,
 				160B68FD1F468C7A0087471F /* SessionTest.swift */,
+				160B693D1F46D3410087471F /* StringTest.swift */,
+				160B693F1F46F9D00087471F /* HelperTest.swift */,
 			);
 			path = AtoneConTests;
 			sourceTree = "<group>";
@@ -424,7 +430,9 @@
 				160B68FC1F468BDB0087471F /* PaymentTest.swift in Sources */,
 				160B68F81F4685060087471F /* NetworkReachabilityManagerTest.swift in Sources */,
 				990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */,
+				160B693E1F46D3410087471F /* StringTest.swift in Sources */,
 				160B68F41F4683C50087471F /* DesCustomerTest.swift in Sources */,
+				160B69401F46F9D00087471F /* HelperTest.swift in Sources */,
 				160B68FA1F468B6C0087471F /* OptionsTest.swift in Sources */,
 				160B68F21F4683300087471F /* CustomerTest.swift in Sources */,
 			);

@@ -30,16 +30,24 @@ class SessionTest: XCTestCase {
     }
 
     func testloadCredential() {
-        // When
+        // When credential hasn't value
+        Session.shared.credential = Session.Credential(value: nil)
+        Session.shared.loadCredential()
+
+        //Then
+        XCTAssertEqual(Session.shared.credential.isValid, false)
+
+        // When credential has value
         Session.shared.credential = Session.Credential(value: "tk_23adh123bvnjKhds")
         Session.shared.loadCredential()
 
         // Then
+        XCTAssertEqual(Session.shared.credential.isValid, true)
         XCTAssertEqual(Session.shared.credential.value, "tk_23adh123bvnjKhds")
     }
 
     func testClearCredential() {
-        // When
+        // When load credential has value
         Session.shared.credential = Session.Credential(value: "tk_23adh123bvnjKhds")
         Session.shared.clearCredential()
 
