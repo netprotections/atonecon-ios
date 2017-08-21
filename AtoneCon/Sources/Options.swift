@@ -12,7 +12,9 @@ extension AtoneCon {
     public struct Options {
         public var publicKey = ""
         public var environment: Environment = .development
-        public init() {}
+        public init(publicKey: String) {
+            self.publicKey = publicKey
+        }
     }
 }
 
