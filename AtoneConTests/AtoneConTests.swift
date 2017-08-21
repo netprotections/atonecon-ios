@@ -21,15 +21,21 @@ class AtoneConTests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testConfig() {
+        // When
+        let option = AtoneCon.Options(publicKey: "abcxyz")
+        AtoneCon.shared.config(option)
+
+        // Then 
+        XCTAssertEqual(AtoneCon.shared.option?.publicKey, "abcxyz")
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testResetAuthenToken() {
+        // When 
+        Session.shared.credential = Session.Credential(value: "aaabbbccc")
+        AtoneCon.shared.resetAuthenToken()
+
+        // Then 
+        XCTAssertEqual(Session.shared.credential.value, "")
     }
 }

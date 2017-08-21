@@ -23,8 +23,7 @@ class OptionsTest: XCTestCase {
 
     func testInitOptions() {
         // Given
-        var options = AtoneCon.Options()
-        options.publicKey = "publicKey"
+        var options = AtoneCon.Options(publicKey: "publicKey")
         options.environment = .development
 
         // Then

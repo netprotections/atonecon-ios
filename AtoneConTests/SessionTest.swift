@@ -34,7 +34,7 @@ class SessionTest: XCTestCase {
         Session.shared.credential = Session.Credential(value: nil)
         Session.shared.loadCredential()
 
-        //Then
+        // Then
         XCTAssertEqual(Session.shared.credential.isValid, false)
 
         // When credential has value

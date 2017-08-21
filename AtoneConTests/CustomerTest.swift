@@ -37,14 +37,14 @@ class CustomerTest: XCTestCase {
 
         // Then
         XCTAssertEqual(customer.name, "接続テスト")
-        XCTAssertEqual(customer.familyName, nil)
-        XCTAssertEqual(customer.givenName, nil)
+        XCTAssertNil(customer.familyName)
+        XCTAssertNil(customer.givenName)
         XCTAssertEqual(customer.nameKana, "セツゾクテスト")
-        XCTAssertEqual(customer.familyNameKana, nil)
-        XCTAssertEqual(customer.givenNameKana, nil)
-        XCTAssertEqual(customer.phoneNumber, nil)
-        XCTAssertEqual(customer.birthday, nil)
-        XCTAssertEqual(customer.sexDivision, nil)
+        XCTAssertNil(customer.familyNameKana)
+        XCTAssertNil(customer.givenNameKana)
+        XCTAssertNil(customer.phoneNumber)
+        XCTAssertNil(customer.birthday)
+        XCTAssertNil(customer.sexDivision)
         XCTAssertEqual(customer.companyName, "（株）ネットプロテクションズ")
         XCTAssertEqual(customer.department, "セールスグループ")
         XCTAssertEqual(customer.zipCode, "1234567")
@@ -55,5 +55,48 @@ class CustomerTest: XCTestCase {
         XCTAssertEqual(customer.totalPurchaseCount, 2)
     }
 
-    
+    func testInitObjetMapper() {
+        // When
+        let map = Map(mappingType: .fromJSON, JSON: [:], toObject: false, context: nil, shouldIncludeNilValues: true)
+        guard let customer: AtoneCon.Customer = AtoneCon.Customer(map: map) else { return }
+
+        // Then
+
+        XCTAssertEqual(customer.name, "")
+        XCTAssertNil(customer.familyName)
+        XCTAssertNil(customer.givenName)
+        XCTAssertNil(customer.nameKana)
+        XCTAssertNil(customer.familyNameKana)
+        XCTAssertNil(customer.givenNameKana)
+        XCTAssertNil(customer.phoneNumber)
+        XCTAssertNil(customer.birthday)
+        XCTAssertNil(customer.sexDivision)
+        XCTAssertNil(customer.companyName)
+        XCTAssertNil(customer.department)
+        XCTAssertNil(customer.zipCode)
+        XCTAssertNil(customer.address)
+        XCTAssertNil(customer.tel)
+        XCTAssertNil(customer.email)
+        XCTAssertNil(customer.totalPurchaseCount)
+        XCTAssertNil(customer.totalPurchaseAmount)
+    }
+
+    func testMapping() {
+        // When
+        var customer = AtoneCon.Customer(name: "hanh")
+        customer.department = "AsianTech"
+        customer.email = "hanh.pham@asiantech.vn"
+        customer.phoneNumber = "01202423340"
+
+        let json = "{\"customer_name\":\"hanh\"," +
+                    "\"department\":\"AsianTech\"," +
+                    "\"email\":\"hanh.pham@asiantech.vn\"," +
+                    "\"phone_number\":\"01202423340\"}"
+
+        // Then
+        XCTAssertNotNil(customer.toJSONString())
+        if let jsonString = customer.toJSONString() {
+            XCTAssertEqual(jsonString, json)
+        }
+    }
 }

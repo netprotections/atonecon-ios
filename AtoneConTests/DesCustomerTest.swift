@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import ObjectMapper
 @testable import AtoneCon
 
 class DesCustomerTest: XCTestCase {
@@ -37,6 +38,36 @@ class DesCustomerTest: XCTestCase {
         XCTAssertEqual(desCustomer.companyName, "株式会社ネットプロテクションズ")
         XCTAssertEqual(desCustomer.department, "システム部門")
         XCTAssertEqual(desCustomer.tel, "0312341234")
-        XCTAssertEqual(desCustomer.email, nil)
+        XCTAssertNil(desCustomer.email)
+    }
+
+    func testInitObjetMapper() {
+        // When
+        let map = Map(mappingType: .fromJSON, JSON: [:], toObject: false, context: nil, shouldIncludeNilValues: true)
+        guard let desCustomer: AtoneCon.DesCustomer = AtoneCon.DesCustomer(map: map) else { return }
+
+        // Then
+
+        XCTAssertEqual(desCustomer.name, "")
+        XCTAssertNil(desCustomer.nameKana)
+        XCTAssertNil(desCustomer.companyName)
+        XCTAssertNil(desCustomer.department)
+        XCTAssertEqual(desCustomer.zipCode, "")
+        XCTAssertEqual(desCustomer.address, "")
+        XCTAssertNil(desCustomer.tel)
+        XCTAssertNil(desCustomer.email)
+    }
+
+    func testMapping() {
+        // When
+        var desCustomer = AtoneCon.DesCustomer(name: "duy", zipCode: "1234567890", address: "DaNang")
+        desCustomer.department = "AsianTech"
+        desCustomer.email = "duy.nguyen@asiantech.vn"
+
+        // Then
+        XCTAssertNotNil(desCustomer.toJSONString())
+        if let jsonString = desCustomer.toJSONString() {
+            XCTAssertEqual(jsonString, "{\"dest_address\":\"DaNang\",\"dest_department\":\"AsianTech\",\"dest_email\":\"duy.nguyen@asiantech.vn\",\"dest_zip_code\":\"1234567890\",\"dest_customer_name\":\"duy\"}")
+        }
     }
 }

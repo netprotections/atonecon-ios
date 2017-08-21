@@ -26,6 +26,8 @@
 		16946B011F0B498700CE6FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B001F0B498700CE6FF8 /* Item.swift */; };
 		1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699CB391F0DED04003A4F1A /* ScriptHandler.swift */; };
 		16A693B31F2AD004000B9FAB /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A693B21F2AD004000B9FAB /* Session.swift */; };
+		16CECC241F4AC17D00B120B5 /* ScriptHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CECC231F4AC17D00B120B5 /* ScriptHandlerTest.swift */; };
+		16CECC261F4ACEC800B120B5 /* PaymentViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CECC251F4ACEC800B120B5 /* PaymentViewControllerTest.swift */; };
 		2FEA55B42C6DC4E68E0FFB55 /* Pods_AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */; };
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
 		990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B5EAC1F03957000B142E7 /* AtoneConTests.swift */; };
@@ -67,6 +69,8 @@
 		16946B001F0B498700CE6FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1699CB391F0DED04003A4F1A /* ScriptHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptHandler.swift; sourceTree = "<group>"; };
 		16A693B21F2AD004000B9FAB /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		16CECC231F4AC17D00B120B5 /* ScriptHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptHandlerTest.swift; sourceTree = "<group>"; };
+		16CECC251F4ACEC800B120B5 /* PaymentViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewControllerTest.swift; sourceTree = "<group>"; };
 		1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3484A57CBB53AADC50EE82F4 /* Pods-AtoneConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F786EC53FE4B40F9974C540 /* Pods-AtoneConTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				160B68FD1F468C7A0087471F /* SessionTest.swift */,
 				160B693D1F46D3410087471F /* StringTest.swift */,
 				160B693F1F46F9D00087471F /* HelperTest.swift */,
+				16CECC231F4AC17D00B120B5 /* ScriptHandlerTest.swift */,
+				16CECC251F4ACEC800B120B5 /* PaymentViewControllerTest.swift */,
 			);
 			path = AtoneConTests;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				160B68FE1F468C7A0087471F /* SessionTest.swift in Sources */,
 				160B68F61F46841A0087471F /* ItemTest.swift in Sources */,
 				160B68FC1F468BDB0087471F /* PaymentTest.swift in Sources */,
+				16CECC261F4ACEC800B120B5 /* PaymentViewControllerTest.swift in Sources */,
 				160B68F81F4685060087471F /* NetworkReachabilityManagerTest.swift in Sources */,
 				990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */,
 				160B693E1F46D3410087471F /* StringTest.swift in Sources */,
@@ -435,6 +442,7 @@
 				160B69401F46F9D00087471F /* HelperTest.swift in Sources */,
 				160B68FA1F468B6C0087471F /* OptionsTest.swift in Sources */,
 				160B68F21F4683300087471F /* CustomerTest.swift in Sources */,
+				16CECC241F4AC17D00B120B5 /* ScriptHandlerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

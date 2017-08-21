@@ -37,17 +37,16 @@ class ItemTest: XCTestCase {
 
     func testInitObjetMapper() {
         // When
-        let map = Map(mappingType: .fromJSON, JSON: [:], toObject: false, context: nil, shouldIncludeNilValues: false)
-        guard let item: AtoneCon.Item = AtoneCon.Item.init(map: map) else { return }
+        let map = Map(mappingType: .fromJSON, JSON: [:], toObject: false, context: nil, shouldIncludeNilValues: true)
+        guard let item: AtoneCon.Item = AtoneCon.Item(map: map) else { return }
 
         // Then
-
         XCTAssertEqual(item.id, "")
         XCTAssertEqual(item.name, "")
         XCTAssertEqual(item.price, 0)
         XCTAssertEqual(item.count, 0)
         XCTAssertEqual(item.price, 0)
-        XCTAssertEqual(item.url, nil)
+        XCTAssertNil(item.url)
     }
 
     func testMapping() {
@@ -57,8 +56,9 @@ class ItemTest: XCTestCase {
 
         // Then
         XCTAssertNotNil(item.toJSONString())
-        if let jsonString = item.toJSONString(prettyPrint: true) {
-            XCTAssertEqual(jsonString, "{\n  \"item_name\" : \"ao\",\n  \"shop_item_id\" : \"2\",\n  \"item_price\" : 100,\n  \"item_count\" : 3,\n  \"item_url\" : \"google.com\"\n}")
+        if let jsonString = item.toJSONString() {
+            print(jsonString)
+            XCTAssertEqual(jsonString, "{\"item_name\":\"ao\",\"item_price\":100,\"item_url\":\"google.com\",\"shop_item_id\":\"2\",\"item_count\":3}")
         }
     }
 }

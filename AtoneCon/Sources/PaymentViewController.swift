@@ -21,11 +21,11 @@ final internal class PaymentViewController: UIViewController {
 
     // MARK: - Properties
     private var payment: AtoneCon.Payment?
-    private var webView: WKWebView!
-    fileprivate var indicator: UIActivityIndicatorView!
-    private var scriptHandler: ScriptHandler!
+    internal var webView: WKWebView!
+    internal var indicator: UIActivityIndicatorView!
+    internal var scriptHandler: ScriptHandler!
 
-    private var handlerScript: String {
+    internal var handlerScript: String {
         var publicKey = ""
         if let key = AtoneCon.shared.option?.publicKey {
             publicKey = key
@@ -40,7 +40,7 @@ final internal class PaymentViewController: UIViewController {
         return handlerScript
     }
 
-    private var atoneHTML: String {
+    internal var atoneHTML: String {
         let deviceScale = Define.Helper.Ratio.horizontal
         let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)")
         return atoneHTML
@@ -100,7 +100,6 @@ final internal class PaymentViewController: UIViewController {
 
     // MARK: - Fileprivate Functions
     fileprivate func startAtone() {
-        // TODO: Implement completion Handler
         webView.evaluateJavaScript("startAtone()") { [weak self](_, error) in
             guard self != nil else { return }
             if let error = error {
