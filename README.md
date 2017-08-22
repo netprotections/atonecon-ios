@@ -16,13 +16,13 @@ The AtoneCon iOS SDK make it easy to perform an Atone payment inside your iOS ap
 
 #### Install CocoaPod
 There are two ways to do this
-##### Way 1: Use Ruby gem
+##### Way 1: As a global Ruby gem
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```bash
 $ gem install cocoapods
 ```
-##### Way 2: Use Bundler
+##### Way 2: Per project via bundler
 - Step 1: Open a `terminal` window and run this command:
 
 ```bash
@@ -214,19 +214,46 @@ AtonePay.performPayment(payment)
 ### 3. Handle payment delegation
 
 ```swift
-extension Controller: AtoneConDelegate {
+extension YourPaymentController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
-        // return authenToken
+            // save authenToken to use later etc...
         case .cancelled:
-        // payment did cancelled
+            // payment was cancelled
         case .failed(let response):
-        // payment did failed
-        // response type [String:Any]
+            // payment process return failure
+            /*
+            If the properties of the payment are initialized incorrectly, respone will be a object with format as follows
+                {
+                    "name":ExampleException,
+                    "message":"error message"
+                    "errors" :[
+                        "code": EATN.......,
+                        "messages": ["error message 1", "error message 2"]
+                        "params": ["param1", "param2"]
+                    ]
+                }
+
+            If payment failed, respone will be a object with format as follows
+                {
+                    "id": "tr_aaaaaaa",
+                    "authorization_result": 2,
+                    "authorization_result_ng_reason":9
+                    "subtract_point":0
+                }
+            
+            */
         case .finished(let response):
-        // payment did finised
-        // response type [String:Any]
+            // payment finished
+            /*
+            if payment finished, respone will be a object with format as follows
+            {
+                "id":"tr_aaaaaaa",
+                "authorization_result":1,
+                "subtract_point":3
+            }
+            */
         }
     }
 }
