@@ -11,12 +11,12 @@ import WebKit
 @testable import AtoneCon
 
 class ScriptHandlerTest: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
@@ -30,10 +30,10 @@ class ScriptHandlerTest: XCTestCase {
         let authenticatedEvent = ScriptEvent.authenticated(nil)
 
         // Then
-        XCTAssertEqual(cancelledEvent.messageName.name , "cancelled")
-        XCTAssertEqual(succeededEvent.messageName.name , "succeeded")
-        XCTAssertEqual(failedEvent.messageName.name , "failed")
-        XCTAssertEqual(authenticatedEvent.messageName.name , "authenticated")
+        XCTAssertEqual(cancelledEvent.messageName.name, "cancelled")
+        XCTAssertEqual(succeededEvent.messageName.name, "succeeded")
+        XCTAssertEqual(failedEvent.messageName.name, "failed")
+        XCTAssertEqual(authenticatedEvent.messageName.name, "authenticated")
     }
 
     func testInit() {

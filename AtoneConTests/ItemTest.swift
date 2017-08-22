@@ -56,9 +56,6 @@ class ItemTest: XCTestCase {
 
         // Then
         XCTAssertNotNil(item.toJSONString())
-        if let jsonString = item.toJSONString() {
-            print(jsonString)
-            XCTAssertEqual(jsonString, "{\"item_name\":\"ao\",\"item_price\":100,\"item_url\":\"google.com\",\"shop_item_id\":\"2\",\"item_count\":3}")
-        }
+        XCTAssertEqual(item.toJSON().count, 5)
     }
 }

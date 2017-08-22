@@ -66,8 +66,6 @@ class DesCustomerTest: XCTestCase {
 
         // Then
         XCTAssertNotNil(desCustomer.toJSONString())
-        if let jsonString = desCustomer.toJSONString() {
-            XCTAssertEqual(jsonString, "{\"dest_address\":\"DaNang\",\"dest_department\":\"AsianTech\",\"dest_email\":\"duy.nguyen@asiantech.vn\",\"dest_zip_code\":\"1234567890\",\"dest_customer_name\":\"duy\"}")
-        }
+        XCTAssertEqual(desCustomer.toJSON().count, 5)
     }
 }

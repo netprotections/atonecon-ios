@@ -88,15 +88,8 @@ class CustomerTest: XCTestCase {
         customer.email = "hanh.pham@asiantech.vn"
         customer.phoneNumber = "01202423340"
 
-        let json = "{\"customer_name\":\"hanh\"," +
-                    "\"department\":\"AsianTech\"," +
-                    "\"email\":\"hanh.pham@asiantech.vn\"," +
-                    "\"phone_number\":\"01202423340\"}"
-
         // Then
         XCTAssertNotNil(customer.toJSONString())
-        if let jsonString = customer.toJSONString() {
-            XCTAssertEqual(jsonString, json)
-        }
+        XCTAssertEqual(customer.toJSON().count, 4)
     }
 }

@@ -92,19 +92,8 @@ class PaymentTest: XCTestCase {
         payment.desCustomers = desCustomers
         payment.items = items
 
-        let json: String? = "{\"customer\":{\"customer_name\":\"hanh\"}," +
-        "\"items\":[" +
-            "{\"item_name\":\"ao\",\"item_price\":1000,\"shop_item_id\":\"1\",\"item_count\":2}," +
-            "{\"item_name\":\"quan\",\"item_price\":2000,\"shop_item_id\":\"2\",\"item_count\":3}" +
-        "]," +
-        "\"checksum\":\"abcxyz\"," +
-        "\"dest_customers\":[" +
-            "{\"dest_address\":\"DaNang\",\"dest_zip_code\":\"0901238\",\"dest_customer_name\":\"duy\"}]," +
-        "\"shop_transaction_no\":\"shop-tran-no-01\"," +
-        "\"amount\":8000}"
-
         // Then
         XCTAssertNotNil(payment.toJSONString())
-        XCTAssertEqual(payment.toJSONString(), json)
+        XCTAssertEqual(payment.toJSON().count, 6)
     }
 }
