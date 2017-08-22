@@ -10,15 +10,6 @@ import XCTest
 @testable import AtoneCon
 
 class HelperTest: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testSizeDevice() {
         // When
         let iphone4 = Define.Helper.DeviceType.iPhone4

@@ -12,88 +12,72 @@ import ObjectMapper
 
 class PaymentTest: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testInitPayment() {
-        // When
-        var customer = AtoneCon.Customer(name: "接続テスト")
-        customer.nameKana = "セツゾクテスト"
-        customer.companyName = "（株）ネットプロテクションズ"
-        customer.department = "セールスグループ"
-        customer.zipCode = "1234567"
-        customer.address = "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
-        customer.tel = "080-1234-1234"
-        customer.email = "np@netprotections.co.jp"
-        customer.totalPurchaseAmount = 20_000
-        customer.totalPurchaseCount = 2
-
-        var desCustomer = AtoneCon.DesCustomer(name: "銀座太郎", zipCode: "123-1234", address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階")
-        desCustomer.nameKana = "ぎんざたろう"
-        desCustomer.companyName = "株式会社ネットプロテクションズ"
-        desCustomer.department = "システム部門"
-        desCustomer.tel = "0312341234"
-
-        var item = AtoneCon.Item(id: "1", name: "１０円チョコ", price: 10, count: 1)
-        item.url = "https://atone.be/items/1"
-
-        // Given
+    private var paymentTest: AtoneCon.Payment {
+        let customer = AtoneCon.Customer(name: "hanh")
+        let desCustomer = AtoneCon.DesCustomer(name: "duy", zipCode: "123123", address: "DaNang")
+        let item = AtoneCon.Item(id: "1", name: "quan", price: 100, count: 1)
         var payment = AtoneCon.Payment(
             amount: 10,
             shopTransactionNo: "shop-tran-no-123456789",
             checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
         payment.salesSettled = false
-        payment.descriptionTrans = "備考です。"
+        payment.descriptionTrans = "haha"
         payment.customer = customer
         payment.desCustomers = [desCustomer]
         payment.items = [item]
 
-        // Then
-        XCTAssertEqual(payment.amount, 10)
-        XCTAssertEqual(payment.shopTransactionNo, "shop-tran-no-123456789")
-        XCTAssertEqual(payment.checksum, "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
-        XCTAssertEqual(payment.salesSettled, false)
-        XCTAssertEqual(payment.descriptionTrans, "備考です。")
-        XCTAssertEqual(payment.items.count, 1)
-        XCTAssertEqual(payment.desCustomers?.count, 1)
+        return payment
     }
 
-    func testInitObjetMapper() {
-        // When
-        let map = Map(mappingType: .toJSON, JSON: [:])
-        guard let payment = AtoneCon.Payment(map: map) else { return }
+    private let paymentJson: [String:Any] = [
+        "amount": 10,
+        "shop_transaction_no": "shop-tran-no-123456789",
+        "checksum": "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=",
+        "sales_settled": false,
+        "description_trans": "haha",
+        "customer": [
+            "customer_name": "hanh"
+        ],
+        "dest_customers": [
+            [
+                "dest_zip_code": "123123",
+                "dest_address": "DaNang",
+                "dest_customer_name": "duy"
+            ]
+        ],
+        "items": [
+            [
+                "item_name": "quan",
+                "shop_item_id": "1",
+                "item_price": 100,
+                "item_count": 1
+            ]
+        ]
+    ]
 
-        // Then
-        XCTAssertEqual(payment.amount, 0)
-        XCTAssertEqual(payment.shopTransactionNo, "")
-        XCTAssertNil(payment.salesSettled)
-        XCTAssertNil(payment.descriptionTrans)
-        XCTAssertEqual(payment.checksum, "")
-        XCTAssertEqual(payment.customer.name, "")
-        XCTAssertNil(payment.desCustomers)
-        XCTAssertEqual(payment.items.count, 0)
+    func testInitPayment() {
+        print(paymentTest.toJSON())
+        XCTAssertEqual(paymentTest.amount, 10)
+        XCTAssertEqual(paymentTest.shopTransactionNo, "shop-tran-no-123456789")
+        XCTAssertEqual(paymentTest.checksum, "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
+        XCTAssertEqual(paymentTest.salesSettled, false)
+        XCTAssertEqual(paymentTest.descriptionTrans, "haha")
+        XCTAssertEqual(paymentTest.customer.name, "hanh")
+        XCTAssertEqual(paymentTest.items.count, 1)
+        XCTAssertEqual(paymentTest.desCustomers?.count, 1)
     }
 
     func testMapping() {
-        // When
-        let customer = AtoneCon.Customer(name: "hanh")
-        let desCustomers: [AtoneCon.DesCustomer] = [AtoneCon.DesCustomer(name: "duy", zipCode: "0901238", address: "DaNang")]
-        let items: [AtoneCon.Item] = [AtoneCon.Item(id: "1", name: "ao", price: 1_000, count: 2),
-                     AtoneCon.Item(id: "2", name: "quan", price: 2_000, count: 3)]
-        var payment = AtoneCon.Payment(amount: 8_000, shopTransactionNo: "shop-tran-no-01", checksum: "abcxyz")
-        payment.customer = customer
-        payment.desCustomers = desCustomers
-        payment.items = items
-
-        // Then
-        XCTAssertNotNil(payment.toJSONString())
-        XCTAssertEqual(payment.toJSON().count, 6)
+        guard let payment = Mapper<AtoneCon.Payment>().map(JSON: paymentJson) else {
+            fatalError("Wrong JSON format.")
+        }
+        XCTAssertEqual(payment.amount, paymentTest.amount)
+        XCTAssertEqual(payment.shopTransactionNo, paymentTest.shopTransactionNo)
+        XCTAssertEqual(payment.checksum, paymentTest.checksum)
+        XCTAssertEqual(payment.descriptionTrans, paymentTest.descriptionTrans)
+        XCTAssertEqual(payment.salesSettled, paymentTest.salesSettled)
+        XCTAssertEqual(payment.customer.name, paymentTest.customer.name)
+        XCTAssertEqual(payment.desCustomers?.count, paymentTest.desCustomers?.count)
+        XCTAssertEqual(payment.items.count, paymentTest.items.count)
     }
 }

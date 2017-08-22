@@ -12,50 +12,33 @@ import ObjectMapper
 
 class ItemTest: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    private var itemTest: AtoneCon.Item {
+        var item = AtoneCon.Item(id: "2", name: "ao", price: 100, count: 3)
+        item.url = "google.com"
+        return item
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    private let itemJson: [String : Any] = ["item_name": "ao",
+                                            "shop_item_id": "2",
+                                            "item_price": 100,
+                                            "item_count": 3,
+                                            "item_url": "google.com"]
 
     func testInitItem() {
-        // Given
-        var item = AtoneCon.Item(id: "1", name: "１０円チョコ", price: 10, count: 1)
-        item.url = "https://atone.be/items/1"
-
-        // Then
-        XCTAssertEqual(item.id, "1")
-        XCTAssertEqual(item.name, "１０円チョコ")
-        XCTAssertEqual(item.price, 10)
-        XCTAssertEqual(item.count, 1)
-        XCTAssertEqual(item.url, "https://atone.be/items/1")
-    }
-
-    func testInitObjetMapper() {
-        // When
-        let map = Map(mappingType: .fromJSON, JSON: [:], toObject: false, context: nil, shouldIncludeNilValues: true)
-        guard let item: AtoneCon.Item = AtoneCon.Item(map: map) else { return }
-
-        // Then
-        XCTAssertEqual(item.id, "")
-        XCTAssertEqual(item.name, "")
-        XCTAssertEqual(item.price, 0)
-        XCTAssertEqual(item.count, 0)
-        XCTAssertEqual(item.price, 0)
-        XCTAssertNil(item.url)
+        XCTAssertEqual(itemTest.id, "2")
+        XCTAssertEqual(itemTest.name, "ao")
+        XCTAssertEqual(itemTest.price, 100)
+        XCTAssertEqual(itemTest.count, 3)
     }
 
     func testMapping() {
-        // When 
-        var item = AtoneCon.Item(id: "2", name: "ao", price: 100, count: 3)
-        item.url = "google.com"
-
-        // Then
-        XCTAssertNotNil(item.toJSONString())
-        XCTAssertEqual(item.toJSON().count, 5)
+        guard let item = Mapper<AtoneCon.Item>().map(JSON: itemJson) else {
+            fatalError("Wrong JSON format.")
+        }
+        XCTAssertEqual(item.id, itemTest.id)
+        XCTAssertEqual(item.name, itemTest.name)
+        XCTAssertEqual(item.price, itemTest.price)
+        XCTAssertEqual(item.count, itemTest.count)
+        XCTAssertEqual(item.url, itemTest.url)
     }
 }

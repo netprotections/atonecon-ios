@@ -12,84 +12,30 @@ import ObjectMapper
 
 class CustomerTest: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testInitCustomer() {
-        // Given
-        var customer = AtoneCon.Customer(name: "接続テスト")
-        customer.nameKana = "セツゾクテスト"
-        customer.companyName = "（株）ネットプロテクションズ"
-        customer.department = "セールスグループ"
-        customer.zipCode = "1234567"
-        customer.address = "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
-        customer.tel = "080-1234-1234"
-        customer.email = "np@netprotections.co.jp"
-        customer.totalPurchaseAmount = 20_000
-        customer.totalPurchaseCount = 2
-
-        // Then
-        XCTAssertEqual(customer.name, "接続テスト")
-        XCTAssertNil(customer.familyName)
-        XCTAssertNil(customer.givenName)
-        XCTAssertEqual(customer.nameKana, "セツゾクテスト")
-        XCTAssertNil(customer.familyNameKana)
-        XCTAssertNil(customer.givenNameKana)
-        XCTAssertNil(customer.phoneNumber)
-        XCTAssertNil(customer.birthday)
-        XCTAssertNil(customer.sexDivision)
-        XCTAssertEqual(customer.companyName, "（株）ネットプロテクションズ")
-        XCTAssertEqual(customer.department, "セールスグループ")
-        XCTAssertEqual(customer.zipCode, "1234567")
-        XCTAssertEqual(customer.address, "東京都中央区銀座１－１０ー６　銀座ファーストビル４階")
-        XCTAssertEqual(customer.tel, "080-1234-1234")
-        XCTAssertEqual(customer.email, "np@netprotections.co.jp")
-        XCTAssertEqual(customer.totalPurchaseAmount, 20_000)
-        XCTAssertEqual(customer.totalPurchaseCount, 2)
-    }
-
-    func testInitObjetMapper() {
-        // When
-        let map = Map(mappingType: .fromJSON, JSON: [:], toObject: false, context: nil, shouldIncludeNilValues: true)
-        guard let customer: AtoneCon.Customer = AtoneCon.Customer(map: map) else { return }
-
-        // Then
-
-        XCTAssertEqual(customer.name, "")
-        XCTAssertNil(customer.familyName)
-        XCTAssertNil(customer.givenName)
-        XCTAssertNil(customer.nameKana)
-        XCTAssertNil(customer.familyNameKana)
-        XCTAssertNil(customer.givenNameKana)
-        XCTAssertNil(customer.phoneNumber)
-        XCTAssertNil(customer.birthday)
-        XCTAssertNil(customer.sexDivision)
-        XCTAssertNil(customer.companyName)
-        XCTAssertNil(customer.department)
-        XCTAssertNil(customer.zipCode)
-        XCTAssertNil(customer.address)
-        XCTAssertNil(customer.tel)
-        XCTAssertNil(customer.email)
-        XCTAssertNil(customer.totalPurchaseCount)
-        XCTAssertNil(customer.totalPurchaseAmount)
-    }
-
-    func testMapping() {
-        // When
+    private var customerTest: AtoneCon.Customer {
         var customer = AtoneCon.Customer(name: "hanh")
         customer.department = "AsianTech"
         customer.email = "hanh.pham@asiantech.vn"
         customer.phoneNumber = "01202423340"
+        return customer
+    }
 
-        // Then
-        XCTAssertNotNil(customer.toJSONString())
-        XCTAssertEqual(customer.toJSON().count, 4)
+    private let customerJson: [String:Any] = ["department": "AsianTech",
+                                      "phone_number": "01202423340",
+                                      "email": "hanh.pham@asiantech.vn",
+                                      "customer_name": "hanh"]
+
+    func testInitCustomer() {
+        XCTAssertEqual(customerTest.name, "hanh")
+    }
+
+    func testMapping() {
+        guard let customer = Mapper<AtoneCon.Customer>().map(JSON: customerJson) else {
+            fatalError("Wrong JSON format.")
+        }
+        XCTAssertEqual(customer.name, customerTest.name)
+        XCTAssertEqual(customer.department, customerTest.department)
+        XCTAssertEqual(customer.email, customerTest.email)
+        XCTAssertEqual(customer.phoneNumber, customerTest.phoneNumber)
     }
 }

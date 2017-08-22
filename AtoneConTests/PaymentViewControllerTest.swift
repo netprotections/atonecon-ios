@@ -11,27 +11,21 @@ import XCTest
 
 class PaymentViewControllerTest: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testInit() {
-        // When
-        let options = AtoneCon.Options(publicKey: "public_key")
+    let options = AtoneCon.Options(publicKey: "public_key")
+    var payment: AtoneCon.Payment {
         var payment = AtoneCon.Payment(amount: 10, shopTransactionNo: "", checksum: "")
         payment.customer = AtoneCon.Customer(name: "hanh")
         payment.desCustomers = nil
         payment.items = []
+        return payment
+    }
+    let scale = Define.Helper.Ratio.horizontal
+
+    func testloadView() {
+        // When
         AtoneCon.shared.config(options)
         Session.shared.credential = Session.Credential(value: "tk_abcxyz")
         let paymentController = PaymentViewController(payment: payment)
-        let scale = Define.Helper.Ratio.horizontal
 
         let json = "\nAtone.config({" +
             "pre_token: \"tk_abcxyz\"," +
@@ -77,22 +71,17 @@ class PaymentViewControllerTest: XCTestCase {
 
         // When
         paymentController.viewDidLoad()
+
+        // Then
         XCTAssertNotNil(paymentController.webView)
         XCTAssertNotNil(paymentController.indicator)
         XCTAssertNotNil(paymentController.scriptHandler)
-    }
 
-    func testViewDidLayoutSubView() {
         // When
-        var payment = AtoneCon.Payment(amount: 10, shopTransactionNo: "", checksum: "")
-        payment.customer = AtoneCon.Customer(name: "hanh")
-        payment.desCustomers = nil
-        payment.items = []
-        let paymentController = PaymentViewController(payment: payment)
-        paymentController.viewDidLoad()
         paymentController.viewDidLayoutSubviews()
 
         // Then
         XCTAssertEqual(paymentController.webView.frame, UIScreen.main.bounds)
+
     }
 }
