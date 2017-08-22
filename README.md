@@ -66,7 +66,7 @@ $ [bundle exec] pod install
 - Open up Terminal, access to your top-level project directory
 
 ```bash
-cd <path-to-AtoneConDemo-project-dir>
+cd <path-to-Folder-project-dir>
 ```
 
 - Add AtoneCon as a git submodule by running the following command:
@@ -98,6 +98,7 @@ $ git submodule add git@github.com:AsianTechInc/AtoneCon-iOS.git
 
 ```swift
 var options = AtoneCon.Options(publicKey: "bB2uNvcOP2o8fJzHpWUumA")
+// public key be provided by the shops
 let atoneCon = AtoneCon.shared
 atoneCon.config(options)
 atoneCon.delegate = self // AtoneConDelegate
@@ -238,8 +239,8 @@ extension YourPaymentController: AtoneConDelegate {
             If payment failed, respone will be a object with format as follows
                 {
                     "id": "tr_aaaaaaa",
-                    "authorization_result": 2,
-                    "authorization_result_ng_reason":9
+                    "authorization_result": 2, // 2: NG
+                    "authorization_result_ng_reason":9 // 1: Exceeded the allowed amount or 9: other
                     "subtract_point":0
                 }
             
@@ -250,7 +251,7 @@ extension YourPaymentController: AtoneConDelegate {
             if payment finished, respone will be a object with format as follows
             {
                 "id":"tr_aaaaaaa",
-                "authorization_result":1,
+                "authorization_result":1, // 1: OK
                 "subtract_point":3
             }
             */
