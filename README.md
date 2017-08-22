@@ -97,7 +97,7 @@ $ git submodule add git@github.com:AsianTechInc/AtoneCon-iOS.git
 ### 1. Configuration
 
 ```swift
-var options = AtoneCon.Options(publicKey: "bB2uNvcOP2o8fJzHpWUumA")
+var options = AtoneCon.Options(publicKey: "xxxyyyzzz")
 // public key be provided by the shops
 let atoneCon = AtoneCon.shared
 atoneCon.config(options)
@@ -114,8 +114,9 @@ atoneCon.delegate = self // AtoneConDelegate
 var payment = AtoneCon.Payment(
     amount: 10,
     shopTransactionNo: "",
-    checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q="
+    checksum: "zzzccccvvvvv" // The checksum is initialized from the shop's private key and payment information
 )
+
 
 /**
 The following attributes are not required.
