@@ -111,9 +111,9 @@ atoneCon.delegate = self // AtoneConDelegate
 // These are required properties.
 
 var payment = AtoneCon.Payment(
-amount: 10,
-shopTransactionNo: "",
-checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q="
+    amount: 10,
+    shopTransactionNo: "",
+    checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q="
 )
 
 /**
@@ -157,9 +157,9 @@ payment.customer = customer
 ```swift
 // These are required properties.
 var desCustomer = AtoneCon.DesCustomer(
-name: "銀座太郎", 
-zipCode: "123-1234", 
-address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
+    name: "銀座太郎", 
+    zipCode: "123-1234", 
+    address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
 )
 
 /**						
@@ -185,10 +185,10 @@ payment.desCustomers = [desCustomer]
 ```swift
 // These are required properties.
 var item = AtoneCon.Item(
-id: "1", 
-name: "１０円チョコ", 
-price: 10, 
-count: 1
+    id: "1", 
+    name: "１０円チョコ", 
+    price: 10, 
+    count: 1
 )
 
 /**
@@ -215,19 +215,19 @@ AtonePay.performPayment(payment)
 
 ```swift
 extension Controller: AtoneConDelegate {
-func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
-switch event {
-case .authenticated(let authenToken):
-// return authenToken
-case .cancelled:
-// payment did cancelled
-case .failed(let response):
-// payment did failed
-// response type [String:Any]
-case .finished(let response):
-// payment did finised
-// response type [String:Any]
-}
-}
+    func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
+        switch event {
+        case .authenticated(let authenToken):
+        // return authenToken
+        case .cancelled:
+        // payment did cancelled
+        case .failed(let response):
+        // payment did failed
+        // response type [String:Any]
+        case .finished(let response):
+        // payment did finised
+        // response type [String:Any]
+        }
+    }
 }
 ```
