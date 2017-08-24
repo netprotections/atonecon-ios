@@ -7,7 +7,7 @@ lane :DEV do
     message: "Fastlane build DEV #{lane_context[SharedValues::BUILD_NUMBER]}",
   )
 end
-lane :PRODUCT do
+lane :PROD do
   gym
   deploygate(
     api_token: 'eca9d549fd7fc103c012494c33aa06f52c4920db',
