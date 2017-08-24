@@ -9,9 +9,9 @@
 import XCTest
 @testable import AtoneCon
 
-class SessionTest: XCTestCase {
+final class SessionTest: XCTestCase {
 
-    func testInitCredential() {
+    func testInit() {
         // When
         let credential = Session.Credential(value: "tk_23adh123bvnjKhds")
 
@@ -19,7 +19,7 @@ class SessionTest: XCTestCase {
         XCTAssertEqual(credential.value, "tk_23adh123bvnjKhds")
     }
 
-    func testloadCredential() {
+    func testload() {
         // When credential hasn't value
         Session.shared.credential = Session.Credential(value: nil)
         Session.shared.loadCredential()
@@ -36,7 +36,7 @@ class SessionTest: XCTestCase {
         XCTAssertEqual(Session.shared.credential.value, "tk_23adh123bvnjKhds")
     }
 
-    func testClearCredential() {
+    func testClear() {
         // When load credential has value
         Session.shared.credential = Session.Credential(value: "tk_23adh123bvnjKhds")
         Session.shared.clearCredential()

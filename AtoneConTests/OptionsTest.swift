@@ -9,8 +9,8 @@
 import XCTest
 @testable import AtoneCon
 
-class OptionsTest: XCTestCase {
-    func testInitOptions() {
+final class OptionsTest: XCTestCase {
+    func testInit() {
         // Given
         let options = AtoneCon.Options(publicKey: "publicKey")
 

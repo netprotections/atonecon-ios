@@ -10,35 +10,44 @@ import XCTest
 import ObjectMapper
 @testable import AtoneCon
 
-class ItemTest: XCTestCase {
+final class ItemTest: XCTestCase {
 
-    private var itemTest: AtoneCon.Item {
-        var item = AtoneCon.Item(id: "2", name: "ao", price: 100, count: 3)
-        item.url = "google.com"
-        return item
+    private var item: AtoneCon.Item?
+    private var itemJson: [String : Any] = [:]
+
+    override func setUp() {
+        super.setUp()
+        item = AtoneCon.Item(id: "2", name: "ao", price: 100, count: 3)
+        item?.url = "google.com"
+
+        itemJson = ["item_name": "ao",
+         "shop_item_id": "2",
+         "item_price": 100,
+         "item_count": 3,
+         "item_url": "google.com"]
     }
 
-    private let itemJson: [String : Any] = ["item_name": "ao",
-                                            "shop_item_id": "2",
-                                            "item_price": 100,
-                                            "item_count": 3,
-                                            "item_url": "google.com"]
-
-    func testInitItem() {
-        XCTAssertEqual(itemTest.id, "2")
-        XCTAssertEqual(itemTest.name, "ao")
-        XCTAssertEqual(itemTest.price, 100)
-        XCTAssertEqual(itemTest.count, 3)
+    func testInit() {
+        guard let item = item else {
+            fatalError("item hasn't been initialized")
+        }
+        XCTAssertEqual(item.id, "2")
+        XCTAssertEqual(item.name, "ao")
+        XCTAssertEqual(item.price, 100)
+        XCTAssertEqual(item.count, 3)
     }
 
     func testMapping() {
-        guard let item = Mapper<AtoneCon.Item>().map(JSON: itemJson) else {
+        guard let result = Mapper<AtoneCon.Item>().map(JSON: itemJson) else {
             fatalError("Wrong JSON format.")
         }
-        XCTAssertEqual(item.id, itemTest.id)
-        XCTAssertEqual(item.name, itemTest.name)
-        XCTAssertEqual(item.price, itemTest.price)
-        XCTAssertEqual(item.count, itemTest.count)
-        XCTAssertEqual(item.url, itemTest.url)
+        guard let item = item else {
+            fatalError("item hasn't been initialized")
+        }
+        XCTAssertEqual(result.id, item.id)
+        XCTAssertEqual(result.name, item.name)
+        XCTAssertEqual(result.price, item.price)
+        XCTAssertEqual(result.count, item.count)
+        XCTAssertEqual(result.url, item.url)
     }
 }

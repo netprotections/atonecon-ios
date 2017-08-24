@@ -10,37 +10,44 @@ import XCTest
 import ObjectMapper
 @testable import AtoneCon
 
-class DesCustomerTest: XCTestCase {
+final class DesCustomerTest: XCTestCase {
 
-    private var desCustomerTest: AtoneCon.DesCustomer {
-        var desCustomer = AtoneCon.DesCustomer(name: "duy", zipCode: "1234567890", address: "DaNang")
-        desCustomer.department = "AsianTech"
-        desCustomer.email = "duy.nguyen@asiantech.vn"
-        return desCustomer
+    private var desCustomer: AtoneCon.DesCustomer?
+    private var desCustomerJson: [String:Any] = [:]
+
+    override func setUp() {
+        super.setUp()
+        desCustomer = AtoneCon.DesCustomer(name: "duy", zipCode: "1234567890", address: "DaNang")
+        desCustomer?.department = "AsianTech"
+        desCustomer?.email = "duy.nguyen@asiantech.vn"
+
+        desCustomerJson = ["dest_email": "duy.nguyen@asiantech.vn",
+                           "dest_zip_code": "1234567890",
+                           "dest_address": "DaNang",
+                           "dest_department": "AsianTech",
+                           "dest_customer_name": "duy"]
     }
 
-    func testInitDesCustomer() {
-        XCTAssertEqual(desCustomerTest.name, "duy")
-        XCTAssertEqual(desCustomerTest.zipCode, "1234567890")
-        XCTAssertEqual(desCustomerTest.address, "DaNang")
+    func testInit() {
+        guard let desCustomer = desCustomer else {
+            fatalError("desCustomer hasn't beeen initialized")
+        }
+        XCTAssertEqual(desCustomer.name, "duy")
+        XCTAssertEqual(desCustomer.zipCode, "1234567890")
+        XCTAssertEqual(desCustomer.address, "DaNang")
     }
 
     func testMapping() {
-        // When
-        let desCustomerJson: [String:Any] = ["dest_email": "duy.nguyen@asiantech.vn",
-                                             "dest_zip_code": "1234567890",
-                                             "dest_address": "DaNang",
-                                             "dest_department": "AsianTech",
-                                             "dest_customer_name": "duy"]
-
-        // Then
-        guard let desCustomer = Mapper<AtoneCon.DesCustomer>().map(JSON: desCustomerJson) else {
+        guard let result = Mapper<AtoneCon.DesCustomer>().map(JSON: desCustomerJson) else {
             fatalError("Wrong JSON format.")
         }
-        XCTAssertEqual(desCustomer.name, desCustomerTest.name)
-        XCTAssertEqual(desCustomer.zipCode, desCustomerTest.zipCode)
-        XCTAssertEqual(desCustomer.address, desCustomerTest.address)
-        XCTAssertEqual(desCustomer.department, desCustomerTest.department)
-        XCTAssertEqual(desCustomer.email, desCustomerTest.email)
+        guard let desCustomer = desCustomer else {
+            fatalError("desCustomer hasn't beeen initialized")
+        }
+        XCTAssertEqual(result.name, desCustomer.name)
+        XCTAssertEqual(result.zipCode, desCustomer.zipCode)
+        XCTAssertEqual(result.address, desCustomer.address)
+        XCTAssertEqual(result.department, desCustomer.department)
+        XCTAssertEqual(result.email, desCustomer.email)
     }
 }

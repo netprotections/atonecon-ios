@@ -9,7 +9,8 @@
 import XCTest
 @testable import AtoneCon
 
-class HelperTest: XCTestCase {
+final class HelperTest: XCTestCase {
+    
     func testSizeDevice() {
         // When
         let iphone4 = Define.Helper.DeviceType.iPhone4

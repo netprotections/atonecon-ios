@@ -10,32 +10,35 @@ import XCTest
 import ObjectMapper
 @testable import AtoneCon
 
-class CustomerTest: XCTestCase {
+final class CustomerTest: XCTestCase {
 
-    private var customerTest: AtoneCon.Customer {
-        var customer = AtoneCon.Customer(name: "hanh")
-        customer.department = "AsianTech"
-        customer.email = "hanh.pham@asiantech.vn"
-        customer.phoneNumber = "01202423340"
-        return customer
+    private var customer: AtoneCon.Customer?
+    private var customerJson: [String:Any] = [:]
+
+    override func setUp() {
+        super.setUp()
+        customer = AtoneCon.Customer(name: "hanh")
+        customer?.department = "AsianTech"
+        customer?.email = "hanh.pham@asiantech.vn"
+        customer?.phoneNumber = "01202423340"
+
+        customerJson = ["department": "AsianTech",
+                        "phone_number": "01202423340",
+                        "email": "hanh.pham@asiantech.vn",
+                        "customer_name": "hanh"]
     }
 
-    private let customerJson: [String:Any] = ["department": "AsianTech",
-                                      "phone_number": "01202423340",
-                                      "email": "hanh.pham@asiantech.vn",
-                                      "customer_name": "hanh"]
-
-    func testInitCustomer() {
-        XCTAssertEqual(customerTest.name, "hanh")
+    func testInit() {
+        XCTAssertEqual(customer?.name, "hanh")
     }
 
     func testMapping() {
-        guard let customer = Mapper<AtoneCon.Customer>().map(JSON: customerJson) else {
+        guard let result = Mapper<AtoneCon.Customer>().map(JSON: customerJson) else {
             fatalError("Wrong JSON format.")
         }
-        XCTAssertEqual(customer.name, customerTest.name)
-        XCTAssertEqual(customer.department, customerTest.department)
-        XCTAssertEqual(customer.email, customerTest.email)
-        XCTAssertEqual(customer.phoneNumber, customerTest.phoneNumber)
+        XCTAssertEqual(result.name, customer?.name)
+        XCTAssertEqual(result.department, customer?.department)
+        XCTAssertEqual(result.email, customer?.email)
+        XCTAssertEqual(result.phoneNumber, customer?.phoneNumber)
     }
 }

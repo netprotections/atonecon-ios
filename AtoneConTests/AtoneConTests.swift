@@ -9,7 +9,7 @@
 import XCTest
 @testable import AtoneCon
 
-class AtoneConTests: XCTestCase {
+final class AtoneConTests: XCTestCase {
 
     func testConfig() {
         // When

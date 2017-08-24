@@ -9,25 +9,22 @@
 import XCTest
 @testable import AtoneCon
 
-class PaymentViewControllerTest: XCTestCase {
+final class PaymentViewControllerTest: XCTestCase {
 
-    let options = AtoneCon.Options(publicKey: "public_key")
-    var payment: AtoneCon.Payment {
-        var payment = AtoneCon.Payment(amount: 10, shopTransactionNo: "", checksum: "")
-        payment.customer = AtoneCon.Customer(name: "hanh")
-        payment.desCustomers = nil
-        payment.items = []
-        return payment
-    }
-    let scale = Define.Helper.Ratio.horizontal
+    private let options = AtoneCon.Options(publicKey: "public_key")
+    private var payment: AtoneCon.Payment?
+    private let scale = Define.Helper.Ratio.horizontal
+    private var json: String = ""
+    private var html: String = ""
 
-    func testloadView() {
-        // When
-        AtoneCon.shared.config(options)
-        Session.shared.credential = Session.Credential(value: "tk_abcxyz")
-        let paymentController = PaymentViewController(payment: payment)
+    override func setUp() {
+        super.setUp()
+        payment = AtoneCon.Payment(amount: 10, shopTransactionNo: "", checksum: "")
+        payment?.customer = AtoneCon.Customer(name: "hanh")
+        payment?.desCustomers = nil
+        payment?.items = []
 
-        let json = "\nAtone.config({" +
+        json = "\nAtone.config({" +
             "pre_token: \"tk_abcxyz\"," +
             "pub_key: \"public_key\"," +
             "payment: data," +
@@ -50,7 +47,7 @@ class PaymentViewControllerTest: XCTestCase {
             "});" +
         "function startAtone() { Atone.start();}\n"
 
-        let html = "<!DOCTYPE html>" +
+        html = "<!DOCTYPE html>" +
             "<html lang=\"ja\">" +
             "<head>" +
             "<meta charset=\"UTF-8\">" +
@@ -64,7 +61,17 @@ class PaymentViewControllerTest: XCTestCase {
             "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
             "</body>" +
         "</html>"
+    }
 
+    func testloadView() {
+        // When
+        AtoneCon.shared.config(options)
+        Session.shared.credential = Session.Credential(value: "tk_abcxyz")
+
+        guard let payment = payment else {
+            fatalError("payment hasn't been initialized")
+        }
+        let paymentController = PaymentViewController(payment: payment)
         // Then
         XCTAssertEqual(paymentController.handlerScript, json)
         XCTAssertEqual(paymentController.atoneHTML, html)

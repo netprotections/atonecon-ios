@@ -9,7 +9,7 @@
 import XCTest
 @testable import AtoneCon
 
-class StringTest: XCTestCase {
+final class StringTest: XCTestCase {
     func testLocalized() {
         // When
         let test = "okay"

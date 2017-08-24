@@ -10,7 +10,7 @@ import XCTest
 import WebKit
 @testable import AtoneCon
 
-class ScriptHandlerTest: XCTestCase {
+final class ScriptHandlerTest: XCTestCase {
     func testScriptEvent() {
         // When
         let cancelledEvent = ScriptEvent.cancelled
@@ -33,8 +33,5 @@ class ScriptHandlerTest: XCTestCase {
 
         // Then
         XCTAssertNotNil(scriptHandler.webView)
-    }
-
-    func testAddEvents() {
     }
 }
