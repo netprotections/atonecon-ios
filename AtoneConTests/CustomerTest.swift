@@ -28,17 +28,18 @@ final class CustomerTest: XCTestCase {
                         "customer_name": "hanh"]
     }
 
-    func testInit() {
+    func testInitShouldReturnCustomerObjectWhenInitialized() {
+        XCTAssertNotNil(customer)
         XCTAssertEqual(customer?.name, "hanh")
     }
 
-    func testMapping() {
-        guard let result = Mapper<AtoneCon.Customer>().map(JSON: customerJson) else {
-            fatalError("Wrong JSON format.")
-        }
-        XCTAssertEqual(result.name, customer?.name)
-        XCTAssertEqual(result.department, customer?.department)
-        XCTAssertEqual(result.email, customer?.email)
-        XCTAssertEqual(result.phoneNumber, customer?.phoneNumber)
+    func testMappingShouldReturnCustomerObjectWhenMapDataFromJson() {
+        let customerResult = Mapper<AtoneCon.Customer>().map(JSON: customerJson)
+        XCTAssertNotNil(customerResult)
+        XCTAssertNotNil(customer)
+        XCTAssertEqual(customerResult?.name, customer?.name)
+        XCTAssertEqual(customerResult?.department, customer?.department)
+        XCTAssertEqual(customerResult?.email, customer?.email)
+        XCTAssertEqual(customerResult?.phoneNumber, customer?.phoneNumber)
     }
 }

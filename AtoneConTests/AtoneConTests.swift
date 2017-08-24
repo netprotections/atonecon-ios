@@ -11,7 +11,7 @@ import XCTest
 
 final class AtoneConTests: XCTestCase {
 
-    func testConfig() {
+    func testConfigShouldReturnRightOptionWhenConfig() {
         // When
         let option = AtoneCon.Options(publicKey: "abcxyz")
         AtoneCon.shared.config(option)
@@ -20,7 +20,7 @@ final class AtoneConTests: XCTestCase {
         XCTAssertEqual(AtoneCon.shared.option?.publicKey, "abcxyz")
     }
 
-    func testResetAuthenToken() {
+    func testResetAuthenTokenShouldReturnEmptyAuthentokenWhenResetAuthenToken() {
         // When 
         Session.shared.credential = Session.Credential(value: "aaabbbccc")
         AtoneCon.shared.resetAuthenToken()

@@ -28,26 +28,21 @@ final class DesCustomerTest: XCTestCase {
                            "dest_customer_name": "duy"]
     }
 
-    func testInit() {
-        guard let desCustomer = desCustomer else {
-            fatalError("desCustomer hasn't beeen initialized")
-        }
-        XCTAssertEqual(desCustomer.name, "duy")
-        XCTAssertEqual(desCustomer.zipCode, "1234567890")
-        XCTAssertEqual(desCustomer.address, "DaNang")
+    func testInitShouldReturnDesCustomerObjectWhenInitialized() {
+        XCTAssertNotNil(desCustomer)
+        XCTAssertEqual(desCustomer?.name, "duy")
+        XCTAssertEqual(desCustomer?.zipCode, "1234567890")
+        XCTAssertEqual(desCustomer?.address, "DaNang")
     }
 
-    func testMapping() {
-        guard let result = Mapper<AtoneCon.DesCustomer>().map(JSON: desCustomerJson) else {
-            fatalError("Wrong JSON format.")
-        }
-        guard let desCustomer = desCustomer else {
-            fatalError("desCustomer hasn't beeen initialized")
-        }
-        XCTAssertEqual(result.name, desCustomer.name)
-        XCTAssertEqual(result.zipCode, desCustomer.zipCode)
-        XCTAssertEqual(result.address, desCustomer.address)
-        XCTAssertEqual(result.department, desCustomer.department)
-        XCTAssertEqual(result.email, desCustomer.email)
+    func testMappingShouldReturnDesCustomerObjectWhenMapDataFromJson() {
+        let desCustomerResult = Mapper<AtoneCon.DesCustomer>().map(JSON: desCustomerJson)
+        XCTAssertNotNil(desCustomerResult)
+        XCTAssertNotNil(desCustomer)
+        XCTAssertEqual(desCustomerResult?.name, desCustomer?.name)
+        XCTAssertEqual(desCustomerResult?.zipCode, desCustomer?.zipCode)
+        XCTAssertEqual(desCustomerResult?.address, desCustomer?.address)
+        XCTAssertEqual(desCustomerResult?.department, desCustomer?.department)
+        XCTAssertEqual(desCustomerResult?.email, desCustomer?.email)
     }
 }

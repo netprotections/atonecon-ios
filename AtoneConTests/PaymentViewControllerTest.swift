@@ -19,6 +19,8 @@ final class PaymentViewControllerTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        AtoneCon.shared.config(options)
+        Session.shared.credential = Session.Credential(value: "tk_abcxyz")
         payment = AtoneCon.Payment(amount: 10, shopTransactionNo: "", checksum: "")
         payment?.customer = AtoneCon.Customer(name: "hanh")
         payment?.desCustomers = nil
@@ -63,32 +65,36 @@ final class PaymentViewControllerTest: XCTestCase {
         "</html>"
     }
 
-    func testloadView() {
+    func testHandelerScriptShouldReturnRightFormatWhenInitializedPaymentViewController() {
         // When
-        AtoneCon.shared.config(options)
-        Session.shared.credential = Session.Credential(value: "tk_abcxyz")
+        XCTAssertNotNil(payment)
+        let paymentController = PaymentViewController(payment: payment!)
 
-        guard let payment = payment else {
-            fatalError("payment hasn't been initialized")
-        }
-        let paymentController = PaymentViewController(payment: payment)
         // Then
         XCTAssertEqual(paymentController.handlerScript, json)
         XCTAssertEqual(paymentController.atoneHTML, html)
+    }
 
+    func testLoadViewShouldLoadedUIWhenLoadedPaymentViewController() {
         // When
+        XCTAssertNotNil(payment)
+        let paymentController = PaymentViewController(payment: payment!)
         paymentController.viewDidLoad()
 
         // Then
         XCTAssertNotNil(paymentController.webView)
         XCTAssertNotNil(paymentController.indicator)
         XCTAssertNotNil(paymentController.scriptHandler)
+    }
 
+    func testViewDidLayoutSubViewShouldAutoSizedWKWebViewWhenOrientedDevice() {
         // When
+        XCTAssertNotNil(payment)
+        let paymentController = PaymentViewController(payment: payment!)
+        paymentController.viewDidLoad()
         paymentController.viewDidLayoutSubviews()
 
         // Then
         XCTAssertEqual(paymentController.webView.frame, UIScreen.main.bounds)
-
     }
 }

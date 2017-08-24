@@ -11,21 +11,39 @@ import WebKit
 @testable import AtoneCon
 
 final class ScriptHandlerTest: XCTestCase {
-    func testScriptEvent() {
+    func testScriptEventNameShouldReturnCancelledWhenInitializedCancelledEvent() {
         // When
         let cancelledEvent = ScriptEvent.cancelled
-        let succeededEvent = ScriptEvent.succeeded(nil)
-        let failedEvent = ScriptEvent.failed(nil)
-        let authenticatedEvent = ScriptEvent.authenticated(nil)
 
         // Then
         XCTAssertEqual(cancelledEvent.messageName.name, "cancelled")
+    }
+
+    func testScriptEventNameShouldReturnSucceededWhenInitializedSucceededEvent() {
+        // When
+        let succeededEvent = ScriptEvent.succeeded(nil)
+
+        // Then
         XCTAssertEqual(succeededEvent.messageName.name, "succeeded")
+    }
+
+    func testScriptEventNameShouldReturnFailedWhenInitializedFailedEvent() {
+        // When 
+        let failedEvent = ScriptEvent.failed(nil)
+
+        // Then
         XCTAssertEqual(failedEvent.messageName.name, "failed")
+    }
+
+    func testScriptEventNameShouldReturnAuthenticatedWhenInitializedAuthenticatedEvent() {
+        // When
+        let authenticatedEvent = ScriptEvent.authenticated(nil)
+
+        // Then
         XCTAssertEqual(authenticatedEvent.messageName.name, "authenticated")
     }
 
-    func testInit() {
+    func testInitShouldReturnScripHandleObjectWhenInitialized() {
         // When
         let configuration = WKWebViewConfiguration()
         let webView = WKWebView(frame: UIScreen.main.bounds, configuration: configuration)

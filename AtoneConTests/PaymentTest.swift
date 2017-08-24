@@ -59,34 +59,30 @@ final class PaymentTest: XCTestCase {
         ]
     }
 
-    func testInit() {
-        guard let payment = payment else {
-            fatalError("payment hasn't been initialized")
-        }
-        XCTAssertEqual(payment.amount, 10)
-        XCTAssertEqual(payment.shopTransactionNo, "shop-tran-no-123456789")
-        XCTAssertEqual(payment.checksum, "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
-        XCTAssertEqual(payment.salesSettled, false)
-        XCTAssertEqual(payment.descriptionTrans, "haha")
-        XCTAssertEqual(payment.customer.name, "hanh")
-        XCTAssertEqual(payment.items.count, 1)
-        XCTAssertEqual(payment.desCustomers?.count, 1)
+    func testInitShouldReturnPaymentObjectWhenInitialized() {
+        XCTAssertNotNil(payment)
+        XCTAssertEqual(payment?.amount, 10)
+        XCTAssertEqual(payment?.shopTransactionNo, "shop-tran-no-123456789")
+        XCTAssertEqual(payment?.checksum, "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
+        XCTAssertEqual(payment?.salesSettled, false)
+        XCTAssertEqual(payment?.descriptionTrans, "haha")
+        XCTAssertEqual(payment?.customer.name, "hanh")
+        XCTAssertEqual(payment?.items.count, 1)
+        XCTAssertNotNil(payment?.desCustomers)
+        XCTAssertEqual(payment?.desCustomers?.count, 1)
     }
 
-    func testMapping() {
-        guard let result = Mapper<AtoneCon.Payment>().map(JSON: paymentJson) else {
-            fatalError("Wrong JSON format.")
-        }
-        guard let payment = payment else {
-            fatalError("payment hasn't been initialized")
-        }
-        XCTAssertEqual(result.amount, payment.amount)
-        XCTAssertEqual(result.shopTransactionNo, payment.shopTransactionNo)
-        XCTAssertEqual(result.checksum, payment.checksum)
-        XCTAssertEqual(result.descriptionTrans, payment.descriptionTrans)
-        XCTAssertEqual(result.salesSettled, payment.salesSettled)
-        XCTAssertEqual(result.customer.name, payment.customer.name)
-        XCTAssertEqual(result.desCustomers?.count, payment.desCustomers?.count)
-        XCTAssertEqual(result.items.count, payment.items.count)
+    func testMappingShouldReturnObjectWhenMapDataFromJson() {
+        let paymentResult = Mapper<AtoneCon.Payment>().map(JSON: paymentJson)
+        XCTAssertNotNil(paymentResult)
+        XCTAssertNotNil(payment)
+        XCTAssertEqual(paymentResult?.amount, payment?.amount)
+        XCTAssertEqual(paymentResult?.shopTransactionNo, payment?.shopTransactionNo)
+        XCTAssertEqual(paymentResult?.checksum, payment?.checksum)
+        XCTAssertEqual(paymentResult?.descriptionTrans, payment?.descriptionTrans)
+        XCTAssertEqual(paymentResult?.salesSettled, payment?.salesSettled)
+        XCTAssertEqual(paymentResult?.customer.name, payment?.customer.name)
+        XCTAssertEqual(paymentResult?.desCustomers?.count, payment?.desCustomers?.count)
+        XCTAssertEqual(paymentResult?.items.count, payment?.items.count)
     }
 }

@@ -27,27 +27,22 @@ final class ItemTest: XCTestCase {
          "item_url": "google.com"]
     }
 
-    func testInit() {
-        guard let item = item else {
-            fatalError("item hasn't been initialized")
-        }
-        XCTAssertEqual(item.id, "2")
-        XCTAssertEqual(item.name, "ao")
-        XCTAssertEqual(item.price, 100)
-        XCTAssertEqual(item.count, 3)
+    func testInitShouldReturnItemObjectWhenInitialized() {
+        XCTAssertNotNil(item)
+        XCTAssertEqual(item?.id, "2")
+        XCTAssertEqual(item?.name, "ao")
+        XCTAssertEqual(item?.price, 100)
+        XCTAssertEqual(item?.count, 3)
     }
 
-    func testMapping() {
-        guard let result = Mapper<AtoneCon.Item>().map(JSON: itemJson) else {
-            fatalError("Wrong JSON format.")
-        }
-        guard let item = item else {
-            fatalError("item hasn't been initialized")
-        }
-        XCTAssertEqual(result.id, item.id)
-        XCTAssertEqual(result.name, item.name)
-        XCTAssertEqual(result.price, item.price)
-        XCTAssertEqual(result.count, item.count)
-        XCTAssertEqual(result.url, item.url)
+    func testMappingShouldReturnItemObjectWhenMapDataFromJson() {
+        let itemResult = Mapper<AtoneCon.Item>().map(JSON: itemJson)
+        XCTAssertNotNil(itemResult)
+        XCTAssertNotNil(item)
+        XCTAssertEqual(itemResult?.id, item?.id)
+        XCTAssertEqual(itemResult?.name, item?.name)
+        XCTAssertEqual(itemResult?.price, item?.price)
+        XCTAssertEqual(itemResult?.count, item?.count)
+        XCTAssertEqual(itemResult?.url, item?.url)
     }
 }

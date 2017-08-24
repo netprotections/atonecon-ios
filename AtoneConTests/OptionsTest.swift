@@ -10,11 +10,13 @@ import XCTest
 @testable import AtoneCon
 
 final class OptionsTest: XCTestCase {
-    func testInit() {
+
+    func testInitShouldReturnOptionsObjectWhenInitialized() {
         // Given
         let options = AtoneCon.Options(publicKey: "publicKey")
 
         // Then
+        XCTAssertNotNil(options)
         XCTAssertEqual(options.publicKey, "publicKey")
     }
 }
