@@ -10,17 +10,17 @@ import XCTest
 import ObjectMapper
 @testable import AtoneCon
 
-final class CustomerTest: XCTestCase {
+final class CustomerTests: XCTestCase {
 
-    private var customer: AtoneCon.Customer?
+    private var customer: AtoneCon.Customer!
     private var customerJson: [String:Any] = [:]
 
     override func setUp() {
         super.setUp()
         customer = AtoneCon.Customer(name: "hanh")
-        customer?.department = "AsianTech"
-        customer?.email = "hanh.pham@asiantech.vn"
-        customer?.phoneNumber = "01202423340"
+        customer.department = "AsianTech"
+        customer.email = "hanh.pham@asiantech.vn"
+        customer.phoneNumber = "01202423340"
 
         customerJson = ["department": "AsianTech",
                         "phone_number": "01202423340",
@@ -30,16 +30,16 @@ final class CustomerTest: XCTestCase {
 
     func testInitShouldReturnCustomerObjectWhenInitialized() {
         XCTAssertNotNil(customer)
-        XCTAssertEqual(customer?.name, "hanh")
+        XCTAssertEqual(customer.name, "hanh")
     }
 
     func testMappingShouldReturnCustomerObjectWhenMapDataFromJson() {
-        let customerResult = Mapper<AtoneCon.Customer>().map(JSON: customerJson)
+        let customerResult: AtoneCon.Customer! = Mapper<AtoneCon.Customer>().map(JSON: customerJson)
         XCTAssertNotNil(customerResult)
         XCTAssertNotNil(customer)
-        XCTAssertEqual(customerResult?.name, customer?.name)
-        XCTAssertEqual(customerResult?.department, customer?.department)
-        XCTAssertEqual(customerResult?.email, customer?.email)
-        XCTAssertEqual(customerResult?.phoneNumber, customer?.phoneNumber)
+        XCTAssertEqual(customerResult.name, customer.name)
+        XCTAssertEqual(customerResult.department, customer.department)
+        XCTAssertEqual(customerResult.email, customer.email)
+        XCTAssertEqual(customerResult.phoneNumber, customer.phoneNumber)
     }
 }

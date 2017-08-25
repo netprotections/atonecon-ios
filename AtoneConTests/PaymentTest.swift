@@ -12,7 +12,7 @@ import ObjectMapper
 
 final class PaymentTest: XCTestCase {
 
-    private var payment: AtoneCon.Payment?
+    private var payment: AtoneCon.Payment!
     private var paymentJson: [String:Any] = [:]
 
     override func setUp() {
@@ -26,11 +26,11 @@ final class PaymentTest: XCTestCase {
             amount: 10,
             shopTransactionNo: "shop-tran-no-123456789",
             checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
-        payment?.salesSettled = false
-        payment?.descriptionTrans = "haha"
-        payment?.customer = customer
-        payment?.desCustomers = [desCustomer]
-        payment?.items = [item]
+        payment.salesSettled = false
+        payment.descriptionTrans = "haha"
+        payment.customer = customer
+        payment.desCustomers = [desCustomer]
+        payment.items = [item]
 
         paymentJson = [
             "amount": 10,
@@ -61,28 +61,28 @@ final class PaymentTest: XCTestCase {
 
     func testInitShouldReturnPaymentObjectWhenInitialized() {
         XCTAssertNotNil(payment)
-        XCTAssertEqual(payment?.amount, 10)
-        XCTAssertEqual(payment?.shopTransactionNo, "shop-tran-no-123456789")
-        XCTAssertEqual(payment?.checksum, "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
-        XCTAssertEqual(payment?.salesSettled, false)
-        XCTAssertEqual(payment?.descriptionTrans, "haha")
-        XCTAssertEqual(payment?.customer.name, "hanh")
-        XCTAssertEqual(payment?.items.count, 1)
-        XCTAssertNotNil(payment?.desCustomers)
-        XCTAssertEqual(payment?.desCustomers?.count, 1)
+        XCTAssertEqual(payment.amount, 10)
+        XCTAssertEqual(payment.shopTransactionNo, "shop-tran-no-123456789")
+        XCTAssertEqual(payment.checksum, "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
+        XCTAssertEqual(payment.salesSettled, false)
+        XCTAssertEqual(payment.descriptionTrans, "haha")
+        XCTAssertEqual(payment.customer.name, "hanh")
+        XCTAssertEqual(payment.items.count, 1)
+        XCTAssertNotNil(payment.desCustomers)
+        XCTAssertEqual(payment.desCustomers?.count, 1)
     }
 
     func testMappingShouldReturnObjectWhenMapDataFromJson() {
-        let paymentResult = Mapper<AtoneCon.Payment>().map(JSON: paymentJson)
+        let paymentResult: AtoneCon.Payment! = Mapper<AtoneCon.Payment>().map(JSON: paymentJson)
         XCTAssertNotNil(paymentResult)
         XCTAssertNotNil(payment)
-        XCTAssertEqual(paymentResult?.amount, payment?.amount)
-        XCTAssertEqual(paymentResult?.shopTransactionNo, payment?.shopTransactionNo)
-        XCTAssertEqual(paymentResult?.checksum, payment?.checksum)
-        XCTAssertEqual(paymentResult?.descriptionTrans, payment?.descriptionTrans)
-        XCTAssertEqual(paymentResult?.salesSettled, payment?.salesSettled)
-        XCTAssertEqual(paymentResult?.customer.name, payment?.customer.name)
-        XCTAssertEqual(paymentResult?.desCustomers?.count, payment?.desCustomers?.count)
-        XCTAssertEqual(paymentResult?.items.count, payment?.items.count)
+        XCTAssertEqual(paymentResult.amount, payment.amount)
+        XCTAssertEqual(paymentResult.shopTransactionNo, payment.shopTransactionNo)
+        XCTAssertEqual(paymentResult.checksum, payment.checksum)
+        XCTAssertEqual(paymentResult.descriptionTrans, payment.descriptionTrans)
+        XCTAssertEqual(paymentResult.salesSettled, payment.salesSettled)
+        XCTAssertEqual(paymentResult.customer.name, payment.customer.name)
+        XCTAssertEqual(paymentResult.desCustomers?.count, payment.desCustomers?.count)
+        XCTAssertEqual(paymentResult.items.count, payment.items.count)
     }
 }

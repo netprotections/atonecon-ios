@@ -10,16 +10,16 @@ import XCTest
 import ObjectMapper
 @testable import AtoneCon
 
-final class DesCustomerTest: XCTestCase {
+final class DesCustomerTests: XCTestCase {
 
-    private var desCustomer: AtoneCon.DesCustomer?
+    private var desCustomer: AtoneCon.DesCustomer!
     private var desCustomerJson: [String:Any] = [:]
 
     override func setUp() {
         super.setUp()
         desCustomer = AtoneCon.DesCustomer(name: "duy", zipCode: "1234567890", address: "DaNang")
-        desCustomer?.department = "AsianTech"
-        desCustomer?.email = "duy.nguyen@asiantech.vn"
+        desCustomer.department = "AsianTech"
+        desCustomer.email = "duy.nguyen@asiantech.vn"
 
         desCustomerJson = ["dest_email": "duy.nguyen@asiantech.vn",
                            "dest_zip_code": "1234567890",
@@ -30,19 +30,19 @@ final class DesCustomerTest: XCTestCase {
 
     func testInitShouldReturnDesCustomerObjectWhenInitialized() {
         XCTAssertNotNil(desCustomer)
-        XCTAssertEqual(desCustomer?.name, "duy")
-        XCTAssertEqual(desCustomer?.zipCode, "1234567890")
-        XCTAssertEqual(desCustomer?.address, "DaNang")
+        XCTAssertEqual(desCustomer.name, "duy")
+        XCTAssertEqual(desCustomer.zipCode, "1234567890")
+        XCTAssertEqual(desCustomer.address, "DaNang")
     }
 
     func testMappingShouldReturnDesCustomerObjectWhenMapDataFromJson() {
-        let desCustomerResult = Mapper<AtoneCon.DesCustomer>().map(JSON: desCustomerJson)
+        let desCustomerResult: AtoneCon.DesCustomer! = Mapper<AtoneCon.DesCustomer>().map(JSON: desCustomerJson)
         XCTAssertNotNil(desCustomerResult)
         XCTAssertNotNil(desCustomer)
-        XCTAssertEqual(desCustomerResult?.name, desCustomer?.name)
-        XCTAssertEqual(desCustomerResult?.zipCode, desCustomer?.zipCode)
-        XCTAssertEqual(desCustomerResult?.address, desCustomer?.address)
-        XCTAssertEqual(desCustomerResult?.department, desCustomer?.department)
-        XCTAssertEqual(desCustomerResult?.email, desCustomer?.email)
+        XCTAssertEqual(desCustomerResult.name, desCustomer.name)
+        XCTAssertEqual(desCustomerResult.zipCode, desCustomer.zipCode)
+        XCTAssertEqual(desCustomerResult.address, desCustomer.address)
+        XCTAssertEqual(desCustomerResult.department, desCustomer.department)
+        XCTAssertEqual(desCustomerResult.email, desCustomer.email)
     }
 }
