@@ -57,7 +57,7 @@ final internal class PaymentViewController: UIViewController {
         super.viewDidLoad()
         setupWebView()
         setupIndicator()
-        addCloseButton()
+        setupCloseButton()
     }
 
     override func viewDidLayoutSubviews() {
@@ -82,11 +82,11 @@ final internal class PaymentViewController: UIViewController {
         scriptHandler.delegate = self
     }
 
-    private func addCloseButton() {
+    private func setupCloseButton() {
         // Client will supply icon and size for button.
-        let closeButtonWidth: CGFloat = 60 * Define.Helper.Ratio.horizontal
-        let closeButtonFrame: CGRect = CGRect(x: view.frame.width - closeButtonWidth, y: 0, width: closeButtonWidth, height: closeButtonWidth)
-        closeButton = UIButton(frame: closeButtonFrame)
+        let width: CGFloat = 60 * Define.Helper.Ratio.horizontal
+        let frame: CGRect = CGRect(x: view.frame.width - width, y: 0, width: width, height: width)
+        closeButton = UIButton(frame: frame)
         closeButton.setTitle(Define.String.close, for: .normal)
         closeButton.addTarget(self, action: #selector(closeWebView), for: .touchUpInside)
         view.addSubview(closeButton)
