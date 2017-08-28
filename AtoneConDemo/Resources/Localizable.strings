@@ -10,7 +10,7 @@
 "resetAuthen" = "認証情報をリセット";
 "authenTokenTitle" = " 認証トークン ";
 "atoneButtonTitle" = "atoneを使う";
-"textFieldPlaceHolder" = "Input TransactionNo";
+"textFieldPlaceHolder" = "加盟店取引IDを入力";
 "okay" = "OK";
 "finished" = "Finished";
 "failed" = "Failed";

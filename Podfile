@@ -26,4 +26,5 @@ target 'AtoneConDemo' do
     pod 'SwiftLint', '~> 0.16.1'
     pod 'SwiftUtils', '~> 2.1'
     pod 'AtoneCon', :path => './'
+    pod 'Toaster', '~> 2.0.4'
 end

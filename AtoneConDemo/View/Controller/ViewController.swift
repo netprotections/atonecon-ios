@@ -8,6 +8,7 @@
 
 import UIKit
 import AtoneCon
+import Toaster
 
 final class ViewController: UIViewController {
 
@@ -70,10 +71,11 @@ extension ViewController: AtoneConDelegate {
         switch event {
         case .authenticated(let authenToken):
             viewModel.saveAuthenToken(token: authenToken)
+            let message: String? = "Authentication: \(String(describing: authenToken)))"
+            Toast(text: message, delay: 0.1, duration: 3).show()
         case .cancelled:
-            atoneCon.dismiss { [weak self] in
-                guard let this = self else { return }
-                this.showAlert(title: Define.String.cancel, message: nil)
+            atoneCon.dismiss { _ in
+                Toast(text: Define.String.cancel, delay: 0.1, duration: 3).show()
             }
         case .failed(let response):
             let message: String? = response?.description
