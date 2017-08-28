@@ -10,6 +10,7 @@
 		15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */; };
 		160FFC011F42A5F8001FBD01 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 160FFC001F42A5F8001FBD01 /* Localizable.strings */; };
 		16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */; };
+		16363B201F54221700CE11D5 /* icClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 16363B1F1F54221700CE11D5 /* icClose.png */; };
 		166374AB1F21A796002C8821 /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166374AA1F21A796002C8821 /* Scripts.swift */; };
 		169110101F30319000E3B6D4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1691100F1F30319000E3B6D4 /* Helper.swift */; };
 		16946AFD1F0B3EBB00CE6FF8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		160FFC001F42A5F8001FBD01 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		16363B1F1F54221700CE11D5 /* icClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icClose.png; sourceTree = "<group>"; };
 		166374AA1F21A796002C8821 /* Scripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
 		1691100F1F30319000E3B6D4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		16946AFC1F0B3EBB00CE6FF8 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16363B1E1F54221700CE11D5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				16363B1F1F54221700CE11D5 /* icClose.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		990B5E941F03957000B142E7 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 		9963B02F1F0A9EE4008C4F95 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				16363B1E1F54221700CE11D5 /* Resource */,
 				99ECEE4C1F0B8E3A00A1D1B0 /* Define */,
 				9963B0301F0A9EE4008C4F95 /* AtoneCon.swift */,
 				9963B0311F0A9EE4008C4F95 /* Options.swift */,
@@ -280,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16363B201F54221700CE11D5 /* icClose.png in Resources */,
 				160FFC011F42A5F8001FBD01 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

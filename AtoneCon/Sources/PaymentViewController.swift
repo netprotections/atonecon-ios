@@ -84,10 +84,14 @@ final internal class PaymentViewController: UIViewController {
 
     private func setupCloseButton() {
         // Client will supply icon and size for button.
-        let width: CGFloat = 60 * Define.Helper.Ratio.horizontal
-        let frame: CGRect = CGRect(x: view.frame.width - width, y: 0, width: width, height: width)
+        let width: CGFloat = 40 * Define.Helper.Ratio.horizontal
+        let heightStatusBar = UIApplication.shared.statusBarFrame.height
+        let inset: CGFloat = 5 * Define.Helper.Ratio.horizontal
+        let frame: CGRect = CGRect(x: view.frame.width - width - inset, y: inset + heightStatusBar, width: width, height: width)
         closeButton = UIButton(frame: frame)
-        closeButton.setTitle(Define.String.close, for: .normal)
+        let bundle = Bundle(for: PaymentViewController.self)
+        let image = UIImage(named: "icClose", in: bundle, compatibleWith: nil)
+        closeButton.setBackgroundImage(image, for: .normal)
         closeButton.addTarget(self, action: #selector(closeWebView), for: .touchUpInside)
         view.addSubview(closeButton)
     }
