@@ -77,10 +77,7 @@ extension ViewController: AtoneConDelegate {
                 this.showAlert(title: Define.String.cancel, message: nil)
             }
         case .failed(let response):
-            var message: String?
-            if let response = response {
-                message = response.toJSONString()
-            }
+            let message = response?.toJSONString()
             atoneCon.dismiss { [weak self] in
                 guard let this = self else { return }
                 this.showAlert(title: Define.String.failed, message: message)
