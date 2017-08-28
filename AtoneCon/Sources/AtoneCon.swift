@@ -39,9 +39,8 @@ final public class AtoneCon {
         }
         self.payment = payment
         let paymentController = PaymentViewController(payment: payment)
-        let paymentNavigation = UINavigationController(rootViewController: paymentController)
         paymentController.delegate = self
-        root.present(paymentNavigation, animated: true, completion: nil)
+        root.present(paymentController, animated: true, completion: nil)
     }
 
     public func dismiss(completion: (() -> Void)? = nil) {
