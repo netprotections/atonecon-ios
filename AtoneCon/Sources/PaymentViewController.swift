@@ -22,8 +22,8 @@ final internal class PaymentViewController: UIViewController {
     // MARK: - Properties
     private var payment: AtoneCon.Payment?
     private var webView: WKWebView!
-    fileprivate var indicator: UIActivityIndicatorView!
     private var scriptHandler: ScriptHandler!
+    fileprivate var indicator: UIActivityIndicatorView!
     fileprivate var closeButton: UIButton!
 
     private var handlerScript: String {
@@ -57,6 +57,7 @@ final internal class PaymentViewController: UIViewController {
         super.viewDidLoad()
         setupWebView()
         setupIndicator()
+        addCloseButton()
     }
 
     override func viewDidLayoutSubviews() {
@@ -73,7 +74,6 @@ final internal class PaymentViewController: UIViewController {
         webView.contentMode = .scaleToFill
         webView.autoresizingMask = .flexibleWidth
         view.addSubview(webView)
-        addCloseButton()
         webView.loadHTMLString(atoneHTML, baseURL: nil)
         webView.navigationDelegate = self
         webView.uiDelegate = self
@@ -83,11 +83,12 @@ final internal class PaymentViewController: UIViewController {
     }
 
     private func addCloseButton() {
-        let buttonWidth: CGFloat = 50 * Define.Helper.Ratio.horizontal
-        closeButton = UIButton(frame: CGRect(x: view.frame.width - buttonWidth, y: 0, width: buttonWidth, height: buttonWidth))
-        // TODO: Client will supply icon for button.
-        closeButton.setTitle("Close", for: .normal)
-        closeButton.addTarget(self, action: #selector(closeWebView(_:)), for: .touchUpInside)
+        // Client will supply icon and size for button.
+        let closeButtonWidth: CGFloat = 60 * Define.Helper.Ratio.horizontal
+        let closeButtonFrame: CGRect = CGRect(x: view.frame.width - closeButtonWidth, y: 0, width: closeButtonWidth, height: closeButtonWidth)
+        closeButton = UIButton(frame: closeButtonFrame)
+        closeButton.setTitle(Define.String.close, for: .normal)
+        closeButton.addTarget(self, action: #selector(closeWebView), for: .touchUpInside)
         view.addSubview(closeButton)
     }
 
@@ -119,7 +120,7 @@ final internal class PaymentViewController: UIViewController {
         }
     }
 
-    @objc private func closeWebView(_ sender: Any) {
+    @objc private func closeWebView() {
         let alert = UIAlertController(title: Define.String.quitPayment, message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: Define.String.cancel, style: .cancel, handler: nil)
         let ok = UIAlertAction(title: Define.String.okay, style: .default, handler: { _ in
