@@ -77,9 +77,9 @@ extension ViewController: AtoneConDelegate {
                 this.showAlert(title: Define.String.cancel, message: nil)
             }
         case .failed(let response):
-            var message: String? = ""
+            var message: String?
             if let response = response {
-                message = response.toJSONString(options: [])
+                message = response.toJSONString()
             }
             atoneCon.dismiss { [weak self] in
                 guard let this = self else { return }
@@ -187,7 +187,7 @@ extension Dictionary where Key == String, Value == Any {
     func toJSONString(options: JSONSerialization.WritingOptions = []) -> String? {
         do {
             let data = try JSONSerialization.data(withJSONObject: self, options: options)
-            return String(data: data, encoding: String.Encoding.utf8)
+            return String(data: data, encoding: .utf8)
         } catch {
             return nil
         }
