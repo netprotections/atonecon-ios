@@ -11,6 +11,11 @@ import XCTest
 
 final class SessionTest: XCTestCase {
 
+    override func tearDown() {
+        super.tearDown()
+        Session.shared.clearCredential()
+    }
+
     func testLoadCredentialShouldReturnEmptyStringWhenValueCredentialNil() {
         // When
         Session.shared.credential = Session.Credential(value: nil)

@@ -11,10 +11,9 @@ import XCTest
 
 final class AtoneConTests: XCTestCase {
 
-    var payment: AtoneCon.Payment!
-
-    override func setUp() {
+    override class func setUp() {
         super.setUp()
+        var payment: AtoneCon.Payment!
         let customer = AtoneCon.Customer(name: "hanh")
         let desCustomer = AtoneCon.DesCustomer(name: "duy", zipCode: "123123", address: "DaNang")
         let item = AtoneCon.Item(id: "1", name: "quan", price: 100, count: 1)
