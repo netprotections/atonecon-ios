@@ -6,7 +6,7 @@ PODS:
   - SAMKeychain (1.5.2)
   - SwiftLint (0.16.1)
   - SwiftUtils (2.1.1)
-  - Toaster (2.0.4)
+  - Toast-Swift (2.0.0)
 
 DEPENDENCIES:
   - AtoneCon (from `./`)
@@ -14,7 +14,7 @@ DEPENDENCIES:
   - SAMKeychain (~> 1.5)
   - SwiftLint (~> 0.16.1)
   - SwiftUtils (~> 2.1)
-  - Toaster (~> 2.0.4)
+  - Toast-Swift (~> 2.0.0)
 
 EXTERNAL SOURCES:
   AtoneCon:
@@ -26,8 +26,8 @@ SPEC CHECKSUMS:
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   SwiftUtils: 3f79be4fec34ac8b7c95d2ec15c9feebe81f1fc1
-  Toaster: f13031c636ef065281bc11857be9a16c7659e04f
+  Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: b3f0dad98d476d7aac838c8f849e5d573111e00f
+PODFILE CHECKSUM: 2b6056dc6e90169bdc5eca124fb9aaee388f1966
 
 COCOAPODS: 1.2.1
