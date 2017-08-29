@@ -85,13 +85,12 @@ final internal class PaymentViewController: UIViewController {
     private func setupCloseButton() {
         // Client will supply icon and size for button.
         let width: CGFloat = 40 * Define.Helper.Ratio.horizontal
-        let heightStatusBar = UIApplication.shared.statusBarFrame.height
-        let inset: CGFloat = 5 * Define.Helper.Ratio.horizontal
-        let frame: CGRect = CGRect(x: view.frame.width - width - inset, y: inset + heightStatusBar, width: width, height: width)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let buttonEdgeInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 5)
+        let frame = CGRect(x: view.frame.width - width - buttonEdgeInset.right, y: buttonEdgeInset.top + statusBarHeight, width: width, height: width)
         closeButton = UIButton(frame: frame)
-        let bundle = Bundle(for: PaymentViewController.self)
-        let image = UIImage(named: "icClose", in: bundle, compatibleWith: nil)
-        closeButton.setBackgroundImage(image, for: .normal)
+        let imageCloseButton = UIImage(named: Define.String.closeImage, in: Bundle.current, compatibleWith: nil)
+        closeButton.setBackgroundImage(imageCloseButton, for: .normal)
         closeButton.addTarget(self, action: #selector(closeWebView), for: .touchUpInside)
         view.addSubview(closeButton)
     }
@@ -163,4 +162,8 @@ extension PaymentViewController: ScriptHandlerDelegate {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent) {
         delegate?.controller(self, didReceiveScriptEvent: event)
     }
+}
+
+extension Bundle {
+    static let current = Bundle(for: PaymentViewController.self)
 }
