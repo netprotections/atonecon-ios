@@ -32,7 +32,7 @@ final internal class PaymentViewController: UIViewController {
         }
 
         var preToken = ""
-        if let accessToken = Session.shared.credential.value {
+        if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
         }
 

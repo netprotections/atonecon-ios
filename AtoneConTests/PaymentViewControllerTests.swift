@@ -20,7 +20,7 @@ final class PaymentViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         AtoneCon.shared.config(options)
-        Session.shared.credential = Session.Credential(value: "tk_abcxyz")
+        Session.shared.credential = Session.Credential(authToken: "tk_abcxyz")
         payment = AtoneCon.Payment(amount: 10, shopTransactionNo: "", checksum: "")
         payment.customer = AtoneCon.Customer(name: "hanh")
         payment.desCustomers = nil

@@ -21,11 +21,12 @@ final class AtoneConTests: XCTestCase {
     }
 
     func testResetAuthenTokenShouldReturnEmptyAuthenTokenWhenResetAuthenToken() {
-        // When 
-        Session.shared.credential = Session.Credential(value: "aaabbbccc")
+        // When
+        Session.shared.credential = Session.Credential(authToken: "aaabbbccc")
         AtoneCon.shared.resetAuthenToken()
 
         // Then 
-        XCTAssertEqual(Session.shared.credential.value, "")
+        XCTAssertFalse(Session.shared.credential.isValid)
+        XCTAssertEqual(Session.shared.credential.authToken, "")
     }
 }

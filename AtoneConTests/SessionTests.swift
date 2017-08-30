@@ -16,39 +16,39 @@ final class SessionTests: XCTestCase {
         Session.shared.clearCredential()
     }
 
-    func testLoadCredentialShouldReturnEmptyStringWhenValueCredentialNil() {
+    func testLoadCredentialShouldReturnInvalidCredentialWhenAuthTokenIsNil() {
         // When
-        Session.shared.credential = Session.Credential(value: nil)
+        Session.shared.credential = Session.Credential(authToken: nil)
         Session.shared.loadCredential()
 
         // Then
-        XCTAssertEqual(Session.shared.credential.value, "")
+        XCTAssertFalse(Session.shared.credential.isValid)
     }
 
     func testLoadCredentialShouldReturnStringWhenValueCredentialIsNotEmpty() {
         // When
-        Session.shared.credential = Session.Credential(value: "tk_23adh123bvnjKhds")
+        Session.shared.credential = Session.Credential(authToken: "tk_23adh123bvnjKhds")
         Session.shared.loadCredential()
 
         // Then
-        XCTAssertEqual(Session.shared.credential.value, "tk_23adh123bvnjKhds")
+        XCTAssertTrue(Session.shared.credential.isValid)
     }
 
     func testLoadCredentialShouldReturnEmptyStringWhenValueCredentialIsEmptyString() {
         // When
-        Session.shared.credential = Session.Credential(value: "")
+        Session.shared.credential = Session.Credential(authToken: "")
         Session.shared.loadCredential()
 
         // Then
-        XCTAssertEqual(Session.shared.credential.value, "")
+        XCTAssertFalse(Session.shared.credential.isValid)
     }
 
     func testClearCredentialShouldReturnEmptyWhenRemoveCredential() {
         // When
-        Session.shared.credential = Session.Credential(value: "tk_23adh123bvnjKhds")
+        Session.shared.credential = Session.Credential(authToken: "tk_23adh123bvnjKhds")
         Session.shared.clearCredential()
 
         // Then
-        XCTAssertEqual(Session.shared.credential.value, "")
+        XCTAssertFalse(Session.shared.credential.isValid)
     }
 }

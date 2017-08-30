@@ -72,7 +72,7 @@ extension ScriptHandler: WKScriptMessageHandler {
         switch messageName {
         case .authenticated :
             let token = message.body as? String
-            Session.shared.credential = Session.Credential(value: token)
+            Session.shared.credential = Session.Credential(authToken: token)
             event = ScriptEvent.authenticated(token)
         case .cancelled:
             event = ScriptEvent.cancelled

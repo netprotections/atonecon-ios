@@ -13,7 +13,6 @@ import ObjectMapper
 final class PaymentTests: XCTestCase {
 
     private var payment: AtoneCon.Payment!
-    private var paymentJson: [String:Any] = [:]
 
     override func setUp() {
         super.setUp()
@@ -31,35 +30,9 @@ final class PaymentTests: XCTestCase {
         payment.customer = customer
         payment.desCustomers = [desCustomer]
         payment.items = [item]
-
-        paymentJson = [
-            "amount": 10,
-            "shop_transaction_no": "shop-tran-no-123456789",
-            "checksum": "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=",
-            "sales_settled": false,
-            "description_trans": "haha",
-            "customer": [
-                "customer_name": "hanh"
-            ],
-            "dest_customers": [
-                [
-                    "dest_zip_code": "123123",
-                    "dest_address": "DaNang",
-                    "dest_customer_name": "duy"
-                ]
-            ],
-            "items": [
-                [
-                    "item_name": "quan",
-                    "shop_item_id": "1",
-                    "item_price": 100,
-                    "item_count": 1
-                ]
-            ]
-        ]
     }
 
-    func testInitShouldReturnPaymentObjectWhenInitialized() {
+    func testInitShouldReturnValidWhenInitialized() {
         XCTAssertNotNil(payment)
         XCTAssertEqual(payment.amount, 10)
         XCTAssertEqual(payment.shopTransactionNo, "shop-tran-no-123456789")
@@ -70,19 +43,5 @@ final class PaymentTests: XCTestCase {
         XCTAssertEqual(payment.items.count, 1)
         XCTAssertNotNil(payment.desCustomers)
         XCTAssertEqual(payment.desCustomers?.count, 1)
-    }
-
-    func testMappingShouldReturnObjectWhenMapDataFromJson() {
-        let paymentResult: AtoneCon.Payment! = Mapper<AtoneCon.Payment>().map(JSON: paymentJson)
-        XCTAssertNotNil(paymentResult)
-        XCTAssertNotNil(payment)
-        XCTAssertEqual(paymentResult.amount, payment.amount)
-        XCTAssertEqual(paymentResult.shopTransactionNo, payment.shopTransactionNo)
-        XCTAssertEqual(paymentResult.checksum, payment.checksum)
-        XCTAssertEqual(paymentResult.descriptionTrans, payment.descriptionTrans)
-        XCTAssertEqual(paymentResult.salesSettled, payment.salesSettled)
-        XCTAssertEqual(paymentResult.customer.name, payment.customer.name)
-        XCTAssertEqual(paymentResult.desCustomers?.count, payment.desCustomers?.count)
-        XCTAssertEqual(paymentResult.items.count, payment.items.count)
     }
 }

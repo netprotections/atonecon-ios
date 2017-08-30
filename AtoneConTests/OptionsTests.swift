@@ -11,7 +11,7 @@ import XCTest
 
 final class OptionsTests: XCTestCase {
 
-    func testInitShouldReturnOptionsObjectWhenInitialized() {
+    func testInitShouldReturnValidWhenInitialized() {
         // Given
         let options = AtoneCon.Options(publicKey: "publicKey")
 

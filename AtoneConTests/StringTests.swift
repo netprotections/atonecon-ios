@@ -13,17 +13,19 @@ final class StringTests: XCTestCase {
 
     func testLocalizedShouldReturnStringResultWhenItWasDefinedInLocalizableString() {
         // When "okay" was defined is "OK" in localizable.strings
-        let test = "okay"
+        let okay = "okay"
+        let network = "network"
+        let cancel = "cancel"
+        let close = "close"
+        let quitPayment = "quitPayment"
+        let networkError = "networkError"
 
         // Then
-        XCTAssertEqual(test.localized(), "OK")
-    }
-
-    func testLocalizedShouldReturnItselftWhenItWasNotDefinedInLocalizableString() {
-        // When "hanh" was not defined in localizable.strings
-        let test = "hanh"
-
-        // Then
-        XCTAssertEqual(test.localized(), "hanh")
+        XCTAssertEqual(okay.localized(), "OK")
+        XCTAssertEqual(network.localized(), "ネットワーク")
+        XCTAssertEqual(cancel.localized(), "キャンセル")
+        XCTAssertEqual(close.localized(), "閉じる")
+        XCTAssertEqual(quitPayment.localized(), "決済が終了します。よろしいでしょうか？")
+        XCTAssertEqual(networkError.localized(), "ネットワークが圏外です")
     }
 }
