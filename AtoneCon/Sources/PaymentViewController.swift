@@ -24,6 +24,7 @@ final internal class PaymentViewController: UIViewController {
     internal var webView: WKWebView!
     internal var indicator: UIActivityIndicatorView!
     internal var scriptHandler: ScriptHandler!
+    fileprivate var closeButton: UIButton!
 
     internal var handlerScript: String {
         var publicKey = ""
@@ -56,7 +57,7 @@ final internal class PaymentViewController: UIViewController {
         super.viewDidLoad()
         setupWebView()
         setupIndicator()
-        setupNavigation()
+        setupCloseButton()
     }
 
     override func viewDidLayoutSubviews() {
@@ -79,6 +80,19 @@ final internal class PaymentViewController: UIViewController {
         scriptHandler = ScriptHandler(forWebView: webView)
         scriptHandler.addEvents()
         scriptHandler.delegate = self
+    }
+
+    private func setupCloseButton() {
+        // Client will supply icon and size for button.
+        let width: CGFloat = 36 * Define.Helper.Ratio.horizontal
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let edgeInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 5)
+        let frame = CGRect(x: view.frame.width - width - edgeInset.right, y: edgeInset.top + statusBarHeight, width: width, height: width)
+        closeButton = UIButton(frame: frame)
+        let imageCloseButton = UIImage(named: Define.String.Image.close, in: Bundle.current, compatibleWith: nil)
+        closeButton.setBackgroundImage(imageCloseButton, for: .normal)
+        closeButton.addTarget(self, action: #selector(closeWebView), for: .touchUpInside)
+        view.addSubview(closeButton)
     }
 
     private func setupIndicator() {
@@ -107,6 +121,17 @@ final internal class PaymentViewController: UIViewController {
             }
         }
     }
+
+    @objc private func closeWebView() {
+        let alert = UIAlertController(title: Define.String.quitPayment, message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: Define.String.cancel, style: .cancel, handler: nil)
+        let ok = UIAlertAction(title: Define.String.okay, style: .default, handler: { _ in
+            AtoneCon.shared.dismiss()
+        })
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - WKNavigationDelegate
@@ -116,6 +141,7 @@ extension PaymentViewController: WKNavigationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let this = self else { return }
             this.indicator.stopAnimating()
+            this.closeButton.isHidden = true
             this.startAtone()
         }
     }
@@ -134,24 +160,5 @@ extension PaymentViewController: WKUIDelegate {
 extension PaymentViewController: ScriptHandlerDelegate {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent) {
         delegate?.controller(self, didReceiveScriptEvent: event)
-    }
-}
-
-// MARK: - Setup Navigation 
-extension PaymentViewController {
-    fileprivate func setupNavigation() {
-        let closeButton = UIBarButtonItem(title: Define.String.close, style: .plain, target: self, action: #selector(closeWebView))
-        navigationItem.rightBarButtonItem = closeButton
-    }
-
-    @objc private func closeWebView() {
-        let alert = UIAlertController(title: Define.String.quitPayment, message: nil, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: Define.String.cancel, style: .cancel, handler: nil)
-        let ok = UIAlertAction(title: Define.String.okay, style: .default, handler: { _ in
-            AtoneCon.shared.dismiss()
-        })
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        self.present(alert, animated: true, completion: nil)
     }
 }
