@@ -19,6 +19,12 @@ extension Define {
 }
 
 extension Define.String {
+    internal class Image {
+        static let close = "ic_close"
+    }
+}
+
+extension Define.String {
     internal struct Error {
         static let network = "networkError".localized()
     }
