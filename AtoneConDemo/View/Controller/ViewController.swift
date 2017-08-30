@@ -59,6 +59,7 @@ final class ViewController: UIViewController {
         let payment = viewModel.payment(withTransaction: transactionTextField.text)
         atoneCon.performPayment(payment)
     }
+
     @IBAction func resetTokenButtonTapped(_ sender: Any) {
         viewModel.resetAuthenToken()
         updateView()
@@ -80,8 +81,11 @@ extension ViewController: AtoneConDelegate {
                 root?.view.makeToast(Define.String.cancel, duration: 2, position: .bottom)
             }
         case .failed(let response):
-            let message: String? = response?.description
-            showAlert(title: Define.String.failed, message: message)
+            let message = response?.toJSONString()
+            atoneCon.dismiss { [weak self] in
+                guard let this = self else { return }
+                this.showAlert(title: Define.String.failed, message: message)
+            }
         case .finished(let response):
             let message = response?.description
             atoneCon.dismiss { [weak self] in
@@ -176,6 +180,17 @@ extension UIViewController {
             return controller.presentedViewController?.visibleController
         default:
             return self
+        }
+    }
+}
+
+extension Dictionary where Key == String, Value == Any {
+    func toJSONString(options: JSONSerialization.WritingOptions = []) -> String? {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: self, options: options)
+            return String(data: data, encoding: .utf8)
+        } catch {
+            return nil
         }
     }
 }
