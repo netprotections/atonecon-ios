@@ -23,7 +23,7 @@ s.platform     = :ios, "8.0"
 s.source       = { :git => "https://github.com/AsianTechInc/AtoneCon-iOS.git", :tag => "#{s.version}" }
 
 # Source Code
-s.source_files = "AtoneCon/Sources/**/*.{swift,strings}", "AtoneCon/Resources/**/**/*.png"
+s.source_files = "AtoneCon/Resources/**/**/*.png"
 
 # Project Settings
 s.requires_arc = true
