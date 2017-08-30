@@ -9,7 +9,7 @@
 import XCTest
 @testable import AtoneCon
 
-final class PaymentViewControllerTest: XCTestCase {
+final class PaymentViewControllerTests: XCTestCase {
 
     private let options = AtoneCon.Options(publicKey: "public_key")
     private var payment: AtoneCon.Payment!

@@ -10,7 +10,7 @@ import XCTest
 import ObjectMapper
 @testable import AtoneCon
 
-final class PaymentTest: XCTestCase {
+final class PaymentTests: XCTestCase {
 
     private var payment: AtoneCon.Payment!
     private var paymentJson: [String:Any] = [:]

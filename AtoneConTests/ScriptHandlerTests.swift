@@ -10,7 +10,7 @@ import XCTest
 import WebKit
 @testable import AtoneCon
 
-final class ScriptHandlerTest: XCTestCase {
+final class ScriptHandlerTests: XCTestCase {
     func testScriptEventNameShouldReturnCancelledWhenInitializedCancelledEvent() {
         // When
         let cancelledEvent = ScriptEvent.cancelled
@@ -43,7 +43,7 @@ final class ScriptHandlerTest: XCTestCase {
         XCTAssertEqual(authenticatedEvent.messageName.name, "authenticated")
     }
 
-    func testInitShouldReturnScripHandleObjectWhenInitialized() {
+    func testInitShouldReturnScriptHandleObjectWhenInitialized() {
         // When
         let configuration = WKWebViewConfiguration()
         let webView = WKWebView(frame: UIScreen.main.bounds, configuration: configuration)

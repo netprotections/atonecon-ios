@@ -9,7 +9,7 @@
 import XCTest
 @testable import AtoneCon
 
-final class StringTest: XCTestCase {
+final class StringTests: XCTestCase {
 
     func testLocalizedShouldReturnStringResultWhenItWasDefinedInLocalizableString() {
         // When "okay" was defined is "OK" in localizable.strings

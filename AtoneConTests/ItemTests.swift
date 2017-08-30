@@ -10,7 +10,7 @@ import XCTest
 import ObjectMapper
 @testable import AtoneCon
 
-final class ItemTest: XCTestCase {
+final class ItemTests: XCTestCase {
 
     private var item: AtoneCon.Item!
     private var itemJson: [String : Any] = [:]

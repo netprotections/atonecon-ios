@@ -9,7 +9,7 @@
 import XCTest
 @testable import AtoneCon
 
-final class HelperTest: XCTestCase {
+final class HelperTests: XCTestCase {
     func testSizeOfDeviceShouldReturnScreenSizeWhenInitializable() {
         // When
         let iphone4 = Define.Helper.DeviceType.iPhone4

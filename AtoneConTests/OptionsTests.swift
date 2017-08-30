@@ -9,7 +9,7 @@
 import XCTest
 @testable import AtoneCon
 
-final class OptionsTest: XCTestCase {
+final class OptionsTests: XCTestCase {
 
     func testInitShouldReturnOptionsObjectWhenInitialized() {
         // Given

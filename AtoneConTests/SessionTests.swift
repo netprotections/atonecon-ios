@@ -9,7 +9,7 @@
 import XCTest
 @testable import AtoneCon
 
-final class SessionTest: XCTestCase {
+final class SessionTests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
@@ -25,7 +25,7 @@ final class SessionTest: XCTestCase {
         XCTAssertEqual(Session.shared.credential.value, "")
     }
 
-    func testLoadCredentialShouldReturnStringWhenValueCredentialNotEmty() {
+    func testLoadCredentialShouldReturnStringWhenValueCredentialIsNotEmpty() {
         // When
         Session.shared.credential = Session.Credential(value: "tk_23adh123bvnjKhds")
         Session.shared.loadCredential()
@@ -43,7 +43,7 @@ final class SessionTest: XCTestCase {
         XCTAssertEqual(Session.shared.credential.value, "")
     }
 
-    func testClearCredentialShouldReturnEmptyStringWhenRemoveValueCredential() {
+    func testClearCredentialShouldReturnEmptyWhenRemoveCredential() {
         // When
         Session.shared.credential = Session.Credential(value: "tk_23adh123bvnjKhds")
         Session.shared.clearCredential()

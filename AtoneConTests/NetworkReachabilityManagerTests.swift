@@ -11,7 +11,7 @@ import XCTest
 import SystemConfiguration
 @testable import AtoneCon
 
-final class NetworkReachabilityManagerTest: XCTestCase {
+final class NetworkReachabilityManagerTests: XCTestCase {
 
     let timeout: TimeInterval = 30.0
 
