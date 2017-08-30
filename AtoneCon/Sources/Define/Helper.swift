@@ -39,5 +39,12 @@ extension Define.Helper {
 }
 
 extension Bundle {
-    static let current = Bundle(for: AtoneCon.self)
+    static var current: Bundle {
+        var current: Bundle = Bundle(for: AtoneCon.self)
+        let bundleURL = current.url(forResource: "AtoneCon", withExtension: "bundle")
+        if let bundle = bundleURL, let currentBundle = Bundle(url: bundle) {
+            current = currentBundle
+        }
+        return current
+    }
 }
