@@ -15,7 +15,12 @@ extension Define {
         static let cancel = "cancel".localized()
         static let close = "close".localized()
         static let quitPayment = "quitPayment".localized()
-        static let closeImage = "icClose"
+    }
+}
+
+extension Define.String {
+    internal class Image {
+        static let close = "ic_close"
     }
 }
 
