@@ -163,7 +163,3 @@ extension PaymentViewController: ScriptHandlerDelegate {
         delegate?.controller(self, didReceiveScriptEvent: event)
     }
 }
-
-extension Bundle {
-    static let current = Bundle(for: PaymentViewController.self)
-}

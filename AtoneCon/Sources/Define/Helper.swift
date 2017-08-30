@@ -37,3 +37,7 @@ extension Define.Helper {
         static let horizontal = UIScreen.main.bounds.width / CGFloat(DeviceType.iPhone6.size.width)
     }
 }
+
+extension Bundle {
+    static let current = Bundle(for: AtoneCon.self)
+}
