@@ -24,9 +24,7 @@ s.source       = { :git => "https://github.com/AsianTechInc/AtoneCon-iOS.git", :
 
 # Source Code
 s.source_files = "AtoneCon/Sources/**/*.{swift,strings}"
-s.resource_bundles = {
-    'AtoneCon' => ['Pods/AtoneCon/**/*.{xcassets,json,imageset,png}']
-}
+s.resource_bundles = {'AtoneCon' => ['AtoneCon/Resources/**/*']}
 
 # Project Settings
 s.requires_arc = true
