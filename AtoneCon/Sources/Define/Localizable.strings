@@ -7,7 +7,7 @@
 */
 
 "cancel" = "キャンセル";
-"quitPayment" = "決済が終了します。よろしいでしょうか？";
+"quitPayment" = "atoneでのお買い物を終了します。よろしいですか？";
 "networkError" = "ネットワークが圏外です";
 "close" = "閉じる";
 "network" = "ネットワーク";
