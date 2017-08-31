@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		15ED242A51B49123ACFB916C /* Pods_AtoneConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62803A4FCC4F465F4AB5A70B /* Pods_AtoneConTests.framework */; };
+		160B68F21F4683300087471F /* CustomerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68F11F4683300087471F /* CustomerTests.swift */; };
+		160B68F41F4683C50087471F /* DesCustomerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68F31F4683C50087471F /* DesCustomerTests.swift */; };
+		160B68F61F46841A0087471F /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68F51F46841A0087471F /* ItemTests.swift */; };
+		160B68FA1F468B6C0087471F /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68F91F468B6C0087471F /* OptionsTests.swift */; };
+		160B68FC1F468BDB0087471F /* PaymentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68FB1F468BDB0087471F /* PaymentTests.swift */; };
+		160B68FE1F468C7A0087471F /* SessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B68FD1F468C7A0087471F /* SessionTests.swift */; };
+		160B693E1F46D3410087471F /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B693D1F46D3410087471F /* StringTests.swift */; };
 		160FFC011F42A5F8001FBD01 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 160FFC001F42A5F8001FBD01 /* Localizable.strings */; };
 		16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */; };
 		16533E031F56881D00FBB618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16533E021F56881D00FBB618 /* Assets.xcassets */; };
@@ -18,6 +25,8 @@
 		16946B011F0B498700CE6FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16946B001F0B498700CE6FF8 /* Item.swift */; };
 		1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1699CB391F0DED04003A4F1A /* ScriptHandler.swift */; };
 		16A693B31F2AD004000B9FAB /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A693B21F2AD004000B9FAB /* Session.swift */; };
+		16CECC241F4AC17D00B120B5 /* ScriptHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CECC231F4AC17D00B120B5 /* ScriptHandlerTests.swift */; };
+		16CECC261F4ACEC800B120B5 /* PaymentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CECC251F4ACEC800B120B5 /* PaymentViewControllerTests.swift */; };
 		2FEA55B42C6DC4E68E0FFB55 /* Pods_AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */; };
 		990B5EA81F03957000B142E7 /* AtoneCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990B5E9E1F03957000B142E7 /* AtoneCon.framework */; };
 		990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B5EAC1F03957000B142E7 /* AtoneConTests.swift */; };
@@ -41,6 +50,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160B68F11F4683300087471F /* CustomerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTests.swift; sourceTree = "<group>"; };
+		160B68F31F4683C50087471F /* DesCustomerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesCustomerTests.swift; sourceTree = "<group>"; };
+		160B68F51F46841A0087471F /* ItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
+		160B68F91F468B6C0087471F /* OptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
+		160B68FB1F468BDB0087471F /* PaymentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTests.swift; sourceTree = "<group>"; };
+		160B68FD1F468C7A0087471F /* SessionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
+		160B693D1F46D3410087471F /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		160FFC001F42A5F8001FBD01 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		16294C571F2F2816001F5EA2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		16533E021F56881D00FBB618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AtoneCon/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -51,6 +67,8 @@
 		16946B001F0B498700CE6FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1699CB391F0DED04003A4F1A /* ScriptHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptHandler.swift; sourceTree = "<group>"; };
 		16A693B21F2AD004000B9FAB /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		16CECC231F4AC17D00B120B5 /* ScriptHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptHandlerTests.swift; sourceTree = "<group>"; };
+		16CECC251F4ACEC800B120B5 /* PaymentViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewControllerTests.swift; sourceTree = "<group>"; };
 		1A4DAC234FDD540FEE9B2D9A /* Pods_AtoneCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoneCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3484A57CBB53AADC50EE82F4 /* Pods-AtoneConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F786EC53FE4B40F9974C540 /* Pods-AtoneConTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneConTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +156,15 @@
 			children = (
 				990B5EAC1F03957000B142E7 /* AtoneConTests.swift */,
 				990B5EAE1F03957000B142E7 /* Info.plist */,
+				160B68F11F4683300087471F /* CustomerTests.swift */,
+				160B68F31F4683C50087471F /* DesCustomerTests.swift */,
+				160B68F51F46841A0087471F /* ItemTests.swift */,
+				160B68F91F468B6C0087471F /* OptionsTests.swift */,
+				160B68FB1F468BDB0087471F /* PaymentTests.swift */,
+				160B68FD1F468C7A0087471F /* SessionTests.swift */,
+				160B693D1F46D3410087471F /* StringTests.swift */,
+				16CECC231F4AC17D00B120B5 /* ScriptHandlerTests.swift */,
+				16CECC251F4ACEC800B120B5 /* PaymentViewControllerTests.swift */,
 			);
 			path = AtoneConTests;
 			sourceTree = "<group>";
@@ -411,7 +438,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				160B68FE1F468C7A0087471F /* SessionTests.swift in Sources */,
+				160B68F61F46841A0087471F /* ItemTests.swift in Sources */,
+				160B68FC1F468BDB0087471F /* PaymentTests.swift in Sources */,
+				16CECC261F4ACEC800B120B5 /* PaymentViewControllerTests.swift in Sources */,
 				990B5EAD1F03957000B142E7 /* AtoneConTests.swift in Sources */,
+				160B693E1F46D3410087471F /* StringTests.swift in Sources */,
+				160B68F41F4683C50087471F /* DesCustomerTests.swift in Sources */,
+				160B68FA1F468B6C0087471F /* OptionsTests.swift in Sources */,
+				160B68F21F4683300087471F /* CustomerTests.swift in Sources */,
+				16CECC241F4AC17D00B120B5 /* ScriptHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

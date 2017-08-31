@@ -17,7 +17,7 @@ extension AtoneCon {
         public var salesSettled: Bool?
         public var descriptionTrans: String?
         public var checksum = ""
-        public var customer: Customer?
+        public var customer: Customer = Customer(name: "")
         public var desCustomers: [DesCustomer]?
         public var items: [Item] = []
 

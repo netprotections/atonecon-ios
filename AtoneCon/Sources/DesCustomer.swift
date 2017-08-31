@@ -32,7 +32,6 @@ extension AtoneCon {
 
 extension AtoneCon.DesCustomer: Mappable {
     public init?(map: Map) {
-
     }
 
     public mutating func mapping(map: Map) {

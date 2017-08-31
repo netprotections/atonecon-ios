@@ -14,13 +14,13 @@ internal protocol ScriptHandlerDelegate: class {
     func scriptHandler(_ scriptHandler: ScriptHandler, didReceiveScriptEvent event: ScriptEvent)
 }
 
-private enum Message: String {
+internal enum Message: String {
     case authenticated
     case cancelled
     case succeeded
     case failed
 
-    var name: String {
+    internal var name: String {
         return rawValue
     }
 }
@@ -31,7 +31,7 @@ internal enum ScriptEvent {
     case succeeded([String: Any]?)
     case failed([String: Any]?)
 
-    fileprivate var messageName: Message {
+    internal var messageName: Message {
         switch self {
         case .authenticated(_):
             return .authenticated
@@ -47,9 +47,9 @@ internal enum ScriptEvent {
 
 internal final class ScriptHandler: NSObject {
 
-    private var webView: WKWebView!
+    internal var webView: WKWebView!
     internal weak var delegate: ScriptHandlerDelegate?
-    private let messages: [Message] = [.authenticated, .cancelled, .failed, .succeeded]
+    internal let messages: [Message] = [.authenticated, .cancelled, .failed, .succeeded]
 
     internal init(forWebView webView: WKWebView) {
         self.webView = webView
@@ -72,7 +72,7 @@ extension ScriptHandler: WKScriptMessageHandler {
         switch messageName {
         case .authenticated :
             let token = message.body as? String
-            Session.shared.credential = Session.Credential(value: token)
+            Session.shared.credential = Session.Credential(authToken: token)
             event = ScriptEvent.authenticated(token)
         case .cancelled:
             event = ScriptEvent.cancelled

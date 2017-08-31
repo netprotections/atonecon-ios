@@ -16,15 +16,15 @@ internal final class Session {
 
     internal struct Credential {
         fileprivate let key = "accessToken"
-        fileprivate(set) var value: String?
+        fileprivate(set) var authToken: String?
 
-        var isValid: Bool {
-            guard let value = value else { return false }
-            return !value.isEmpty
+        internal var isValid: Bool {
+            guard let authToken = authToken else { return false }
+            return !authToken.isEmpty
         }
     }
 
-    internal var credential = Credential(value: "") {
+    internal var credential = Credential(authToken: "") {
         didSet {
             saveCredential()
         }
@@ -33,17 +33,17 @@ internal final class Session {
     private func saveCredential() {
         guard credential.isValid else { return }
         removeCredential()
-        guard let value = credential.value else { return }
+        let value = credential.authToken ?? ""
         SAMKeychain.setPassword(value, forService: service, account: credential.key)
     }
 
     internal func loadCredential() {
-        guard let value = SAMKeychain.password(forService: service, account: credential.key) else { return }
-        credential.value = value
+        guard let authToken = SAMKeychain.password(forService: service, account: credential.key) else { return }
+        credential.authToken = authToken
     }
 
     internal func clearCredential() {
-        credential.value = ""
+        credential.authToken = ""
         removeCredential()
     }
 
