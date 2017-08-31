@@ -11,29 +11,28 @@ import Foundation
 extension Define {
     internal struct Scripts {
         static let atoneJS =
-            "\nAtone.config({" +
-                "pre_token: \"%@\"," +
-                "pub_key: \"%@\"," +
-                "payment: data," +
-                "authenticated: function(authentication_token) { " +
-                    "window.webkit.messageHandlers.authenticated.postMessage(authentication_token);" +
-                "}," +
-                "cancelled: function() { " +
-                    "window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');" +
-                "}," +
-                "failed: function(response) { " +
-                    "window.webkit.messageHandlers.failed.postMessage(response);" +
-                "}," +
-                "succeeded: function(response) { " +
-                    "window.webkit.messageHandlers.succeeded.postMessage(response);" +
-                "}," +
-                "error: function(name, message, errors) { " +
-                    "var response = {name: name, message: message, errors: errors};" +
-                    "window.webkit.messageHandlers.failed.postMessage(response);" +
-                "}" +
-            "});" +
-            "function startAtone() { Atone.start();}\n"
-
+            "window.addEventListener(\"load\", function(){" +
+                "\nAtone.config({" +
+                    "pre_token: \"%@\"," +
+                    "pub_key: \"%@\"," +
+                    "payment: data," +
+                    "authenticated: function(authentication_token) { " +
+                        "window.webkit.messageHandlers.authenticated.postMessage(authentication_token);" +
+                    "}," +
+                    "cancelled: function() { " +
+                        "window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');" +
+                    "}," +
+                    "failed: function(response) { " +
+                        "window.webkit.messageHandlers.failed.postMessage(response);" +
+                    "}," +
+                    "succeeded: function(response) { " +
+                        "window.webkit.messageHandlers.succeeded.postMessage(response);" +
+                    "}," +
+                    "error: function(name, message, errors) { " +
+                        "var response = {name: name, message: message, errors: errors};" +
+                        "window.webkit.messageHandlers.failed.postMessage(response);" +
+                    "}" +
+                "}, Atone.start);});"
         static let atoneHTML =
             "<!DOCTYPE html>" +
             "<html lang=\"ja\">" +
@@ -47,6 +46,10 @@ extension Define {
                 "</head>" +
                 "<title>ページタイトル</title>" +
                 "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
+                    "<script>" +
+                        "%@;" +
+                        "%@;" +
+                    "</script>" +
                 "</body>" +
             "</html>"
     }

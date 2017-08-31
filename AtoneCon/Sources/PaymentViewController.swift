@@ -26,24 +26,24 @@ final internal class PaymentViewController: UIViewController {
     internal var scriptHandler: ScriptHandler!
     fileprivate var closeButton: UIButton!
 
-    internal var handlerScript: String {
+    internal var atoneHTML: String {
         var publicKey = ""
         if let key = AtoneCon.shared.option?.publicKey {
             publicKey = key
         }
-
         var preToken = ""
         if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
         }
-
         let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
-        return handlerScript
-    }
 
-    internal var atoneHTML: String {
+        guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
+            fatalError("don't receive information of payment")
+        }
+        let paymentScript = "var data = " + paymentJSON
+
         let deviceScale = Define.Helper.Ratio.horizontal
-        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)")
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)", paymentScript, handlerScript)
         return atoneHTML
     }
 
@@ -68,7 +68,6 @@ final internal class PaymentViewController: UIViewController {
     // MARK: - Private Functions
     private func setupWebView() {
         let configuration = WKWebViewConfiguration()
-        configuration.userContentController.addUserScript(userScript())
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         webView.backgroundColor = Define.Color.blackAlpha90
         webView.contentMode = .scaleToFill
@@ -103,25 +102,6 @@ final internal class PaymentViewController: UIViewController {
         view.addSubview(indicator)
     }
 
-    private func userScript() -> WKUserScript {
-        guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
-            fatalError("don't receive information of payment")
-        }
-        let paymentScript = "var data = " + paymentJSON
-        let userScript = WKUserScript(source: paymentScript + handlerScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-        return userScript
-    }
-
-    // MARK: - Fileprivate Functions
-    fileprivate func startAtone() {
-        webView.evaluateJavaScript("startAtone()") { [weak self](_, error) in
-            guard self != nil else { return }
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-
     @objc private func closeWebView() {
         let alert = UIAlertController(title: Define.String.quitPayment, message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: Define.String.cancel, style: .cancel, handler: nil)
@@ -142,7 +122,6 @@ extension PaymentViewController: WKNavigationDelegate {
             guard let this = self else { return }
             this.indicator.stopAnimating()
             this.closeButton.isHidden = true
-            this.startAtone()
         }
     }
 }
