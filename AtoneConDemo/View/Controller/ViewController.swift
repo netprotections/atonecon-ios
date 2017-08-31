@@ -77,8 +77,9 @@ extension ViewController: AtoneConDelegate {
             let view = UIApplication.shared.keyWindow
             view?.makeToast(message, duration: 2, position: .bottom)
         case .cancelled:
-            atoneCon.dismiss { _ in
-                self.view.makeToast(Define.String.cancel, duration: 2, position: .bottom)
+            atoneCon.dismiss { [weak self] in
+                guard let this = self else { return }
+                this.view.makeToast(Define.String.cancel, duration: 2, position: .bottom)
             }
         case .failed(let response):
             let message = response?.toJSONString()
