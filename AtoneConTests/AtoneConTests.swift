@@ -9,27 +9,24 @@
 import XCTest
 @testable import AtoneCon
 
-class AtoneConTests: XCTestCase {
+final class AtoneConTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testConfigShouldReturnRightOptionWhenConfig() {
+        // When
+        let option = AtoneCon.Options(publicKey: "abcxyz")
+        AtoneCon.shared.config(option)
+
+        // Then 
+        XCTAssertEqual(AtoneCon.shared.option?.publicKey, "abcxyz")
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    func testResetAuthenTokenShouldReturnEmptyAuthenTokenWhenResetAuthenToken() {
+        // When
+        Session.shared.credential = Session.Credential(authToken: "aaabbbccc")
+        AtoneCon.shared.resetAuthenToken()
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        // Then 
+        XCTAssertFalse(Session.shared.credential.isValid)
+        XCTAssertEqual(Session.shared.credential.authToken, "")
     }
 }
