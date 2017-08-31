@@ -41,10 +41,24 @@ final internal class PaymentViewController: UIViewController {
         return handlerScript
     }
 
+    var atoneJSURL: String {
+        var atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
+        if let options = AtoneCon.shared.option {
+            switch options.environment {
+            case .development:
+                atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
+            case .production:
+                atoneJSURL = "https://auth.atone.be/v1/atone.js"
+            case .staging:
+                atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
+            }
+        }
+        return atoneJSURL
+    }
+
     internal var atoneHTML: String {
         let deviceScale = Define.Helper.Ratio.horizontal
-        let JSUrl = AtoneCon.shared.option?.environment.JSUrl ?? ""
-        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)", JSUrl)
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)", atoneJSURL)
         return atoneHTML
     }
 
