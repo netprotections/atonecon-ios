@@ -8,6 +8,7 @@
 
 import UIKit
 import AtoneCon
+import Toast_Swift
 
 final class ViewController: UIViewController {
 
@@ -68,13 +69,16 @@ final class ViewController: UIViewController {
 // MARK: - AtoneConDelegate
 extension ViewController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
+        let root = AppDelegate.shared.window?.topViewController
         switch event {
         case .authenticated(let authenToken):
             viewModel.saveAuthenToken(token: authenToken)
+            guard let authenToken = authenToken?.description else { return }
+            let message = "Authentication: \(authenToken)"
+            root?.view.makeToast(message, duration: 2, position: .bottom)
         case .cancelled:
-            atoneCon.dismiss { [weak self] in
-                guard let this = self else { return }
-                this.showAlert(title: Define.String.cancel, message: nil)
+            atoneCon.dismiss { _ in
+                root?.view.makeToast(Define.String.cancel, duration: 2, position: .bottom)
             }
         case .failed(let response):
             let message = response?.toJSONString()
@@ -159,6 +163,7 @@ extension ViewController {
     }
 }
 
+// MARK: extension
 extension UIWindow {
     var topViewController: UIViewController? {
         return rootViewController?.visibleController
