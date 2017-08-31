@@ -72,7 +72,7 @@ final class PaymentViewModel {
     func payment(withTransaction transaction: String?) -> AtoneCon.Payment {
         var payment = self.payment
         if let transaction = transaction {
-            payment.shopTransactionNo = Define.String.baseTransaction + transaction
+            payment.shopTransactionNo = transaction
         }
         return payment
     }
