@@ -16,7 +16,6 @@ extension Define.String {
     static let tokenKey = "userToken"
     static let serviceName = "AtoneConWebView"
     static let textFieldPlaceHolder = "textFieldPlaceHolder".localized()
-    static let baseTransaction = "shop-tran-no-"
     static let okay = "okay".localized()
     static let finished = "finished".localized()
     static let failed = "failed".localized()
