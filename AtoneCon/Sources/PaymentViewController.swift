@@ -43,7 +43,8 @@ final internal class PaymentViewController: UIViewController {
 
     internal var atoneHTML: String {
         let deviceScale = Define.Helper.Ratio.horizontal
-        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)")
+        let JSUrl = AtoneCon.shared.option?.environment.JSUrl ?? ""
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)", JSUrl)
         return atoneHTML
     }
 

@@ -23,5 +23,16 @@ extension AtoneCon {
         case development
         case production
         case staging
+
+        var JSUrl: String {
+            switch self {
+            case .development:
+                return "https://it-auth.a-to-ne.jp/v1/atone.js"
+            case .production:
+                return "https://auth.atone.be/v1/atone.js"
+            case .staging:
+                return "https://it-auth.a-to-ne.jp/v1/atone.js"
+            }
+        }
     }
 }
