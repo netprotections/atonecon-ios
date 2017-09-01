@@ -41,7 +41,9 @@ final internal class PaymentViewController: UIViewController {
     }
 
     internal var atoneHTML: String {
-        var publicKey = ""
+        guard let publicKey = AtoneCon.shared.options?.publicKey else {
+            fatalError(Define.String.Error.options)
+        }
         var preToken = ""
         if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
@@ -53,7 +55,8 @@ final internal class PaymentViewController: UIViewController {
         let paymentScript = "var data = " + paymentJSON
 
         let deviceScale = Define.Helper.Ratio.horizontal
-        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)", paymentScript, handlerScript)
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)", atoneJSURL, paymentScript, handlerScript)
+        return atoneHTML
     }
 
     convenience init(payment: AtoneCon.Payment) {
