@@ -19,13 +19,13 @@ final public class AtoneCon {
     public static let shared = AtoneCon()
 
     // MARK: - Properties
-    internal var option: Options?
+    internal var options: AtoneCon.Options?
     public weak var delegate: AtoneConDelegate?
     fileprivate var payment: Payment?
 
     // MARK: - Public Functions
-    public func config(_ option: Options) {
-        self.option = option
+    public func config(_ options: Options) {
+        self.options = options
     }
 
     public func performPayment(_ payment: Payment) {

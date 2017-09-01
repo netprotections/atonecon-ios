@@ -10,8 +10,8 @@ import Foundation
 
 extension AtoneCon {
     public struct Options {
-        public var publicKey = ""
-        public var environment: Environment = .development
+        public var publicKey: String
+        public var environment: Environment = .production
         public init(publicKey: String) {
             self.publicKey = publicKey
         }

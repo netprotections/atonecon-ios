@@ -27,6 +27,7 @@ extension Define.String {
 extension Define.String {
     internal struct Error {
         static let network = "networkError".localized()
+        static let options = "configOptions".localized()
     }
 }
 

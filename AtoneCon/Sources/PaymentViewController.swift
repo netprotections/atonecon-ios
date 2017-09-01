@@ -27,33 +27,29 @@ final internal class PaymentViewController: UIViewController {
     fileprivate var closeButton: UIButton!
 
     internal var handlerScript: String {
-        var publicKey = ""
-        if let key = AtoneCon.shared.option?.publicKey {
-            publicKey = key
+        guard let publicKey = AtoneCon.shared.options?.publicKey else {
+            fatalError(Define.String.Error.options)
         }
-
         var preToken = ""
         if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
         }
-
         let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
         return handlerScript
     }
 
     var atoneJSURL: String {
-        var atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
-        if let options = AtoneCon.shared.option {
-            switch options.environment {
-            case .development:
-                atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
-            case .production:
-                atoneJSURL = "https://auth.atone.be/v1/atone.js"
-            case .staging:
-                atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
-            }
+        guard let options = AtoneCon.shared.options else {
+            fatalError(Define.String.Error.options)
         }
-        return atoneJSURL
+        switch options.environment {
+        case .development:
+            return "https://it-auth.a-to-ne.jp/v1/atone.js"
+        case .production:
+            return "https://auth.atone.be/v1/atone.js"
+        case .staging:
+            return "https://it-auth.a-to-ne.jp/v1/atone.js"
+        }
     }
 
     internal var atoneHTML: String {
