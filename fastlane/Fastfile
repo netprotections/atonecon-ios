@@ -2,8 +2,8 @@ desc "Upload to DeployGate"
 lane :DEV do
   gym
   deploygate(
-    api_token: '4c28228375855a56ccd0066bee419ef16c3f0bb2',
-    user: 'at-hanhpham',
-    message: "Fastlane build issue 50#{lane_context[SharedValues::BUILD_NUMBER]}",
+    api_token: 'eca9d549fd7fc103c012494c33aa06f52c4920db',
+    user: 'yaizawa',
+    message: "Fastlane build #{lane_context[SharedValues::BUILD_NUMBER]}",
   )
 end
