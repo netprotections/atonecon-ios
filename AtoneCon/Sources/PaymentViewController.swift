@@ -116,19 +116,21 @@ final internal class PaymentViewController: UIViewController {
 
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if let url = navigationAction.request.url {
-            if url.absoluteString.contains(Define.String.load) {
-                indicator.stopAnimating()
-                closeButton.isHidden = true
-            }
+    internal func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard let url = navigationAction.request.url else {
+            decisionHandler(.cancel)
+            return
+        }
+        if url.absoluteString.contains(Define.String.Key.load) {
+            indicator.stopAnimating()
+            closeButton.isHidden = true
         }
         decisionHandler(.allow)
     }
 }
 
 extension PaymentViewController: WKUIDelegate {
-    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+    internal func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if let url = navigationAction.request.url {
             UIApplication.shared.openURL(url)
         }

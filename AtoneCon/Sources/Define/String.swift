@@ -15,13 +15,18 @@ extension Define {
         static let cancel = "cancel".localized()
         static let close = "close".localized()
         static let quitPayment = "quitPayment".localized()
-        static let load = "loading"
     }
 }
 
 extension Define.String {
-    internal class Image {
+    internal struct Image {
         static let close = "ic_close"
+    }
+}
+
+extension Define.String {
+    internal struct Key {
+        static let load = "loading"
     }
 }
 
