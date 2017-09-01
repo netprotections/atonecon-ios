@@ -116,13 +116,14 @@ final internal class PaymentViewController: UIViewController {
 
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
-
-    internal func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            guard let this = self else { return }
-            this.indicator.stopAnimating()
-            this.closeButton.isHidden = true
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if let url = navigationAction.request.url {
+            if url.absoluteString.contains(Define.String.load) {
+                indicator.stopAnimating()
+                closeButton.isHidden = true
+            }
         }
+        decisionHandler(.allow)
     }
 }
 
