@@ -56,6 +56,7 @@ pod 'AtoneCon', '~> 1.0'
 ```
 
 Sometimes you may want to use the bleeding edge version of a Pod, a specific revision or your own fork. If this is the case, you can specify that with your pod declaration.
+> Note: You need change link in following commands by link of repository AtoneCon library				
 
 - To use the `master` branch of the repo:
 
@@ -94,9 +95,12 @@ cd <path-to-Folder-project-dir>
 
 - Add AtoneCon as a git submodule by running the following command:
 
+	> Note: You need change link in this command by link of repository AtoneCon library 
+
 ```
 $ git submodule add git@github.com:AsianTechInc/AtoneCon-iOS.git
 ```
+
 - Open the new AtoneCon folder, and drag the `AtoneCon.xcodeproj` into the `Project Navigator` of your application's Xcode project.
 > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
 
