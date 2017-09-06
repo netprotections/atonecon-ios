@@ -55,6 +55,29 @@ use_frameworks! # swift project
 pod 'AtoneCon', '~> 1.0'
 ```
 
+Sometimes you may want to use the bleeding edge version of a Pod, a specific revision or your own fork. If this is the case, you can specify that with your pod declaration.
+
+- To use the `master` branch of the repo:
+
+```
+pod ‘AtoneCon’, :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git'
+```
+- To use a different branch of the repo:
+
+```
+pod ‘AtoneCon’, :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :branch => '...'
+```
+- To use a tag of the repo:
+
+```
+pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :tag => '...'
+```
+- Or specify a commit:
+
+```
+pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :commit => '...'
+```
+
 #### Install AtoneCon
 Then, run the following command:
 
