@@ -238,7 +238,7 @@ payment.items = [item]
 ### Perform a payment
 
 ```swift
-AtonePay.performPayment(payment)
+atoneCon.performPayment(payment)
 ```
 
 ### 3. Handle payment delegation
