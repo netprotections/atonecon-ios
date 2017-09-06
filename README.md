@@ -120,8 +120,9 @@ $ git submodule add git@github.com:AsianTechInc/AtoneCon-iOS.git
 ### 1. Configuration
 
 ```swift
+// You have to configuration options before perform payment
 var options = AtoneCon.Options(publicKey: "xxxyyyzzz")
-// public key be provided by the shops
+options.environment = .development
 let atoneCon = AtoneCon.shared
 atoneCon.config(options)
 atoneCon.delegate = self // AtoneConDelegate
