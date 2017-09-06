@@ -79,8 +79,7 @@ final internal class PaymentViewController: UIViewController {
 
     // MARK: - Private Functions
     private func setupWebView() {
-        let configuration = WKWebViewConfiguration()
-        webView = WKWebView(frame: view.bounds, configuration: configuration)
+        webView = WKWebView(frame: view.bounds)
         webView.backgroundColor = Define.Color.blackAlpha90
         webView.contentMode = .scaleToFill
         webView.autoresizingMask = .flexibleWidth
@@ -133,7 +132,7 @@ extension PaymentViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
-        if url.absoluteString.contains(Define.String.Key.load) {
+        if url.absoluteString.contains(Define.String.Key.loading) {
             indicator.stopAnimating()
             closeButton.isHidden = true
         }

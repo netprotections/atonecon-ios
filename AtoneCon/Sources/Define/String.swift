@@ -26,7 +26,7 @@ extension Define.String {
 
 extension Define.String {
     internal struct Key {
-        static let load = "loading"
+        static let loading = "loading"
     }
 }
 
