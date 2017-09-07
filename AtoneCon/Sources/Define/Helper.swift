@@ -48,3 +48,8 @@ extension Bundle {
         return current
     }
 }
+
+enum MyError: Error {
+    case option([String: Any]?)
+    case payment([String: Any]?)
+}

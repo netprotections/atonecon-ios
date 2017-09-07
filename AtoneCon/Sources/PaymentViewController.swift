@@ -26,31 +26,31 @@ final internal class PaymentViewController: UIViewController {
     internal var scriptHandler: ScriptHandler!
     fileprivate var closeButton: UIButton!
 
-    var atoneJSURL: String {
+    func getAtoneHTML() throws -> String {
+        var atoneJSURL = ""
         guard let options = AtoneCon.shared.options else {
-            fatalError(Define.String.Error.options)
+            let error: [String:Any] = ["title": Define.String.options,
+                                       "message": Define.String.Error.options]
+            throw MyError.option(error)
         }
         switch options.environment {
         case .development:
-            return "https://it-auth.a-to-ne.jp/v1/atone.js"
+            atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
         case .production:
-            return "https://auth.atone.be/v1/atone.js"
+            atoneJSURL = "https://auth.atone.be/v1/atone.js"
         case .staging:
-            return "https://it-auth.a-to-ne.jp/v1/atone.js"
+            atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
         }
-    }
-
-    internal var atoneHTML: String {
-        guard let publicKey = AtoneCon.shared.options?.publicKey else {
-            fatalError(Define.String.Error.options)
-        }
+        let publicKey = options.publicKey
         var preToken = ""
         if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
         }
         let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
         guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
-            fatalError("don't receive information of payment")
+            let error: [String:Any] = ["title": Define.String.paymentInfo,
+                                       "message": Define.String.Error.payment]
+            throw MyError.payment(error)
         }
         let paymentScript = "var data = " + paymentJSON
 
@@ -79,17 +79,30 @@ final internal class PaymentViewController: UIViewController {
 
     // MARK: - Private Functions
     private func setupWebView() {
-        webView = WKWebView(frame: view.bounds)
-        webView.backgroundColor = Define.Color.blackAlpha90
-        webView.contentMode = .scaleToFill
-        webView.autoresizingMask = .flexibleWidth
-        view.addSubview(webView)
-        webView.loadHTMLString(atoneHTML, baseURL: nil)
-        webView.navigationDelegate = self
-        webView.uiDelegate = self
-        scriptHandler = ScriptHandler(forWebView: webView)
-        scriptHandler.addEvents()
-        scriptHandler.delegate = self
+        do {
+            webView = WKWebView(frame: view.bounds)
+            webView.backgroundColor = Define.Color.blackAlpha90
+            webView.contentMode = .scaleToFill
+            webView.autoresizingMask = .flexibleWidth
+            view.addSubview(webView)
+            let atoneHTML = try getAtoneHTML()
+            webView.loadHTMLString(atoneHTML, baseURL: nil)
+            webView.navigationDelegate = self
+            webView.uiDelegate = self
+            scriptHandler = ScriptHandler(forWebView: webView)
+            scriptHandler.addEvents()
+            scriptHandler.delegate = self
+        } catch MyError.payment(let error) {
+            let event = ScriptEvent.failed(error)
+            delegate?.controller(self, didReceiveScriptEvent: event)
+        } catch MyError.option(let error) {
+            let event = ScriptEvent.failed(error)
+            delegate?.controller(self, didReceiveScriptEvent: event)
+        } catch {
+            let error: [String: Any] = ["message": "Undifined Error"]
+            let event = ScriptEvent.failed(error)
+            delegate?.controller(self, didReceiveScriptEvent: event)
+        }
     }
 
     private func setupCloseButton() {

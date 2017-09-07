@@ -13,3 +13,7 @@
 "network" = "ネットワーク";
 "okay" = "OK";
 "configOptions" = "決済を作成する前にオプションをコンフィグする必要があります";
+"options" = "Options";
+"payment" = "決済情報はまだ設定していません。";
+"paymentInfo" = "Payment Infomation";
+"scriptHandler" = "Script Handler";
