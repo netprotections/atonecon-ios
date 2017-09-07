@@ -11,16 +11,27 @@ import Foundation
 extension Define {
     internal class String {
         static let network = "network".localized()
+        static let options = "options".localized()
         static let okay = "okay".localized()
         static let cancel = "cancel".localized()
         static let close = "close".localized()
         static let quitPayment = "quitPayment".localized()
+        static let paymentInfo = "paymentInfo".localized()
+        static let script = "scriptHandler".localized()
     }
 }
 
 extension Define.String {
-    internal class Image {
+    internal struct Image {
         static let close = "ic_close"
+    }
+}
+
+extension Define.String {
+    internal struct Key {
+        static let loading = "loading"
+        static let title = "title"
+        static let message = "message"
     }
 }
 
@@ -28,6 +39,8 @@ extension Define.String {
     internal struct Error {
         static let network = "networkError".localized()
         static let options = "configOptions".localized()
+        static let payment = "payment".localized()
+        static let undefine = "undefine".localized()
     }
 }
 

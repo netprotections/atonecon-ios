@@ -55,7 +55,6 @@ final class ViewController: UIViewController {
         let atoneCon = AtoneCon.shared
         atoneCon.delegate = self
         atoneCon.config(options)
-        // TODO: - dummy data
         let payment = viewModel.payment(withTransaction: transactionTextField.text)
         atoneCon.performPayment(payment)
     }
@@ -83,9 +82,8 @@ extension ViewController: AtoneConDelegate {
             }
         case .failed(let response):
             let message = response?.toJSONString()
-            atoneCon.dismiss { [weak self] in
-                guard let this = self else { return }
-                this.showAlert(title: Define.String.failed, message: message)
+            showAlert(title: Define.String.failed, message: message) { _ in
+                atoneCon.dismiss()
             }
         case .finished(let response):
             let message = response?.description
