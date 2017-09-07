@@ -33,6 +33,7 @@ extension Define {
                         "window.webkit.messageHandlers.failed.postMessage(response);" +
                     "}" +
                 "}, Atone.start);});"
+
         static let atoneHTML =
             "<!DOCTYPE html>" +
             "<html lang=\"ja\">" +

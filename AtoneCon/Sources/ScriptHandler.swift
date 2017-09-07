@@ -67,8 +67,8 @@ extension ScriptHandler: WKScriptMessageHandler {
     internal func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let event: ScriptEvent
         guard let messageName = Message(rawValue: message.name) else {
-            let error: [String:Any] = ["title": Define.String.options,
-                                       "message": "no handle for event \(message.name)"]
+            let error: [String:Any] = [Define.String.Key.title: Define.String.options,
+                                       Define.String.Key.message: "no handle for event \(message.name)"]
             let event = ScriptEvent.failed(error)
             delegate?.scriptHandler(self, didReceiveScriptEvent: event)
             return

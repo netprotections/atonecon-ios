@@ -30,6 +30,8 @@ extension Define.String {
 extension Define.String {
     internal struct Key {
         static let loading = "loading"
+        static let title = "title"
+        static let message = "message"
     }
 }
 
@@ -38,6 +40,7 @@ extension Define.String {
         static let network = "networkError".localized()
         static let options = "configOptions".localized()
         static let payment = "payment".localized()
+        static let undefine = "undefine".localized()
     }
 }
 

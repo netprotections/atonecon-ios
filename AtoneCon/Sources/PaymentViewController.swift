@@ -26,12 +26,12 @@ final internal class PaymentViewController: UIViewController {
     internal var scriptHandler: ScriptHandler!
     fileprivate var closeButton: UIButton!
 
-    func getAtoneHTML() throws -> String {
+    func atoneHTML() throws -> String {
         var atoneJSURL = ""
         guard let options = AtoneCon.shared.options else {
-            let error: [String:Any] = ["title": Define.String.options,
-                                       "message": Define.String.Error.options]
-            throw MyError.option(error)
+            let error: [String: Any] = [Define.String.Key.title: Define.String.options,
+                                        Define.String.Key.message: Define.String.Error.options]
+            throw AtoneConError.option(error)
         }
         switch options.environment {
         case .development:
@@ -48,9 +48,9 @@ final internal class PaymentViewController: UIViewController {
         }
         let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
         guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
-            let error: [String:Any] = ["title": Define.String.paymentInfo,
-                                       "message": Define.String.Error.payment]
-            throw MyError.payment(error)
+            let error: [String: Any] = [Define.String.Key.title: Define.String.paymentInfo,
+                                        Define.String.Key.message: Define.String.Error.payment]
+            throw AtoneConError.payment(error)
         }
         let paymentScript = "var data = " + paymentJSON
 
@@ -85,21 +85,21 @@ final internal class PaymentViewController: UIViewController {
             webView.contentMode = .scaleToFill
             webView.autoresizingMask = .flexibleWidth
             view.addSubview(webView)
-            let atoneHTML = try getAtoneHTML()
-            webView.loadHTMLString(atoneHTML, baseURL: nil)
+            let html = try atoneHTML()
+            webView.loadHTMLString(html, baseURL: nil)
             webView.navigationDelegate = self
             webView.uiDelegate = self
             scriptHandler = ScriptHandler(forWebView: webView)
             scriptHandler.addEvents()
             scriptHandler.delegate = self
-        } catch MyError.payment(let error) {
+        } catch AtoneConError.payment(let error) {
             let event = ScriptEvent.failed(error)
             delegate?.controller(self, didReceiveScriptEvent: event)
-        } catch MyError.option(let error) {
+        } catch AtoneConError.option(let error) {
             let event = ScriptEvent.failed(error)
             delegate?.controller(self, didReceiveScriptEvent: event)
         } catch {
-            let error: [String: Any] = ["message": "Undifined Error"]
+            let error: [String: Any] = [Define.String.Key.message: Define.String.Error.undefine]
             let event = ScriptEvent.failed(error)
             delegate?.controller(self, didReceiveScriptEvent: event)
         }

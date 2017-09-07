@@ -17,3 +17,4 @@
 "payment" = "決済情報はまだ設定していません。";
 "paymentInfo" = "Payment Infomation";
 "scriptHandler" = "Script Handler";
+"undefine" = "Undefine Error";
