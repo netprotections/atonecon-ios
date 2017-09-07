@@ -56,27 +56,30 @@ pod 'AtoneCon', '~> 1.0'
 ```
 
 Sometimes you may want to use the bleeding edge version of a Pod, a specific revision or your own fork. If this is the case, you can specify that with your pod declaration.
-> Note: You need change link in following commands by link of repository AtoneCon library				
+> Note: You need change link in following commands by link of repository AtoneCon library
 
 - To use the `master` branch of the repo:
 
+```bash
+pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git'
 ```
-pod ‘AtoneCon’, :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git'
-```
+
 - To use a different branch of the repo:
 
+```bash
+pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :branch => '...'
 ```
-pod ‘AtoneCon’, :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :branch => '...'
-```
+
 - To use a tag of the repo:
 
+```bash
+pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :tag => '...'
 ```
-pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :tag => '...'
-```
+
 - Or specify a commit:
 
-```
-pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :commit => '...'
+```bash
+pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :commit => '...'
 ```
 
 #### Install AtoneCon
@@ -144,6 +147,7 @@ customer.companyName = "（株）ネットプロテクションズ" // String?
 ```
 
 ###### Configure customer
+
 ```swift
 payment.customer = customer
 ```
@@ -159,7 +163,7 @@ var desCustomer = AtoneCon.DesCustomer(
     address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
 )
 
-/**						
+/**
 The following attributes are not required.
 If the attribute has value, it must be passed to the object.
 If it hasn't value, it wouldn't be mentioned or would be set to nil.
@@ -168,12 +172,12 @@ If it hasn't value, it wouldn't be mentioned or would be set to nil.
 desCustomer.nameKana = "ぎんざたろう" // String?
 desCustomer.companyName = "株式会社ネットプロテクションズ" // String?
 ...
-```	
+```
 
 ###### Configure destination customers
 
 ```swift
-payment.desCustomers = [desCustomer]		
+payment.desCustomers = [desCustomer]
 ```
 
 #### Configure shop items
