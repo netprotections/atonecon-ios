@@ -54,7 +54,7 @@ final class ViewController: UIViewController {
         options.environment = .development
         let atoneCon = AtoneCon.shared
         atoneCon.delegate = self
-//        atoneCon.config(options)
+        atoneCon.config(options)
         let payment = viewModel.payment(withTransaction: transactionTextField.text)
         atoneCon.performPayment(payment)
     }
