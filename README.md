@@ -1,40 +1,40 @@
-AtoneCon iOS SDK
+ 決済モジュール導入ライブラリ iOS 
 ================
-The AtoneCon iOS SDK make it easy to perform an Atone payment inside your iOS app.
-## A. Requirements
+
+## A. 要件
 
 - iOS 8.0+
 - Xcode 8.3
 
 
-## B. Installation
+## B. インストール
 
-### Use CocoaPods
-> Embedded frameworks require a minimum deployment target of iOS 8.
+### CocoaPodsを使用
+> 組み込みフレームワークには、最小でiOS 8のデプロイメントターゲットが必要
 
 ### CocoaPods
 
-#### Install CocoaPod
-There are two ways to do this
-##### Way 1: As a global Ruby gem
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+#### CocoaPodのインストール
+2通りの方法がある。
+##### 方法 1: global Ruby gemとしてインストール
+[CocoaPods](http://cocoapods.org)はCocoaプロジェクトの依存関係マネージャである。次のコマンドでインストールできる:
 
 ```bash
 $ gem install cocoapods
 ```
-##### Way 2: Per project via bundler
-- Step 1: Open a `terminal` window and run this command:
+##### 方法 2: バンドルによりプロジェクトごとにインストール
+- Step 1: `terminal` ウィンドウを開き下記のコマンドを実行：
 
 ```bash
 gem install bundler
 ```
-- Step 2: Specify your dependencies in a Gemfile in your project's root:
+- Step 2: プロジェクトのルートにあるGemfileに依存関係を指定:
 
 ```bash
 source 'https://rubygems.org'
 gem 'cocoapods', '~> 1.2.0'
 ```
-- Step 3: Install all of the required gems from your specified sources:
+- Step 3: 指定したソースから必要なすべてのgemをインストール:
 
 
 ```bash
@@ -42,10 +42,11 @@ bundle install
 ```
 
 
-#### Config Podfile
-> CocoaPods 1.2+ is required to build AtoneCon 1.0+ 
+#### Podfileのコンフィグ
+> AtoneCon 1.0+をビルドするには、CocoaPods 1.2+が必要 
 
-To integrate AtoneCon framework into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+CocoaPodsを使ってXcodeプロジェクトにAtoneConフレームワークを統合するには、 `Podfile`で指定する:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -55,89 +56,87 @@ use_frameworks! # swift project
 pod 'AtoneCon', '~> 1.0'
 ```
 
-Sometimes you may want to use the bleeding edge version of a Pod, a specific revision or your own fork. If this is the case, you can specify that with your pod declaration.
-> Note: You need change link in following commands by link of repository AtoneCon library
+場合によっては、Pod、特定のリビジョン、または自分のフォークの最新バージョンを使用することができる。この場合、 pod declarationで指定することができる。
 
-- To use the `master` branch of the repo:
+>注：AtoneConライブラリリポジトリのリンクで以下のコマンドを変更する必要がある。
 
-```bash
-pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git'
-```
 
-- To use a different branch of the repo:
+- レポジトリの `master` ブランチを使用する:
 
 ```bash
-pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :branch => '...'
+pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git'
 ```
 
-- To use a tag of the repo:
+- `master` 以外のブランチを使用する:
 
 ```bash
-pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :tag => '...'
+pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :branch => '...'
 ```
 
-- Or specify a commit:
+- レポジトリのタグを使用する:
 
 ```bash
-pod 'AtoneCon', :git => 'git@github.com:AsianTechInc/AtoneCon-iOS.git', :commit => '...'
+pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :tag => '...'
 ```
 
-#### Install AtoneCon
-Then, run the following command:
+- もしくは、コミットを指定:
+
+```bash
+pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :commit => '...'
+```
+
+#### AtoneConをインストール
+以下のコマンドを実行:
 
 ```bash
 $ [bundle exec] pod install
 ``` 
 
-## C. Usage
+## C. 使用方法
 
-### 1. Configuration
+### 1. コンフィグレーション
 
 ```swift
-// You have to configuration options before perform payment
-var options = AtoneCon.Options(publicKey: "xxxyyyzzz")
+// 支払いを実行する前に設定オプションを用意する必要がある
+var 
+options = AtoneCon.Options(publicKey: "xxxyyyzzz")
 options.environment = .development
 let atoneCon = AtoneCon.shared
 atoneCon.config(options)
 atoneCon.delegate = self // AtoneConDelegate
 ```
 
-### 2. Perform payment
+### 2. 決済の実行
 
-#### Create new payment
+#### 新規決済の作成
 
 ```swift
-// These are required properties.
+// 要素必須
 
 var payment = AtoneCon.Payment(
     amount: 10,
     shopTransactionNo: "",
-    checksum: "zzzccccvvvvv" // The checksum is initialized from the shop's private key and payment information
-)
+    checksum: "zzzccccvvvvv" // チェックサムは、店舗の秘密鍵と支払い情報から初期化される
 
 
 /**
-The following attributes are not required.
-If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set to nil.
+下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
 */
 
 payment.salesSettled = false // Bool?
 payment.descriptionTrans = "備考です。" // String?
 ```
 
-#### Configure customer
+#### 購入者のコンフィグ
 
-###### Create new customer
+###### 購入者の新規作成
 
 ```swift
-// These are required properties.
+// 要素必須
 var customer = AtoneCon.Customer(name: "接続テスト")
 
 /** 
-The following attributes are not required.
-If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set to nil.
+下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
 */
 
 customer.nameKana = "セツゾクテスト" // String?
@@ -146,17 +145,17 @@ customer.companyName = "（株）ネットプロテクションズ" // String?
 ...
 ```
 
-###### Configure customer
+###### 購入者のコンフィグ
 
 ```swift
 payment.customer = customer
 ```
 
-#### Configure destination customers ( The attribute are not required )
+#### サービス提供先(配送先) のコンフィグ( attributeは必須ではない )
 
-###### Create destination custumer
+###### サービス提供先(配送先) の新規作成
 ```swift
-// These are required properties.
+// 要素必須
 var desCustomer = AtoneCon.DesCustomer(
     name: "銀座太郎", 
     zipCode: "123-1234", 
@@ -164,9 +163,7 @@ var desCustomer = AtoneCon.DesCustomer(
 )
 
 /**
-The following attributes are not required.
-If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set to nil.
+下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
 */
 
 desCustomer.nameKana = "ぎんざたろう" // String?
@@ -174,17 +171,17 @@ desCustomer.companyName = "株式会社ネットプロテクションズ" // Str
 ...
 ```
 
-###### Configure destination customers
+###### サービス提供先(配送先) のコンフィグ
 
 ```swift
 payment.desCustomers = [desCustomer]
 ```
 
-#### Configure shop items
+#### 商品明細のコンフィグ
 
-###### Create items
+###### 商品明細の新規作成
 ```swift
-// These are required properties.
+// 要素必須
 var item = AtoneCon.Item(
     id: "1", 
     name: "１０円チョコ", 
@@ -193,39 +190,36 @@ var item = AtoneCon.Item(
 )
 
 /**
-The following attributes are not required.
-If the attribute has value, it must be passed to the object.
-If it hasn't value, it wouldn't be mentioned or would be set to nil.
+下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
 */
 
 item.url = "https://atone.be/items/1"
 ```
-###### Configure shop items
+###### 商品明細のコンフィグ
 
 ```swift
 payment.items = [item]
 ```
 
-### Perform a payment
+### 決済の実行
 
 ```swift
 AtoneCon.shared.performPayment(payment)
 ```
 
-### 3. Handle payment delegation
+### 3. 決済のデリゲート処理
 
 ```swift
 extension YourPaymentController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
-            // save authenToken to use later etc...
+            // authenTokenを保存して後で使用する etc...
         case .cancelled:
-            // payment was cancelled
+            // 決済のキャンセル
         case .failed(let response):
-            // payment process return failure
-            /*
-            If the properties of the payment are initialized incorrectly, respone will be a object with format as follows
+            //　決済プロセスの失敗
+            /*　決済のプロパティが正しく初期化されていない場合、responeは次のような形式のオブジェクトになる
                 {
                     "name":ExampleException,
                     "message":"error message"
@@ -236,7 +230,7 @@ extension YourPaymentController: AtoneConDelegate {
                     ]
                 }
 
-            If payment failed, respone will be a object with format as follows
+            決済が失敗した場合、responeは次のような形式のオブジェクトになる
                 {
                     "id": "tr_aaaaaaa",
                     "authorization_result": 2, // 2: NG
@@ -248,7 +242,7 @@ extension YourPaymentController: AtoneConDelegate {
         case .finished(let response):
             // payment finished
             /*
-            if payment finished, respone will be a object with format as follows
+            決済が完了すると、responeは次のような形式のオブジェクトになる
             {
                 "id":"tr_aaaaaaa",
                 "authorization_result":1, // 1: OK
@@ -259,3 +253,174 @@ extension YourPaymentController: AtoneConDelegate {
     }
 }
 ```
+
+
+## D. エラー
+-----
+
+<table border=1>
+  <body>
+    <tr>
+      <th>ステータスコード</th><th>タイプ</th><th>エラーコード</th><th>エラーメッセージ</th><th>エラーアイテム</th>
+    </tr>
+    <tr>
+    <th rowspan="52">400</th>
+    <th rowspan="52">InvalidRequest</th>
+    <td>EATN0301</td><td width="90%">決済認証トークンが指定されていません。</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0302</td><td>決済認証トークンの形式が不正です。</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0307</td><td>追跡トークンの形式が不正です。</td><td>track_token</td>
+    </tr>
+    <tr>
+    <td>EATN0309</td><td>SMSを規定回数以上送信しています。明日以降に再度お試しください。</td><td>track_token</td>
+    </tr>
+    <tr>
+    <td>EATN0312</td><td>利用ポイント数がポイント残高を超過しています。</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0313</td><td>SMSの再送信ができません。</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0331</td><td>課金額は1以上の7桁以内の半角数値で設定して下さい。</td><td>amount</td>
+    </tr>
+    <tr>
+    <td>EATN0332</td><td>加盟店取引IDは100文字以内の半角英数字記号で設定して下さい。</td><td>shop_transaction_no</td>
+    </tr>
+    <tr>
+    <td>EATN0333</td><td>売上確定はtrueまたはfalseのいずれかを設定して下さい。</td><td>sales_settled</td>
+    </tr>
+    <tr>
+    <td>EATN0334</td><td>加盟店取引備考は改行以外の制御文字を除く255文字以内で設定して下さい。</td><td>description_trans</td>
+    </tr>
+    <tr>
+    <td>EATN0335</td><td>加盟店商品IDは100文字以内の半角英数字記号で設定して下さい。</td><td>shop_item_id</td>
+    </tr>
+    <tr>
+    <td>EATN0336</td><td>商品明細に値が設定されていません。</td><td>items</td>
+    </tr>
+    <tr>
+    <td>EATN0337</td><td>商品明細数は9999以下で設定して下さい。</td><td>items</td>
+    </tr>
+    <tr>
+    <td>EATN0338</td><td>商品名は100文字以内で設定して下さい。</td><td>item_name</td>
+    </tr>
+    <tr>
+    <td>EATN0339</td><td>商品単価は6桁以内の半角数値で設定して下さい。</td><td>item_price</td>
+    </tr>
+    <tr>
+    <td>EATN0340</td><td>個数は5桁以内の半角数値で設定して下さい。</td><td>item_count</td>
+    </tr>
+    <td>EATN0341</td><td>商品URLは1000文字以内で設定して下さい。</td><td>item_url</td>
+    <tr>
+    <td>EATN0342</td><td>氏名は100文字以内の全角で設定してください。</td><td>customer_name</td>
+    </tr>
+    <tr>
+    <td>EATN0343</td><td>ひらがな氏名は128文字以内の全角で設定してください。</td><td>customer_name_kana</td>
+    </tr>
+    <tr>
+    <td>EATN0344</td><td>会社名は100文字以内で設定してください。</td><td>company_name</td>
+    </tr>
+    <tr>
+    <td>EATN0345</td><td>部署名は30文字以内で設定してください。</td><td>department</td>
+    </tr>
+    <tr>
+    <td>EATN0346</td><td>郵便番号は半角数字7桁または半角数字3桁+"-"+半角数字4桁で設定してください。</td><td>zip_code</td>
+    </tr>
+    <tr>
+    <td>EATN0347</td><td>住所は255文字以内で設定してください。</td><td>address</td>
+    </tr>
+    <tr>
+    <td>EATN0348</td><td>電話番号は0から始まる半角数字10,11桁または半角数字2,3桁+"-"+半角数字4桁+"-"+半角数字4桁で設定してください。</td><td>tel</td>
+    </tr>
+    <tr>
+    <td>EATN0349</td><td>メールアドレスは255文字以内の正しい形式で設定してください。</td><td>email</td>
+    </tr>
+    <tr>
+    <td>EATN0350</td><td>利用ポイント数は7桁以内の半角数値で設定してください。</td><td>subtract_point</td>
+    </tr>
+    <tr>
+    <td>EATN0351</td><td>不正なチェックサムです。</td><td>checksum</td>
+    </tr>
+    <tr>
+    <td>EATN0352</td><td>HTTPリクエストのContent-Typeにはapplication/jsonを指定して下さい。</td><td>-</td>
+    </tr>
+    <tr>
+    <td>EATN0353</td><td>サービス提供先数は9以下で設定して下さい。</td><td>dest_cusomers</td>
+    </tr>
+    <tr>
+    <td>EATN0354</td><td>姓は50文字以内の全角で設定してください。</td><td>customer_family_name</td>
+    </tr>
+    <tr>
+    <td>EATN0355</td><td>名は50文字以内の全角で設定してください。</td><td>customer_given_name</td>
+    </tr>
+    <tr>
+    <td>EATN0356</td><td>ひらがな姓は64文字以内の全角で設定してください。</td><td>customer_family_name_kana</td>
+    </tr>
+    <tr>
+    <td>EATN0357</td><td>ひらがな名は64文字以内の全角で設定してください。</td><td>customer_given_name_kana</td>
+    </tr>
+    <tr>
+    <td>EATN0358</td><td>携帯電話番号は070,080,090始まりの半角数字10,11桁または半角数字2,3桁+"-"+半角数字4桁+"-"+半角数字4桁で設定してください。</td><td>phone_number</td>
+    </tr>
+    <tr>
+    <td>EATN0359</td><td>生年月日はYYYY-MM-DD形式の日付を設定してください。</td><td>birthday</td>
+    </tr>
+    <tr>
+    <td>EATN0360</td><td>性別は男性:1, 女性:2で設定してください。</td><td>sex_division</td>
+    </tr>
+    <tr>
+    <td>EATN0361</td><td>累計購入回数は0以上の7桁以内の半角数値で設定して下さい。</td><td>total_purchase_count</td>
+    </tr>
+    <tr>
+    <td>EATN0362</td><td>累計購入金額は0以上の8桁以内の半角数値で設定して下さい。</td><td>total_purchase_amount</td>
+    </tr>
+    <tr>
+    <td>EATN0303</td><td>"決済認証トークンは有効ではありません。
+→無効化を設定する日付がある revoke date
+日付を設定する。
+ログインスキップが実行されない"</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0303</td><td>決済認証トークンは有効ではありません。</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0306</td><td>認証に失敗しました。</td><td>-</td>
+    </tr>
+    <tr>
+    <td>EATN0360</td><td>有効なサービス利用契約が無いため処理できません。</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0363</td><td>有効な電話番号が会員に設定されていないため処理できません。</td><td>NP_Token</td>
+    </tr>
+    <tr>
+    <td>EATN0304</td><td>店舗公開可能鍵のデータが存在しません。</td><td>shop_public_key</td>
+    </tr>
+    <tr>
+    <td>EATN0308</td><td>会員追跡のデータが存在しません。</td><td>track_token</td>
+    </tr>
+    <tr>
+    <td>EATN0310</td><td>SMS認証のデータが存在しません。</td><td>sms_token</td>
+    </tr>
+    <tr>
+    <td>EATN0399</td><td>現在サービスを利用できません。恐れ入りますが、時間を空けて再度お試し下さい。</td><td>-</td>
+    </tr>
+    <tr>
+    <td>EATN0398</td><td>不正なリクエストです。</td><td>-</td>
+    </tr>
+    <tr>
+    <td>EATN0397</td><td>HTTPリクエストに含まれるJSONの形式が不正です。</td><td>-</td>
+    </tr>
+    <tr>
+    <td>EATN0396</td><td></td><td>-</td>
+    </tr>
+    <tr>
+    <td>EATN0311</td><td>SMS認証に5回以上失敗しました。明日以降に再度お試しください。</td><td>※現在は使用していない</td>
+    </tr>
+    <tr>
+    <td>EATN0305</td><td>携帯番号のデータが存在しません。</td><td>※現在は使用していない</td>
+    </tr>
+  </body>
+</table>

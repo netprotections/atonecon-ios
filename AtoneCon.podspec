@@ -8,7 +8,7 @@ s.description  = <<-DESC
 AtoneCon
 DESC
 
-s.homepage     = "https://github.com/AsianTechInc/AtoneCon-iOS"
+s.homepage     = "https://github.com/netprotections/atonecon-ios"
 
 # License
 s.license      = { "type" => "MIT", "file" => "LICENSE" }
@@ -20,7 +20,7 @@ s.author       = "AsianTech Inc."
 s.platform     = :ios, "8.0"
 
 # Source Location
-s.source       = { :git => "https://github.com/AsianTechInc/AtoneCon-iOS.git", :tag => "#{s.version}" }
+s.source       = { :git => "https://github.com/netprotections/atonecon-ios.git", :tag => "#{s.version}" }
 
 # Source Code
 s.source_files = "AtoneCon/Sources/**/*.{swift,strings}"
