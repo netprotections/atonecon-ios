@@ -17,7 +17,7 @@ final class AtoneConTests: XCTestCase {
         AtoneCon.shared.config(option)
 
         // Then 
-        XCTAssertEqual(AtoneCon.shared.option?.publicKey, "abcxyz")
+        XCTAssertEqual(AtoneCon.shared.options?.publicKey, "abcxyz")
     }
 
     func testResetAuthenTokenShouldReturnEmptyAuthenTokenWhenResetAuthenToken() {

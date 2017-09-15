@@ -25,6 +25,7 @@ final class PaymentViewControllerTests: XCTestCase {
         payment.customer = AtoneCon.Customer(name: "hanh")
         payment.desCustomers = nil
         payment.items = []
+        let atoneJSURL = "https://ct-auth.a-to-ne.jp/v1/atone.js"
 
         json = "\nAtone.config({" +
             "pre_token: \"tk_abcxyz\"," +
@@ -56,23 +57,15 @@ final class PaymentViewControllerTests: XCTestCase {
             "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
             "<meta name=\"viewport\" content=\"initial-scale=\(scale),maximum-scale=1.0,width=device-width,user-scalable=1\">" +
             "<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3mobile.css\">" +
-            "<script src=\"https://it-auth.a-to-ne.jp/v1/atone.js\">" +
+            "<script src=\"%@\">" +
             "</script>" +
             "</head>" +
             "<title>ページタイトル</title>" +
             "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
             "</body>" +
         "</html>"
-    }
-
-    func testHandelerScriptShouldReturnRightFormatWhenInitializedPaymentViewController() {
-        // When
-        XCTAssertNotNil(payment)
-        let paymentController = PaymentViewController(payment: payment)
-
-        // Then
-        XCTAssertEqual(paymentController.handlerScript, json)
-        XCTAssertEqual(paymentController.atoneHTML, html)
+        
+        html = String(format: html, atoneJSURL)
     }
 
     func testLoadViewShouldLoadedUIWhenLoadedPaymentViewController() {
