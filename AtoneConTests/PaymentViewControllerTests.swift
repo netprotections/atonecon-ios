@@ -25,7 +25,7 @@ final class PaymentViewControllerTests: XCTestCase {
         payment.customer = AtoneCon.Customer(name: "hanh")
         payment.desCustomers = nil
         payment.items = []
-        let urlJson = "https://ct-auth.a-to-ne.jp/v1/atone.js"
+        let atoneJSURL = "https://ct-auth.a-to-ne.jp/v1/atone.js"
 
         json = "\nAtone.config({" +
             "pre_token: \"tk_abcxyz\"," +
@@ -65,7 +65,7 @@ final class PaymentViewControllerTests: XCTestCase {
             "</body>" +
         "</html>"
         
-        html = String(format: html, urlJson)
+        html = String(format: html, atoneJSURL)
     }
 
     func testLoadViewShouldLoadedUIWhenLoadedPaymentViewController() {
