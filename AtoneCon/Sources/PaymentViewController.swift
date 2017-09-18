@@ -84,11 +84,13 @@ final internal class PaymentViewController: UIViewController {
             webView.backgroundColor = Define.Color.blackAlpha90
             webView.contentMode = .scaleToFill
             webView.autoresizingMask = .flexibleWidth
-            view.addSubview(webView)
             let html = try atoneHTML()
-            webView.loadHTMLString(html, baseURL: nil)
+            let url = URL(string: "https://google.com")
+            webView.loadHTMLString(html, baseURL: url)
+            view.addSubview(webView)
             webView.navigationDelegate = self
             webView.uiDelegate = self
+//            webView.delegate = self
             scriptHandler = ScriptHandler(forWebView: webView)
             scriptHandler.addEvents()
             scriptHandler.delegate = self
@@ -138,11 +140,17 @@ final internal class PaymentViewController: UIViewController {
     }
 }
 
+//extension PaymentViewController: UIWebViewDelegate {
+//    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+//        return true
+//    }
+//}
+
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
     internal func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else {
-            decisionHandler(.cancel)
+            decisionHandler(.allow)
             return
         }
         if url.absoluteString.contains(Define.String.Key.loading) {

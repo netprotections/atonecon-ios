@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DemoViewController.swift
 //  AtoneConDemo
 //
 //  Created by Pham Ngoc Hanh on 6/28/17.
@@ -10,7 +10,7 @@ import UIKit
 import AtoneCon
 import Toast_Swift
 
-final class ViewController: UIViewController {
+final class DemoViewController: UIViewController {
 
     @IBOutlet fileprivate weak var payButton: UIButton!
     @IBOutlet fileprivate weak var authenTokenTitleLabel: UILabel!
@@ -66,7 +66,7 @@ final class ViewController: UIViewController {
 }
 
 // MARK: - AtoneConDelegate
-extension ViewController: AtoneConDelegate {
+extension DemoViewController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
@@ -96,7 +96,7 @@ extension ViewController: AtoneConDelegate {
 }
 
 // MARK: - UITextFieldDelegate
-extension ViewController: UITextFieldDelegate {
+extension DemoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return true
@@ -104,7 +104,7 @@ extension ViewController: UITextFieldDelegate {
 }
 
 // MARK: - setup UI
-extension ViewController {
+extension DemoViewController {
     fileprivate func showAlert(title: String?, message: String?, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: Define.String.okay, style: .cancel, handler: handler)

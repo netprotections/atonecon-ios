@@ -53,5 +53,6 @@ extension Define {
                     "</script>" +
                 "</body>" +
             "</html>"
+        static let htmlTest = "<html><body><p>Hello!</p></body></html>"
     }
 }
