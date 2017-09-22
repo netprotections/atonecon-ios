@@ -179,21 +179,238 @@ extension PaymentViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
+        print(url)
         if url.absoluteString.contains(Define.String.Key.loading) {
             indicator.stopAnimating()
             closeButton.isHidden = true
         }
         decisionHandler(.allow)
     }
+    
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Swift.Void) {
+        print("decidePolicyFor navigationResponse")
+        decisionHandler(.allow)
+    }
+    
+    
+    /*! @abstract Invoked when a main frame navigation starts.
+     @param webView The web view invoking the delegate method.
+     @param navigation The navigation.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("didStartProvisionalNavigation navigation")
+    }
+    
+    
+    /*! @abstract Invoked when a server redirect is received for the main
+     frame.
+     @param webView The web view invoking the delegate method.
+     @param navigation The navigation.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        print("didReceiveServerRedirectForProvisionalNavigation navigation")
+    }
+    
+    
+    /*! @abstract Invoked when an error occurs while starting to load data for
+     the main frame.
+     @param webView The web view invoking the delegate method.
+     @param navigation The navigation.
+     @param error The error that occurred.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print("didFailProvisionalNavigation navigation:")
+    }
+    
+    
+    /*! @abstract Invoked when content starts arriving for the main frame.
+     @param webView The web view invoking the delegate method.
+     @param navigation The navigation.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        print("didCommit navigation:")
+    }
+    
+    
+    /*! @abstract Invoked when a main frame navigation completes.
+     @param webView The web view invoking the delegate method.
+     @param navigation The navigation.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("didFinish navigation:")
+    }
+    
+    
+    /*! @abstract Invoked when an error occurs during a committed main frame
+     navigation.
+     @param webView The web view invoking the delegate method.
+     @param navigation The navigation.
+     @param error The error that occurred.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print("didFail navigation:")
+    }
+    
+    
+    /*! @abstract Invoked when the web view needs to respond to an authentication challenge.
+     @param webView The web view that received the authentication challenge.
+     @param challenge The authentication challenge.
+     @param completionHandler The completion handler you must invoke to respond to the challenge. The
+     disposition argument is one of the constants of the enumerated type
+     NSURLSessionAuthChallengeDisposition. When disposition is NSURLSessionAuthChallengeUseCredential,
+     the credential argument is the credential to use, or nil to indicate continuing without a
+     credential.
+     @discussion If you do not implement this method, the web view will respond to the authentication challenge with the NSURLSessionAuthChallengeRejectProtectionSpace disposition.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Swift.Void) {
+        print("didReceive challenge:")
+        completionHandler(.useCredential, nil)
+    }
+    
+    
+    /*! @abstract Invoked when the web view's web content process is terminated.
+     @param webView The web view whose underlying web content process was terminated.
+     */
+    @available(iOS 9.0, *)
+    func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+        print("webViewWebContentProcessDidTerminate")
+        
+    }
 }
 
 extension PaymentViewController: WKUIDelegate {
     internal func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        print(navigationAction.request.url)
         if let url = navigationAction.request.url {
             print(url.absoluteString)
             UIApplication.shared.openURL(url)
         }
         return nil
+    }
+    
+    @available(iOS 9.0, *)
+    func webViewDidClose(_ webView: WKWebView) {
+        print("webViewDidClose")
+    }
+    
+    
+    /*! @abstract Displays a JavaScript alert panel.
+     @param webView The web view invoking the delegate method.
+     @param message The message to display.
+     @param frame Information about the frame whose JavaScript initiated this
+     call.
+     @param completionHandler The completion handler to call after the alert
+     panel has been dismissed.
+     @discussion For user security, your app should call attention to the fact
+     that a specific website controls the content in this panel. A simple forumla
+     for identifying the controlling website is frame.request.URL.host.
+     The panel should have a single OK button.
+     
+     If you do not implement this method, the web view will behave as if the user selected the OK button.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Swift.Void) {
+        print("runJavaScriptAlertPanelWithMessage message")
+        completionHandler()
+    }
+    
+    
+    /*! @abstract Displays a JavaScript confirm panel.
+     @param webView The web view invoking the delegate method.
+     @param message The message to display.
+     @param frame Information about the frame whose JavaScript initiated this call.
+     @param completionHandler The completion handler to call after the confirm
+     panel has been dismissed. Pass YES if the user chose OK, NO if the user
+     chose Cancel.
+     @discussion For user security, your app should call attention to the fact
+     that a specific website controls the content in this panel. A simple forumla
+     for identifying the controlling website is frame.request.URL.host.
+     The panel should have two buttons, such as OK and Cancel.
+     
+     If you do not implement this method, the web view will behave as if the user selected the Cancel button.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Swift.Void) {
+        print("runJavaScriptConfirmPanelWithMessage message")
+        completionHandler(true)
+    }
+    
+    
+    /*! @abstract Displays a JavaScript text input panel.
+     @param webView The web view invoking the delegate method.
+     @param message The message to display.
+     @param defaultText The initial text to display in the text entry field.
+     @param frame Information about the frame whose JavaScript initiated this call.
+     @param completionHandler The completion handler to call after the text
+     input panel has been dismissed. Pass the entered text if the user chose
+     OK, otherwise nil.
+     @discussion For user security, your app should call attention to the fact
+     that a specific website controls the content in this panel. A simple forumla
+     for identifying the controlling website is frame.request.URL.host.
+     The panel should have two buttons, such as OK and Cancel, and a field in
+     which to enter text.
+     
+     If you do not implement this method, the web view will behave as if the user selected the Cancel button.
+     */
+    @available(iOS 8.0, *)
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Swift.Void) {
+        print("runJavaScriptTextInputPanelWithPrompt prompt")
+        completionHandler(nil)
+    }
+    
+    
+    /*! @abstract Allows your app to determine whether or not the given element should show a preview.
+     @param webView The web view invoking the delegate method.
+     @param elementInfo The elementInfo for the element the user has started touching.
+     @discussion To disable previews entirely for the given element, return NO. Returning NO will prevent
+     webView:previewingViewControllerForElement:defaultActions: and webView:commitPreviewingViewController:
+     from being invoked.
+     
+     This method will only be invoked for elements that have default preview in WebKit, which is
+     limited to links. In the future, it could be invoked for additional elements.
+     */
+    @available(iOS 10.0, *)
+    func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool {
+        print("shouldPreviewElement elementInfo")
+        return false
+    }
+    
+    
+    /*! @abstract Allows your app to provide a custom view controller to show when the given element is peeked.
+     @param webView The web view invoking the delegate method.
+     @param elementInfo The elementInfo for the element the user is peeking.
+     @param defaultActions An array of the actions that WebKit would use as previewActionItems for this element by
+     default. These actions would be used if allowsLinkPreview is YES but these delegate methods have not been
+     implemented, or if this delegate method returns nil.
+     @discussion Returning a view controller will result in that view controller being displayed as a peek preview.
+     To use the defaultActions, your app is responsible for returning whichever of those actions it wants in your
+     view controller's implementation of -previewActionItems.
+     
+     Returning nil will result in WebKit's default preview behavior. webView:commitPreviewingViewController: will only be invoked
+     if a non-nil view controller was returned.
+     */
+    @available(iOS 10.0, *)
+    func webView(_ webView: WKWebView, previewingViewControllerForElement elementInfo: WKPreviewElementInfo, defaultActions previewActions: [WKPreviewActionItem]) -> UIViewController? {
+        print("previewingViewControllerForElement elementInfo")
+        return nil
+    }
+    
+    
+    /*! @abstract Allows your app to pop to the view controller it created.
+     @param webView The web view invoking the delegate method.
+     @param previewingViewController The view controller that is being popped.
+     */
+    @available(iOS 10.0, *)
+    func webView(_ webView: WKWebView, commitPreviewingViewController previewingViewController: UIViewController) {
+        print("commitPreviewingViewController previewingViewController")
     }
 }
 
