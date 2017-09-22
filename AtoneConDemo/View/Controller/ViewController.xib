@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="AtoneConDemo" customModuleProvider="target">
             <connections>
                 <outlet property="authenTokenTitleLabel" destination="dpc-FO-gGI" id="azp-wT-A3h"/>
                 <outlet property="authenTokenValueLabel" destination="SBc-Vu-cTT" id="Eov-4E-2IN"/>
