@@ -64,7 +64,7 @@ final class PaymentViewControllerTests: XCTestCase {
             "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
             "</body>" +
             "</html>"
-        
+
         html = String(format: html, atoneJSURL)
     }
 
@@ -72,7 +72,7 @@ final class PaymentViewControllerTests: XCTestCase {
         // When
         XCTAssertNotNil(payment)
         let paymentController = PaymentViewController(payment: payment)
-        paymentController.viewDidLoad()
+        paymentController.viewDidAppear(true)
 
         // Then
         XCTAssertNotNil(paymentController.webView)
@@ -84,10 +84,10 @@ final class PaymentViewControllerTests: XCTestCase {
         // When
         XCTAssertNotNil(payment)
         let paymentController = PaymentViewController(payment: payment)
-        paymentController.viewDidLoad()
+        paymentController.viewDidAppear(true)
         paymentController.viewDidLayoutSubviews()
 
         // Then
-        XCTAssertEqual(paymentController.webView.frame, UIScreen.main.bounds)
+        XCTAssertEqual(paymentController.webView?.frame, UIScreen.main.bounds)
     }
 }

@@ -25,7 +25,7 @@ final class StringTests: XCTestCase {
         XCTAssertEqual(network.localized(), "ネットワーク")
         XCTAssertEqual(cancel.localized(), "キャンセル")
         XCTAssertEqual(close.localized(), "閉じる")
-        XCTAssertEqual(quitPayment.localized(), "決済が終了します。よろしいでしょうか？")
+        XCTAssertEqual(quitPayment.localized(), "atoneでのお買い物を終了します。よろしいですか？")
         XCTAssertEqual(networkError.localized(), "ネットワークが圏外です")
     }
 }

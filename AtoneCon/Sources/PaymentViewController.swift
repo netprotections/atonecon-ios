@@ -15,7 +15,6 @@ internal protocol PaymentViewControllerDelegate: class {
 }
 
 final internal class PaymentViewController: UIViewController {
-
     // MARK: - Delegate
     weak var delegate: PaymentViewControllerDelegate?
 
@@ -26,7 +25,14 @@ final internal class PaymentViewController: UIViewController {
     internal var scriptHandler: ScriptHandler!
     fileprivate var closeButton: UIButton!
 
-    func atoneHTML() throws -> String {
+    func atoneJS() throws -> String {
+        // payment script
+        guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
+            let error: [String: Any] = [Define.String.Key.title: Define.String.paymentInfo,
+                                        Define.String.Key.message: Define.String.Error.payment]
+            throw AtoneConError.payment(error)
+        }
+        let paymentScript = "var data = " + paymentJSON
         var atoneJSURL = ""
         guard let options = AtoneCon.shared.options else {
             let error: [String: Any] = [Define.String.Key.title: Define.String.options,
@@ -41,21 +47,39 @@ final internal class PaymentViewController: UIViewController {
         case .staging:
             atoneJSURL = "https://ct-auth.a-to-ne.jp/v1/atone.js"
         }
+
+        // publickKey script
         let publicKey = options.publicKey
+
+        // preToken
         var preToken = ""
         if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
         }
-        let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
-        guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
-            let error: [String: Any] = [Define.String.Key.title: Define.String.paymentInfo,
-                                        Define.String.Key.message: Define.String.Error.payment]
-            throw AtoneConError.payment(error)
-        }
-        let paymentScript = "var data = " + paymentJSON
 
+        // atone script in url
+        var contentJSURL = ""
+        guard let url = URL(string: atoneJSURL) else {
+            let error: [String: Any] = [Define.String.Key.title: Define.String.options,
+                                        Define.String.Key.message: Define.String.Error.options]
+            throw AtoneConError.option(error)
+        }
+        do {
+            contentJSURL = try String(contentsOf: url)
+        } catch {
+            let error: [String: Any] = [Define.String.Key.title: Define.String.options,
+                                        Define.String.Key.message: Define.String.Error.atoneJSURL]
+            throw AtoneConError.option(error)
+        }
+
+        let atoneJS = String(format: Define.Scripts.atoneJS, contentJSURL, paymentScript, preToken, publicKey)
+        return atoneJS
+    }
+
+    func atoneHTML() throws -> String {
+        // device scale
         let deviceScale = Define.Helper.Ratio.horizontal
-        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)", atoneJSURL, paymentScript, handlerScript)
+        let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)")
         return atoneHTML
     }
 
@@ -67,6 +91,10 @@ final internal class PaymentViewController: UIViewController {
     // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupWebView()
         setupIndicator()
         setupCloseButton()
@@ -74,23 +102,27 @@ final internal class PaymentViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        webView.frame = view.bounds
+        webView?.frame = view.bounds
     }
 
     // MARK: - Private Functions
     private func setupWebView() {
         do {
-            webView = WKWebView(frame: view.bounds)
-            webView.backgroundColor = Define.Color.blackAlpha90
+            let atoneJS = try self.atoneJS()
+            let configuration = WKWebViewConfiguration()
+            let userContentController = WKUserContentController()
+            let userScript = WKUserScript(source: atoneJS, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+            userContentController.addUserScript(userScript)
+            configuration.userContentController = userContentController
+            webView = WKWebView(frame: view.bounds, configuration: configuration)
             webView.contentMode = .scaleToFill
             webView.autoresizingMask = .flexibleWidth
             let html = try atoneHTML()
-            let url = URL(string: "https://google.com")
-            webView.loadHTMLString(html, baseURL: url)
+            webView.loadHTMLString(html, baseURL: nil)
+            webView.backgroundColor = .white
             view.addSubview(webView)
             webView.navigationDelegate = self
             webView.uiDelegate = self
-//            webView.delegate = self
             scriptHandler = ScriptHandler(forWebView: webView)
             scriptHandler.addEvents()
             scriptHandler.delegate = self
@@ -108,7 +140,6 @@ final internal class PaymentViewController: UIViewController {
     }
 
     private func setupCloseButton() {
-        // Client will supply icon and size for button.
         let width: CGFloat = 36 * Define.Helper.Ratio.horizontal
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let edgeInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 5)
@@ -125,6 +156,7 @@ final internal class PaymentViewController: UIViewController {
         indicator.hidesWhenStopped = true
         indicator.startAnimating()
         indicator.center = view.center
+        indicator.color = .blue
         view.addSubview(indicator)
     }
 
@@ -140,17 +172,11 @@ final internal class PaymentViewController: UIViewController {
     }
 }
 
-//extension PaymentViewController: UIWebViewDelegate {
-//    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-//        return true
-//    }
-//}
-
 // MARK: - WKNavigationDelegate
 extension PaymentViewController: WKNavigationDelegate {
     internal func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else {
-            decisionHandler(.allow)
+            decisionHandler(.cancel)
             return
         }
         if url.absoluteString.contains(Define.String.Key.loading) {
@@ -164,6 +190,7 @@ extension PaymentViewController: WKNavigationDelegate {
 extension PaymentViewController: WKUIDelegate {
     internal func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if let url = navigationAction.request.url {
+            print(url.absoluteString)
             UIApplication.shared.openURL(url)
         }
         return nil

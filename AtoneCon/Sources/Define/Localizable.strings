@@ -18,3 +18,4 @@
 "paymentInfo" = "Payment Infomation";
 "scriptHandler" = "Script Handler";
 "undefine" = "Undefine Error";
+"errorAtoneJS" = "Atone JavaScript URL not found";

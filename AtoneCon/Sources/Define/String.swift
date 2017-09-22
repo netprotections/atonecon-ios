@@ -41,6 +41,7 @@ extension Define.String {
         static let options = "configOptions".localized()
         static let payment = "payment".localized()
         static let undefine = "undefine".localized()
+        static let atoneJSURL = "errorAtoneJS".localized()
     }
 }
 

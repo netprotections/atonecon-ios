@@ -11,48 +11,43 @@ import Foundation
 extension Define {
     internal struct Scripts {
         static let atoneJS =
-            "window.addEventListener(\"load\", function(){" +
+            "%@" +
+                "\n%@;" +
+                "\nwindow.addEventListener(\"load\", function(){" +
                 "\nAtone.config({" +
-                    "pre_token: \"%@\"," +
-                    "pub_key: \"%@\"," +
-                    "payment: data," +
-                    "authenticated: function(authentication_token) { " +
-                        "window.webkit.messageHandlers.authenticated.postMessage(authentication_token);" +
-                    "}," +
-                    "cancelled: function() { " +
-                        "window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');" +
-                    "}," +
-                    "failed: function(response) { " +
-                        "window.webkit.messageHandlers.failed.postMessage(response);" +
-                    "}," +
-                    "succeeded: function(response) { " +
-                        "window.webkit.messageHandlers.succeeded.postMessage(response);" +
-                    "}," +
-                    "error: function(name, message, errors) { " +
-                        "var response = {name: name, message: message, errors: errors};" +
-                        "window.webkit.messageHandlers.failed.postMessage(response);" +
-                    "}" +
-                "}, Atone.start);});"
-
+                "pre_token: \"%@\"," +
+                "pub_key: \"%@\"," +
+                "payment: data," +
+                "authenticated: function(authentication_token) { " +
+                "window.webkit.messageHandlers.authenticated.postMessage(authentication_token);" +
+                "}," +
+                "cancelled: function() { " +
+                "window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');" +
+                "}," +
+                "failed: function(response) { " +
+                "window.webkit.messageHandlers.failed.postMessage(response);" +
+                "}," +
+                "succeeded: function(response) { " +
+                "window.webkit.messageHandlers.succeeded.postMessage(response);" +
+                "}," +
+                "error: function(name, message, errors) { " +
+                "var response = {name: name, message: message, errors: errors};" +
+                "window.webkit.messageHandlers.failed.postMessage(response);" +
+                "}" +
+        "}, Atone.start);});"
+        
         static let atoneHTML =
             "<!DOCTYPE html>" +
-            "<html lang=\"ja\">" +
+                "<html lang=\"ja\">" +
                 "<head>" +
-                    "<meta charset=\"UTF-8\">" +
-                    "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
-                    "<meta name=\"viewport\" content=\"initial-scale=%@,maximum-scale=1.0,width=device-width,user-scalable=1\">" +
-                    "<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3mobile.css\">" +
-                    "<script src=\"%@\">" +
-                    "</script>" +
+                "<meta charset=\"UTF-8\">" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
+                "<meta name=\"viewport\" content=\"initial-scale=%@,maximum-scale=1.0,width=device-width,user-scalable=1\">" +
+                "<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3mobile.css\">" +
                 "</head>" +
                 "<title>ページタイトル</title>" +
                 "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
-                    "<script>" +
-                        "%@;" +
-                        "%@;" +
-                    "</script>" +
                 "</body>" +
-            "</html>"
-        static let htmlTest = "<html><body><p>Hello!</p></body></html>"
+        "</html>"
     }
 }
