@@ -38,16 +38,16 @@ extension Define {
 
         static let atoneHTML =
             "<!DOCTYPE html>" +
-                "<html lang=\"ja\">" +
+            "<html lang=\"ja\">" +
                 "<head>" +
-                "<meta charset=\"UTF-8\">" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
-                "<meta name=\"viewport\" content=\"initial-scale=%@,maximum-scale=1.0,width=device-width,user-scalable=1\">" +
-                "<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3mobile.css\">" +
+                    "<meta charset=\"UTF-8\">" +
+                    "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
+                    "<meta name=\"viewport\" content=\"initial-scale=%@,maximum-scale=1.0,width=device-width,user-scalable=1\">" +
+                    "<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3mobile.css\">" +
                 "</head>" +
                 "<title>ページタイトル</title>" +
                 "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
                 "</body>" +
-        "</html>"
+            "</html>"
     }
 }

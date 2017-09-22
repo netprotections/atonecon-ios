@@ -58,25 +58,25 @@ final internal class PaymentViewController: UIViewController {
         }
 
         // atone script in url
-        var contentJSURL = ""
+        var atoneScript = ""
         guard let url = URL(string: atoneJSURL) else {
             let error: [String: Any] = [Define.String.Key.title: Define.String.options,
                                         Define.String.Key.message: Define.String.Error.options]
             throw AtoneConError.option(error)
         }
         do {
-            contentJSURL = try String(contentsOf: url)
+            atoneScript = try String(contentsOf: url)
         } catch {
             let error: [String: Any] = [Define.String.Key.title: Define.String.options,
-                                        Define.String.Key.message: Define.String.Error.atoneJSURL]
+                                        Define.String.Key.message: Define.String.Error.atoneScript]
             throw AtoneConError.option(error)
         }
 
-        let atoneJS = String(format: Define.Scripts.atoneJS, contentJSURL, paymentScript, preToken, publicKey)
+        let atoneJS = String(format: Define.Scripts.atoneJS, atoneScript, paymentScript, preToken, publicKey)
         return atoneJS
     }
 
-    func atoneHTML() throws -> String {
+    func atoneHTML() -> String {
         // device scale
         let deviceScale = Define.Helper.Ratio.horizontal
         let atoneHTML = String(format: Define.Scripts.atoneHTML, "\(deviceScale)")
@@ -117,8 +117,7 @@ final internal class PaymentViewController: UIViewController {
             webView = WKWebView(frame: view.bounds, configuration: configuration)
             webView.contentMode = .scaleToFill
             webView.autoresizingMask = .flexibleWidth
-            let html = try atoneHTML()
-            webView.loadHTMLString(html, baseURL: nil)
+            webView.loadHTMLString(atoneHTML(), baseURL: nil)
             webView.backgroundColor = .white
             view.addSubview(webView)
             webView.navigationDelegate = self
@@ -190,7 +189,6 @@ extension PaymentViewController: WKNavigationDelegate {
 extension PaymentViewController: WKUIDelegate {
     internal func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if let url = navigationAction.request.url {
-            print(url.absoluteString)
             UIApplication.shared.openURL(url)
         }
         return nil
