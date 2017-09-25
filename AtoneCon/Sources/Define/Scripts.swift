@@ -42,12 +42,12 @@ extension Define {
                     "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                     "<meta name=\"viewport\" content=\"initial-scale=%@,maximum-scale=1.0,width=device-width,user-scalable=1\">" +
                     "<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3mobile.css\">" +
-                    "<script src=\"%@\">" +
+                    "<script type=\"text/javascript\" charset=\"UTF-8\" src=\"%@\">" +
                     "</script>" +
                 "</head>" +
                 "<title>ページタイトル</title>" +
                 "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
-                    "<script>" +
+                    "<script type=\"text/javascript\" charset=\"UTF-8\">" +
                         "%@;" +
                         "%@;" +
                     "</script>" +

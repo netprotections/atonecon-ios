@@ -65,8 +65,8 @@ final internal class PaymentViewController: UIViewController {
     }
 
     // MARK: - Cycle Life
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupWebView()
         setupIndicator()
         setupCloseButton()
@@ -74,7 +74,7 @@ final internal class PaymentViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        webView.frame = view.bounds
+        webView?.frame = view.bounds
     }
 
     // MARK: - Private Functions
