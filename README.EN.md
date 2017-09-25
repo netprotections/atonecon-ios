@@ -2,7 +2,6 @@ AtoneCon iOS SDK
 ================
 [日本語版ドキュメントはこちら](https://github.com/netprotections/atonecon-ios/blob/master/README.md)
 
-The AtoneCon iOS SDK make it easy to perform an Atone payment inside your iOS app.
 ## A. Requirements
 
 - iOS 8.0+
@@ -98,10 +97,9 @@ $ [bundle exec] pod install
 ### 1. Configuration
 
 ```swift
+// We need to prepare configuration options before we execute payment
 var options = AtoneCon.Options(publicKey: "xxxyyyzzz")
-***
-// public key be provided by the shops
-***
+options.environment = .development
 let atoneCon = AtoneCon.shared
 atoneCon.config(options)
 atoneCon.delegate = self // AtoneConDelegate

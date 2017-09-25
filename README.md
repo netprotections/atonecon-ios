@@ -98,8 +98,7 @@ $ [bundle exec] pod install
 
 ```swift
 // 支払いを実行する前に設定オプションを用意する必要がある
-var 
-options = AtoneCon.Options(publicKey: "xxxyyyzzz")
+var options = AtoneCon.Options(publicKey: "xxxyyyzzz")
 options.environment = .development
 let atoneCon = AtoneCon.shared
 atoneCon.config(options)
