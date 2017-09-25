@@ -17,13 +17,13 @@ AtoneCon iOS SDK
 
 #### Install CocoaPod
 There are two ways to do this
-##### Way 1: *****As a global Ruby gem***** 
+##### Way 1: As a global Ruby gem
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```bash
 $ gem install cocoapods
 ```
-##### Way 2: *****Per project via bundler*****
+##### Way 2: Per project via bundler
 - Step 1: Open a `terminal` window and run this command:
 
 ```bash
@@ -115,7 +115,7 @@ atoneCon.delegate = self // AtoneConDelegate
 var payment = AtoneCon.Payment(
     amount: 10,
     shopTransactionNo: "",
-    checksum: "zzzccccvvvvv" ***// The checksum is initialized from the shop's private key and payment information
+    checksum: "zzzccccvvvvv" // The checksum is initialized from the shop's private key and payment information
 )
 
 
@@ -226,7 +226,6 @@ extension YourPaymentController: AtoneConDelegate {
             // payment was cancelled
         case .failed(let response):
             // payment process return failure
-            ******
             /*
             If the properties of the payment are initialized incorrectly, respone will be a object with format as follows
                 {
@@ -248,10 +247,8 @@ extension YourPaymentController: AtoneConDelegate {
                 }
             
             */
-            *****
         case .finished(let response):
             // payment finished
-            ******
             /*
             if payment finished, respone will be a object with format as follows
             {
@@ -260,7 +257,6 @@ extension YourPaymentController: AtoneConDelegate {
                 "subtract_point":3
             }
             */
-            *****
         }
     }
 }
