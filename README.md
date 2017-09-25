@@ -20,7 +20,7 @@
 [CocoaPods](http://cocoapods.org)はCocoaプロジェクトの依存関係マネージャである。次のコマンドでインストールできる:
 
 ```bash
-$ gem install cocoapods
+gem install cocoapods
 ```
 ##### 方法 2: バンドルによりプロジェクトごとにインストール
 - Step 1: `terminal` ウィンドウを開き下記のコマンドを実行：
@@ -89,7 +89,7 @@ pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :commi
 以下のコマンドを実行:
 
 ```bash
-$ [bundle exec] pod install
+[bundle exec] pod install
 ``` 
 
 ## C. 使用方法

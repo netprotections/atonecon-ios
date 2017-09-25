@@ -21,7 +21,7 @@ There are two ways to do this
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```bash
-$ gem install cocoapods
+gem install cocoapods
 ```
 ##### Way 2: Per project via bundler
 - Step 1: Open a `terminal` window and run this command:
@@ -89,7 +89,7 @@ pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :commi
 Then, run the following command:
 
 ```bash
-$ [bundle exec] pod install
+[bundle exec] pod install
 ```
 
 ## C. Usage
