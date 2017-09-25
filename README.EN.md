@@ -1,40 +1,41 @@
- 決済モジュール導入ライブラリ iOS 
+AtoneCon iOS SDK
 ================
+[日本語版ドキュメントはこちら](https://github.com/netprotections/atonecon-ios/blob/master/README.md)
 
-## A. 要件
+## A. Requirements
 
 - iOS 8.0+
 - Xcode 8.3
 
 
-## B. インストール
+## B. Installation
 
-### CocoaPodsを使用
-> 組み込みフレームワークには、最小でiOS 8のデプロイメントターゲットが必要
+### Use CocoaPods (recommended)
+> Embedded frameworks require a minimum deployment target of iOS 8.
 
 ### CocoaPods
 
-#### CocoaPodのインストール
-2通りの方法がある。
-##### 方法 1: global Ruby gemとしてインストール
-[CocoaPods](http://cocoapods.org)はCocoaプロジェクトの依存関係マネージャである。次のコマンドでインストールできる:
+#### Install CocoaPod
+There are two ways to do this
+##### Way 1: As a global Ruby gem
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```bash
 gem install cocoapods
 ```
-##### 方法 2: バンドルによりプロジェクトごとにインストール
-- Step 1: `terminal` ウィンドウを開き下記のコマンドを実行：
+##### Way 2: Per project via bundler
+- Step 1: Open a `terminal` window and run this command:
 
 ```bash
 gem install bundler
 ```
-- Step 2: プロジェクトのルートにあるGemfileに依存関係を指定:
+- Step 2: Specify your dependencies in a Gemfile in your project's root:
 
 ```bash
 source 'https://rubygems.org'
 gem 'cocoapods', '~> 1.2.0'
 ```
-- Step 3: 指定したソースから必要なすべてのgemをインストール:
+- Step 3: Install all of the required gems from your specified sources:
 
 
 ```bash
@@ -42,11 +43,10 @@ bundle install
 ```
 
 
-#### Podfileのコンフィグ
-> AtoneCon 1.0+をビルドするには、CocoaPods 1.2+が必要 
+#### Config Podfile
+> CocoaPods 1.2+ is required to build AtoneCon 1.0+ 
 
-
-CocoaPodsを使ってXcodeプロジェクトにAtoneConフレームワークを統合するには、 `Podfile`で指定する:
+To integrate AtoneCon framework into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -56,48 +56,48 @@ use_frameworks! # swift project
 pod 'AtoneCon', '~> 1.0'
 ```
 
-場合によっては、Pod、特定のリビジョン、または自分のフォークの最新バージョンを使用することができる。この場合、 pod declarationで指定することができる。
+In some cases you can use Pod, a specific revision, or the latest version of your fork. In this case, it can be specified by pod declaration.
 
->注：AtoneConライブラリリポジトリのリンクで以下のコマンドを変更する必要がある。
+>Note: You need to change the following command on the AtoneCon library repository link.
 
 
-- レポジトリの `master` ブランチを使用する:
+- Use the `master` branch of the repository:
 
 ```bash
 pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git'
 ```
 
-- `master` 以外のブランチを使用する:
+- Use a branch other than `master`:
 
 ```bash
 pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :branch => '...'
 ```
 
-- レポジトリのタグを使用する:
+- Use repository tags:
 
 ```bash
 pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :tag => '...'
 ```
-
-- もしくは、コミットを指定:
+- Or specify commit:
 
 ```bash
-pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :commit => '...'
+pod 'AtoneCon', :git => 'git@github.com:netprotections/atonecon-ios.git', :commit => '...' 
 ```
 
-#### AtoneConをインストール
-以下のコマンドを実行:
+
+#### Install AtoneCon
+Then, run the following command:
 
 ```bash
 [bundle exec] pod install
-``` 
+```
 
-## C. 使用方法
+## C. Usage
 
-### 1. コンフィグレーション
+### 1. Configuration
 
 ```swift
-// 支払いを実行する前に設定オプションを用意する必要がある
+// We need to prepare configuration options before we execute payment
 var options = AtoneCon.Options(publicKey: "xxxyyyzzz")
 options.environment = .development
 let atoneCon = AtoneCon.shared
@@ -105,37 +105,42 @@ atoneCon.config(options)
 atoneCon.delegate = self // AtoneConDelegate
 ```
 
-### 2. 決済の実行
+### 2. Perform payment
 
-#### 新規決済の作成
+#### Create new payment
 
 ```swift
-// 要素必須
+// These are required properties.
 
 var payment = AtoneCon.Payment(
     amount: 10,
     shopTransactionNo: "",
-    checksum: "zzzccccvvvvv" // チェックサムは、店舗の秘密鍵と支払い情報から初期化される
+    checksum: "zzzccccvvvvv" // The checksum is initialized from the shop's private key and payment information
+)
 
 
 /**
-下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
+The following attributes are not required.
+If the attribute has value, it must be passed to the object.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 payment.salesSettled = false // Bool?
 payment.descriptionTrans = "備考です。" // String?
 ```
 
-#### 購入者のコンフィグ
+#### Configure customer
 
-###### 購入者の新規作成
+###### Create new customer
 
 ```swift
-// 要素必須
+// These are required properties.
 var customer = AtoneCon.Customer(name: "接続テスト")
 
 /** 
-下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
+The following attributes are not required.
+If the attribute has value, it must be passed to the object.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 customer.nameKana = "セツゾクテスト" // String?
@@ -144,43 +149,44 @@ customer.companyName = "（株）ネットプロテクションズ" // String?
 ...
 ```
 
-###### 購入者のコンフィグ
-
+###### Configure customer
 ```swift
 payment.customer = customer
 ```
 
-#### サービス提供先(配送先) のコンフィグ( attributeは必須ではない )
+#### Configure destination customers ( The attribute are not required )
 
-###### サービス提供先(配送先) の新規作成
+###### Create destination custumer
 ```swift
-// 要素必須
+// These are required properties.
 var desCustomer = AtoneCon.DesCustomer(
     name: "銀座太郎", 
     zipCode: "123-1234", 
     address: "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
 )
 
-/**
-下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
+/**						
+The following attributes are not required.
+If the attribute has value, it must be passed to the object.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 desCustomer.nameKana = "ぎんざたろう" // String?
 desCustomer.companyName = "株式会社ネットプロテクションズ" // String?
 ...
-```
+```	
 
-###### サービス提供先(配送先) のコンフィグ
+###### Configure destination customers
 
 ```swift
-payment.desCustomers = [desCustomer]
+payment.desCustomers = [desCustomer]		
 ```
 
-#### 商品明細のコンフィグ
+#### Configure shop items
 
-###### 商品明細の新規作成
+###### Create items
 ```swift
-// 要素必須
+// These are required properties.
 var item = AtoneCon.Item(
     id: "1", 
     name: "１０円チョコ", 
@@ -189,36 +195,39 @@ var item = AtoneCon.Item(
 )
 
 /**
-下記は要素必須ではない項目。 ただし、値がある場合はその値をパラメータに必ず設定しなければならない。
+The following attributes are not required.
+If the attribute has value, it must be passed to the object.
+If it hasn't value, it wouldn't be mentioned or would be set to nil.
 */
 
 item.url = "https://atone.be/items/1"
 ```
-###### 商品明細のコンフィグ
+###### Configure shop items
 
 ```swift
 payment.items = [item]
 ```
 
-### 決済の実行
+### Perform a payment
 
 ```swift
-AtoneCon.shared.performPayment(payment)
+AtonePay.performPayment(payment)
 ```
 
-### 3. 決済のデリゲート処理
+### 3. Handle payment delegation
 
 ```swift
 extension YourPaymentController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
         case .authenticated(let authenToken):
-            // authenTokenを保存して後で使用する etc...
+            // save authenToken to use later etc...
         case .cancelled:
-            // 決済のキャンセル
+            // payment was cancelled
         case .failed(let response):
-            //　決済プロセスの失敗
-            /*　決済のプロパティが正しく初期化されていない場合、responeは次のような形式のオブジェクトになる
+            // payment process return failure
+            /*
+            If the properties of the payment are initialized incorrectly, respone will be a object with format as follows
                 {
                     "name":ExampleException,
                     "message":"error message"
@@ -229,7 +238,7 @@ extension YourPaymentController: AtoneConDelegate {
                     ]
                 }
 
-            決済が失敗した場合、responeは次のような形式のオブジェクトになる
+            If payment failed, respone will be a object with format as follows
                 {
                     "id": "tr_aaaaaaa",
                     "authorization_result": 2, // 2: NG
@@ -241,7 +250,7 @@ extension YourPaymentController: AtoneConDelegate {
         case .finished(let response):
             // payment finished
             /*
-            決済が完了すると、responeは次のような形式のオブジェクトになる
+            if payment finished, respone will be a object with format as follows
             {
                 "id":"tr_aaaaaaa",
                 "authorization_result":1, // 1: OK
@@ -252,15 +261,13 @@ extension YourPaymentController: AtoneConDelegate {
     }
 }
 ```
-
-
 ## D. エラー
 -----
 
 <table border=1>
   <body>
     <tr>
-      <th>ステータスコード</th><th>タイプ</th><th>エラーコード</th><th>エラーメッセージ</th><th>エラーアイテム</th>
+      <th>Status code</th><th>Type</th><th>Error code</th><th>Error message</th><th>Error item</th>
     </tr>
     <tr>
     <th rowspan="52">400</th>
