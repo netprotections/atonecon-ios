@@ -1,6 +1,7 @@
+[日本語版ドキュメントはこちら](https://github.com/netprotections/atonecon-ios/blob/master/README.md)
+================
 AtoneCon iOS SDK
 ================
-[日本語版ドキュメントはこちら](https://github.com/netprotections/atonecon-ios/blob/master/README.md)
 
 ## A. Requirements
 
