@@ -1,6 +1,7 @@
+[English Document here](https://github.com/netprotections/atonecon-ios/blob/master/README.EN.md)
+================
  決済モジュール導入ライブラリ iOS 
 ================
-[English document is here](https://github.com/netprotections/atonecon-ios/blob/master/README.EN.md)
 
 ## A. 要件
 
