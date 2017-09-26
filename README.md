@@ -1,6 +1,6 @@
 [English Document here](https://github.com/netprotections/atonecon-ios/blob/master/README.EN.md)
 ================
- 決済モジュール導入ライブラリ iOS 
+ atone決済モジュール導入ライブラリ（iOS） 
 ================
 
 ## A. 要件
