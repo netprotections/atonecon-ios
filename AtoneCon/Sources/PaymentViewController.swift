@@ -81,9 +81,9 @@ final internal class PaymentViewController: UIViewController {
     private func setupWebView() {
         do {
             webView = WKWebView(frame: view.bounds)
-            webView.backgroundColor = Define.Color.blackAlpha90
             webView.contentMode = .scaleToFill
             webView.autoresizingMask = .flexibleWidth
+            webView.backgroundColor = Define.Color.blackAlpha90
             view.addSubview(webView)
             let html = try atoneHTML()
             webView.loadHTMLString(html, baseURL: nil)

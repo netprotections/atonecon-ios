@@ -46,7 +46,7 @@ extension Define {
                     "</script>" +
                 "</head>" +
                 "<title>ページタイトル</title>" +
-                "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
+                "<body style=\"background-color:rgba(0, 0, 0, 0.7);\">" +
                     "<script>" +
                         "%@;" +
                         "%@;" +
