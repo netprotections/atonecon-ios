@@ -35,7 +35,7 @@ final internal class PaymentViewController: UIViewController {
         }
         switch options.environment {
         case .development:
-            atoneJSURL = "https://ct-auth.a-to-ne.jp/v1/atone.js"
+            atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
         case .production:
             atoneJSURL = "https://auth.atone.be/v1/atone.js"
         case .staging:
@@ -43,10 +43,17 @@ final internal class PaymentViewController: UIViewController {
         }
         let publicKey = options.publicKey
         var preToken = ""
+        var terminalID = ""
+
         if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
         }
-        let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey)
+
+        if let id = AtoneCon.shared.options?.terminalId {
+            terminalID = id
+        }
+
+        let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey, terminalID)
         guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
             let error: [String: Any] = [Define.String.Key.title: Define.String.paymentInfo,
                                         Define.String.Key.message: Define.String.Error.payment]

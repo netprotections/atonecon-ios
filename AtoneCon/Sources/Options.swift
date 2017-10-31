@@ -11,6 +11,7 @@ import Foundation
 extension AtoneCon {
     public struct Options {
         public var publicKey: String
+        public var terminalId: String?
         public var environment: Environment = .production
         public init(publicKey: String) {
             self.publicKey = publicKey

@@ -26,7 +26,7 @@ internal enum Message: String {
 }
 
 internal enum ScriptEvent {
-    case authenticated(String?)
+    case authenticated(String?, String?)
     case cancelled
     case succeeded([String: Any]?)
     case failed([String: Any]?)
@@ -75,9 +75,11 @@ extension ScriptHandler: WKScriptMessageHandler {
         }
         switch messageName {
         case .authenticated :
-            let token = message.body as? String
+            guard let response = message.body as? [String:Any] else { return }
+            let token = response["authentication"] as? String
+            let userNo = response["user_no"] as? String
             Session.shared.credential = Session.Credential(authToken: token)
-            event = ScriptEvent.authenticated(token)
+            event = ScriptEvent.authenticated(token, userNo)
         case .cancelled:
             event = ScriptEvent.cancelled
         case .failed:

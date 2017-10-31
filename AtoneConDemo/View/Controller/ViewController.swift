@@ -69,10 +69,10 @@ final class ViewController: UIViewController {
 extension ViewController: AtoneConDelegate {
     func atoneCon(atoneCon: AtoneCon, didReceivePaymentEvent event: AtoneCon.PaymentEvent) {
         switch event {
-        case .authenticated(let authenToken):
+        case .authenticated(let authenToken, let userNo):
             viewModel.saveAuthenToken(token: authenToken)
             guard let authenToken = authenToken?.description else { return }
-            let message = "Authentication: \(authenToken)"
+            let message = "Authentication: \(authenToken) \n user_no: \(userNo?.description ?? "empty")"
             let view = UIApplication.shared.keyWindow
             view?.makeToast(message, duration: 2, position: .bottom)
         case .cancelled:

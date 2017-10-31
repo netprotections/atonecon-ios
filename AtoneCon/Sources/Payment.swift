@@ -13,10 +13,12 @@ extension AtoneCon {
 
     public struct Payment {
         public var amount = 0
+        public var userNo: String?
         public var shopTransactionNo = ""
         public var salesSettled: Bool?
         public var descriptionTrans: String?
         public var checksum = ""
+        public var transactionOptions: [Int] = []
         public var customer: Customer = Customer(name: "")
         public var desCustomers: [DesCustomer]?
         public var items: [Item] = []
@@ -37,9 +39,11 @@ extension AtoneCon.Payment: Mappable {
 
     public mutating func mapping(map: Map) {
         amount <- map["amount"]
+        userNo <- map["user_no"]
         shopTransactionNo <- map["shop_transaction_no"]
         salesSettled <- map["sales_settled"]
         descriptionTrans <- map["description_trans"]
+        transactionOptions <- map["transaction_options"]
         checksum <- map["checksum"]
         customer <- map["customer"]
         desCustomers <- map["dest_customers"]

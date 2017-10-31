@@ -15,9 +15,11 @@ extension Define {
                 "\nAtone.config({" +
                     "pre_token: \"%@\"," +
                     "pub_key: \"%@\"," +
+                    "terminal_id: \"%@\"," +
                     "payment: data," +
-                    "authenticated: function(authentication_token) { " +
-                        "window.webkit.messageHandlers.authenticated.postMessage(authentication_token);" +
+                    "authenticated: function(authentication_token, user_no) { " +
+                        "var response = {authentication: authentication_token, user_no: user_no};" +
+                        "window.webkit.messageHandlers.authenticated.postMessage(response);" +
                     "}," +
                     "cancelled: function() { " +
                         "window.webkit.messageHandlers.cancelled.postMessage(\'ングで呼び出し\');" +
