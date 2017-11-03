@@ -35,7 +35,7 @@ final internal class PaymentViewController: UIViewController {
         }
         switch options.environment {
         case .development:
-            atoneJSURL = "https://it-auth.a-to-ne.jp/v1/atone.js"
+            atoneJSURL = "https://ct-auth.a-to-ne.jp/v1/atone.js"
         case .production:
             atoneJSURL = "https://auth.atone.be/v1/atone.js"
         case .staging:
