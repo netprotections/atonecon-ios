@@ -55,7 +55,7 @@ final public class AtoneCon {
 
 extension AtoneCon {
     public enum PaymentEvent {
-        case authenticated(String?)
+        case authenticated(String?, String?)
         case cancelled
         case finished([String: Any]?)
         case failed([String: Any]?)
@@ -70,8 +70,8 @@ internal enum AtoneConError: Error {
 extension AtoneCon: PaymentViewControllerDelegate {
     func controller(_ controller: PaymentViewController, didReceiveScriptEvent event: ScriptEvent) {
         switch event {
-        case .authenticated(let authenToken):
-            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .authenticated(authenToken))
+        case .authenticated(let token, let userNo):
+            delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .authenticated(token, userNo))
         case .failed(let response):
             delegate?.atoneCon(atoneCon: self, didReceivePaymentEvent: .failed(response))
         case .cancelled:

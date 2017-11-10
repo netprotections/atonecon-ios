@@ -64,7 +64,7 @@ final class PaymentViewControllerTests: XCTestCase {
             "<body style=\"background-color:rgba(0, 0, 0, 0.3);\">" +
             "</body>" +
         "</html>"
-        
+
         html = String(format: html, atoneJSURL)
     }
 

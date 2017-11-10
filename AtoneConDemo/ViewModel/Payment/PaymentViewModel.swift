@@ -15,9 +15,11 @@ final class PaymentViewModel {
         var payment = AtoneCon.Payment(
             amount: 10,
             shopTransactionNo: "",
-            checksum: "iq4gHR9I8LTszpozjDIaykNjuIsYg+m/pR6JFKggr5Q=")
+            checksum: "ikIqa9qe/8Bxv6oOgmrYuIzphxr+0yW7HYbQu/WgUz4=")
         payment.salesSettled = false
         payment.descriptionTrans = "備考です。"
+        payment.transactionOptions = []
+        payment.userNo = "user_no-1509419147"
         payment.customer = customer
         payment.desCustomers = desCustomers
         payment.items = items
@@ -27,15 +29,22 @@ final class PaymentViewModel {
     // TODO: dummy data
     private var customer: AtoneCon.Customer {
         var customer = AtoneCon.Customer(name: "接続テスト")
+        customer.familyName = "接続"
+        customer.givenName = "テスト"
         customer.nameKana = "セツゾクテスト"
+        customer.familyNameKana = "セツゾク"
+        customer.givenNameKana = "テスト"
+        customer.sexDivision = "1"
         customer.companyName = "（株）ネットプロテクションズ"
         customer.department = "セールスグループ"
-        customer.zipCode = "1234567"
+        customer.zipCode = "8491611"
         customer.address = "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
         customer.tel = "080-1234-1234"
-        customer.email = "np@netprotections.co.jp"
-        customer.totalPurchaseAmount = 20_000
-        customer.totalPurchaseCount = 2
+        customer.email = "m_register_test0001@fufururu.info"
+        customer.birthday = "1984-08-17"
+        customer.phoneNumber = "09062910606"
+        customer.totalPurchaseAmount = 1_000
+        customer.totalPurchaseCount = 2_000
         return customer
     }
 

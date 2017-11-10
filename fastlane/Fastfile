@@ -4,6 +4,6 @@ lane :DEV do
   deploygate(
     api_token: 'eca9d549fd7fc103c012494c33aa06f52c4920db',
     user: 'yaizawa',
-    message: "Fastlane build#{lane_context[SharedValues::BUILD_NUMBER]}",
+    message: "Fastlane build new-function#{lane_context[SharedValues::BUILD_NUMBER]}",
   )
 end
