@@ -76,7 +76,7 @@ extension ScriptHandler: WKScriptMessageHandler {
         switch messageName {
         case .authenticated :
             guard let response = message.body as? [String:Any] else { return }
-            let token = response["authentication"] as? String
+            let token = response["token"] as? String
             let userNo = response["user_no"] as? String
             Session.shared.credential = Session.Credential(authToken: token)
             event = ScriptEvent.authenticated(token, userNo)

@@ -43,17 +43,17 @@ final internal class PaymentViewController: UIViewController {
         }
         let publicKey = options.publicKey
         var preToken = ""
-        var terminalID = ""
+        var terminalId = ""
 
         if let accessToken = Session.shared.credential.authToken {
             preToken = accessToken
         }
 
         if let id = AtoneCon.shared.options?.terminalId {
-            terminalID = id
+            terminalId = id
         }
 
-        let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey, terminalID)
+        let handlerScript = String(format: Define.Scripts.atoneJS, preToken, publicKey, terminalId)
         guard let paymentJSON = payment?.toJSONString(prettyPrint: true) else {
             let error: [String: Any] = [Define.String.Key.title: Define.String.paymentInfo,
                                         Define.String.Key.message: Define.String.Error.payment]

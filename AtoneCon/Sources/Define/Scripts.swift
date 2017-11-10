@@ -18,7 +18,7 @@ extension Define {
                     "terminal_id: \"%@\"," +
                     "payment: data," +
                     "authenticated: function(authentication_token, user_no) { " +
-                        "var response = {authentication: authentication_token, user_no: user_no};" +
+                        "var response = {token: authentication_token, user_no: user_no};" +
                         "window.webkit.messageHandlers.authenticated.postMessage(response);" +
                     "}," +
                     "cancelled: function() { " +
