@@ -31,6 +31,6 @@ s.requires_arc = true
 
 # Dependency
 s.ios.frameworks = 'Foundation', 'UIKit', 'WebKit'
-s.dependency 'ObjectMapper', '~> 2.2'
+s.dependency 'ObjectMapper', '~> 3.3'
 s.dependency 'SAMKeychain', '~> 1.5'
 end
