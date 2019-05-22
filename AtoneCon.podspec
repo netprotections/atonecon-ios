@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 # Metadata
 s.name         = "AtoneCon"
 s.module_name  = "AtoneCon"
-s.version      = "0.0.1"
+s.version      = "0.0.3"
 s.summary      = "AtoneCon"
 s.description  = <<-DESC
 AtoneCon
