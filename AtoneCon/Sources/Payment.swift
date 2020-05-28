@@ -20,6 +20,7 @@ extension AtoneCon {
         public var checksum = ""
         public var transactionOptions: [Int] = []
         public var customer: Customer = Customer(name: "")
+        public var serviceSupplier: Supplier?
         public var desCustomers: [DesCustomer]?
         public var items: [Item] = []
 
@@ -48,5 +49,6 @@ extension AtoneCon.Payment: Mappable {
         customer <- map["customer"]
         desCustomers <- map["dest_customers"]
         items <- map["items"]
+        serviceSupplier <- map["service_supplier"]
     }
 }

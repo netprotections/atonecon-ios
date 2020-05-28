@@ -37,6 +37,7 @@
 		99E7271A1F0CA867000F0B29 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E727191F0CA867000F0B29 /* Color.swift */; };
 		99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4D1F0B8E4600A1D1B0 /* Define.swift */; };
 		99ECEE501F0B8E5E00A1D1B0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */; };
+		E3FFAA45247D213100553CC4 /* Supplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FFAA44247D213100553CC4 /* Supplier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		99ECEE4F1F0B8E5E00A1D1B0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A705169DCBB73F78AE6A01BD /* Pods-AtoneCon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.debug.xcconfig"; sourceTree = "<group>"; };
 		C81DDB72AEDA081AC343EAE8 /* Pods-AtoneCon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoneCon.release.xcconfig"; path = "Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon.release.xcconfig"; sourceTree = "<group>"; };
+		E3FFAA44247D213100553CC4 /* Supplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				99E727191F0CA867000F0B29 /* Color.swift */,
 				166374AA1F21A796002C8821 /* Scripts.swift */,
 				1691100F1F30319000E3B6D4 /* Helper.swift */,
+				E3FFAA44247D213100553CC4 /* Supplier.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				990B5E9A1F03957000B142E7 /* Frameworks */,
 				990B5E9B1F03957000B142E7 /* Headers */,
 				990B5E9C1F03957000B142E7 /* Resources */,
+				B2C54AE9904DB034FF75FE49 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,6 +265,7 @@
 				990B5EA41F03957000B142E7 /* Frameworks */,
 				990B5EA51F03957000B142E7 /* Resources */,
 				ABBFE681F74E1FE84D31A575 /* [CP] Embed Pods Frameworks */,
+				E9EDF1C55670011971575BFC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,6 +303,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				ja,
 				en,
 			);
@@ -347,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		603D7A398912CF85D842ED71 /* [CP] Check Pods Manifest.lock */ = {
@@ -365,7 +371,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		ABBFE681F74E1FE84D31A575 /* [CP] Embed Pods Frameworks */ = {
@@ -385,7 +391,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2C54AE9904DB034FF75FE49 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneCon/Pods-AtoneCon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9EDF1C55670011971575BFC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AtoneConTests/Pods-AtoneConTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -408,6 +444,7 @@
 				1699CB3A1F0DED04003A4F1A /* ScriptHandler.swift in Sources */,
 				16294C581F2F2816001F5EA2 /* NetworkReachabilityManager.swift in Sources */,
 				9963B0351F0A9EE4008C4F95 /* AtoneCon.swift in Sources */,
+				E3FFAA45247D213100553CC4 /* Supplier.swift in Sources */,
 				99ECEE4E1F0B8E4600A1D1B0 /* Define.swift in Sources */,
 				9963B0381F0A9EE4008C4F95 /* PaymentViewController.swift in Sources */,
 			);
@@ -562,7 +599,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -583,7 +620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.AtoneCon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -596,7 +633,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.AtoneConTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -609,7 +646,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.atone.AtoneConTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -285,6 +285,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -514,8 +515,8 @@
 			baseConfigurationReference = ED528E08E7E8187E365EB297 /* Pods-AtoneConDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Net Protections,Inc. (CSURK454H7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Net Protections,Inc. (CSURK454H7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ho Dai (47PBM8MB5Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ho Dai (47PBM8MB5Z)";
 				DEVELOPMENT_TEAM = CSURK454H7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/AtoneConDemo/Supports/Info.plist";
@@ -523,8 +524,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.netprotections.atone-con.demoapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "feff873a-dfdb-434c-b147-d0e0c0290d78";
-				PROVISIONING_PROFILE_SPECIFIER = "atone iOS App Demo - 20190522";
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "atone iOS App demo 20200527";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -542,8 +543,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.netprotections.atone-con.demoapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "feff873a-dfdb-434c-b147-d0e0c0290d78";
-				PROVISIONING_PROFILE_SPECIFIER = "atone iOS App Demo - 20170822";
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "atone iOS App demo Adhoc 20200527";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

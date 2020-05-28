@@ -18,7 +18,6 @@ extension AtoneCon {
         public var zipCode = ""
         public var address = ""
         public var tel: String?
-        public var email: String?
 
         public init(name: String,
                     zipCode: String,
@@ -42,6 +41,5 @@ extension AtoneCon.DesCustomer: Mappable {
         zipCode <- map["dest_zip_code"]
         address <- map["dest_address"]
         tel <- map["dest_tel"]
-        email <- map["dest_email"]
     }
 }

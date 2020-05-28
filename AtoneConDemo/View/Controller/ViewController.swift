@@ -92,6 +92,10 @@ extension ViewController: AtoneConDelegate {
                 guard let this = self else { return }
                 this.showAlert(title: Define.String.finished, message: message)
             }
+        case .error(let name, let message, let errors):
+            showAlert(title: Define.String.failed, message: message) { _ in
+                atoneCon.dismiss()
+            }
         }
     }
 }
@@ -125,7 +129,7 @@ extension ViewController {
             navigationBar.barTintColor = Define.Color.lightBlue
             navigationBar.tintColor = UIColor.white
             navigationBar.isTranslucent = false
-            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+            navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
             navigationBar.tintColor = UIColor.white
         }
     }
@@ -143,10 +147,10 @@ extension ViewController {
     }
 
     fileprivate func setupResetTokenButton() {
-        let attributes: [String:Any] = [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 17),
-            NSForegroundColorAttributeName: UIColor.black,
-            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
+        let attributes: [NSAttributedStringKey:Any] = [
+            NSAttributedString.Key(rawValue: NSAttributedStringKey.font.rawValue): UIFont.systemFont(ofSize: 17),
+            NSAttributedString.Key(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.black,
+            NSAttributedString.Key(rawValue: NSAttributedStringKey.underlineStyle.rawValue): NSUnderlineStyle.styleSingle.rawValue]
         let attributedString: NSAttributedString = NSAttributedString(string: Define.String.resetAuthen, attributes: attributes)
         resetTokenButton.setAttributedTitle(attributedString, for: .normal)
     }

@@ -16,6 +16,8 @@ extension AtoneCon {
         public var price = 0
         public var count = 0
         public var url: String?
+        var brandName: String?
+        var merchandiseCategory: [String] = []
 
         public init(id: String,
                     name: String,
@@ -38,5 +40,7 @@ extension AtoneCon.Item: Mappable {
         price <- map["item_price"]
         count <- map["item_count"]
         url <- map["item_url"]
+        brandName <- map["brand_name"]
+        merchandiseCategory <- map["merchandise_category"]
     }
 }

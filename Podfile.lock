@@ -1,41 +1,33 @@
 PODS:
-  - AtoneCon (0.0.1):
-    - ObjectMapper (~> 3.3)
+  - AtoneCon (0.0.3):
+    - ObjectMapper (~> 4.2)
     - SAMKeychain (~> 1.5)
-  - ObjectMapper (3.4.2)
+  - ObjectMapper (4.2.0)
   - SAMKeychain (1.5.2)
   - SwiftLint (0.27.0)
-  - SwiftUtils (2.1.1)
-  - Toast-Swift (2.0.0)
+  - SwiftUtils (4.0.1)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
   - AtoneCon (from `./`)
-  - ObjectMapper (~> 3.3)
+  - ObjectMapper (~> 4.2)
   - SAMKeychain (~> 1.5)
   - SwiftLint (= 0.27.0)
-  - SwiftUtils (~> 2.1)
-  - Toast-Swift (~> 2.0.0)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - ObjectMapper
-    - SAMKeychain
-    - SwiftLint
-    - SwiftUtils
-    - Toast-Swift
+  - SwiftUtils (~> 4.0.1)
+  - Toast-Swift (~> 3.0.0)
 
 EXTERNAL SOURCES:
   AtoneCon:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AtoneCon: f631387feae5bf7ef1a12156e46bcd35e1e64afd
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  AtoneCon: 4e77d8b36f5f5f720e35c57422712cc5a55c3b3d
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
-  SwiftUtils: 3f79be4fec34ac8b7c95d2ec15c9feebe81f1fc1
-  Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
+  SwiftUtils: b009d391fb2e285392f114238f8b55d2750b80f0
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 4bd88e95148e347a2aa963205f6d0fe34961b4dd
+PODFILE CHECKSUM: 4734e4ab44e6e3dece640878360e135d8994c6b5
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.2.1
