@@ -19,6 +19,7 @@ internal enum Message: String {
     case cancelled
     case succeeded
     case failed
+    case error
 
     internal var name: String {
         return rawValue
@@ -30,6 +31,7 @@ internal enum ScriptEvent {
     case cancelled
     case succeeded([String: Any]?)
     case failed([String: Any]?)
+    case error(String?, String?, String?)
 
     internal var messageName: Message {
         switch self {
@@ -41,6 +43,8 @@ internal enum ScriptEvent {
             return .failed
         case .succeeded(_):
             return .succeeded
+        case .error(_):
+            return .error
         }
     }
 }
@@ -49,7 +53,7 @@ internal final class ScriptHandler: NSObject {
 
     internal var webView: WKWebView!
     internal weak var delegate: ScriptHandlerDelegate?
-    internal let messages: [Message] = [.authenticated, .cancelled, .failed, .succeeded]
+    internal let messages: [Message] = [.authenticated, .cancelled, .failed, .succeeded, .error]
 
     internal init(forWebView webView: WKWebView) {
         self.webView = webView
@@ -86,6 +90,12 @@ extension ScriptHandler: WKScriptMessageHandler {
             event = ScriptEvent.failed(message.body as? [String: Any])
         case .succeeded:
             event = ScriptEvent.succeeded(message.body as? [String: Any])
+        case .error:
+            guard let response = message.body as? [String:Any] else { return }
+            let name = response["name"] as? String
+            let message = response["message"] as? String
+            let errors = response["errors"] as? String
+            event = ScriptEvent.error(name, message, errors)
         }
         delegate?.scriptHandler(self, didReceiveScriptEvent: event)
     }

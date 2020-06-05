@@ -13,39 +13,55 @@ final class PaymentViewModel {
     private var payment: AtoneCon.Payment {
         // TODO: dummy data
         var payment = AtoneCon.Payment(
-            amount: 10,
+            amount: 12460,
             shopTransactionNo: "",
-            checksum: "ikIqa9qe/8Bxv6oOgmrYuIzphxr+0yW7HYbQu/WgUz4=")
+            checksum: "Eba8b4JtD+inOc/zRON0D4RfODMfXwsz1hCdAmrq1CI=")
         payment.salesSettled = false
         payment.descriptionTrans = "備考です。"
-        payment.transactionOptions = []
+        payment.transactionOptions = [3]
         payment.userNo = "user_no-1509419147"
         payment.customer = customer
         payment.desCustomers = desCustomers
         payment.items = items
+        payment.serviceSupplier = supplier
         return payment
     }
 
     // TODO: dummy data
     private var customer: AtoneCon.Customer {
-        var customer = AtoneCon.Customer(name: "接続テスト")
-        customer.familyName = "接続"
-        customer.givenName = "テスト"
-        customer.nameKana = "セツゾクテスト"
-        customer.familyNameKana = "セツゾク"
-        customer.givenNameKana = "テスト"
+        var customer = AtoneCon.Customer(name: "注文太郎")
+        customer.familyName = "注文"
+        customer.givenName = "太郎"
+        customer.nameKana = "ちゅうもんたろう"
+        customer.familyNameKana = "ちゅうもん"
+        customer.givenNameKana = "たろう"
         customer.sexDivision = "1"
-        customer.companyName = "（株）ネットプロテクションズ"
-        customer.department = "セールスグループ"
-        customer.zipCode = "8491611"
+        customer.companyName = "ネットプロテクションズ"
+        customer.department = "セールス"
+        customer.zipCode = "123-4567"
         customer.address = "東京都中央区銀座１－１０ー６　銀座ファーストビル４階"
-        customer.tel = "080-1234-1234"
-        customer.email = "m_register_test0001@fufururu.info"
-        customer.birthday = "1984-08-17"
-        customer.phoneNumber = "09062910606"
-        customer.totalPurchaseAmount = 1_000
-        customer.totalPurchaseCount = 2_000
+        customer.tel = "+813-1234-1234"
+        customer.email = "no@netprotections.co.jp"
+        customer.birthday = "1990-01-01"
+        customer.phoneNumber = "09011111111"
+        customer.totalPurchaseAmount = 2160
+        customer.totalPurchaseCount = 8
+        customer.identificationStatus = [1,3]
+        customer.pastMerchandiseCategory = [["レディース", "ファッション小物", "手袋"]]
+        customer.pastBrandName = ["エルメス"]
+        customer.pastPaymentWay = [1, 5]
+        customer.terminalId = "123456ABCDEFG"
         return customer
+    }
+    
+    private var supplier: AtoneCon.Supplier {
+        var supplier = AtoneCon.Supplier(shopCustomerId: "123456ABCDEFG")
+        supplier.membershipPeriod = 30
+        supplier.identificationStatus = [1, 3]
+        supplier.totalSalesCount = 2
+        supplier.totalSalesAmount = 2160
+        supplier.pastMerchandiseCategory = [["レディース", "ファッション小物", "手袋"]]
+        return supplier
     }
 
     // TODO: dummy data
@@ -55,6 +71,8 @@ final class PaymentViewModel {
         desCustomer.companyName = "株式会社ネットプロテクションズ"
         desCustomer.department = "システム部門"
         desCustomer.tel = "0312341234"
+        desCustomer.address = "東京都中央区銀座１−１３−１５　ダイワロイヤル銀座ビル　オフィスフロア　３階"
+        desCustomer.zipCode = "123-1234"
         return [desCustomer]
     }
 

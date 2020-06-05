@@ -28,6 +28,13 @@ extension AtoneCon {
         public var email: String?
         public var totalPurchaseCount: Int?
         public var totalPurchaseAmount: Int?
+        public var shopCustomerId: Int?
+        public var membershipPeriod: Int?
+        public var identificationStatus: [Int]?
+        public var pastMerchandiseCategory: [[String]?]?
+        public var pastBrandName: [String]?
+        public var pastPaymentWay: [Int]?
+        public var terminalId: String?
 
         public init(name: String) {
             self.name = name
@@ -57,5 +64,12 @@ extension AtoneCon.Customer: Mappable {
         email <- map["email"]
         totalPurchaseCount <- map["total_purchase_count"]
         totalPurchaseAmount <- map["total_purchase_amount"]
+        shopCustomerId <- map["shop_customer_id"]
+        membershipPeriod <- map["membership_period"]
+        identificationStatus <- map["identification_status"]
+        pastMerchandiseCategory <- map["past_merchandise_category"]
+        pastBrandName <- map["past_brand_name"]
+        pastPaymentWay <- map["past_payment_way"]
+        terminalId <- map["terminal_id"]
     }
 }
