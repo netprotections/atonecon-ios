@@ -43,7 +43,7 @@ final class PaymentViewModel {
         customer.tel = "+813-1234-1234"
         customer.email = "no@netprotections.co.jp"
         customer.birthday = "1990-01-01"
-        customer.phoneNumber = "+8190-1111-1111"
+        customer.phoneNumber = "09011111111"
         customer.totalPurchaseAmount = 2160
         customer.totalPurchaseCount = 8
         customer.identificationStatus = [1,3]
