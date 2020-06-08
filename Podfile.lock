@@ -1,5 +1,5 @@
 PODS:
-  - AtoneCon (0.0.3):
+  - AtoneCon (0.0.4):
     - ObjectMapper (~> 4.2)
     - SAMKeychain (~> 1.5)
   - ObjectMapper (4.2.0)
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AtoneCon: 4e77d8b36f5f5f720e35c57422712cc5a55c3b3d
+  AtoneCon: d7afc7d92d36ec5661beee58295cd5c39e68e3c5
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073

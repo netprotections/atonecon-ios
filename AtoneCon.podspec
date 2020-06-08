@@ -4,7 +4,9 @@ s.name         = "AtoneCon"
 s.module_name  = "AtoneCon"
 s.version      = "0.0.4"
 s.summary      = "AtoneCon"
+s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 s.description  = <<-DESC
+s.swift_versions = ['4.0', '4.2', '5.0']
 AtoneCon
 DESC
 
